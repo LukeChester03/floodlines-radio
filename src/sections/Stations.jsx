@@ -35,7 +35,7 @@ function Row({ s, i, status, selected, onSelect, onDraft }) {
       </div>
 
       <div className="row-side">
-        <span className={`stamp${canEmail ? " stamp-email" : ""}`}>{canEmail ? "Takes email" : methodLabel[s.method]}</span>
+        <span className={`stamp${canEmail ? " stamp-email" : ""}`}>{canEmail ? "Takes email" : s.method === "email" ? "General contact only" : methodLabel[s.method]}</span>
         {status && <span className={`stamp stamp-${status}`}>{status === "sent" ? "Sent" : "Approved"}</span>}
         <div className="row-actions">
           {canEmail && (

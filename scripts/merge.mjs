@@ -17,6 +17,9 @@ function group(country) {
 
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "").slice(0, 60);
 
+// Manual corrections found during spot-checks, keyed by station name
+const overrides = JSON.parse(readFileSync("scripts/overrides.json", "utf8"));
+
 const files = readdirSync("research").filter(f => f.endsWith(".json"));
 const seen = new Map();
 let dropped = 0;
@@ -45,6 +48,7 @@ for (const f of files) {
       fit: ["high", "medium", "low"].includes(r.fit) ? r.fit : "medium",
       sourceUrl: r.sourceUrl || r.url,
       notes: r.notes || null,
+      ...(overrides[String(r.name).trim()] || {}),
     };
     const key = (s.emailAllowed ? s.email.toLowerCase() : "") + "|" + slug(s.name) + "|" + slug(s.show || "");
     if (seen.has(key)) { dropped++; continue; }
