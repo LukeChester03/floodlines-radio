@@ -103,8 +103,29 @@ const routeOf = s =>
   : s.method === "none-found" ? "none"
   : s.method;
 
+// Every BBC station and Introducing show is reached through one BBC Introducing upload, so they become one entry
+const bbcRows = [...seen.values()].filter(s => /\bBBC\b/.test(s.name));
+const bbc = {
+  name: "BBC Introducing",
+  show: null,
+  country: "GB",
+  group: "uk",
+  region: "One upload reaches every BBC station",
+  type: "national",
+  url: "https://www.bbc.co.uk/introducing",
+  method: "platform",
+  email: null,
+  emailAllowed: false,
+  formUrl: "https://www.bbc.co.uk/introducing/uploader",
+  paid: false,
+  instructions: "Upload tracks once through the BBC Introducing Uploader. They go to the Introducing show for your postcode, whose team can recommend them to Radio 1, 6 Music, Radio 2 and other BBC shows. BBC local stations, regional Introducing shows and the national Introducing shows can't be pitched separately.",
+  fit: "high",
+  sourceUrl: "https://www.bbc.co.uk/introducing/uploader",
+  notes: `Covers all ${bbcRows.length} BBC entries the research found. For a Loughborough postcode the upload goes to BBC Introducing in the East Midlands (BBC Radio Derby, Leicester, Lincolnshire and Nottingham), which has already played Final Fear. Upload Companion there too.`,
+};
+
 const used = new Set();
-const all = [...seen.values()].map(s => {
+const all = [...[...seen.values()].filter(s => !/\bBBC\b/.test(s.name)), ...(bbcRows.length ? [bbc] : [])].map(s => {
   let id = slug(`${s.name}-${s.show || ""}-${s.country}`);
   while (used.has(id)) id += "-x";
   used.add(id);

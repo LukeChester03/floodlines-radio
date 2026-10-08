@@ -30,11 +30,10 @@ function toCSV(rows) {
 }
 
 export default function TableView({ stations, selected, setSelected, openDrawer, openBlanket, setStatus, update }) {
-  const [f, setF] = useLocal("fl-filters", defaults);
+  const [f, setF] = useLocal("fl-filters-v2", defaults);
   const [sort, setSort] = useLocal("fl-sort", "rank");
-  const [shown, setShown] = useState(100);
   const [showFilters, setShowFilters] = useState(false);
-  const set = patch => { setF(x => ({ ...x, ...patch })); setShown(100); };
+  const set = patch => setF(x => ({ ...x, ...patch }));
 
   const rows = useMemo(() => {
     const q = f.q.trim().toLowerCase();
@@ -51,9 +50,18 @@ export default function TableView({ stations, selected, setSelected, openDrawer,
     ).sort(sorters[sort] || sorters.rank);
   }, [stations, f, sort]);
 
+  // What the current filters are hiding, so a short list is never a mystery
+  const showAll = { ...defaults, route: "all", genre: "all", restricted: true };
+  const hidden = {
+    contact: f.route === "reachable" ? stations.filter(s => s.route === "contact").length : 0,
+    none: f.route === "reachable" ? stations.filter(s => s.route === "none").length : 0,
+    other: f.genre === "fits" ? stations.filter(s => s.genreFit === "other").length : 0,
+  };
+  const narrowed = f.q || f.group !== "all" || !["reachable", "all"].includes(f.route) || !["fits", "all"].includes(f.genre) || f.tier !== "all" || f.status !== "all" || f.type !== "all" || f.starred || !f.restricted;
+
   const selSet = new Set(selected);
   const emailable = selected.filter(id => stations.find(s => s.id === id)?.route === "email");
-  const allOnPage = rows.slice(0, shown).map(s => s.id);
+  const allOnPage = rows.map(s => s.id);
   const toggle = id => setSelected(sel => (sel.includes(id) ? sel.filter(x => x !== id) : [...sel, id]));
   const Th = ({ k, children, className = "" }) => (
     <th className={className} aria-sort={sort === k ? "ascending" : "none"}>
@@ -66,7 +74,7 @@ export default function TableView({ stations, selected, setSelected, openDrawer,
       <div className="tv-head">
         <div>
           <h1 className="view-title">All stations</h1>
-          <p className="view-sub">{rows.length} of {stations.length} shown. Click a station for its rules, notes and history.</p>
+          <p className="view-sub">Click a station for its rules, notes and history.</p>
         </div>
         <button className="btn" onClick={() => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([toCSV(rows)], { type: "text/csv" })); a.download = "floodlines-radio-stations.csv"; a.click(); }}>Export these as CSV</button>
       </div>
@@ -132,6 +140,20 @@ export default function TableView({ stations, selected, setSelected, openDrawer,
         <label className="check"><input type="checkbox" checked={f.starred} onChange={e => set({ starred: e.target.checked })} /> Starred only</label>
       </div>
 
+      <div className={`showing${narrowed ? " is-narrow" : ""}`} aria-live="polite">
+        <span><b>{rows.length}</b> of {stations.length} stations shown.</span>
+        {(hidden.contact > 0 || hidden.none > 0 || hidden.other > 0) && (
+          <span className="showing-hidden">
+            Left out by default: {[hidden.contact && `${hidden.contact} with only a general contact address`, hidden.none && `${hidden.none} with no route found`, hidden.other && `${hidden.other} that only play other genres`].filter(Boolean).join(", ")}.
+          </span>
+        )}
+        {narrowed && <span className="showing-hidden">Your filters are narrowing this further.</span>}
+        <span className="showing-actions">
+          {narrowed && <button className="btn" onClick={() => set(defaults)}>Clear my filters</button>}
+          <button className="btn" onClick={() => set(showAll)}>Show all {stations.length}</button>
+        </span>
+      </div>
+
       <div className="table-wrap">
         <table className="stations">
           <thead>
@@ -152,7 +174,7 @@ export default function TableView({ stations, selected, setSelected, openDrawer,
             </tr>
           </thead>
           <tbody>
-            {rows.slice(0, shown).map(s => (
+            {rows.map(s => (
               <tr key={s.id} className={`${selSet.has(s.id) ? "is-sel" : ""}${s.info.isDue ? " is-due" : ""}`}>
                 <td className="c-check"><input type="checkbox" checked={selSet.has(s.id)} onChange={() => toggle(s.id)} aria-label={`Select ${s.name}`} /></td>
                 <td className="c-star">
@@ -178,7 +200,6 @@ export default function TableView({ stations, selected, setSelected, openDrawer,
             ))}
           </tbody>
         </table>
-        {rows.length > shown && <button className="btn more" onClick={() => setShown(n => n + 150)}>Show more ({rows.length - shown} left)</button>}
       </div>
 
       <AnimatePresence>
