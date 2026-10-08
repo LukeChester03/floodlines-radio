@@ -1,0 +1,3254 @@
+[
+ {
+  "id": "bbc-introducing-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-the-east-midlands-bbc-nottingham-lincolns",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-derby-bbc-introducing-in-the-east-midlands-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-leicester-bbc-introducing-in-the-east-midlands-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-lincolnshire-bbc-introducing-in-the-east-midlands-",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-nottingham-bbc-introducing-in-the-east-midlands-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "amazing-radio-gb",
+  "genreFit": "indie",
+  "genres": "indie, alt, rock, new music",
+  "contactName": null
+ },
+ {
+  "id": "fresh-on-the-net-gb",
+  "genreFit": "any",
+  "genres": "all genres, new independent music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-on-radio-1-jess-iszatt-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-rock-on-radio-1-alyx-holcombe-gb",
+  "genreFit": "indie",
+  "genres": "new rock, alt, metal",
+  "contactName": null
+ },
+ {
+  "id": "crags-radio-the-unsigned-sessions-the-pluggin-baby-radio-sho",
+  "genreFit": "any",
+  "genres": "community mix, unsigned, guitar shows",
+  "contactName": null
+ },
+ {
+  "id": "deal-radio-gb",
+  "genreFit": "indie",
+  "genres": "eclectic, punk, rock, indie, new music",
+  "contactName": null
+ },
+ {
+  "id": "demon-fm-gb",
+  "genreFit": "any",
+  "genres": "student mix, local music",
+  "contactName": "Ashton (Head of Music)"
+ },
+ {
+  "id": "derby-sound-gb",
+  "genreFit": "any",
+  "genres": "community mix, rock, local unsigned",
+  "contactName": "Maggie"
+ },
+ {
+  "id": "fosse-107-monday-night-music-club-richie-phillips-gb",
+  "genreFit": "any",
+  "genres": "classic hits, rock, local music",
+  "contactName": "Richie Phillips"
+ },
+ {
+  "id": "harborough-fm-hfm-sam-britton-show-head-of-music-gb",
+  "genreFit": "any",
+  "genres": "pop, classic hits, specialist shows",
+  "contactName": "Sam Britton"
+ },
+ {
+  "id": "music-in-leicester-no-one-receiving-monthly-radio-show-gb",
+  "genreFit": "any",
+  "genres": "Midlands new music, all genres",
+  "contactName": "Thomas Needham"
+ },
+ {
+  "id": "ostm-radio-gb",
+  "genreFit": "indie",
+  "genres": "indie, alternative, independent artists",
+  "contactName": null
+ },
+ {
+  "id": "oystermouth-radio-fresh-unsigned-dean-james-gb",
+  "genreFit": "indie",
+  "genres": "indie, rock, punk, unsigned",
+  "contactName": "Dean James"
+ },
+ {
+  "id": "radio-fandango-gb",
+  "genreFit": "indie",
+  "genres": "indie, dream pop, alt-rock",
+  "contactName": null
+ },
+ {
+  "id": "radio-wigwam-gb",
+  "genreFit": "indie",
+  "genres": "indie, grassroots, unsigned",
+  "contactName": null
+ },
+ {
+  "id": "soar-sound-best-of-british-new-british-unsigned-bands-gb",
+  "genreFit": "any",
+  "genres": "community mix, British unsigned",
+  "contactName": null
+ },
+ {
+  "id": "the-introducing-mixtape-6-music-emily-pilbeam-gb",
+  "genreFit": "indie",
+  "genres": "alt, indie, new music",
+  "contactName": null
+ },
+ {
+  "id": "urn-university-radio-nottingham-gb",
+  "genreFit": "any",
+  "genres": "student mix, indie, specialist",
+  "contactName": null
+ },
+ {
+  "id": "vibe-107-6-the-new-vibe-gb",
+  "genreFit": "any",
+  "genres": "pop, indie, hip hop, local unsigned",
+  "contactName": null
+ },
+ {
+  "id": "dandelion-radio-gb",
+  "genreFit": "indie",
+  "genres": "indie, alternative, punk, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "selector-radio-british-council-sian-eleri-gb",
+  "genreFit": "any",
+  "genres": "new UK music, eclectic",
+  "contactName": "Sian Eleri"
+ },
+ {
+  "id": "belter-radio-gb",
+  "genreFit": "any",
+  "genres": "all genres, unsigned",
+  "contactName": null
+ },
+ {
+  "id": "charlie-mason-radio-gb",
+  "genreFit": "indie",
+  "genres": "indie, unsigned",
+  "contactName": null
+ },
+ {
+  "id": "daz-in-the-hat-radio-gb",
+  "genreFit": "any",
+  "genres": "unsigned, all genres, rock",
+  "contactName": null
+ },
+ {
+  "id": "fusion-radio-gb",
+  "genreFit": "any",
+  "genres": "pop, new and unsigned",
+  "contactName": null
+ },
+ {
+  "id": "mad-wasp-radio-gb",
+  "genreFit": "indie",
+  "genres": "eclectic, rock, indie, new music",
+  "contactName": null
+ },
+ {
+  "id": "merseyland-alternative-radio-gb",
+  "genreFit": "indie",
+  "genres": "alternative, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "xcellent-radio-gb",
+  "genreFit": "any",
+  "genres": "new talent, mixed",
+  "contactName": null
+ },
+ {
+  "id": "bailrigg-fm-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-6-music-new-music-via-bbc-introducing-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "cam-fm-gb",
+  "genreFit": "indie",
+  "genres": "indie, alt, hip hop, student",
+  "contactName": null
+ },
+ {
+  "id": "ekr-retro-rock-gb",
+  "genreFit": "indie",
+  "genres": "classic rock, unsigned rock",
+  "contactName": null
+ },
+ {
+  "id": "horizon-radio-the-local-music-show-gb",
+  "genreFit": "any",
+  "genres": "pop, local music",
+  "contactName": null
+ },
+ {
+  "id": "insanity-radio-103-2fm-gb",
+  "genreFit": "indie",
+  "genres": "indie, alt, rock, student",
+  "contactName": null
+ },
+ {
+  "id": "lincs-sound-unsigned-gb",
+  "genreFit": "any",
+  "genres": "pop, local unsigned",
+  "contactName": null
+ },
+ {
+  "id": "purple-radio-gb",
+  "genreFit": "any",
+  "genres": "student mix, new music",
+  "contactName": null
+ },
+ {
+  "id": "sheffield-live-unsigned-gb",
+  "genreFit": "any",
+  "genres": "community mix, unsigned",
+  "contactName": null
+ },
+ {
+  "id": "the-flash-gb",
+  "genreFit": "any",
+  "genres": "original music, mixed",
+  "contactName": null
+ },
+ {
+  "id": "totalrock-the-unsigned-show-dunk-mckellar-gb",
+  "genreFit": "indie",
+  "genres": "rock, metal",
+  "contactName": null
+ },
+ {
+  "id": "university-radio-york-ury-gb",
+  "genreFit": "any",
+  "genres": "student mix, specialist",
+  "contactName": null
+ },
+ {
+  "id": "sabras-radio-gb",
+  "genreFit": "other",
+  "genres": "Asian, Bollywood, bhangra",
+  "contactName": null
+ },
+ {
+  "id": "soho-radio-gb",
+  "genreFit": "any",
+  "genres": "eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "6-towns-radio-gb",
+  "genreFit": "any",
+  "genres": "pop, community mix",
+  "contactName": null
+ },
+ {
+  "id": "aw-radio-aspen-waite-radio-gb",
+  "genreFit": "any",
+  "genres": "rock, classic hits",
+  "contactName": null
+ },
+ {
+  "id": "bradley-stoke-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, indie show",
+  "contactName": null
+ },
+ {
+  "id": "burton-radio-gb",
+  "genreFit": "any",
+  "genres": "pop, chart, local",
+  "contactName": null
+ },
+ {
+  "id": "camglen-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "erb-radio-emerging-rock-bands-gb",
+  "genreFit": "indie",
+  "genres": "rock, emerging bands",
+  "contactName": null
+ },
+ {
+  "id": "erewash-sound-the-great-erewash-music-show-gems-gb",
+  "genreFit": "any",
+  "genres": "pop, oldies, local music",
+  "contactName": null
+ },
+ {
+  "id": "exile-fm-gb",
+  "genreFit": "indie",
+  "genres": "eclectic, indie, rock",
+  "contactName": null
+ },
+ {
+  "id": "gateway-97-8-gb",
+  "genreFit": "any",
+  "genres": "pop, rock, unsigned",
+  "contactName": null
+ },
+ {
+  "id": "get-ready-to-rock-radio-gb",
+  "genreFit": "indie",
+  "genres": "rock, blues",
+  "contactName": null
+ },
+ {
+  "id": "hearme-fm-gb",
+  "genreFit": "mixed",
+  "genres": "dance, jazz, multi-channel",
+  "contactName": null
+ },
+ {
+  "id": "itisnow-radio-gb",
+  "genreFit": "any",
+  "genres": "indie, rock, all genres",
+  "contactName": null
+ },
+ {
+  "id": "northants-1-gb",
+  "genreFit": "any",
+  "genres": "hits, local music",
+  "contactName": null
+ },
+ {
+  "id": "nts-radio-gb",
+  "genreFit": "any",
+  "genres": "eclectic, underground",
+  "contactName": null
+ },
+ {
+  "id": "pure-fm-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-hartlepool-gb",
+  "genreFit": "any",
+  "genres": "pop, local music",
+  "contactName": null
+ },
+ {
+  "id": "radio-six-international-gb",
+  "genreFit": "any",
+  "genres": "eclectic, international",
+  "contactName": null
+ },
+ {
+  "id": "raven-s-cave-radio-gb",
+  "genreFit": "indie",
+  "genres": "rock, alternative",
+  "contactName": null
+ },
+ {
+  "id": "salford-city-radio-new-music-gb",
+  "genreFit": "any",
+  "genres": "community mix, new music",
+  "contactName": null
+ },
+ {
+  "id": "scratch-radio-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "sine-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "spark-sunderland-local-music-gb",
+  "genreFit": "any",
+  "genres": "student mix, local music",
+  "contactName": "Tyler Selby (Head of Music)"
+ },
+ {
+  "id": "wythenshawe-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "xpression-fm-gb",
+  "genreFit": "any",
+  "genres": "student mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "80s-rhythm-gb",
+  "genreFit": "other",
+  "genres": "80s hits",
+  "contactName": null
+ },
+ {
+  "id": "black-country-radio-unsigned-uploader-gb",
+  "genreFit": "any",
+  "genres": "community mix, unsigned",
+  "contactName": null
+ },
+ {
+  "id": "blackpool-community-radio-bcr-gb",
+  "genreFit": "any",
+  "genres": "pop, community, local",
+  "contactName": null
+ },
+ {
+  "id": "brum-radio-gb",
+  "genreFit": "indie",
+  "genres": "alternative, indie, arts",
+  "contactName": null
+ },
+ {
+  "id": "chdab-uk-gb",
+  "genreFit": "other",
+  "genres": "urban, UK rap",
+  "contactName": null
+ },
+ {
+  "id": "chelmsford-community-radio-shakey-s-sessions-act-for-the-fut",
+  "genreFit": "any",
+  "genres": "community mix, unsigned",
+  "contactName": null
+ },
+ {
+  "id": "durham-onair-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "frisk-radio-gb",
+  "genreFit": "other",
+  "genres": "dance, electronic",
+  "contactName": null
+ },
+ {
+  "id": "gorgeous-radio-gb",
+  "genreFit": "any",
+  "genres": "local music, all genres",
+  "contactName": null
+ },
+ {
+  "id": "hoxton-radio-new-music-show-james-sayer-gb",
+  "genreFit": "any",
+  "genres": "eclectic, indie, new music",
+  "contactName": "James Sayer"
+ },
+ {
+  "id": "listen-lanarkshire-gb",
+  "genreFit": "any",
+  "genres": "community mix, original music",
+  "contactName": null
+ },
+ {
+  "id": "mersey-radio-wwk-signed-unsigned-billy-kelly-gb",
+  "genreFit": "any",
+  "genres": "community mix, unsigned show",
+  "contactName": "Billy Kelly"
+ },
+ {
+  "id": "mission-radio-gb",
+  "genreFit": "any",
+  "genres": "independent artists, all genres",
+  "contactName": null
+ },
+ {
+  "id": "mix365-radio-gb",
+  "genreFit": "mixed",
+  "genres": "dance, mixes",
+  "contactName": null
+ },
+ {
+  "id": "mkfm-local-music-show-vicki-gb",
+  "genreFit": "any",
+  "genres": "pop, local music",
+  "contactName": "Vicki"
+ },
+ {
+  "id": "pride-radio-supporting-new-music-gb",
+  "genreFit": "mixed",
+  "genres": "pop, dance",
+  "contactName": null
+ },
+ {
+  "id": "primordial-radio-gb",
+  "genreFit": "indie",
+  "genres": "rock, metal",
+  "contactName": null
+ },
+ {
+  "id": "radio-diamond-gb",
+  "genreFit": "unknown",
+  "genres": "unclear",
+  "contactName": null
+ },
+ {
+  "id": "swindon-105-5-live-and-local-music-gb",
+  "genreFit": "any",
+  "genres": "pop, local music",
+  "contactName": null
+ },
+ {
+  "id": "the-beat-london-103-6fm-gb",
+  "genreFit": "other",
+  "genres": "urban, dance",
+  "contactName": null
+ },
+ {
+  "id": "thornbury-radio-gb",
+  "genreFit": "any",
+  "genres": "mainstream pop",
+  "contactName": null
+ },
+ {
+  "id": "totally-wired-radio-gb",
+  "genreFit": "any",
+  "genres": "eclectic, underground",
+  "contactName": null
+ },
+ {
+  "id": "bbc-cwr-bbc-introducing-in-west-midlands-warwickshire-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-essex-bbc-introducing-in-essex-cambridgeshire-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-hereford-worcester-bbc-introducing-in-shropshire-stoke-h",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-essex-cambridgeshire-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-hampshire-dorset-and-the-isle-of-wight-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-kent-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-lancashire-cumbria-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-leeds-sheffield-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-london-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-manchester-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-merseyside-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-northern-ireland-bbc-radio-ulster-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-oxfordshire-berkshire-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-scotland-bbc-radio-scotland-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-shropshire-stoke-hereford-worcester-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-suffolk-norfolk-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-sussex-surrey-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-the-channel-islands-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-the-north-east-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-the-south-west-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-the-west-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-the-west-midlands-warwickshire-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-three-counties-northants-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-wales-bethan-elfyn-adam-walton-bbc-radio-",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-introducing-in-york-humberside-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-berkshire-bbc-introducing-in-oxfordshire-berkshire",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-bristol-bbc-introducing-in-the-west-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-cambridgeshire-bbc-introducing-in-essex-cambridges",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-cornwall-bbc-introducing-in-the-south-west-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-cumbria-bbc-introducing-in-lancashire-cumbria-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-cymru-bbc-introducing-in-wales-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-devon-bbc-introducing-in-the-south-west-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-foyle-bbc-introducing-in-northern-ireland-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-gloucestershire-bbc-introducing-in-the-west-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-guernsey-bbc-introducing-in-the-channel-islands-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-humberside-bbc-introducing-in-york-humberside-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-jersey-bbc-introducing-in-the-channel-islands-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-kent-bbc-introducing-in-kent-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-lancashire-bbc-introducing-in-lancashire-cumbria-g",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-leeds-bbc-introducing-in-leeds-sheffield-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-london-bbc-introducing-in-london-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-manchester-bbc-introducing-in-manchester-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-merseyside-bbc-introducing-in-merseyside-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-newcastle-bbc-introducing-in-the-north-east-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-norfolk-bbc-introducing-in-suffolk-norfolk-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-northampton-bbc-introducing-in-three-counties-nort",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-oxford-bbc-introducing-in-oxfordshire-berkshire-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-scotland-bbc-introducing-in-scotland-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-sheffield-bbc-introducing-in-leeds-sheffield-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-shropshire-bbc-introducing-in-shropshire-stoke-her",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-solent-bbc-introducing-in-hampshire-dorset-and-the",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-somerset-bbc-introducing-in-the-west-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-stoke-bbc-introducing-in-shropshire-stoke-hereford",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-suffolk-bbc-introducing-in-suffolk-norfolk-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-surrey-bbc-introducing-in-sussex-surrey-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-sussex-bbc-introducing-in-sussex-surrey-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-tees-bbc-introducing-in-the-north-east-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-ulster-bbc-introducing-in-northern-ireland-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-wales-bbc-introducing-in-wales-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-wiltshire-bbc-introducing-in-the-west-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-wm-bbc-introducing-in-west-midlands-warwickshire-g",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-radio-york-bbc-introducing-in-york-humberside-gb",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "bbc-three-counties-radio-bbc-introducing-in-three-counties-n",
+  "genreFit": "any",
+  "genres": "all genres, local new music",
+  "contactName": null
+ },
+ {
+  "id": "abbey104-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "access-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, new music",
+  "contactName": null
+ },
+ {
+  "id": "air3-radio-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "amber-sound-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "anchor-radio-gb",
+  "genreFit": "any",
+  "genres": "eclectic mix",
+  "contactName": null
+ },
+ {
+  "id": "bute-island-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "channel-radio-gb",
+  "genreFit": "any",
+  "genres": "eclectic, indie",
+  "contactName": null
+ },
+ {
+  "id": "dean-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local bands",
+  "contactName": null
+ },
+ {
+  "id": "eava-fm-gb",
+  "genreFit": "mixed",
+  "genres": "multilingual community",
+  "contactName": null
+ },
+ {
+  "id": "endeavour-fm-local-musicians-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "future-radio-local-music-gb",
+  "genreFit": "any",
+  "genres": "eclectic, alternative, local",
+  "contactName": null
+ },
+ {
+  "id": "gold-dust-radio-gb",
+  "genreFit": "any",
+  "genres": "new talent, mixed",
+  "contactName": null
+ },
+ {
+  "id": "kennet-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "kic-radio-gb",
+  "genreFit": "any",
+  "genres": "youth, pop",
+  "contactName": null
+ },
+ {
+  "id": "like-radio-gb",
+  "genreFit": "any",
+  "genres": "hits network",
+  "contactName": null
+ },
+ {
+  "id": "lincs-sound-gb",
+  "genreFit": "any",
+  "genres": "pop, local unsigned",
+  "contactName": null
+ },
+ {
+  "id": "love-da-beat-radio-gb",
+  "genreFit": "any",
+  "genres": "unsigned, all genres",
+  "contactName": null
+ },
+ {
+  "id": "manchester-bee-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "nova-radio-north-east-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "portobello-radio-gb",
+  "genreFit": "mixed",
+  "genres": "urban, dance, London culture",
+  "contactName": null
+ },
+ {
+  "id": "power-ace-radio-gb",
+  "genreFit": "any",
+  "genres": "independent artists",
+  "contactName": null
+ },
+ {
+  "id": "queen-s-radio-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "redroad-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": "Aaron Outram (Programming and Music Director)"
+ },
+ {
+  "id": "revolution-radio-local-music-show-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "revolution-radio-one-gb",
+  "genreFit": "indie",
+  "genres": "rock, alternative",
+  "contactName": null
+ },
+ {
+  "id": "riverside-radio-gb",
+  "genreFit": "any",
+  "genres": "arts, variety",
+  "contactName": null
+ },
+ {
+  "id": "seahaven-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "sle-radio-gb",
+  "genreFit": "any",
+  "genres": "independent, rock channel",
+  "contactName": null
+ },
+ {
+  "id": "speysound-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "star-st-andrews-radio-gb",
+  "genreFit": "indie",
+  "genres": "indie, student",
+  "contactName": null
+ },
+ {
+  "id": "surrey-hills-community-radio-gb",
+  "genreFit": "any",
+  "genres": "eclectic, community",
+  "contactName": null
+ },
+ {
+  "id": "uk-national-radio-gb",
+  "genreFit": "any",
+  "genres": "mixed, presenter shows",
+  "contactName": "Jan Boogaloo / Robbie P"
+ },
+ {
+  "id": "wayne-holden-music-radio-gb",
+  "genreFit": "any",
+  "genres": "independent artists",
+  "contactName": null
+ },
+ {
+  "id": "cambridge-105-amplify-gb",
+  "genreFit": "any",
+  "genres": "eclectic, local music",
+  "contactName": null
+ },
+ {
+  "id": "kmfm-gb",
+  "genreFit": "mixed",
+  "genres": "chart pop",
+  "contactName": null
+ },
+ {
+  "id": "louder-than-war-gb",
+  "genreFit": "indie",
+  "genres": "punk, post-punk, alt",
+  "contactName": null
+ },
+ {
+  "id": "mansfield-103-2-gb",
+  "genreFit": "any",
+  "genres": "hits, local",
+  "contactName": null
+ },
+ {
+  "id": "1btn-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "24-7-restaurant-radio-gb",
+  "genreFit": "other",
+  "genres": "lounge, background",
+  "contactName": null
+ },
+ {
+  "id": "ashdown-radio-gb",
+  "genreFit": "any",
+  "genres": "oldies, pop, specialist",
+  "contactName": null
+ },
+ {
+  "id": "asian-star-101-6-fm-gb",
+  "genreFit": "other",
+  "genres": "Asian music",
+  "contactName": null
+ },
+ {
+  "id": "b-radio-berkshire-unplugged-gb",
+  "genreFit": "any",
+  "genres": "pop, local unsigned",
+  "contactName": null
+ },
+ {
+  "id": "bay-trust-radio-gb",
+  "genreFit": "any",
+  "genres": "all genres, UK artists",
+  "contactName": null
+ },
+ {
+  "id": "bcfm-the-bristol-music-show-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "beat-route-radio-the-weekend-warm-up-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "bedford-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "bedrock-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "best-smooth-jazz-gb",
+  "genreFit": "other",
+  "genres": "smooth jazz",
+  "contactName": "Rod Lucas"
+ },
+ {
+  "id": "beyond-radio-local-music-hour-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "bgfm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "big-l-gb",
+  "genreFit": "mixed",
+  "genres": "60s-80s pop, rock",
+  "contactName": null
+ },
+ {
+  "id": "bishop-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix, specialist",
+  "contactName": null
+ },
+ {
+  "id": "black-cat-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "bolton-fm-foster-the-music-gb",
+  "genreFit": "any",
+  "genres": "community mix, unsigned",
+  "contactName": null
+ },
+ {
+  "id": "boogaloo-radio-gb",
+  "genreFit": "indie",
+  "genres": "blues, indie, alternative, rock",
+  "contactName": null
+ },
+ {
+  "id": "bournemouth-one-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "bradford-asian-radio-gb",
+  "genreFit": "other",
+  "genres": "Asian music",
+  "contactName": null
+ },
+ {
+  "id": "bro-radio-local-music-playlist-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "brooklands-radio-gb",
+  "genreFit": "any",
+  "genres": "eclectic, local music",
+  "contactName": null
+ },
+ {
+  "id": "calder-valley-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "castledown-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "celtic-music-radio-gb",
+  "genreFit": "mixed",
+  "genres": "celtic, folk",
+  "contactName": null
+ },
+ {
+  "id": "celtica-radio-gb",
+  "genreFit": "any",
+  "genres": "unsigned, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "central-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "chester-student-radio-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "classic-hits-forest-radio-gb",
+  "genreFit": "other",
+  "genres": "oldies 50s-90s",
+  "contactName": null
+ },
+ {
+  "id": "clyde-coast-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "colourful-radio-gb",
+  "genreFit": "mixed",
+  "genres": "soul, R&B",
+  "contactName": null
+ },
+ {
+  "id": "community-voice-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "cosoro-radio-gb",
+  "genreFit": "other",
+  "genres": "African music",
+  "contactName": null
+ },
+ {
+  "id": "country-gospel-radio-gb",
+  "genreFit": "other",
+  "genres": "country gospel",
+  "contactName": null
+ },
+ {
+  "id": "countryline-radio-countryline-homegrown-tim-prottey-jones-gb",
+  "genreFit": "other",
+  "genres": "country",
+  "contactName": "Tim Prottey-Jones"
+ },
+ {
+  "id": "dance-revolution-gb",
+  "genreFit": "other",
+  "genres": "dance",
+  "contactName": null
+ },
+ {
+  "id": "deveron-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "devoncast-radio-gb",
+  "genreFit": "mixed",
+  "genres": "talk, local",
+  "contactName": null
+ },
+ {
+  "id": "different-drumz-dnb-radio-gb",
+  "genreFit": "other",
+  "genres": "drum and bass",
+  "contactName": null
+ },
+ {
+  "id": "dover-community-radio-dcrfm-local-music-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "drift-radio-gb",
+  "genreFit": "other",
+  "genres": "dance",
+  "contactName": null
+ },
+ {
+  "id": "dune-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "east-coast-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "eden-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "embrace-radio-formerly-horizon-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "express-fm-local-music-show-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "fcr-plymouth-gb",
+  "genreFit": "any",
+  "genres": "community mix, rock",
+  "contactName": null
+ },
+ {
+  "id": "fiesta-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "forest-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "fun-kids-gb",
+  "genreFit": "other",
+  "genres": "children's music",
+  "contactName": null
+ },
+ {
+  "id": "fuse-fm-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "fuse-fm-107-5-fm-ballymoney-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "gaydio-gb",
+  "genreFit": "mixed",
+  "genres": "pop, dance, LGBTQ+",
+  "contactName": null
+ },
+ {
+  "id": "get-ready-to-rock-gb",
+  "genreFit": "indie",
+  "genres": "rock, blues",
+  "contactName": null
+ },
+ {
+  "id": "hope-fm-gb",
+  "genreFit": "mixed",
+  "genres": "Christian, pop, rock show",
+  "contactName": null
+ },
+ {
+  "id": "hot-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "hoxton-radio-gb",
+  "genreFit": "any",
+  "genres": "eclectic, indie, new music",
+  "contactName": null
+ },
+ {
+  "id": "indie-soul-radio-gb",
+  "genreFit": "other",
+  "genres": "soul, jazz, funk",
+  "contactName": null
+ },
+ {
+  "id": "ipswich-community-radio-gb",
+  "genreFit": "any",
+  "genres": "eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "islands-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "isle-of-wight-radio-gb",
+  "genreFit": "any",
+  "genres": "hits, local music",
+  "contactName": null
+ },
+ {
+  "id": "itch-fm-gb",
+  "genreFit": "other",
+  "genres": "hip hop",
+  "contactName": null
+ },
+ {
+  "id": "k107fm-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "kane-fm-gb",
+  "genreFit": "mixed",
+  "genres": "dance, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "koast-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "liberty-radio-gb",
+  "genreFit": "any",
+  "genres": "pop, LGBTQ+",
+  "contactName": null
+ },
+ {
+  "id": "liverpool-community-radio-new-daily-croissant-gb",
+  "genreFit": "any",
+  "genres": "local bands",
+  "contactName": "Steve"
+ },
+ {
+  "id": "lomond-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "manx-radio-gb",
+  "genreFit": "any",
+  "genres": "mixed, local music",
+  "contactName": null
+ },
+ {
+  "id": "mix-92-6-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "moon-phase-radio-gb",
+  "genreFit": "other",
+  "genres": "ambient, chill",
+  "contactName": null
+ },
+ {
+  "id": "more-radio-eastbourne-gb",
+  "genreFit": "any",
+  "genres": "hits, local music",
+  "contactName": null
+ },
+ {
+  "id": "morley-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "mystery-train-radio-gb",
+  "genreFit": "indie",
+  "genres": "americana, blues, indie, rock",
+  "contactName": null
+ },
+ {
+  "id": "nagrecha-radio-gb",
+  "genreFit": "other",
+  "genres": "Asian music",
+  "contactName": null
+ },
+ {
+  "id": "nonstopplay-gb",
+  "genreFit": "other",
+  "genres": "dance",
+  "contactName": null
+ },
+ {
+  "id": "one-jazz-gb",
+  "genreFit": "other",
+  "genres": "jazz",
+  "contactName": null
+ },
+ {
+  "id": "onlinedjradio-gb",
+  "genreFit": "other",
+  "genres": "dance, DJ sets",
+  "contactName": null
+ },
+ {
+  "id": "orion-global-house-gb",
+  "genreFit": "other",
+  "genres": "house music",
+  "contactName": null
+ },
+ {
+  "id": "outreach-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "passion-radio-gb",
+  "genreFit": "mixed",
+  "genres": "pop hits",
+  "contactName": null
+ },
+ {
+  "id": "phoenix-radio-1208-gb",
+  "genreFit": "any",
+  "genres": "classic hits, pop",
+  "contactName": null
+ },
+ {
+  "id": "power-of-worship-radio-gb",
+  "genreFit": "other",
+  "genres": "Christian worship",
+  "contactName": null
+ },
+ {
+  "id": "pride-radio-gb",
+  "genreFit": "mixed",
+  "genres": "pop, dance",
+  "contactName": null
+ },
+ {
+  "id": "progzilla-radio-gb",
+  "genreFit": "indie",
+  "genres": "progressive rock",
+  "contactName": null
+ },
+ {
+  "id": "radio-alty-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "radio-bury-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-caley-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-christmas-gb",
+  "genreFit": "other",
+  "genres": "Christmas music",
+  "contactName": null
+ },
+ {
+  "id": "radio-essex-gb",
+  "genreFit": "mixed",
+  "genres": "pop hits",
+  "contactName": null
+ },
+ {
+  "id": "radio-exe-gb",
+  "genreFit": "mixed",
+  "genres": "pop hits, local",
+  "contactName": null
+ },
+ {
+  "id": "radio-groovy-gb",
+  "genreFit": "other",
+  "genres": "lounge, TV themes",
+  "contactName": null
+ },
+ {
+  "id": "radio-hillingdon-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-ikhlas-gb",
+  "genreFit": "other",
+  "genres": "Islamic, Asian",
+  "contactName": null
+ },
+ {
+  "id": "radio-leyland-gb",
+  "genreFit": "mixed",
+  "genres": "oldies, pop",
+  "contactName": null
+ },
+ {
+  "id": "radio-newquay-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-ninesprings-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-reverb-gb",
+  "genreFit": "any",
+  "genres": "eclectic, local music",
+  "contactName": null
+ },
+ {
+  "id": "radio-sangam-gb",
+  "genreFit": "other",
+  "genres": "Asian music",
+  "contactName": null
+ },
+ {
+  "id": "radio-seerah-gb",
+  "genreFit": "other",
+  "genres": "Islamic",
+  "contactName": null
+ },
+ {
+  "id": "radio-wester-ross-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-woking-gb",
+  "genreFit": "any",
+  "genres": "community mix, local unsigned",
+  "contactName": null
+ },
+ {
+  "id": "radio-wyvern-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "raidi-f-ilte-gb",
+  "genreFit": "mixed",
+  "genres": "Irish language, trad",
+  "contactName": null
+ },
+ {
+  "id": "raw-1251am-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "riviera-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix, local unsigned",
+  "contactName": null
+ },
+ {
+  "id": "rock-scot-gb",
+  "genreFit": "indie",
+  "genres": "Scottish rock",
+  "contactName": null
+ },
+ {
+  "id": "rwsfm-103-3-gb",
+  "genreFit": "any",
+  "genres": "community mix, dance",
+  "contactName": null
+ },
+ {
+  "id": "select-radio-gb",
+  "genreFit": "other",
+  "genres": "dance, DJ",
+  "contactName": null
+ },
+ {
+  "id": "shoreditch-radio-gb",
+  "genreFit": "any",
+  "genres": "eclectic, dance, indie",
+  "contactName": null
+ },
+ {
+  "id": "sibc-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "soul-rhythms-radio-uk-gb",
+  "genreFit": "other",
+  "genres": "soul, funk, reggae",
+  "contactName": null
+ },
+ {
+  "id": "soundart-radio-gb",
+  "genreFit": "any",
+  "genres": "eclectic, experimental, rock",
+  "contactName": null
+ },
+ {
+  "id": "soundwave-radio-plymouth-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "stirling-community-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "sunny-g-community-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "surf-rock-radio-gb",
+  "genreFit": "other",
+  "genres": "surf music",
+  "contactName": null
+ },
+ {
+  "id": "susy-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "switch-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "trans-radio-uk-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "tuxtra-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "unity-radio-gb",
+  "genreFit": "mixed",
+  "genres": "urban, hip hop",
+  "contactName": null
+ },
+ {
+  "id": "v2-radio-local-talent-show-emilia-barnden-gb",
+  "genreFit": "any",
+  "genres": "community mix, local talent",
+  "contactName": "Emilia Barnden"
+ },
+ {
+  "id": "vectis-radio-send-your-local-music-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "vibe-1-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "voice-fm-south-coast-music-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "w-c-r-welsh-coast-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "welwyn-hatfield-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "winchester-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "wrexham-city-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, rock",
+  "contactName": null
+ },
+ {
+  "id": "xtra-hot-gb",
+  "genreFit": "mixed",
+  "genres": "funk, garage, dance",
+  "contactName": null
+ },
+ {
+  "id": "100-whatever-westcountry-gb",
+  "genreFit": "any",
+  "genres": "hits, community",
+  "contactName": null
+ },
+ {
+  "id": "103-the-eye-gb",
+  "genreFit": "any",
+  "genres": "community mix, local musicians",
+  "contactName": null
+ },
+ {
+  "id": "10radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "24-7-cafe-radio-gb",
+  "genreFit": "other",
+  "genres": "chillout, cafe",
+  "contactName": null
+ },
+ {
+  "id": "3tfm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "60-north-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "aberdeen-student-radio-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "absolute-radio-gb",
+  "genreFit": "indie",
+  "genres": "indie, rock, classic rock",
+  "contactName": null
+ },
+ {
+  "id": "academy-fm-thanet-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "air-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "akash-radio-leeds-gb",
+  "genreFit": "other",
+  "genres": "Asian music",
+  "contactName": null
+ },
+ {
+  "id": "alfred-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "alive-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "all-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "andover-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "angel-radio-gb",
+  "genreFit": "other",
+  "genres": "nostalgia, older music",
+  "contactName": null
+ },
+ {
+  "id": "apple-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "arfm-gb",
+  "genreFit": "indie",
+  "genres": "classic rock, hard rock, metal",
+  "contactName": null
+ },
+ {
+  "id": "argyll-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "arrowe-sound-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "avondale-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "awaz-fm-gb",
+  "genreFit": "other",
+  "genres": "Asian music",
+  "contactName": null
+ },
+ {
+  "id": "aycliffe-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, rock",
+  "contactName": null
+ },
+ {
+  "id": "banbury-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "bath-sound-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "bcb-106-6fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "belfast-89fm-gb",
+  "genreFit": "mixed",
+  "genres": "classic hits",
+  "contactName": null
+ },
+ {
+  "id": "beverley-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "black-diamond-fm-mark-s-new-emerging-music-gb",
+  "genreFit": "any",
+  "genres": "community mix, unsigned show",
+  "contactName": null
+ },
+ {
+  "id": "blast106-gb",
+  "genreFit": "mixed",
+  "genres": "hits",
+  "contactName": null
+ },
+ {
+  "id": "blue-sky-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "branch-fm-gb",
+  "genreFit": "other",
+  "genres": "Christian",
+  "contactName": null
+ },
+ {
+  "id": "brfm-95-6-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "broadland-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "bsj-gb",
+  "genreFit": "other",
+  "genres": "smooth jazz",
+  "contactName": null
+ },
+ {
+  "id": "bucks-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "burn-fm-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "burst-radio-gb",
+  "genreFit": "indie",
+  "genres": "indie, alt, student",
+  "contactName": "Alice Galbraith (Head of Music)"
+ },
+ {
+  "id": "cabin-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "caithness-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "canalside-community-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "cando-fm-local-music-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "cannock-chase-radio-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "central-fm-gb",
+  "genreFit": "mixed",
+  "genres": "hits",
+  "contactName": null
+ },
+ {
+  "id": "channel-103-gb",
+  "genreFit": "mixed",
+  "genres": "hits",
+  "contactName": null
+ },
+ {
+  "id": "chaos-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "chbn-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "cheshire-s-mix-56-gb",
+  "genreFit": "mixed",
+  "genres": "hits",
+  "contactName": null
+ },
+ {
+  "id": "chester-s-dee-radio-gb",
+  "genreFit": "mixed",
+  "genres": "hits",
+  "contactName": null
+ },
+ {
+  "id": "clyde-built-radio-gb",
+  "genreFit": "any",
+  "genres": "arts, local music",
+  "contactName": null
+ },
+ {
+  "id": "coast-county-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "coast-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "crescent-radio-gb",
+  "genreFit": "other",
+  "genres": "Asian music",
+  "contactName": null
+ },
+ {
+  "id": "croydon-fm-gb",
+  "genreFit": "mixed",
+  "genres": "urban, pop",
+  "contactName": null
+ },
+ {
+  "id": "crystal-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "csr-canterbury-student-radio-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "dales-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "diverse-fm-gb",
+  "genreFit": "mixed",
+  "genres": "multicultural",
+  "contactName": null
+ },
+ {
+  "id": "drystone-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, indie show",
+  "contactName": null
+ },
+ {
+  "id": "dunoon-community-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "east-london-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "energy-fm-gb",
+  "genreFit": "mixed",
+  "genres": "hits",
+  "contactName": null
+ },
+ {
+  "id": "essex-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "fantasy-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, rock, new music",
+  "contactName": null
+ },
+ {
+  "id": "felixstowe-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "fenland-youth-radio-gb",
+  "genreFit": "any",
+  "genres": "youth, mixed",
+  "contactName": null
+ },
+ {
+  "id": "fever-radio-gb",
+  "genreFit": "other",
+  "genres": "Asian music",
+  "contactName": null
+ },
+ {
+  "id": "flex-fm-gb",
+  "genreFit": "other",
+  "genres": "dance, house",
+  "contactName": null
+ },
+ {
+  "id": "fly-live-nottingham-trent-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "fosse-107-gb",
+  "genreFit": "any",
+  "genres": "classic hits, rock, local music",
+  "contactName": null
+ },
+ {
+  "id": "freshair-radio-gb",
+  "genreFit": "indie",
+  "genres": "alternative, student",
+  "contactName": null
+ },
+ {
+  "id": "fromefm-gb",
+  "genreFit": "any",
+  "genres": "eclectic, community",
+  "contactName": null
+ },
+ {
+  "id": "glastonbury-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "gloucester-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "glow-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "go-radio-glasgow-gb",
+  "genreFit": "mixed",
+  "genres": "90s to now hits",
+  "contactName": null
+ },
+ {
+  "id": "great-driffield-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "gtfm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "hailsham-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "harbour-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "hardrock-hell-gb",
+  "genreFit": "indie",
+  "genres": "hard rock, metal",
+  "contactName": null
+ },
+ {
+  "id": "hastings-rock-radio-gb",
+  "genreFit": "indie",
+  "genres": "rock, classic rock, unsigned",
+  "contactName": null
+ },
+ {
+  "id": "hayes-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "high-peak-1-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "hillz-fm-local-artist-chart-gb",
+  "genreFit": "any",
+  "genres": "community mix, local artists",
+  "contactName": null
+ },
+ {
+  "id": "hitmix-radio-gb",
+  "genreFit": "any",
+  "genres": "hits, local unsigned",
+  "contactName": null
+ },
+ {
+  "id": "hive-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "home-radio-gb",
+  "genreFit": "other",
+  "genres": "Christian",
+  "contactName": null
+ },
+ {
+  "id": "hoodoo-radio-gb",
+  "genreFit": "indie",
+  "genres": "punk, indie, rock, dub",
+  "contactName": null
+ },
+ {
+  "id": "hrh-radio-gb",
+  "genreFit": "indie",
+  "genres": "80s hard rock, hair metal",
+  "contactName": null
+ },
+ {
+  "id": "hub-radio-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "huddle-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "hull-s-107fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "humber-wave-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "ic-radio-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "inspiration-fm-gb",
+  "genreFit": "mixed",
+  "genres": "urban, gospel, dance",
+  "contactName": null
+ },
+ {
+  "id": "inspire-fm-gb",
+  "genreFit": "mixed",
+  "genres": "community, multicultural",
+  "contactName": null
+ },
+ {
+  "id": "island-fm-gb",
+  "genreFit": "mixed",
+  "genres": "hits",
+  "contactName": null
+ },
+ {
+  "id": "jam-radio-gb",
+  "genreFit": "other",
+  "genres": "urban",
+  "contactName": null
+ },
+ {
+  "id": "jorvik-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "juice-radio-gb",
+  "genreFit": "mixed",
+  "genres": "hits",
+  "contactName": null
+ },
+ {
+  "id": "kcr-keith-community-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, alternative shows",
+  "contactName": null
+ },
+ {
+  "id": "keep-106-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "kemet-fm-gb",
+  "genreFit": "mixed",
+  "genres": "urban, reggae, soul",
+  "contactName": null
+ },
+ {
+  "id": "kerrang-radio-fresh-blood-alex-baker-gb",
+  "genreFit": "indie",
+  "genres": "rock, metal, punk",
+  "contactName": null
+ },
+ {
+  "id": "lcr-loughborough-campus-radio-gb",
+  "genreFit": "any",
+  "genres": "student mix, alt rock show",
+  "contactName": null
+ },
+ {
+  "id": "lcr-fm-lincoln-gb",
+  "genreFit": "any",
+  "genres": "classic hits, specialist shows",
+  "contactName": null
+ },
+ {
+  "id": "leeds-student-radio-lsr-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "legacy-90-1-gb",
+  "genreFit": "mixed",
+  "genres": "urban, soul",
+  "contactName": null
+ },
+ {
+  "id": "maritime-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "marlow-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "mearns-fm-the-indie-show-brian-davie-gb",
+  "genreFit": "any",
+  "genres": "community mix, indie show",
+  "contactName": null
+ },
+ {
+  "id": "meridian-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "mersey-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, unsigned show",
+  "contactName": null
+ },
+ {
+  "id": "mi-soul-gb",
+  "genreFit": "other",
+  "genres": "soul, jazz-funk",
+  "contactName": null
+ },
+ {
+  "id": "mid-sussex-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local unsigned",
+  "contactName": null
+ },
+ {
+  "id": "mkfm-gb",
+  "genreFit": "any",
+  "genres": "pop, local music",
+  "contactName": null
+ },
+ {
+  "id": "m-n-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "moorlands-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local musicians",
+  "contactName": null
+ },
+ {
+  "id": "nerve-radio-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "nevis-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, dance",
+  "contactName": null
+ },
+ {
+  "id": "newport-city-radio-gb",
+  "genreFit": "any",
+  "genres": "eclectic, indie, local",
+  "contactName": null
+ },
+ {
+  "id": "nlive-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "noisebox-radio-gb",
+  "genreFit": "any",
+  "genres": "eclectic",
+  "contactName": null
+ },
+ {
+  "id": "nomad-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "north-manchester-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "nova-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "now-ayrshire-radio-gb",
+  "genreFit": "mixed",
+  "genres": "hits",
+  "contactName": null
+ },
+ {
+  "id": "oldham-community-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "ouse-valley-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "park-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "pcr-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix, local musicians",
+  "contactName": null
+ },
+ {
+  "id": "pendle-community-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "penistone-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "peril-fm-gb",
+  "genreFit": "mixed",
+  "genres": "dance, multi-genre",
+  "contactName": null
+ },
+ {
+  "id": "phoenix-fm-the-sunday-sessions-gb",
+  "genreFit": "any",
+  "genres": "community mix, local unsigned",
+  "contactName": null
+ },
+ {
+  "id": "phoenix-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local musicians",
+  "contactName": null
+ },
+ {
+  "id": "phonic-fm-gb",
+  "genreFit": "any",
+  "genres": "eclectic, alternative, unsigned",
+  "contactName": null
+ },
+ {
+  "id": "purbeck-sounds-gb",
+  "genreFit": "indie",
+  "genres": "indie, rock, local",
+  "contactName": null
+ },
+ {
+  "id": "pure-radio-gb",
+  "genreFit": "indie",
+  "genres": "britpop, rock, adult alternative",
+  "contactName": null
+ },
+ {
+  "id": "quality-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "raaj-fm-gb",
+  "genreFit": "other",
+  "genres": "Punjabi, bhangra",
+  "contactName": null
+ },
+ {
+  "id": "radio-ashford-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "radio-cardiff-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-cherwell-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-dawn-gb",
+  "genreFit": "other",
+  "genres": "Islamic, Asian",
+  "contactName": null
+ },
+ {
+  "id": "radio-enrg-gb",
+  "genreFit": "any",
+  "genres": "student mix, indie",
+  "contactName": null
+ },
+ {
+  "id": "radio-faza-gb",
+  "genreFit": "other",
+  "genres": "Asian music",
+  "contactName": null
+ },
+ {
+  "id": "radio-harrow-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-jackie-gb",
+  "genreFit": "mixed",
+  "genres": "hits",
+  "contactName": null
+ },
+ {
+  "id": "radio-jupiter-gb",
+  "genreFit": "any",
+  "genres": "community mix, rock",
+  "contactName": null
+ },
+ {
+  "id": "radio-lab-97-1fm-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-newark-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-northwich-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "radio-panj-gb",
+  "genreFit": "other",
+  "genres": "Asian music",
+  "contactName": null
+ },
+ {
+  "id": "radio-plus-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-radio-gb",
+  "genreFit": "any",
+  "genres": "pop, rock",
+  "contactName": null
+ },
+ {
+  "id": "radio-saltire-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-scarborough-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-skye-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-tamworth-local-music-with-jimmy-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "radio-tyneside-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-warrington-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-west-fife-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "radio-west-norfolk-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-wimborne-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-winchcombe-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "radio-x-x-posure-john-kennedy-gb",
+  "genreFit": "indie",
+  "genres": "indie, alt rock",
+  "contactName": null
+ },
+ {
+  "id": "red-kite-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, rock",
+  "contactName": null
+ },
+ {
+  "id": "reprezent-gb",
+  "genreFit": "mixed",
+  "genres": "grime, hip hop, youth",
+  "contactName": null
+ },
+ {
+  "id": "resonance-fm-gb",
+  "genreFit": "any",
+  "genres": "experimental, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "retro-music-radio-the-unsigned-artist-show-ian-f-gb",
+  "genreFit": "mixed",
+  "genres": "retro hits, unsigned show",
+  "contactName": null
+ },
+ {
+  "id": "rhubarb-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "ribble-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "rossendale-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "salaam-radio-gb",
+  "genreFit": "other",
+  "genres": "Islamic",
+  "contactName": null
+ },
+ {
+  "id": "seaside-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "sfm-106-9-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "sheppey-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "shire-radio-gb",
+  "genreFit": "mixed",
+  "genres": "oldies, country",
+  "contactName": null
+ },
+ {
+  "id": "shmu-fm-57-north-presents-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "shock-radio-gb",
+  "genreFit": "any",
+  "genres": "student mix",
+  "contactName": null
+ },
+ {
+  "id": "shropshire-live-gb",
+  "genreFit": "mixed",
+  "genres": "hits",
+  "contactName": null
+ },
+ {
+  "id": "sid-valley-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "somer-valley-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "sound-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "source-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "spice-fm-gb",
+  "genreFit": "other",
+  "genres": "Asian music",
+  "contactName": null
+ },
+ {
+  "id": "strawberry-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local unsigned",
+  "contactName": null
+ },
+ {
+  "id": "subcity-radio-gb",
+  "genreFit": "any",
+  "genres": "freeform, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "sunshine-gb",
+  "genreFit": "mixed",
+  "genres": "Christian, community",
+  "contactName": null
+ },
+ {
+  "id": "swindon-105-5-gb",
+  "genreFit": "any",
+  "genres": "pop, local music",
+  "contactName": null
+ },
+ {
+  "id": "tameside-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "td1-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "tempo-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "the-cat-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "the-voice-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "the-voice-of-doom-gb",
+  "genreFit": "indie",
+  "genres": "doom, metal",
+  "contactName": null
+ },
+ {
+  "id": "tmcr-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "u105-gb",
+  "genreFit": "mixed",
+  "genres": "hits",
+  "contactName": null
+ },
+ {
+  "id": "ujima-radio-gb",
+  "genreFit": "mixed",
+  "genres": "urban, reggae, community",
+  "contactName": null
+ },
+ {
+  "id": "unity-101-gb",
+  "genreFit": "mixed",
+  "genres": "multicultural community",
+  "contactName": null
+ },
+ {
+  "id": "unity-fm-gb",
+  "genreFit": "other",
+  "genres": "Islamic",
+  "contactName": null
+ },
+ {
+  "id": "vanny-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "vixen-101-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "wave-community-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "wcr-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "west-kent-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix, local music",
+  "contactName": null
+ },
+ {
+  "id": "west-somerset-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "west-wilts-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "wey-valley-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "worldwide-fm-gb",
+  "genreFit": "mixed",
+  "genres": "jazz, soul, global",
+  "contactName": null
+ },
+ {
+  "id": "xpress-radio-gb",
+  "genreFit": "indie",
+  "genres": "indie, student",
+  "contactName": null
+ },
+ {
+  "id": "yo1-radio-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ },
+ {
+  "id": "yorkmix-radio-gb",
+  "genreFit": "mixed",
+  "genres": "hits",
+  "contactName": null
+ },
+ {
+  "id": "zack-fm-105-3-gb",
+  "genreFit": "any",
+  "genres": "community mix, rock show",
+  "contactName": null
+ },
+ {
+  "id": "zetland-fm-gb",
+  "genreFit": "any",
+  "genres": "community mix",
+  "contactName": null
+ }
+]

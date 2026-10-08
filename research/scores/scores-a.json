@@ -1,0 +1,2756 @@
+[
+ {
+  "id": "bagel-radio-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Indie and alt rock specialist",
+   "Takes unsigned acts from anywhere",
+   "Small online audience, mostly US"
+  ],
+  "pitchTip": "Email a ZIP of 320kbps MP3s with full metadata, not WAVs."
+ },
+ {
+  "id": "cfur-88-7-fm-ca",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Plays indie rock, open to all",
+   "Prefers EPs but takes singles",
+   "Small campus audience in Canada"
+  ],
+  "pitchTip": "Send MP3s with full metadata and a one-sheet; no WAVs."
+ },
+ {
+  "id": "cjiq-88-3-fm-ca",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Alternative-branded college station",
+   "Simple contact-form route",
+   "Regional Canadian audience"
+  ],
+  "pitchTip": "Pick 'Music Submissions' in the contact form."
+ },
+ {
+  "id": "cjlo-1690-am-ca",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "Accepts any genre from anyone",
+   "Shared to 70+ Canadian campus stations",
+   "One pitch reaches a whole network"
+  ],
+  "pitchTip": "Use the page's form; mention the single is a standalone release."
+ },
+ {
+  "id": "ckdj-107-9-fm-ca",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Brands itself on new music",
+   "Takes singles and digital files",
+   "Local Ottawa college audience"
+  ],
+  "pitchTip": "Use the form; only email the zip if the form fails."
+ },
+ {
+  "id": "freeform-portland-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Freeform station, open to anything",
+   "Very small community audience"
+  ],
+  "pitchTip": "Send a reusable download link, never attachments."
+ },
+ {
+  "id": "hollow-earth-radio-khuh-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Welcomes demos and under-the-radar music",
+   "Tiny Seattle community audience",
+   "Leans weird and non-mainstream"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "idobi-radio-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Alt and indie online network",
+   "Upload form for unsigned acts",
+   "Competitive, pop-punk heavy"
+  ],
+  "pitchTip": "Pick idobi Radio as the station in the form."
+ },
+ {
+  "id": "kalx-90-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Respected freeform college station",
+   "Busy inbox, may prefer physical",
+   "Reports to college charts"
+  ],
+  "pitchTip": "Check their submission page first; physical may be preferred."
+ },
+ {
+  "id": "kanm-texas-a-m-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Dedicated artist submission form",
+   "Student station, open to new acts",
+   "Small college audience"
+  ],
+  "pitchTip": "Use the Digital Music Submission Form for Artists."
+ },
+ {
+  "id": "kaos-89-3-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Community station open to all",
+   "Small Olympia audience"
+  ],
+  "pitchTip": "Use the subject line 'Music Submission'."
+ },
+ {
+  "id": "kbga-89-9-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "College station with simple email route",
+   "Open to new independent music",
+   "Small Montana audience"
+  ],
+  "pitchTip": "Use the subject 'Music Submission'."
+ },
+ {
+  "id": "kboo-90-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Volunteer rock music director",
+   "Established Portland community station",
+   "Route is a staff listing only"
+  ],
+  "pitchTip": "Keep it short and mention the rock genre."
+ },
+ {
+  "id": "kcpr-91-3-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Student station open to submissions",
+   "Small regional college audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kcr-college-radio-sdsu-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "College station with music directors",
+   "Open to independent music",
+   "Small San Diego student audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kcrw-89-9-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 5,
+  "reasons": [
+   "Major tastemaker station",
+   "Huge reach but very competitive",
+   "DJs review every emailed track"
+  ],
+  "pitchTip": "Send an FCC-clean WAV or AIFF to music@kcrw.org."
+ },
+ {
+  "id": "kcsb-91-9-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Freeform college station",
+   "Music director listed for submissions",
+   "Small student audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kexp-90-3-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 5,
+  "reasons": [
+   "World-famous indie tastemaker",
+   "Huge reach but very competitive",
+   "Plays UK indie acts"
+  ],
+  "pitchTip": "Email md@kexp.org with a short note and a download link."
+ },
+ {
+  "id": "kjhk-90-7-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Student station open to submissions",
+   "Wants links, no attachments",
+   "Small college audience"
+  ],
+  "pitchTip": "Email links and info only, no file attachments."
+ },
+ {
+  "id": "krui-89-7-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Well-run college station",
+   "Open to independent music",
+   "Not every submission gets a reply"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kspc-88-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Respected college station",
+   "Prefers albums and EPs",
+   "Singles not taken on CD"
+  ],
+  "pitchTip": "Email a cloud download link; streaming links are refused."
+ },
+ {
+  "id": "kuci-88-9-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "College station with dedicated music inbox",
+   "Open to independent acts",
+   "Small student audience"
+  ],
+  "pitchTip": "Use musicdir@kuci.org, not the general address."
+ },
+ {
+  "id": "kugs-89-3-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Dedicated music submissions inbox",
+   "College station open to new acts",
+   "Small regional audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kure-88-5-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Student station taking band promos",
+   "Small Iowa college audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kusf-online-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Internet-only college station",
+   "Open to independent music",
+   "Small online audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kutx-98-9-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 4,
+  "reasons": [
+   "Big Austin music station",
+   "Strong indie audience, very competitive",
+   "Mostly US and Texas focus"
+  ],
+  "pitchTip": "Follow their Submit Your Music guidelines; links preferred."
+ },
+ {
+  "id": "kvrx-91-7-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Student station taking digital submissions",
+   "Indie-leaning Austin audience",
+   "Small but active scene"
+  ],
+  "pitchTip": "Send to music@kvrx.org, not programming@."
+ },
+ {
+  "id": "kwva-88-1-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "College station inviting music",
+   "Open to independent acts",
+   "Small Eugene audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kxsc-1560-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Independent student station at USC",
+   "Email submissions welcome",
+   "LA, but small audience"
+  ],
+  "pitchTip": "Email submissions@kxsc.org; email is best for follow-ups."
+ },
+ {
+  "id": "kxsf-102-5-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Community station with music inbox",
+   "Indie-friendly San Francisco station",
+   "Small low-power audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kxt-91-7-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Large public music station",
+   "One song only, very competitive",
+   "Mostly Texas and US focus"
+  ],
+  "pitchTip": "Submit one song with a streaming link and a 16-bit WAV."
+ },
+ {
+  "id": "kxua-88-3-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Separate inbox for non-local acts",
+   "College station open to new music",
+   "Small Arkansas audience"
+  ],
+  "pitchTip": "Send to charts@uark.edu as a non-local act."
+ },
+ {
+  "id": "kzsc-88-1-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Has a dedicated rock music director",
+   "College station open to new acts",
+   "Small Santa Cruz audience"
+  ],
+  "pitchTip": "Email the rock director directly."
+ },
+ {
+  "id": "kzsu-90-1-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Music directors invite submissions",
+   "Respected freeform college station",
+   "Small student audience"
+  ],
+  "pitchTip": "Read their linked submission guidelines first."
+ },
+ {
+  "id": "radio-1190-kvcu-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Indie-leaning college station",
+   "Digital submissions required",
+   "Small Boulder audience"
+  ],
+  "pitchTip": "Send digital files; physical needs a digital copy too."
+ },
+ {
+  "id": "radio-laurier-ca",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Favours independent and overlooked bands",
+   "Takes singles",
+   "Small online student station"
+  ],
+  "pitchTip": "Include focus track, similar artists and a short bio; MP3 only."
+ },
+ {
+  "id": "radio-milwaukee-88nine-wyms-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Respected public music station",
+   "Form route, but competitive",
+   "Milwaukee and US focus"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-valencia-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Bands invited to email music",
+   "Small online community station"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "somafm-indie-pop-rocks-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Indie pop channel with big global reach",
+   "Open to unsigned artists",
+   "Backlogged, guitar pop fit varies"
+  ],
+  "pitchTip": "Email a Bandcamp code or Dropbox MP3s; say it is human-made."
+ },
+ {
+  "id": "the-current-89-3-kcmp-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 4,
+  "reasons": [
+   "Major indie tastemaker station",
+   "Very competitive digital form",
+   "Plays UK indie acts"
+  ],
+  "pitchTip": "Use the digital submission form, not email."
+ },
+ {
+  "id": "wbny-91-3-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "MD explicitly invites submissions",
+   "College station open to new acts",
+   "Small Buffalo audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wesu-88-1-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Long-running freeform station",
+   "Music directors take submissions",
+   "Small Connecticut audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wfhb-91-3-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Community station with music director",
+   "Small Bloomington audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wfmu-91-1-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Famous freeform station",
+   "Physical media only, from abroad",
+   "Cult audience, not chart-driven"
+  ],
+  "pitchTip": "Post a CD or vinyl to the Music Director's PO Box."
+ },
+ {
+  "id": "wfpk-91-9-louisville-public-media-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Public AAA station with music inbox",
+   "Plays indie rock",
+   "Competitive, US focus"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wgmu-radio-george-mason-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Open to unsigned artists from anywhere",
+   "Takes digital submissions",
+   "Small student audience"
+  ],
+  "pitchTip": "Mark any explicit tracks with an FCC warning."
+ },
+ {
+  "id": "whus-91-7-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "College station with new music committee",
+   "Open to independent music",
+   "Small Connecticut audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "widr-89-1-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Form for independent artists",
+   "College station open to new acts",
+   "Small Kalamazoo audience"
+  ],
+  "pitchTip": "Use the Independent Artist Music Submission form first."
+ },
+ {
+  "id": "wiux-99-1-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Music director takes airplay submissions",
+   "Indie-leaning college station",
+   "Small Bloomington audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wknc-88-1-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Respected indie-leaning college station",
+   "Form routes to the right director",
+   "No email submissions"
+  ],
+  "pitchTip": "Use the submission form only; emails are ignored."
+ },
+ {
+  "id": "wmfo-91-5-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Freeform college station",
+   "Music director takes submissions",
+   "Small Boston-area audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wmsc-90-3-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Rock-leaning college station",
+   "Easy Google Drive or email route",
+   "Small New Jersey audience"
+  ],
+  "pitchTip": "Share a Google Drive folder; only send music that fits."
+ },
+ {
+  "id": "wnrn-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Adult alternative station with good reach",
+   "Asks for albums, singles less likely",
+   "Plays indie rock"
+  ],
+  "pitchTip": "Pitch both singles together as a short release."
+ },
+ {
+  "id": "wnxp-91-one-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Public alt station open to submissions",
+   "Plays new indie and UK acts",
+   "Competitive, US focus"
+  ],
+  "pitchTip": "Email submissions@wnxp.org with a clean mastered WAV."
+ },
+ {
+  "id": "wnyu-89-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "New York college station, indie leaning",
+   "Influential in NYC scene",
+   "Busy music director inbox"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wpkn-89-5-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Freeform community station",
+   "Dedicated music submission address",
+   "Small Connecticut audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wprb-103-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Highly respected college station",
+   "Prefers physical copies",
+   "Strong indie credibility"
+  ],
+  "pitchTip": "Email is accepted, but a posted CD stands out."
+ },
+ {
+  "id": "wprk-91-5-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Music submissions page and inbox",
+   "Community-focused college station",
+   "Small Florida audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wpts-92-1-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Student station with music director",
+   "Open to independent music",
+   "Small Pittsburgh audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wras-album-88-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Famous indie college station",
+   "Regular rotation inbox",
+   "Competitive, strong Atlanta following"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wrbb-104-9-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "College station with music director",
+   "Open to independent acts",
+   "Small Boston audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wrpi-91-5-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Freeform college station",
+   "Music director listed",
+   "Small Troy audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wrur-88-5-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Indie-leaning college station",
+   "Prefers download links",
+   "Small Rochester audience"
+  ],
+  "pitchTip": "Send uncompressed download links, not attachments."
+ },
+ {
+  "id": "wruv-90-1-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "College station with head MD",
+   "Open to independent music",
+   "Small Burlington audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wruw-91-1-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Long-running freeform station",
+   "Music director listed",
+   "Small Cleveland audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wtbu-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Rotation picks albums",
+   "Left of the Dial show fits indie",
+   "Singles less likely added"
+  ],
+  "pitchTip": "Ask whether singles are considered for Left of the Dial."
+ },
+ {
+  "id": "wuog-90-5-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Indie-leaning college station",
+   "Music directors take submissions",
+   "Athens has a strong scene"
+  ],
+  "pitchTip": "Use the main MD address, not the local inbox."
+ },
+ {
+  "id": "wusc-90-5-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "College station open to non-local acts",
+   "Form is for local artists only",
+   "Small Columbia audience"
+  ],
+  "pitchTip": "Email the music director; the form is local-only."
+ },
+ {
+  "id": "wutk-90-3-the-rock-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Rock-focused college station",
+   "Clear email route for MP3s",
+   "Reviews submissions every week"
+  ],
+  "pitchTip": "Include tracklist, artist name and contact info."
+ },
+ {
+  "id": "wvkr-91-3-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "New music inquiry form",
+   "Indie-friendly college station",
+   "Small Hudson Valley audience"
+  ],
+  "pitchTip": "Use the New Music Inquiry Form first."
+ },
+ {
+  "id": "wvum-90-5-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "College station with music directors",
+   "Open to independent music",
+   "Small Miami audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wxdu-88-7-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Freeform college station",
+   "Music directors take submissions",
+   "Small Durham audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wxna-101-5-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Physical media only",
+   "Posting from the UK is costly",
+   "Indie-friendly Nashville station"
+  ],
+  "pitchTip": "Post a CD; digital submissions are not accepted."
+ },
+ {
+  "id": "wxyc-89-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Influential freeform college station",
+   "Strong indie history",
+   "Busy, competitive inbox"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wzbc-90-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Rock music directors listed",
+   "Leans experimental and noisy",
+   "Small Boston audience"
+  ],
+  "pitchTip": "Email the rock directors, not the NCP inbox."
+ },
+ {
+  "id": "wzrd-88-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Experimental freeform station",
+   "Prefers FLAC files",
+   "Small Chicago audience"
+  ],
+  "pitchTip": "Send FLAC files."
+ },
+ {
+  "id": "xray-fm-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Community station with submissions inbox",
+   "Indie-friendly Portland audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "91x-91-3-fm-cjlx-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Prefers CDs, accepts MP3s",
+   "Small Belleville college audience"
+  ],
+  "pitchTip": "Email broadcast-quality MP3s with band info."
+ },
+ {
+  "id": "cfbu-103-7-fm-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director handles enquiries",
+   "Small Brock University audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cfcr-90-5-fm-ca",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Albums and EPs only",
+   "Band has two singles so far"
+  ],
+  "pitchTip": "Return once you have an EP; use !earshot."
+ },
+ {
+  "id": "cfmh-107-3-fm-local-107-3-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Station manager takes digital music",
+   "Local-leaning station",
+   "Tiny Saint John audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cfru-93-3-fm-ca",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Needs EP or album, 3+ songs",
+   "Band has two singles so far"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cfuv-101-9-fm-ca",
+  "eligible": false,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Needs three unique tracks",
+   "Two singles not enough yet"
+  ],
+  "pitchTip": "Bundle three tracks as a radio-only EP later."
+ },
+ {
+  "id": "cfuz-88-7-fm-peach-city-radio-ca",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Everyone welcome to submit",
+   "Tiny Penticton community audience"
+  ],
+  "pitchTip": "Include a one-sheet with bio and credits."
+ },
+ {
+  "id": "chly-101-7-fm-ca",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Clear email submission route",
+   "Refuses AI-generated music",
+   "Small Nanaimo audience"
+  ],
+  "pitchTip": "Say the music is human-made; record a station ID."
+ },
+ {
+  "id": "chma-106-9-fm-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Prioritises local and Canadian music",
+   "Takes independent music by link",
+   "Tiny Sackville audience"
+  ],
+  "pitchTip": "Send links and info only, no attachments."
+ },
+ {
+  "id": "chmr-93-5-fm-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Alternative-branded university station",
+   "No format guidance given",
+   "Small Newfoundland audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "chsr-97-9-fm-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Takes all genres any time",
+   "Prioritises physical copies",
+   "Small Fredericton audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cism-89-3-fm-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Eclectic Montreal campus station",
+   "Weekly music committee reviews",
+   "Francophone audience"
+  ],
+  "pitchTip": "Send a 320kbps download link; no CDs."
+ },
+ {
+  "id": "ciut-89-5-fm-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Toronto campus station",
+   "New music inbox open",
+   "Uses !earshot distribution"
+  ],
+  "pitchTip": "Ask for an !earshot referral code."
+ },
+ {
+  "id": "civl-101-7-fm-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Submit via contact form option",
+   "Small Fraser Valley audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cjbu-107-3-fm-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music submissions inbox",
+   "Tiny Cape Breton audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cjru-1280-am-met-radio-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music librarian listed",
+   "Submission rules unclear",
+   "Toronto campus audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cjsf-90-1-fm-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music coordinator takes all music",
+   "Small Burnaby campus audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cjsr-88-5-fm-ca",
+  "eligible": false,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Albums or EPs only",
+   "No single tracks accepted"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cjsw-90-9-fm-ca",
+  "eligible": false,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "New albums only, 3+ tracks",
+   "No singles accepted"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cklu-96-7-fm-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Program director invites submissions",
+   "Small Sudbury audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "ckms-102-7-radio-waterloo-ca",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Invites emailed digital releases",
+   "Shared with all show hosts",
+   "Small community audience"
+  ],
+  "pitchTip": "Attach MP3s or a download link with an EPK."
+ },
+ {
+  "id": "ckrl-89-1-fm-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Open music submissions",
+   "Francophone community audience"
+  ],
+  "pitchTip": "Send a non-expiring Dropbox or Drive link."
+ },
+ {
+  "id": "ckua-radio-network-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Province-wide eligible network",
+   "Music committee reviews everything",
+   "No explicit lyrics"
+  ],
+  "pitchTip": "Send streaming plus download links with a one-sheet."
+ },
+ {
+  "id": "ckut-90-3-fm-ca",
+  "eligible": false,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Releases need three tracks",
+   "Singles not accepted"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "ckuw-95-9-fm-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Download links to MD are fine",
+   "Unsolicited MP3s are ignored",
+   "Small Winnipeg audience"
+  ],
+  "pitchTip": "Send a download link, never MP3 attachments."
+ },
+ {
+  "id": "kafm-88-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Community station with music director",
+   "Small Grand Junction audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kbmf-102-5-butte-america-radio-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Prefers digital downloads",
+   "Tiny Butte audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kbrp-96-1-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Dedicated music inbox",
+   "Tiny Bisbee audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kbvr-88-7-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Music director invites performers",
+   "Small Corvallis audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kcou-88-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Works mainly with labels",
+   "Independent acts must ask first",
+   "Small Columbia audience"
+  ],
+  "pitchTip": "Email first to ask how to submit."
+ },
+ {
+  "id": "kcss-91-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Has music submissions page",
+   "Small Turlock audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kcsu-90-5-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Form for non-local artists",
+   "Small Fort Collins audience"
+  ],
+  "pitchTip": "Use the form; email is for questions."
+ },
+ {
+  "id": "kcwu-88-1-the-burg-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music coordinator listed",
+   "Small Ellensburg audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kdnk-88-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Community station with music inbox",
+   "Small mountain-town audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kdrt-95-7-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Dedicated music submissions inbox",
+   "Tiny low-power Davis audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kdvs-90-3-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Physical submissions only",
+   "Respected freeform college station",
+   "Posting from the UK is costly"
+  ],
+  "pitchTip": "Post a CD to the station's mailing address."
+ },
+ {
+  "id": "kfai-90-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Community station welcoming new music",
+   "Minneapolis audience",
+   "Receipt may not be confirmed"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kglt-91-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Alternative public station in Montana",
+   "Music director listed",
+   "Small regional audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "khdx-93-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Digital submissions via contact form",
+   "Small Conway college audience"
+  ],
+  "pitchTip": "Pick Music Director in the contact form."
+ },
+ {
+  "id": "klpi-89-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "College station with submit page",
+   "Small Ruston audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kmnr-89-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director listed",
+   "Small Rolla college audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kmsu-89-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Takes music by email or post",
+   "Small Mankato audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kmud-91-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Community station music inbox",
+   "Tiny rural audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kmun-91-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music submissions inbox",
+   "No reply unless interested",
+   "Small Astoria audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "knon-89-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Dallas community station",
+   "Separate new music inbox",
+   "Mixed-genre programming"
+  ],
+  "pitchTip": "Use newmusic893@knon.org for new releases."
+ },
+ {
+  "id": "koop-91-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Music library welcomes submissions",
+   "Austin community audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "krua-88-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music coordinator listed",
+   "Small Anchorage college audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "krux-91-5-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director listed",
+   "Small Las Cruces audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "krza-88-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Clear email submission route",
+   "Small rural Colorado audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kser-90-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Community station music department",
+   "Small Everett audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kslu-90-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Dedicated music submissions inbox",
+   "Small Hammond audience"
+  ],
+  "pitchTip": "Send only to kslumusic@southeastern.edu."
+ },
+ {
+  "id": "ksua-91-5-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Wants Bandcamp download codes",
+   "Prefers albums or EPs",
+   "Small Fairbanks audience"
+  ],
+  "pitchTip": "Email a Bandcamp code, not a download link."
+ },
+ {
+  "id": "ksut-91-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music inbox listed",
+   "Small southwest Colorado audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "ksym-90-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Invites new music by email",
+   "Small San Antonio audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "ktdt-99-1-downtown-radio-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Welcomes band promo and music",
+   "Tiny low-power Tucson audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "ktec-89-5-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director listed",
+   "Tiny Klamath Falls audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "ktru-96-1-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Physical formats only",
+   "Respected Houston college station",
+   "Posting from the UK is costly"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "ktsw-89-9-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Hard copies only",
+   "Small San Marcos audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kucr-88-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director address may be dated",
+   "Small Riverside audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kvnf-90-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "MD takes music submissions",
+   "Small rural Colorado audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kvsc-88-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Prefers albums and EPs",
+   "Accepts emailed MP3s",
+   "Small St. Cloud audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kxci-91-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Prioritises Tucson and Arizona artists",
+   "Accepts music from anywhere",
+   "Respected community station"
+  ],
+  "pitchTip": "Include label, release date, genre and explicit-lyric notes."
+ },
+ {
+  "id": "kzum-89-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Refuses AI-generated music",
+   "Volunteer music directors",
+   "Small Lincoln audience"
+  ],
+  "pitchTip": "Say clearly the music is human-made."
+ },
+ {
+  "id": "kzyx-90-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "One track per email",
+   "Suggest a DJ to help",
+   "Small rural audience"
+  ],
+  "pitchTip": "Send one song and name a suitable DJ."
+ },
+ {
+  "id": "radio-boise-krbx-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Wants links to your music",
+   "Small Boise audience"
+  ],
+  "pitchTip": "Send links only."
+ },
+ {
+  "id": "radio-regent-ca",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Music submissions inbox",
+   "Small Toronto internet audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-western-94-9-fm-chrw-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Dedicated new music inbox",
+   "Small London Ontario audience"
+  ],
+  "pitchTip": "Send to music@radiowestern.ca, not the general address."
+ },
+ {
+  "id": "spark-syracuse-wspj-103-3-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Non-local music by email welcome",
+   "Tiny Syracuse audience"
+  ],
+  "pitchTip": "Send digital files only."
+ },
+ {
+  "id": "stoke-fm-ca",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "New music inbox",
+   "Tiny Revelstoke audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "takoma-radio-wowd-94-3-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "New music inbox",
+   "Tiny low-power audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "the-lion-90-7-wkps-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Post only, no MP3s",
+   "Penn State student audience"
+  ],
+  "pitchTip": "Mail a CD with a one-sheet and 2-3 suggested tracks."
+ },
+ {
+  "id": "u92-the-moose-wwvu-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Music submissions inbox",
+   "Rock-leaning college station",
+   "Small Morgantown audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "vancouver-co-op-radio-cfro-100-5-fm-ca",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Accepts non-local artists",
+   "Detailed library submission form",
+   "Vancouver community audience"
+  ],
+  "pitchTip": "Suggest specific shows in the form."
+ },
+ {
+  "id": "wasu-90-5-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Email a link or WAV",
+   "Small Boone audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wayo-104-3-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Files and links welcome",
+   "Tiny low-power audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wbor-91-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Submission inbox listed",
+   "Small Bowdoin college audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wbsu-89-1-the-point-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music contact listed",
+   "Small Brockport audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wcni-90-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director listed",
+   "Small New London audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wcsf-88-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director listed",
+   "Small Joliet audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wcur-91-7-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Always accepting upcoming artists",
+   "Small West Chester audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wcvf-88-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Airplay inquiries inbox",
+   "Small Fredonia audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wcwp-88-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Accepts download links",
+   "Small Long Island audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wdbx-91-1-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Post only for most releases",
+   "Tiny Carbondale audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wdce-90-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music submissions inbox",
+   "Small Richmond college audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wdcv-88-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music directors take submissions",
+   "Small Carlisle audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wdrt-91-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "General music submissions inbox",
+   "Tiny rural Wisconsin audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wesn-88-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Staff contact takes artist submissions",
+   "Small Bloomington IL audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wfcf-88-5-flagler-college-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Invites emailed downloads",
+   "Small St. Augustine audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wfnp-88-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director listed",
+   "Small New Paltz audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wgdr-91-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Volunteer MDs invite music",
+   "Tiny rural Vermont audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wgre-91-5-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music department takes submissions",
+   "Small DePauw audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wgsu-89-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Takes digital music, WAV preferred",
+   "Small Geneseo audience"
+  ],
+  "pitchTip": "Send WAV files."
+ },
+ {
+  "id": "wgxc-90-7-wave-farm-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Leans experimental and sound art",
+   "Small Hudson Valley audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "whfr-89-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Takes physical or digital copies",
+   "Small Dearborn audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "whpk-88-5-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director listed",
+   "Small Chicago college audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "whrb-95-3-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Prefers physical CDs",
+   "Record Hospital covers indie",
+   "Harvard station, decent reach"
+  ],
+  "pitchTip": "Address a CD to Record Hospital."
+ },
+ {
+  "id": "wixq-91-7-the-ville-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director listed",
+   "Small Millersville audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wjcu-88-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Music inbox listed",
+   "Cleveland college station"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wjmu-89-5-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Student contact takes submissions",
+   "Small Decatur audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wknh-91-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music address on contact page",
+   "Small Keene audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wlfr-91-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director takes submissions",
+   "Small Pomona NJ audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wluw-88-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Indie-leaning Chicago college station",
+   "Music department address only",
+   "No submission guidelines found"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wmhw-91-5-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music contact listed",
+   "Small Mt. Pleasant audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wmnf-88-5-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Music team forwards to hosts",
+   "Tampa community audience"
+  ],
+  "pitchTip": "Email musicrelations@wmnf.org only."
+ },
+ {
+  "id": "wmpg-90-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music department listed",
+   "Small Portland Maine audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wmuh-91-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music address listed",
+   "Small Allentown audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wmxm-88-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Top 200 music directors",
+   "Reports to NACC charts",
+   "Small college audience"
+  ],
+  "pitchTip": "Send to wmxmmd@ for Top 200 consideration."
+ },
+ {
+  "id": "wncw-88-7-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Americana and roots leaning",
+   "Prefers CDs, takes digital",
+   "Regional public audience"
+  ],
+  "pitchTip": "Send a one-sheet with WAV or MP3 files."
+ },
+ {
+  "id": "wnhu-88-7-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Music committee takes MP3 or WAV",
+   "Small West Haven audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wnyo-88-9-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Has an alternative music department",
+   "Small Oswego audience"
+  ],
+  "pitchTip": "Send to alt@wnyo889.org."
+ },
+ {
+  "id": "wobc-91-5-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director listed",
+   "Small Oberlin audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wony-90-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music inbox listed",
+   "Small Oneonta audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wqfs-90-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music submissions inbox",
+   "Small Greensboro audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wrek-91-1-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Avoids mainstream music",
+   "Physical media preferred",
+   "Atlanta college audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wriu-90-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Has a rock music director",
+   "Small Rhode Island audience"
+  ],
+  "pitchTip": "Email rock@wriu.org."
+ },
+ {
+  "id": "wrrc-107-7-the-bronc-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director takes music",
+   "Small Lawrenceville audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wrsu-88-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Music directors take all submissions",
+   "Rutgers student audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wsbu-88-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Takes music by post or email",
+   "Tiny St. Bonaventure audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wsia-88-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music department listed",
+   "Small Staten Island audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wsuw-91-7-the-edge-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Alternative-branded college station",
+   "Small Whitewater audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wtju-91-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Has a rock department director",
+   "Small Charlottesville audience"
+  ],
+  "pitchTip": "Email the rock department director."
+ },
+ {
+  "id": "wtmd-89-7-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Non-local acts must post CDs",
+   "Strong AAA station in Baltimore",
+   "Competitive and costly from abroad"
+  ],
+  "pitchTip": "Post two CDs and two media kits."
+ },
+ {
+  "id": "wtsr-91-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director listed",
+   "Small Ewing audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wusb-90-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Invites music by email",
+   "Small Stony Brook audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wuvt-90-7-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Physical copies only",
+   "Small Blacksburg audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wvua-90-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Prefers CDs, takes email",
+   "Small Tuscaloosa audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wvur-95-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Song inquiries inbox",
+   "Small Valparaiso audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wwsp-90fm-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Takes digital files by email",
+   "Small Stevens Point audience"
+  ],
+  "pitchTip": "Send FCC-clean files with artist info."
+ },
+ {
+  "id": "wxjm-88-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director listed",
+   "Small Harrisonburg audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wxou-88-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director listed",
+   "Small Auburn Hills audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wxvu-89-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music inbox is main contact",
+   "Small Villanova audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wyoming-public-media-wyoming-sounds-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Show takes MP3s by email",
+   "Statewide public audience",
+   "Leans regional, adult alternative"
+  ],
+  "pitchTip": "Email an MP3 or a WAV link."
+ },
+ {
+  "id": "wznd-106-1-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music department listed",
+   "Small Normal IL audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "88-1-indie-kntu-us",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "DFW-area artists only",
+   "Form is for the HomeBrewed show"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "border-radio-kawc-kofa-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Arizona-focused airplay route",
+   "Unclear if non-local acts count"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "canoe-fm-100-9-97-1-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Plays some alternative rock",
+   "Prioritises local and Canadian music",
+   "Tiny Haliburton audience"
+  ],
+  "pitchTip": "Send one to three favourite tracks."
+ },
+ {
+  "id": "cfbx-92-5-fm-the-x-ca",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Physical albums only",
+   "No singles accepted"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cioe-97-5-fm-ca",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Strong East Coast local focus",
+   "Clean radio edits only"
+  ],
+  "pitchTip": "Upload a clean MP3 under 8 MB with artwork."
+ },
+ {
+  "id": "cjam-99-1-fm-ca",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Needs four or more original tracks",
+   "Singles will not be added"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cove-fm-88-7-ca",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Non-Canadians must use a platform",
+   "Focuses on East Coast music"
+  ],
+  "pitchTip": "Use !earshot or PlayMPE with lossless files."
+ },
+ {
+  "id": "kalw-91-7-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Mostly news and talk",
+   "Little new music programming"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kkcr-90-9-us",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "CDs only, no singles",
+   "Two singles do not qualify"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kmre-102-3-us",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Local Bellingham artists only",
+   "Route is the local music show"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kootenay-co-op-radio-cjly-93-5-ca",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No indie or rock inbox",
+   "Prefers !earshot distribution"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kpcw-91-7-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Mostly news and talk",
+   "Tiny Park City audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kunm-89-9-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Mostly public news format",
+   "Few music blocks"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "lightning-100-wrlt-us",
+  "eligible": false,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Appears to be local-music route",
+   "Aimed at Nashville artists"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "marfa-public-radio-krts-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Public radio, limited music slots",
+   "Tiny west Texas audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "trent-radio-92-7-cfff-ca",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Archive form is local only",
+   "Non-local acts pitch individual hosts"
+  ],
+  "pitchTip": "Email individual programmers directly."
+ },
+ {
+  "id": "vibe-105-5-chry-ca",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Urban and hip-hop leaning",
+   "Poor genre fit for indie rock"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wbrs-100-1-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Post only, vinyl favoured",
+   "Small Waltham audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wcch-103-5-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Invites music on its homepage",
+   "Tiny Holyoke audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wers-88-9-us",
+  "eligible": false,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Local Boston artists only",
+   "Non-local submissions are not accepted"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wfaq-101-3-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director takes materials",
+   "Tiny low-power audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wikd-102-5-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Has a music submission form",
+   "Small Daytona Beach audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wojb-88-9-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Music director listed",
+   "Tiny rural Wisconsin audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "woub-91-3-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Limited new-music programming",
+   "Public radio format"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wrdl-88-9-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "General manager takes music",
+   "Tiny Ashland audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wsge-91-7-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Roots and Americana leaning",
+   "Poor genre fit"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wsou-89-5-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Metal and hard rock format",
+   "Indie rock is a poor fit"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wswi-95-7-the-spin-us",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Local music inbox only",
+   "No route for non-local acts"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wvmo-98-7-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music inbox listed",
+   "Tiny Monona audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wyxr-91-7-us",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Reviewed for Memphis music shows",
+   "Local library focus"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wzly-91-5-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Physical CDs only",
+   "Small Wellesley audience"
+  ],
+  "pitchTip": null
+ }
+]

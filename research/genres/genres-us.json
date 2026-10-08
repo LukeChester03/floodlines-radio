@@ -1,0 +1,1232 @@
+[
+ {
+  "id": "bagel-radio-us",
+  "genreFit": "indie",
+  "genres": "indie rock, post-punk, garage, psych",
+  "contactName": null
+ },
+ {
+  "id": "kanm-texas-a-m-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": "Natalia Silva, Paige Gilbert, Zoe Espinoza"
+ },
+ {
+  "id": "kbga-89-9-us",
+  "genreFit": "any",
+  "genres": "alternative, diverse student programming",
+  "contactName": null
+ },
+ {
+  "id": "kcpr-91-3-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kcr-college-radio-sdsu-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": "Phillip Dixon, Adam Acosta"
+ },
+ {
+  "id": "kcrw-89-9-us",
+  "genreFit": "indie",
+  "genres": "eclectic, indie, electronic, global",
+  "contactName": null
+ },
+ {
+  "id": "kcsb-91-9-us",
+  "genreFit": "any",
+  "genres": "freeform, indie, all genres",
+  "contactName": "Emmett Milligan"
+ },
+ {
+  "id": "kexp-90-3-us",
+  "genreFit": "indie",
+  "genres": "indie, alt rock, eclectic new music",
+  "contactName": "Chris Sanley"
+ },
+ {
+  "id": "kjhk-90-7-us",
+  "genreFit": "indie",
+  "genres": "alternative, indie, local new music",
+  "contactName": null
+ },
+ {
+  "id": "krui-89-7-us",
+  "genreFit": "any",
+  "genres": "student freeform, indie, punk",
+  "contactName": null
+ },
+ {
+  "id": "kuci-88-9-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kugs-89-3-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kure-88-5-us",
+  "genreFit": "indie",
+  "genres": "alternative, indie, student freeform",
+  "contactName": null
+ },
+ {
+  "id": "kvrx-91-7-us",
+  "genreFit": "any",
+  "genres": "freeform, non-mainstream, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kwva-88-1-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kxsc-1560-us",
+  "genreFit": "indie",
+  "genres": "indie, alternative, student freeform",
+  "contactName": null
+ },
+ {
+  "id": "kxsf-102-5-us",
+  "genreFit": "any",
+  "genres": "community freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kxua-88-3-us",
+  "genreFit": "any",
+  "genres": "eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kzsc-88-1-us",
+  "genreFit": "any",
+  "genres": "eclectic, rock, hip hop, electronic",
+  "contactName": "Serafina Holzer"
+ },
+ {
+  "id": "kzsu-90-1-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": "Binta Diallo, Juan Luna-Avin, Bill Cuevas"
+ },
+ {
+  "id": "radio-1190-kvcu-us",
+  "genreFit": "indie",
+  "genres": "indie, alternative, local new music",
+  "contactName": null
+ },
+ {
+  "id": "wbny-91-3-us",
+  "genreFit": "indie",
+  "genres": "alternative, local, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wesu-88-1-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": "Lela Jennings, Terry Piotrowski"
+ },
+ {
+  "id": "wgmu-radio-george-mason-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "whus-91-7-us",
+  "genreFit": "indie",
+  "genres": "alternative, indie, student freeform",
+  "contactName": "Aidan Cruz"
+ },
+ {
+  "id": "widr-89-1-us",
+  "genreFit": "any",
+  "genres": "student freeform, indie, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wiux-99-1-us",
+  "genreFit": "indie",
+  "genres": "indie, alternative, local music",
+  "contactName": "Sadie Clutter"
+ },
+ {
+  "id": "wknc-88-1-us",
+  "genreFit": "indie",
+  "genres": "indie rock, alternative, underground",
+  "contactName": null
+ },
+ {
+  "id": "wmfo-91-5-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": "Isabella Tepper, Fin Jones"
+ },
+ {
+  "id": "wmsc-90-3-us",
+  "genreFit": "indie",
+  "genres": "alternative rock, indie",
+  "contactName": null
+ },
+ {
+  "id": "wpkn-89-5-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wprk-91-5-us",
+  "genreFit": "any",
+  "genres": "freeform, punk, indie, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wpts-92-1-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wrbb-104-9-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": "Eli Ehrlich"
+ },
+ {
+  "id": "wrpi-91-5-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wrur-88-5-us",
+  "genreFit": "indie",
+  "genres": "adult album alternative, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "wruv-90-1-us",
+  "genreFit": "indie",
+  "genres": "alternative, indie, student freeform",
+  "contactName": "Sage Dephoure"
+ },
+ {
+  "id": "wruw-91-1-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wuog-90-5-us",
+  "genreFit": "indie",
+  "genres": "alternative, indie, student freeform",
+  "contactName": "Jonas Broom, Kamsi Nwabufo"
+ },
+ {
+  "id": "wusc-90-5-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": "Brianna Hale"
+ },
+ {
+  "id": "wutk-90-3-the-rock-us",
+  "genreFit": "indie",
+  "genres": "rock, alternative, indie",
+  "contactName": null
+ },
+ {
+  "id": "wvkr-91-3-us",
+  "genreFit": "any",
+  "genres": "independent, freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wvum-90-5-us",
+  "genreFit": "any",
+  "genres": "student freeform, alternative, all genres",
+  "contactName": "Laura de Arcos, Luna Cordoba"
+ },
+ {
+  "id": "wxdu-88-7-us",
+  "genreFit": "any",
+  "genres": "alternative, freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "xray-fm-us",
+  "genreFit": "any",
+  "genres": "eclectic, independent, all genres",
+  "contactName": null
+ },
+ {
+  "id": "idobi-radio-us",
+  "genreFit": "indie",
+  "genres": "alternative, pop-punk, indie, emo",
+  "contactName": null
+ },
+ {
+  "id": "somafm-indie-pop-rocks-us",
+  "genreFit": "indie",
+  "genres": "indie pop, indie rock",
+  "contactName": null
+ },
+ {
+  "id": "wfpk-91-9-louisville-public-media-us",
+  "genreFit": "indie",
+  "genres": "adult album alternative, indie",
+  "contactName": null
+ },
+ {
+  "id": "wnrn-us",
+  "genreFit": "indie",
+  "genres": "adult album alternative, indie, rock",
+  "contactName": null
+ },
+ {
+  "id": "wnxp-91-one-us",
+  "genreFit": "indie",
+  "genres": "alternative, indie, rock, new music",
+  "contactName": null
+ },
+ {
+  "id": "wnyu-89-1-us",
+  "genreFit": "any",
+  "genres": "freeform, indie, all genres",
+  "contactName": "Sawyer Harris"
+ },
+ {
+  "id": "wprb-103-3-us",
+  "genreFit": "any",
+  "genres": "freeform, indie, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wras-album-88-us",
+  "genreFit": "indie",
+  "genres": "alternative, indie, specialty shows",
+  "contactName": null
+ },
+ {
+  "id": "wxyc-89-3-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "freeform-portland-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "hollow-earth-radio-khuh-us",
+  "genreFit": "any",
+  "genres": "freeform, underground, experimental",
+  "contactName": null
+ },
+ {
+  "id": "kaos-89-3-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kbmf-102-5-butte-america-radio-us",
+  "genreFit": "any",
+  "genres": "community freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kbrp-96-1-us",
+  "genreFit": "any",
+  "genres": "eclectic, rock, jazz, folk",
+  "contactName": null
+ },
+ {
+  "id": "kbvr-88-7-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kdrt-95-7-us",
+  "genreFit": "any",
+  "genres": "eclectic, community, all genres",
+  "contactName": null
+ },
+ {
+  "id": "ktdt-99-1-downtown-radio-us",
+  "genreFit": "any",
+  "genres": "underground, rock, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "kusf-online-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kutx-98-9-us",
+  "genreFit": "indie",
+  "genres": "indie, rock, Austin new music",
+  "contactName": "Rick McNulty"
+ },
+ {
+  "id": "radio-boise-krbx-us",
+  "genreFit": "any",
+  "genres": "eclectic, community, all genres",
+  "contactName": null
+ },
+ {
+  "id": "radio-valencia-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "spark-syracuse-wspj-103-3-us",
+  "genreFit": "indie",
+  "genres": "alternative, freeform, local",
+  "contactName": null
+ },
+ {
+  "id": "takoma-radio-wowd-94-3-us",
+  "genreFit": "any",
+  "genres": "community freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "the-current-89-3-kcmp-us",
+  "genreFit": "indie",
+  "genres": "indie, alt rock, new music",
+  "contactName": null
+ },
+ {
+  "id": "wasu-90-5-us",
+  "genreFit": "indie",
+  "genres": "alternative rock, indie",
+  "contactName": null
+ },
+ {
+  "id": "wayo-104-3-us",
+  "genreFit": "any",
+  "genres": "freeform, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wcur-91-7-us",
+  "genreFit": "any",
+  "genres": "student freeform, indie, rock",
+  "contactName": null
+ },
+ {
+  "id": "wfcf-88-5-flagler-college-us",
+  "genreFit": "any",
+  "genres": "college rock, mixed genres",
+  "contactName": null
+ },
+ {
+  "id": "wfhb-91-3-us",
+  "genreFit": "any",
+  "genres": "eclectic community, all genres",
+  "contactName": "Abby Noroozi"
+ },
+ {
+  "id": "wnhu-88-7-us",
+  "genreFit": "any",
+  "genres": "all genres, rock, indie",
+  "contactName": null
+ },
+ {
+  "id": "wnyo-88-9-us",
+  "genreFit": "any",
+  "genres": "hits, alternative, punk, variety",
+  "contactName": null
+ },
+ {
+  "id": "kalx-90-7-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": "Dasha Shevchenko, Ava Hoener"
+ },
+ {
+  "id": "kboo-90-7-us",
+  "genreFit": "any",
+  "genres": "community, rock, many genres",
+  "contactName": "Brandon Lieberman"
+ },
+ {
+  "id": "kcou-88-1-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": "Opal Webber, Mateo Calderon"
+ },
+ {
+  "id": "kfai-90-3-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kglt-91-9-us",
+  "genreFit": "indie",
+  "genres": "alternative, eclectic public radio",
+  "contactName": null
+ },
+ {
+  "id": "knon-89-3-us",
+  "genreFit": "any",
+  "genres": "community, rock, many genres",
+  "contactName": null
+ },
+ {
+  "id": "koop-91-7-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kspc-88-7-us",
+  "genreFit": "any",
+  "genres": "freeform, punk, indie, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kxci-91-3-us",
+  "genreFit": "any",
+  "genres": "eclectic, community, all genres",
+  "contactName": null
+ },
+ {
+  "id": "u92-the-moose-wwvu-us",
+  "genreFit": "indie",
+  "genres": "rock, alternative, college",
+  "contactName": null
+ },
+ {
+  "id": "wjcu-88-7-us",
+  "genreFit": "any",
+  "genres": "eclectic, rock, local music",
+  "contactName": null
+ },
+ {
+  "id": "wluw-88-7-us",
+  "genreFit": "any",
+  "genres": "independent, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wmnf-88-5-us",
+  "genreFit": "any",
+  "genres": "eclectic, indie, community",
+  "contactName": null
+ },
+ {
+  "id": "wrsu-88-7-us",
+  "genreFit": "any",
+  "genres": "student freeform, rock, indie",
+  "contactName": "Kalina Taylor, Sam Cohen"
+ },
+ {
+  "id": "wtbu-us",
+  "genreFit": "any",
+  "genres": "student, indie, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wyoming-public-media-wyoming-sounds-us",
+  "genreFit": "any",
+  "genres": "eclectic, adult alternative, acoustic",
+  "contactName": null
+ },
+ {
+  "id": "wzbc-90-3-us",
+  "genreFit": "any",
+  "genres": "rock, experimental, noise",
+  "contactName": "Michael Sardella, Peter Wycoff"
+ },
+ {
+  "id": "kxt-91-7-us",
+  "genreFit": "indie",
+  "genres": "indie, rock, local new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-milwaukee-88nine-wyms-us",
+  "genreFit": "any",
+  "genres": "eclectic, indie, soul, hip hop",
+  "contactName": null
+ },
+ {
+  "id": "wfmu-91-1-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wtmd-89-7-us",
+  "genreFit": "indie",
+  "genres": "adult album alternative, indie",
+  "contactName": null
+ },
+ {
+  "id": "kafm-88-1-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kcss-91-9-us",
+  "genreFit": "indie",
+  "genres": "alternative, indie, local",
+  "contactName": null
+ },
+ {
+  "id": "kcsu-90-5-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": "KC Flanagan"
+ },
+ {
+  "id": "kcwu-88-1-the-burg-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": "Daniel"
+ },
+ {
+  "id": "kdnk-88-1-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "khdx-93-1-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "klpi-89-1-us",
+  "genreFit": "indie",
+  "genres": "rock, alternative, college",
+  "contactName": "Cage Gentry"
+ },
+ {
+  "id": "kmnr-89-7-us",
+  "genreFit": "any",
+  "genres": "free format, all genres",
+  "contactName": "Ayden Sanker"
+ },
+ {
+  "id": "kmsu-89-7-us",
+  "genreFit": "any",
+  "genres": "eclectic, local, jazz overnight",
+  "contactName": null
+ },
+ {
+  "id": "kmud-91-1-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": "Dennis Maher"
+ },
+ {
+  "id": "kmun-91-9-us",
+  "genreFit": "mixed",
+  "genres": "classical, news, genre shows",
+  "contactName": null
+ },
+ {
+  "id": "krua-88-1-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": "Mili Tacas"
+ },
+ {
+  "id": "krux-91-5-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "krza-88-7-us",
+  "genreFit": "mixed",
+  "genres": "regional, Latino, culturally relevant music",
+  "contactName": null
+ },
+ {
+  "id": "kser-90-7-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": "Tracy Myers"
+ },
+ {
+  "id": "kslu-90-9-us",
+  "genreFit": "any",
+  "genres": "student, rock, all genres",
+  "contactName": null
+ },
+ {
+  "id": "ksua-91-5-us",
+  "genreFit": "any",
+  "genres": "student freeform, punk, all genres",
+  "contactName": null
+ },
+ {
+  "id": "ksut-91-3-us",
+  "genreFit": "indie",
+  "genres": "adult album alternative, music discovery",
+  "contactName": null
+ },
+ {
+  "id": "ksym-90-1-us",
+  "genreFit": "indie",
+  "genres": "alternative, student freeform",
+  "contactName": null
+ },
+ {
+  "id": "ktec-89-5-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kucr-88-3-us",
+  "genreFit": "any",
+  "genres": "student freeform, indie, rap",
+  "contactName": null
+ },
+ {
+  "id": "kvnf-90-9-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, punk, folk",
+  "contactName": null
+ },
+ {
+  "id": "kvsc-88-1-us",
+  "genreFit": "indie",
+  "genres": "alternative, student freeform",
+  "contactName": null
+ },
+ {
+  "id": "kzum-89-3-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, local, metal",
+  "contactName": "Twyla Twang"
+ },
+ {
+  "id": "kzyx-90-7-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wbor-91-1-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wbsu-89-1-the-point-us",
+  "genreFit": "any",
+  "genres": "new music, student, all genres",
+  "contactName": "Kaylen Schauf"
+ },
+ {
+  "id": "wcch-103-5-us",
+  "genreFit": "any",
+  "genres": "community college, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wcni-90-9-us",
+  "genreFit": "any",
+  "genres": "eclectic, folk to punk",
+  "contactName": null
+ },
+ {
+  "id": "wcsf-88-7-us",
+  "genreFit": "any",
+  "genres": "eclectic college music",
+  "contactName": "Dylan Curry"
+ },
+ {
+  "id": "wcvf-88-9-us",
+  "genreFit": "any",
+  "genres": "student, local, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wcwp-88-1-us",
+  "genreFit": "indie",
+  "genres": "rock, alternative, mixed",
+  "contactName": null
+ },
+ {
+  "id": "wdce-90-1-us",
+  "genreFit": "indie",
+  "genres": "independent, indie rock, student",
+  "contactName": null
+ },
+ {
+  "id": "wdcv-88-3-us",
+  "genreFit": "any",
+  "genres": "student freeform, rock, metal",
+  "contactName": null
+ },
+ {
+  "id": "wdrt-91-9-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wesn-88-1-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": "Derek Bohlman"
+ },
+ {
+  "id": "wfaq-101-3-us",
+  "genreFit": "any",
+  "genres": "community, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wfnp-88-7-us",
+  "genreFit": "indie",
+  "genres": "alternative, student, indie",
+  "contactName": "Kat Samedova"
+ },
+ {
+  "id": "wgdr-91-1-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": "Savannah, Mark"
+ },
+ {
+  "id": "wgre-91-5-us",
+  "genreFit": "indie",
+  "genres": "alternative, student freeform",
+  "contactName": null
+ },
+ {
+  "id": "wgsu-89-3-us",
+  "genreFit": "indie",
+  "genres": "alt-pop, alternative, college",
+  "contactName": null
+ },
+ {
+  "id": "whfr-89-3-us",
+  "genreFit": "any",
+  "genres": "student, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "whpk-88-5-us",
+  "genreFit": "any",
+  "genres": "rock, electronic, jazz, rap",
+  "contactName": null
+ },
+ {
+  "id": "wikd-102-5-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wixq-91-7-the-ville-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": "Maddie Hess"
+ },
+ {
+  "id": "wjmu-89-5-us",
+  "genreFit": "indie",
+  "genres": "alternative rock, college",
+  "contactName": "Aidan Lee"
+ },
+ {
+  "id": "wknh-91-3-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wlfr-91-7-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": "Mariella Negro"
+ },
+ {
+  "id": "wmhw-91-5-us",
+  "genreFit": "any",
+  "genres": "student, mixed formats",
+  "contactName": null
+ },
+ {
+  "id": "wmpg-90-9-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wmuh-91-7-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wmxm-88-9-us",
+  "genreFit": "any",
+  "genres": "free-format, independent, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wobc-91-5-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": "Rudy Bailey"
+ },
+ {
+  "id": "wony-90-9-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wqfs-90-9-us",
+  "genreFit": "indie",
+  "genres": "alternative, wide genre range",
+  "contactName": null
+ },
+ {
+  "id": "wrdl-88-9-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": "Derek Wood"
+ },
+ {
+  "id": "wriu-90-3-us",
+  "genreFit": "any",
+  "genres": "rock, jazz, folk, eclectic",
+  "contactName": "Jacob Iacobucci"
+ },
+ {
+  "id": "wrrc-107-7-the-bronc-us",
+  "genreFit": "any",
+  "genres": "student, rock, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wsbu-88-3-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wsia-88-9-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wsuw-91-7-the-edge-us",
+  "genreFit": "indie",
+  "genres": "alternative, metal, hip hop",
+  "contactName": null
+ },
+ {
+  "id": "wtju-91-1-us",
+  "genreFit": "any",
+  "genres": "rock, folk, jazz, classical",
+  "contactName": "Bill Pemberton"
+ },
+ {
+  "id": "wtsr-91-3-us",
+  "genreFit": "any",
+  "genres": "alternative, student, all genres",
+  "contactName": "Ray Hollopeter"
+ },
+ {
+  "id": "wusb-90-1-us",
+  "genreFit": "any",
+  "genres": "freeform, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wvmo-98-7-us",
+  "genreFit": "any",
+  "genres": "Americana base, jazz to rock",
+  "contactName": null
+ },
+ {
+  "id": "wvua-90-7-us",
+  "genreFit": "any",
+  "genres": "student, post-punk, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wvur-95-1-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wwsp-90fm-us",
+  "genreFit": "indie",
+  "genres": "alternative, student",
+  "contactName": null
+ },
+ {
+  "id": "wxjm-88-7-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wxou-88-3-us",
+  "genreFit": "any",
+  "genres": "student, independent, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wxvu-89-1-us",
+  "genreFit": "any",
+  "genres": "student, indie, pop, jazz",
+  "contactName": null
+ },
+ {
+  "id": "wznd-106-1-us",
+  "genreFit": "any",
+  "genres": "student, mixed formats",
+  "contactName": null
+ },
+ {
+  "id": "wzrd-88-3-us",
+  "genreFit": "any",
+  "genres": "freeform, experimental, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kdvs-90-3-us",
+  "genreFit": "any",
+  "genres": "alternative, freeform, all genres",
+  "contactName": "Avery Infantas, El Bauer"
+ },
+ {
+  "id": "ktru-96-1-us",
+  "genreFit": "any",
+  "genres": "student freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "lightning-100-wrlt-us",
+  "genreFit": "indie",
+  "genres": "independent, indie rock, local",
+  "contactName": null
+ },
+ {
+  "id": "the-lion-90-7-wkps-us",
+  "genreFit": "any",
+  "genres": "student, jazz, mixed genres",
+  "contactName": null
+ },
+ {
+  "id": "wers-88-9-us",
+  "genreFit": "indie",
+  "genres": "local, alternative, indie",
+  "contactName": null
+ },
+ {
+  "id": "whrb-95-3-us",
+  "genreFit": "mixed",
+  "genres": "classical, jazz, Record Hospital indie",
+  "contactName": null
+ },
+ {
+  "id": "wncw-88-7-us",
+  "genreFit": "any",
+  "genres": "Americana, roots, rock, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "wrek-91-1-us",
+  "genreFit": "any",
+  "genres": "diverse, experimental, rock, electronic",
+  "contactName": null
+ },
+ {
+  "id": "wxna-101-5-us",
+  "genreFit": "any",
+  "genres": "freeform community, all genres",
+  "contactName": null
+ },
+ {
+  "id": "88-1-indie-kntu-us",
+  "genreFit": "indie",
+  "genres": "indie, alternative, local",
+  "contactName": null
+ },
+ {
+  "id": "border-radio-kawc-kofa-us",
+  "genreFit": "any",
+  "genres": "blues, folk, rock, local",
+  "contactName": null
+ },
+ {
+  "id": "kalw-91-7-us",
+  "genreFit": "mixed",
+  "genres": "news, eclectic music shows",
+  "contactName": null
+ },
+ {
+  "id": "kkcr-90-9-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, Hawaiian",
+  "contactName": "Rodwin"
+ },
+ {
+  "id": "kmre-102-3-us",
+  "genreFit": "any",
+  "genres": "community, local music",
+  "contactName": null
+ },
+ {
+  "id": "kpcw-91-7-us",
+  "genreFit": "mixed",
+  "genres": "news, talk, some music",
+  "contactName": null
+ },
+ {
+  "id": "ktsw-89-9-us",
+  "genreFit": "any",
+  "genres": "alternative, student, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kunm-89-9-us",
+  "genreFit": "mixed",
+  "genres": "news, eclectic music blocks",
+  "contactName": "Jessica Allen"
+ },
+ {
+  "id": "marfa-public-radio-krts-us",
+  "genreFit": "mixed",
+  "genres": "news, eclectic music",
+  "contactName": null
+ },
+ {
+  "id": "wbrs-100-1-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wdbx-91-1-us",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wgxc-90-7-wave-farm-us",
+  "genreFit": "mixed",
+  "genres": "experimental, sound art, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "wojb-88-9-us",
+  "genreFit": "any",
+  "genres": "eclectic, progressive rock, community",
+  "contactName": "Jeffrey Jones"
+ },
+ {
+  "id": "woub-91-3-us",
+  "genreFit": "mixed",
+  "genres": "public news, some music",
+  "contactName": null
+ },
+ {
+  "id": "wsge-91-7-us",
+  "genreFit": "mixed",
+  "genres": "roots, rhythm and blues, beach",
+  "contactName": null
+ },
+ {
+  "id": "wsou-89-5-us",
+  "genreFit": "mixed",
+  "genres": "metal, hard rock",
+  "contactName": null
+ },
+ {
+  "id": "wswi-95-7-the-spin-us",
+  "genreFit": "indie",
+  "genres": "alternative, local",
+  "contactName": null
+ },
+ {
+  "id": "wuvt-90-7-us",
+  "genreFit": "any",
+  "genres": "freeform, synth-pop, punk, all",
+  "contactName": "Mak Kanekkeberg"
+ },
+ {
+  "id": "wyxr-91-7-us",
+  "genreFit": "any",
+  "genres": "Memphis music, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "wzly-91-5-us",
+  "genreFit": "any",
+  "genres": "student, all genres",
+  "contactName": null
+ },
+ {
+  "id": "kxlu-88-9-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": "Jake Cousino"
+ },
+ {
+  "id": "mvy-radio-wmvy-us",
+  "genreFit": "indie",
+  "genres": "adult progressive rock, alternative",
+  "contactName": "Aurora McGuckin"
+ },
+ {
+  "id": "wmse-91-7-us",
+  "genreFit": "indie",
+  "genres": "freeform, indie, rock",
+  "contactName": "Sid McCain"
+ },
+ {
+  "id": "wqhs-us",
+  "genreFit": "any",
+  "genres": "student, dance-punk, all genres",
+  "contactName": "Luiza Sulea"
+ },
+ {
+  "id": "wrct-88-3-us",
+  "genreFit": "any",
+  "genres": "freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "wyep-91-3-us",
+  "genreFit": "indie",
+  "genres": "indie rock, Americana, classic rock",
+  "contactName": "Joey Spehar"
+ }
+]

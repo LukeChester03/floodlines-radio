@@ -81,31 +81,69 @@ function provisional(s) {
   const value = { national: 4, public: 4, regional: 3, show: 3, online: 2, commercial: 3, college: 2, student: 2, community: 2 }[s.type] || 2;
   return { eligible: true, chance, value, reasons: ["Not ranked by hand yet"], pitchTip: null, provisional: true };
 }
+// Start here: good odds and worth having. Strong: good odds, smaller prize.
+// Long shots: big stations with poor odds today, or anything with very poor odds.
 const tierOf = (chance, value, score) =>
-  chance >= 4 && score >= 64 ? "start" : score >= 56 ? "strong" : score >= 40 ? "worth" : "long";
+  chance >= 3 && score >= 60 ? "start"
+  : chance >= 3 && score >= 52 ? "strong"
+  : chance <= 2 && value >= 4 ? "long"
+  : chance >= 2 ? "worth"
+  : "long";
+
+// Genre tags from the genre pass (research/genres/*.json), keyed by id
+const genres = new Map();
+try {
+  for (const f of readdirSync("research/genres").filter(f => f.endsWith(".json")))
+    for (const r of JSON.parse(readFileSync(`research/genres/${f}`, "utf8"))) genres.set(r.id, r);
+} catch { /* no genre pass yet */ }
+
+const routeOf = s =>
+  s.emailAllowed ? "email"
+  : s.method === "email" ? "contact"
+  : s.method === "none-found" ? "none"
+  : s.method;
 
 const used = new Set();
-const all = [...seen.values()];
-const applyable = all.filter(s => !(s.method === "email" && !s.emailAllowed) && s.method !== "none-found");
-const out = applyable
+const all = [...seen.values()].map(s => {
+  let id = slug(`${s.name}-${s.show || ""}-${s.country}`);
+  while (used.has(id)) id += "-x";
+  used.add(id);
+  return { id, ...s };
+});
+const out = all
   .map(s => {
-    let id = slug(`${s.name}-${s.show || ""}-${s.country}`);
-    while (used.has(id)) id += "-x";
-    used.add(id);
-    const j = scores.get(id) || provisional(s);
-    const score = j.chance * 12 + j.value * 8;
-    return { id, ...s, category: category(s), eligible: j.eligible !== false, chance: j.chance, value: j.value, score, tier: tierOf(j.chance, j.value, score), reasons: j.reasons || [], pitchTip: j.pitchTip || null, provisional: !!j.provisional };
+    const route = routeOf(s);
+    const j = scores.get(s.id) || (["contact", "none"].includes(route) ? null : provisional(s));
+    const g = genres.get(s.id) || {};
+    const score = j ? j.chance * 12 + j.value * 8 : null;
+    return {
+      ...s,
+      route,
+      category: category(s),
+      restricted: j ? j.eligible === false : false,
+      chance: j ? j.chance : null,
+      value: j ? j.value : null,
+      score,
+      tier: j ? tierOf(j.chance, j.value, score) : null,
+      reasons: j ? j.reasons || [] : [],
+      pitchTip: j ? j.pitchTip || null : null,
+      provisional: j ? !!j.provisional : false,
+      genreFit: g.genreFit || "unknown",
+      genres: g.genres || null,
+      contactName: g.contactName || null,
+    };
   })
-  .filter(s => s.eligible)
-  .sort((a, b) => b.score - a.score || b.chance - a.chance || a.name.localeCompare(b.name))
+  .sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || a.name.localeCompare(b.name))
   .map((s, i) => ({ ...s, rank: i + 1 }));
-console.log(`${all.length - applyable.length} general-contact or no-route rows hidden; ${applyable.length - out.length} not eligible for FloodLines`);
 writeFileSync("src/data/stations.json", JSON.stringify(out, null, 1));
 const count = k => out.reduce((m, s) => ((m[s[k]] = (m[s[k]] || 0) + 1), m), {});
 console.log(`${out.length} stations (${dropped} dropped/duplicates)`);
 console.log("by group", count("group"));
 console.log("by method", count("method"));
 console.log("by tier", count("tier"));
+console.log("by route", count("route"));
+console.log("by genre fit", count("genreFit"));
+console.log("restricted", out.filter(s => s.restricted).length);
 console.log("by category", count("category"));
 console.log("provisional", out.filter(s => s.provisional).length);
 console.log("email allowed", out.filter(s => s.emailAllowed).length);

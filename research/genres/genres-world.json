@@ -1,0 +1,878 @@
+[
+ {
+  "id": "3rrr-102-7-fm-triple-r-au",
+  "genreFit": "any",
+  "genres": "eclectic, rock, indie, specialist shows",
+  "contactName": null
+ },
+ {
+  "id": "cjlo-1690-am-ca",
+  "genreFit": "any",
+  "genres": "eclectic, indie, rock, all genres",
+  "contactName": null
+ },
+ {
+  "id": "fm4-orf-at",
+  "genreFit": "indie",
+  "genres": "indie, alternative, electronic, hip hop",
+  "contactName": null
+ },
+ {
+  "id": "4zzz-102-1-fm-au",
+  "genreFit": "indie",
+  "genres": "independent, alternative, punk, local",
+  "contactName": null
+ },
+ {
+  "id": "95bfm-nz",
+  "genreFit": "indie",
+  "genres": "alternative, indie, local NZ music",
+  "contactName": null
+ },
+ {
+  "id": "cfur-88-7-fm-ca",
+  "genreFit": "any",
+  "genres": "indie rock, jazz, folk, metal",
+  "contactName": "Grace Hoksbergen"
+ },
+ {
+  "id": "cjiq-88-3-fm-ca",
+  "genreFit": "indie",
+  "genres": "alternative rock, indie",
+  "contactName": null
+ },
+ {
+  "id": "ckdj-107-9-fm-ca",
+  "genreFit": "indie",
+  "genres": "new music, indie, alt",
+  "contactName": null
+ },
+ {
+  "id": "edge-radio-99-3-fm-au",
+  "genreFit": "any",
+  "genres": "new music, indie, all genres",
+  "contactName": null
+ },
+ {
+  "id": "indiexl-nl",
+  "genreFit": "indie",
+  "genres": "indie, alternative rock",
+  "contactName": null
+ },
+ {
+  "id": "k-lncampus-de",
+  "genreFit": "indie",
+  "genres": "alternative, indie, electronic",
+  "contactName": "Paula Schoeller, Natrisha Godehardt"
+ },
+ {
+  "id": "pbs-106-7-fm-au",
+  "genreFit": "any",
+  "genres": "specialist: soul, punk, rock, jazz",
+  "contactName": null
+ },
+ {
+  "id": "radio-active-88-6-fm-nz",
+  "genreFit": "indie",
+  "genres": "alternative, indie, local NZ",
+  "contactName": null
+ },
+ {
+  "id": "radio-nova-99-3-no",
+  "genreFit": "indie",
+  "genres": "indie, alternative, new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-one-91fm-nz",
+  "genreFit": "indie",
+  "genres": "alternative, indie, local NZ",
+  "contactName": "Maddy Barnes"
+ },
+ {
+  "id": "radio-tudent-89-3-si",
+  "genreFit": "indie",
+  "genres": "alternative, indie, experimental",
+  "contactName": null
+ },
+ {
+  "id": "rtrfm-92-1-au",
+  "genreFit": "any",
+  "genres": "eclectic, indie, rock, local",
+  "contactName": "Annika Moses"
+ },
+ {
+  "id": "studentradion-i-sverige-se",
+  "genreFit": "any",
+  "genres": "student radio, mixed genres",
+  "contactName": null
+ },
+ {
+  "id": "syn-media-90-7-au",
+  "genreFit": "any",
+  "genres": "youth new music, all genres",
+  "contactName": null
+ },
+ {
+  "id": "urgent-fm-be",
+  "genreFit": "indie",
+  "genres": "alternative, indie, electronic",
+  "contactName": null
+ },
+ {
+  "id": "vancouver-co-op-radio-cfro-100-5-fm-ca",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "ckua-radio-network-ca",
+  "genreFit": "any",
+  "genres": "eclectic, roots, rock, folk",
+  "contactName": null
+ },
+ {
+  "id": "fluxfm-fluxfm-radar-newcomers-de",
+  "genreFit": "indie",
+  "genres": "indie, alternative, newcomers",
+  "contactName": null
+ },
+ {
+  "id": "kink-nl",
+  "genreFit": "indie",
+  "genres": "alternative, indie rock",
+  "contactName": null
+ },
+ {
+  "id": "cfuz-88-7-fm-peach-city-radio-ca",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "chly-101-7-fm-ca",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "ckms-102-7-radio-waterloo-ca",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "npo-3fm-nl",
+  "genreFit": "indie",
+  "genres": "pop, rock, new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-ara-lu",
+  "genreFit": "any",
+  "genres": "eclectic, English-language shows",
+  "contactName": null
+ },
+ {
+  "id": "radio-laurier-ca",
+  "genreFit": "indie",
+  "genres": "indie, alternative, all genres",
+  "contactName": "Harper Young"
+ },
+ {
+  "id": "radio-q-de",
+  "genreFit": "any",
+  "genres": "campus, eclectic, indie",
+  "contactName": null
+ },
+ {
+  "id": "radio-regent-ca",
+  "genreFit": "any",
+  "genres": "community, eclectic, jazz, electronic",
+  "contactName": null
+ },
+ {
+  "id": "radio-robotic-nz",
+  "genreFit": "indie",
+  "genres": "indie, alternative, retro",
+  "contactName": null
+ },
+ {
+  "id": "stoke-fm-ca",
+  "genreFit": "any",
+  "genres": "community, mixed, folk",
+  "contactName": null
+ },
+ {
+  "id": "triple-j-unearthed-au",
+  "genreFit": "any",
+  "genres": "new Australian music, all genres",
+  "contactName": null
+ },
+ {
+  "id": "cism-89-3-fm-ca",
+  "genreFit": "any",
+  "genres": "eclectic, alternative, francophone",
+  "contactName": "Romain Roche"
+ },
+ {
+  "id": "ciut-89-5-fm-ca",
+  "genreFit": "any",
+  "genres": "eclectic, campus, all genres",
+  "contactName": null
+ },
+ {
+  "id": "max-neo-de",
+  "genreFit": "indie",
+  "genres": "alternative, indie, youth",
+  "contactName": null
+ },
+ {
+  "id": "pinguin-radio-nl",
+  "genreFit": "indie",
+  "genres": "indie, alternative",
+  "contactName": null
+ },
+ {
+  "id": "radio-3fach-ch",
+  "genreFit": "indie",
+  "genres": "indie, alternative, youth",
+  "contactName": null
+ },
+ {
+  "id": "radio-campus-paris-93-9-fm-rockfort-fra-che-liste-fr",
+  "genreFit": "indie",
+  "genres": "rock, indie, new music",
+  "contactName": "Philipp Fischer"
+ },
+ {
+  "id": "three-d-radio-93-7-fm-au",
+  "genreFit": "indie",
+  "genres": "progressive, alternative, local",
+  "contactName": null
+ },
+ {
+  "id": "today-fm-stepping-stone-bauer-ireland-talent-programme-ie",
+  "genreFit": "any",
+  "genres": "pop, rock, Irish new talent",
+  "contactName": null
+ },
+ {
+  "id": "2cbd-fm-105-9-au",
+  "genreFit": "any",
+  "genres": "community, all genres",
+  "contactName": null
+ },
+ {
+  "id": "2max-fm-91-3-au",
+  "genreFit": "any",
+  "genres": "community, all genres",
+  "contactName": null
+ },
+ {
+  "id": "2ncr-fm-92-9-au",
+  "genreFit": "any",
+  "genres": "community, country, folk, mixed",
+  "contactName": null
+ },
+ {
+  "id": "48fm-100-1-be",
+  "genreFit": "any",
+  "genres": "campus, eclectic, new music",
+  "contactName": null
+ },
+ {
+  "id": "91x-91-3-fm-cjlx-ca",
+  "genreFit": "indie",
+  "genres": "alternative, new music",
+  "contactName": null
+ },
+ {
+  "id": "akademickie-radio-centrum-98-2-fm-pl",
+  "genreFit": "any",
+  "genres": "academic radio, mixed genres",
+  "contactName": null
+ },
+ {
+  "id": "c-lab-88-4-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": null
+ },
+ {
+  "id": "campus-city-radio-94-4-at",
+  "genreFit": "any",
+  "genres": "campus, indie, rock, pop",
+  "contactName": null
+ },
+ {
+  "id": "campus-fm-toulouse-94-0-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": "Thomas Delafosse"
+ },
+ {
+  "id": "campus-r-di-fm90-hu",
+  "genreFit": "indie",
+  "genres": "alternative, rock",
+  "contactName": null
+ },
+ {
+  "id": "campusradio-jena-103-4-de",
+  "genreFit": "any",
+  "genres": "campus radio, mixed",
+  "contactName": null
+ },
+ {
+  "id": "canoe-fm-100-9-97-1-ca",
+  "genreFit": "any",
+  "genres": "rock, country, alternative, all genres",
+  "contactName": null
+ },
+ {
+  "id": "cfbu-103-7-fm-ca",
+  "genreFit": "any",
+  "genres": "campus, diverse, all genres",
+  "contactName": null
+ },
+ {
+  "id": "cfmh-107-3-fm-local-107-3-ca",
+  "genreFit": "any",
+  "genres": "campus, local, all genres",
+  "contactName": "Brandon Logan"
+ },
+ {
+  "id": "chma-106-9-fm-ca",
+  "genreFit": "any",
+  "genres": "local, independent, all genres",
+  "contactName": null
+ },
+ {
+  "id": "chmr-93-5-fm-ca",
+  "genreFit": "indie",
+  "genres": "alternative, indie, local",
+  "contactName": null
+ },
+ {
+  "id": "chsr-97-9-fm-ca",
+  "genreFit": "any",
+  "genres": "campus, all genres",
+  "contactName": null
+ },
+ {
+  "id": "civl-101-7-fm-ca",
+  "genreFit": "any",
+  "genres": "campus, eclectic, all genres",
+  "contactName": "Stephen Munga"
+ },
+ {
+  "id": "cjbu-107-3-fm-ca",
+  "genreFit": "any",
+  "genres": "campus, alternative, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "cjru-1280-am-met-radio-ca",
+  "genreFit": "any",
+  "genres": "campus, eclectic, all genres",
+  "contactName": "Ali Khan"
+ },
+ {
+  "id": "cjsf-90-1-fm-ca",
+  "genreFit": "any",
+  "genres": "campus, eclectic, all genres",
+  "contactName": "Connor Ashton"
+ },
+ {
+  "id": "cklu-96-7-fm-ca",
+  "genreFit": "any",
+  "genres": "all genres, jazz, local",
+  "contactName": null
+ },
+ {
+  "id": "ckrl-89-1-fm-ca",
+  "genreFit": "any",
+  "genres": "community, eclectic, francophone",
+  "contactName": null
+ },
+ {
+  "id": "ckuw-95-9-fm-ca",
+  "genreFit": "any",
+  "genres": "campus, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "ct-das-radio-de",
+  "genreFit": "any",
+  "genres": "campus, indie, pop",
+  "contactName": null
+ },
+ {
+  "id": "eldoradio-de",
+  "genreFit": "any",
+  "genres": "campus, indie, pop",
+  "contactName": null
+ },
+ {
+  "id": "fraser-coast-fm-107-5-au",
+  "genreFit": "any",
+  "genres": "community, easy listening, country, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "gds-fm-ch",
+  "genreFit": "any",
+  "genres": "eclectic, indie rock, electronic",
+  "contactName": null
+ },
+ {
+  "id": "hertz-87-9-de",
+  "genreFit": "any",
+  "genres": "campus, indie, pop",
+  "contactName": null
+ },
+ {
+  "id": "horads-88-6-de",
+  "genreFit": "any",
+  "genres": "campus, indie, pop",
+  "contactName": null
+ },
+ {
+  "id": "novaradio-citt-futura-it",
+  "genreFit": "indie",
+  "genres": "indie, alternative",
+  "contactName": null
+ },
+ {
+  "id": "radio-98eins-de",
+  "genreFit": "any",
+  "genres": "campus, indie, pop",
+  "contactName": null
+ },
+ {
+  "id": "radio-af-se",
+  "genreFit": "any",
+  "genres": "student radio, mixed genres",
+  "contactName": "Alfred Wallander"
+ },
+ {
+  "id": "radio-alpa-fr",
+  "genreFit": "any",
+  "genres": "local radio, mixed music",
+  "contactName": "Frédéric Chauvaud"
+ },
+ {
+  "id": "radio-brume-90-7-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-campus-66-perpignan-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-campus-amiens-87-7-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-campus-angers-103-0-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": "Étienne Devèche"
+ },
+ {
+  "id": "radio-campus-besan-on-102-4-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": "Martial Greuillet"
+ },
+ {
+  "id": "radio-campus-bordeaux-88-1-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": "Ghislain Fernand"
+ },
+ {
+  "id": "radio-campus-clermont-ferrand-programmation-pop-rock-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": "Nicolas Majeune"
+ },
+ {
+  "id": "radio-campus-grenoble-90-8-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-campus-lille-106-6-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-campus-lorraine-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-campus-orl-ans-88-3-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": "Viviane Berreur"
+ },
+ {
+  "id": "radio-campus-pau-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-campus-rouen-92-9-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-campus-tours-99-5-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": "Sébastien Jacquelin"
+ },
+ {
+  "id": "radio-dijon-campus-92-2-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": "François Moureaux"
+ },
+ {
+  "id": "radio-dio-89-5-fr",
+  "genreFit": "indie",
+  "genres": "rock, alternative",
+  "contactName": null
+ },
+ {
+  "id": "radio-free-fm-de",
+  "genreFit": "any",
+  "genres": "free radio, punk, indie, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "radio-fro-105-0-at",
+  "genreFit": "any",
+  "genres": "free radio, pop, rock",
+  "contactName": null
+ },
+ {
+  "id": "radio-helsinki-92-6-at",
+  "genreFit": "any",
+  "genres": "free radio, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "radio-lora-97-5-ch",
+  "genreFit": "any",
+  "genres": "alternative, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "radio-mar-si",
+  "genreFit": "indie",
+  "genres": "alternative, indie",
+  "contactName": null
+ },
+ {
+  "id": "radio-mne-107-5-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-onda-d-urto-it",
+  "genreFit": "any",
+  "genres": "alternative, punk, political",
+  "contactName": null
+ },
+ {
+  "id": "radio-ph-nix-92-7-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-pulsar-95-9-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-rabe-ch",
+  "genreFit": "any",
+  "genres": "eclectic, community",
+  "contactName": null
+ },
+ {
+  "id": "radio-rasa-ch",
+  "genreFit": "indie",
+  "genres": "rock, punk, blues, alternative",
+  "contactName": null
+ },
+ {
+  "id": "radio-revolt-no",
+  "genreFit": "any",
+  "genres": "student radio, mixed genres",
+  "contactName": null
+ },
+ {
+  "id": "radio-stadtfilter-96-3-ch",
+  "genreFit": "any",
+  "genres": "community, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "radio-u-101-1-fm-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": "Vincent Le Yeuc'h"
+ },
+ {
+  "id": "radio-unerh-rt-marburg-rum-de",
+  "genreFit": "any",
+  "genres": "free radio, jazz, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "radio-western-94-9-fm-chrw-ca",
+  "genreFit": "any",
+  "genres": "campus, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "radio-x-basel-ch",
+  "genreFit": "indie",
+  "genres": "eclectic, indie, electronic",
+  "contactName": null
+ },
+ {
+  "id": "radiofabrik-107-5-at",
+  "genreFit": "any",
+  "genres": "free radio, punk, reggae, rock",
+  "contactName": null
+ },
+ {
+  "id": "radiom-fr",
+  "genreFit": "indie",
+  "genres": "indie, rock, alt, eclectic new music",
+  "contactName": "Nicolas Baron"
+ },
+ {
+  "id": "studentenfunk-regensburg-de",
+  "genreFit": "any",
+  "genres": "campus radio, mixed",
+  "contactName": null
+ },
+ {
+  "id": "the-most-fm-104-4-nz",
+  "genreFit": "any",
+  "genres": "eclectic, blues, alternative, variety",
+  "contactName": null
+ },
+ {
+  "id": "toxic-fm-ch",
+  "genreFit": "any",
+  "genres": "youth, indie, pop",
+  "contactName": null
+ },
+ {
+  "id": "tuks-fm-107-2-za",
+  "genreFit": "indie",
+  "genres": "alternative, rock",
+  "contactName": null
+ },
+ {
+  "id": "ucfm-87-8-au",
+  "genreFit": "any",
+  "genres": "student, pop, rock, indie",
+  "contactName": null
+ },
+ {
+  "id": "cfuv-101-9-fm-ca",
+  "genreFit": "any",
+  "genres": "eclectic, rock, all genres",
+  "contactName": "Troy Lemberg"
+ },
+ {
+  "id": "cjsr-88-5-fm-ca",
+  "genreFit": "any",
+  "genres": "eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "cjsw-90-9-fm-ca",
+  "genreFit": "any",
+  "genres": "freeform, eclectic, all genres",
+  "contactName": "Helen Young"
+ },
+ {
+  "id": "ckut-90-3-fm-ca",
+  "genreFit": "any",
+  "genres": "eclectic, freeform, all genres",
+  "contactName": null
+ },
+ {
+  "id": "fbi-radio-94-5-fm-au",
+  "genreFit": "any",
+  "genres": "eclectic, Australian new music",
+  "contactName": null
+ },
+ {
+  "id": "radio-meuh-fr",
+  "genreFit": "mixed",
+  "genres": "funk, electro, soul, some indie",
+  "contactName": null
+ },
+ {
+  "id": "2xx-98-3-fm-au",
+  "genreFit": "any",
+  "genres": "world, Australian, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "3cr-855-am-au",
+  "genreFit": "mixed",
+  "genres": "political, Indigenous, world, eclectic",
+  "contactName": "Joe Malignaggi"
+ },
+ {
+  "id": "cfbx-92-5-fm-the-x-ca",
+  "genreFit": "any",
+  "genres": "campus, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "cfcr-90-5-fm-ca",
+  "genreFit": "any",
+  "genres": "community, eclectic, all genres",
+  "contactName": "Arnold Van Lambalgen"
+ },
+ {
+  "id": "cfru-93-3-fm-ca",
+  "genreFit": "any",
+  "genres": "campus, eclectic, all genres",
+  "contactName": null
+ },
+ {
+  "id": "cioe-97-5-fm-ca",
+  "genreFit": "any",
+  "genres": "community, East Coast, pop",
+  "contactName": null
+ },
+ {
+  "id": "cjam-99-1-fm-ca",
+  "genreFit": "any",
+  "genres": "campus, eclectic, all genres",
+  "contactName": "Austin DiPietro"
+ },
+ {
+  "id": "cove-fm-88-7-ca",
+  "genreFit": "any",
+  "genres": "community, Canadian, many genres",
+  "contactName": null
+ },
+ {
+  "id": "flirt-fm-101-3-ie",
+  "genreFit": "any",
+  "genres": "Irish new music, all genres",
+  "contactName": null
+ },
+ {
+  "id": "freirad-105-9-at",
+  "genreFit": "any",
+  "genres": "free radio, eclectic",
+  "contactName": null
+ },
+ {
+  "id": "joy-94-9-au",
+  "genreFit": "mixed",
+  "genres": "pop, RnB, dance, specialist shows",
+  "contactName": null
+ },
+ {
+  "id": "kootenay-co-op-radio-cjly-93-5-ca",
+  "genreFit": "mixed",
+  "genres": "genre shows, heavy, folk, experimental",
+  "contactName": null
+ },
+ {
+  "id": "radio-adelaide-101-5-fm-au",
+  "genreFit": "any",
+  "genres": "community, all genres",
+  "contactName": null
+ },
+ {
+  "id": "radio-agora-105-5-at",
+  "genreFit": "any",
+  "genres": "free radio, eclectic, bilingual",
+  "contactName": "Žan Hebar"
+ },
+ {
+  "id": "radio-grenouille-88-8-fr",
+  "genreFit": "mixed",
+  "genres": "eclectic, electronic-leaning",
+  "contactName": null
+ },
+ {
+  "id": "radio-northern-beaches-88-7-90-3-au",
+  "genreFit": "any",
+  "genres": "community, jazz, country, variety",
+  "contactName": null
+ },
+ {
+  "id": "radio-proton-at",
+  "genreFit": "any",
+  "genres": "free radio, mixed",
+  "contactName": null
+ },
+ {
+  "id": "trent-radio-92-7-cfff-ca",
+  "genreFit": "any",
+  "genres": "producer-led, all genres",
+  "contactName": null
+ },
+ {
+  "id": "vibe-105-5-chry-ca",
+  "genreFit": "mixed",
+  "genres": "urban, hip hop, some rock",
+  "contactName": null
+ },
+ {
+  "id": "wellington-access-radio-nz",
+  "genreFit": "any",
+  "genres": "community access, NZ music",
+  "contactName": null
+ },
+ {
+  "id": "8radio-com-ie",
+  "genreFit": "indie",
+  "genres": "indie, alternative, new Irish",
+  "contactName": null
+ },
+ {
+  "id": "ckvs-93-7-voice-of-the-shuswap-ca",
+  "genreFit": "any",
+  "genres": "community, mixed",
+  "contactName": null
+ },
+ {
+  "id": "radio-1-prague-cz",
+  "genreFit": "indie",
+  "genres": "alternative, indie",
+  "contactName": "Zdeněk Lichnovský"
+ }
+]

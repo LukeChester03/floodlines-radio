@@ -1,0 +1,4652 @@
+[
+ {
+  "id": "3rrr-102-7-fm-triple-r-au",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "Open to international indie and rock",
+   "Big, respected Melbourne community station",
+   "Australian audience, little UK gig value"
+  ],
+  "pitchTip": "Pitch specific indie/rock presenters directly as well as music@."
+ },
+ {
+  "id": "95bfm-nz",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Alternative student station, takes overseas music",
+   "Very high submission volume",
+   "NZ audience, little UK value"
+  ],
+  "pitchTip": "Send a streaming link plus a lossless download link."
+ },
+ {
+  "id": "amazing-radio-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 4,
+  "reasons": [
+   "Built for unsigned UK artists",
+   "First upload free, plays uploaded music",
+   "National DAB, respected new-music station"
+  ],
+  "pitchTip": "Use the free first upload for Companion."
+ },
+ {
+  "id": "bbc-introducing-gb",
+  "eligible": true,
+  "chance": 5,
+  "value": 5,
+  "reasons": [
+   "Already supported you in East Midlands",
+   "Routes to Radio 1 and 6 Music",
+   "Free, made for unsigned UK bands"
+  ],
+  "pitchTip": "Upload each single; mention your previous East Midlands plays."
+ },
+ {
+  "id": "bbc-introducing-in-the-east-midlands-bbc-nottingham-lincolns",
+  "eligible": true,
+  "chance": 5,
+  "value": 4,
+  "reasons": [
+   "Already played Final Fear",
+   "Your home Introducing show",
+   "Feeds BBC network recommendations"
+  ],
+  "pitchTip": "Upload Companion via the Uploader with your East Midlands postcode."
+ },
+ {
+  "id": "bbc-introducing-rock-on-radio-1-alyx-holcombe-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 5,
+  "reasons": [
+   "Rock show on Radio 1",
+   "Needs local Introducing recommendation first",
+   "Very competitive national slot"
+  ],
+  "pitchTip": "Ask East Midlands Introducing to recommend Companion upwards."
+ },
+ {
+  "id": "bbc-radio-6-music-new-music-via-bbc-introducing-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 5,
+  "reasons": [
+   "Biggest UK indie/alt audience",
+   "No direct route, only via Introducing",
+   "Extremely competitive"
+  ],
+  "pitchTip": "Reach it through BBC Introducing recommendations, not direct pitches."
+ },
+ {
+  "id": "bbc-radio-derby-bbc-introducing-in-the-east-midlands-gb",
+  "eligible": true,
+  "chance": 5,
+  "value": 3,
+  "reasons": [
+   "Same East Midlands Introducing show",
+   "Derby audience, local to you",
+   "Feeds BBC network"
+  ],
+  "pitchTip": "Upload via the Uploader; the postcode decides routing."
+ },
+ {
+  "id": "bbc-radio-leicester-bbc-introducing-in-the-east-midlands-gb",
+  "eligible": true,
+  "chance": 5,
+  "value": 3,
+  "reasons": [
+   "Same East Midlands Introducing show",
+   "Leicestershire, closest to Loughborough",
+   "Feeds BBC network"
+  ],
+  "pitchTip": "Upload via the Uploader; the postcode decides routing."
+ },
+ {
+  "id": "bbc-radio-lincolnshire-bbc-introducing-in-the-east-midlands-",
+  "eligible": true,
+  "chance": 5,
+  "value": 3,
+  "reasons": [
+   "Same East Midlands Introducing show",
+   "Lincolnshire regional audience",
+   "Feeds BBC network"
+  ],
+  "pitchTip": "Upload via the Uploader; the postcode decides routing."
+ },
+ {
+  "id": "bbc-radio-nottingham-bbc-introducing-in-the-east-midlands-gb",
+  "eligible": true,
+  "chance": 5,
+  "value": 3,
+  "reasons": [
+   "Same East Midlands Introducing show",
+   "Nottingham regional audience",
+   "Feeds BBC network"
+  ],
+  "pitchTip": "Upload via the Uploader; the postcode decides routing."
+ },
+ {
+  "id": "crags-radio-the-unsigned-sessions-the-pluggin-baby-radio-sho",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "East Midlands community station",
+   "Unsigned and guitar-band shows",
+   "Small audience, runs awards"
+  ],
+  "pitchTip": "Use the airplay form and target The Pluggin' Baby show."
+ },
+ {
+  "id": "dandelion-radio-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "Peel-inspired independent music station",
+   "Each DJ picks their own music",
+   "Small but credible indie audience"
+  ],
+  "pitchTip": "Email individual DJs whose shows play indie rock."
+ },
+ {
+  "id": "deal-radio-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "Champions small unsigned artists",
+   "Plays 50+ submissions a week",
+   "Small Kent community audience"
+  ],
+  "pitchTip": "Use the form; skip the Groover-only show."
+ },
+ {
+  "id": "demon-fm-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "Leicester student station, East Midlands",
+   "Covers upcoming and local music",
+   "Small student audience"
+  ],
+  "pitchTip": "Mention your Loughborough University roots."
+ },
+ {
+  "id": "derby-sound-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "Derby community station welcomes unsigned",
+   "East Midlands local relevance",
+   "Small local audience"
+  ],
+  "pitchTip": "Mention your East Midlands base and Loughborough roots."
+ },
+ {
+  "id": "edge-radio-99-3-fm-au",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Welcomes artists from around the world",
+   "Indie-friendly Tasmanian student station",
+   "Tiny audience for UK goals"
+  ],
+  "pitchTip": "Send bio, stream link and 320 kbps download link."
+ },
+ {
+  "id": "erewash-sound-the-great-erewash-music-show-gems-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Local unsigned show near Loughborough",
+   "Erewash is next door to you",
+   "Small community audience"
+  ],
+  "pitchTip": "Lead with your Loughborough and East Midlands roots."
+ },
+ {
+  "id": "fluxfm-fluxfm-radar-newcomers-de",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Indie/alt station that plays newcomers",
+   "Radar feature favours Berlin acts",
+   "Competitive German commercial station"
+  ],
+  "pitchTip": "Email radar@fluxfm.de with subject 'Musikpromo'."
+ },
+ {
+  "id": "fm4-orf-at",
+  "eligible": true,
+  "chance": 2,
+  "value": 4,
+  "reasons": [
+   "Plays lots of English-language indie",
+   "Influential Austrian alternative station",
+   "Competitive, mostly established acts"
+  ],
+  "pitchTip": "Send download links and metadata, no attachments."
+ },
+ {
+  "id": "fresh-on-the-net-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 4,
+  "reasons": [
+   "Free, every track heard by moderators",
+   "Faves feed 6 Music Introducing Mixtape",
+   "Inbox fills fast each week"
+  ],
+  "pitchTip": "Submit early on Monday before the inbox closes."
+ },
+ {
+  "id": "harborough-fm-hfm-sam-britton-show-head-of-music-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "Leicestershire station, near Loughborough",
+   "Presenter invites submissions",
+   "Small local audience"
+  ],
+  "pitchTip": "Mention you formed in Loughborough."
+ },
+ {
+  "id": "indiexl-nl",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Dutch indie/alt station gives talent chances",
+   "Takes singles as tagged MP3 uploads",
+   "Small online audience"
+  ],
+  "pitchTip": "Name the file 'FloodLines - Companion.mp3' and fill the tags."
+ },
+ {
+  "id": "kink-nl",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Dutch national alt-rock station",
+   "Plays mostly established acts",
+   "Competitive national playlist"
+  ],
+  "pitchTip": "Send a short email with a download link."
+ },
+ {
+  "id": "k-lncampus-de",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Alternative/indie campus radio",
+   "Takes music servicing by email",
+   "German student audience"
+  ],
+  "pitchTip": "Send a download link and a few lines of bio."
+ },
+ {
+  "id": "music-in-leicester-no-one-receiving-monthly-radio-show-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "Midlands new-music show",
+   "Covers Leicester and Midlands artists",
+   "YouTube show, not broadcast radio"
+  ],
+  "pitchTip": "Use the Google Form nomination as Midlands artists."
+ },
+ {
+  "id": "ostm-radio-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "24/7 indie station for independent artists",
+   "Built for unsigned submissions",
+   "Small online audience"
+  ],
+  "pitchTip": "Submit via their form with both singles."
+ },
+ {
+  "id": "oystermouth-radio-fresh-unsigned-dean-james-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "Wants indie and rock from anywhere",
+   "Free playlisting",
+   "Small community audience"
+  ],
+  "pitchTip": "Email an MP3 with a short press pack."
+ },
+ {
+  "id": "radio-3fach-ch",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Indie-leaning Swiss youth station",
+   "Email-only submissions",
+   "Swiss audience, little UK value"
+  ],
+  "pitchTip": "Email musik@3fach.ch with a download link."
+ },
+ {
+  "id": "radio-active-88-6-fm-nz",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Indie/alt station in Wellington",
+   "Takes email submissions",
+   "NZ audience, little UK value"
+  ],
+  "pitchTip": "Email a download and stream link."
+ },
+ {
+  "id": "radio-ara-lu",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "English-language programming in Luxembourg",
+   "Open submission address",
+   "Very small audience"
+  ],
+  "pitchTip": "Email music@ara.lu with links."
+ },
+ {
+  "id": "radio-campus-paris-93-9-fm-rockfort-fra-che-liste-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Rock show and new-music list",
+   "French campus, English indie possible",
+   "Paris audience, small UK value"
+  ],
+  "pitchTip": "Pitch the Rockfort rock show directly."
+ },
+ {
+  "id": "radio-fandango-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "Indie and alt-rock web station",
+   "Takes new independent music",
+   "Small online audience"
+  ],
+  "pitchTip": "Send a private SoundCloud link and brief bio."
+ },
+ {
+  "id": "radio-nova-99-3-no",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Music-first, indie-leaning student station",
+   "Says every submission is considered",
+   "Norwegian audience"
+  ],
+  "pitchTip": "Email musikk@radionova.no with links."
+ },
+ {
+  "id": "radio-one-91fm-nz",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Alternative student station",
+   "Music submissions by email",
+   "NZ audience, little UK value"
+  ],
+  "pitchTip": "Email music@r1.co.nz with download links."
+ },
+ {
+  "id": "radio-q-de",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Campus radio takes music servicing",
+   "German student audience",
+   "Small reach"
+  ],
+  "pitchTip": "Email musik@radioq.de with a download link."
+ },
+ {
+  "id": "radio-robotic-nz",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Indie new-music discovery web station",
+   "Wants WAV and Apple Music link",
+   "Tiny audience"
+  ],
+  "pitchTip": "Send a WAV download link and Apple Music profile."
+ },
+ {
+  "id": "radio-tudent-89-3-si",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Strong alternative/indie student station",
+   "Respected in European indie circles",
+   "Slovenian audience"
+  ],
+  "pitchTip": "Email the music editor with release info and links."
+ },
+ {
+  "id": "radio-wigwam-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "Grassroots indie station, hears every track",
+   "Free tier gives one submission a month",
+   "Small online audience"
+  ],
+  "pitchTip": "Use the free monthly submission for Companion."
+ },
+ {
+  "id": "rtrfm-92-1-au",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Not playlisted, presenters choose",
+   "Respected Perth community station",
+   "Australian audience"
+  ],
+  "pitchTip": "Submit two weeks before a release for premiere consideration."
+ },
+ {
+  "id": "selector-radio-british-council-sian-eleri-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "UK artists only, which suits you",
+   "British Council show heard worldwide",
+   "Good showcase for new UK indie"
+  ],
+  "pitchTip": "Keep the edit clean; email or DM Sian Eleri."
+ },
+ {
+  "id": "soar-sound-best-of-british-new-british-unsigned-bands-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "New British unsigned band show",
+   "Leicester station, East Midlands",
+   "Small, new community station"
+  ],
+  "pitchTip": "Mention your Loughborough roots in the form."
+ },
+ {
+  "id": "soho-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Respected London music station",
+   "Dedicated music submission address",
+   "Busy, competitive inbox"
+  ],
+  "pitchTip": "Keep the email short with one download link."
+ },
+ {
+  "id": "studentradion-i-sverige-se",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "One email reaches all Swedish student stations",
+   "Indie-friendly network",
+   "Swedish audience"
+  ],
+  "pitchTip": "Email musik@studentradion.se with download links."
+ },
+ {
+  "id": "the-introducing-mixtape-6-music-emily-pilbeam-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 5,
+  "reasons": [
+   "6 Music Introducing showcase",
+   "Usually needs local show recommendation",
+   "High industry visibility"
+  ],
+  "pitchTip": "Get East Midlands Introducing to recommend Companion."
+ },
+ {
+  "id": "totalrock-the-unsigned-show-dunk-mckellar-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Unsigned Show takes band submissions",
+   "Rock/metal station, indie less central",
+   "Small online audience"
+  ],
+  "pitchTip": "Use the Unsigned page submission link."
+ },
+ {
+  "id": "urgent-fm-be",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Ghent alternative station",
+   "Music submissions by email",
+   "Belgian audience"
+  ],
+  "pitchTip": "Email muziek@urgent.fm with a download link."
+ },
+ {
+  "id": "urn-university-radio-nottingham-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "Nottingham student radio, East Midlands",
+   "Invites artists to get in touch",
+   "Student audience"
+  ],
+  "pitchTip": "Mention Loughborough roots and East Midlands base."
+ },
+ {
+  "id": "vibe-107-6-the-new-vibe-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "Open to UK-wide unsigned bands",
+   "Clear MP3/WAV route",
+   "Small Watford audience"
+  ],
+  "pitchTip": "Send a radio edit and short bio to both addresses."
+ },
+ {
+  "id": "48fm-100-1-be",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Liège campus station takes email",
+   "Prefers Liège-linked acts",
+   "Small Belgian audience"
+  ],
+  "pitchTip": "Send a listening link and WAV download link."
+ },
+ {
+  "id": "4zzz-102-1-fm-au",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Independent/alternative Brisbane station",
+   "Takes overseas music via form",
+   "Australian audience, little UK value"
+  ],
+  "pitchTip": "Use the form with a downloadable link, not a stream."
+ },
+ {
+  "id": "akademickie-radio-centrum-98-2-fm-pl",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Polish academic station takes demos",
+   "Language and distance limit fit",
+   "Small audience"
+  ],
+  "pitchTip": "Pick 'Dział Muzyczny' in the contact form."
+ },
+ {
+  "id": "amber-sound-fm-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Derbyshire station, East Midlands",
+   "No music route, ask first",
+   "Small community audience"
+  ],
+  "pitchTip": "Ask how they take new local music before sending."
+ },
+ {
+  "id": "bailrigg-fm-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Student station with a music team",
+   "Open email route",
+   "Small Lancaster audience"
+  ],
+  "pitchTip": "Email music@bailriggfm.co.uk with a download link."
+ },
+ {
+  "id": "bbc-introducing-in-three-counties-northants-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-on-radio-1-jess-iszatt-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 5,
+  "reasons": [
+   "Radio 1's Introducing show",
+   "Usually needs local show recommendation",
+   "Very competitive"
+  ],
+  "pitchTip": "Build momentum with East Midlands Introducing first."
+ },
+ {
+  "id": "bbc-radio-northampton-bbc-introducing-in-three-counties-nort",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Only for Northamptonshire postcodes",
+   "Your uploads route to East Midlands"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-three-counties-radio-bbc-introducing-in-three-counties-n",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Only for Beds, Herts and Bucks postcodes",
+   "Your uploads route to East Midlands"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "beat-route-radio-the-weekend-warm-up-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Live sessions for local Northants acts",
+   "Not a general airplay route"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "belter-radio-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "Showcases unsigned artists of every genre",
+   "Simple email route",
+   "Small online audience"
+  ],
+  "pitchTip": "Send tagged MP3s only."
+ },
+ {
+  "id": "black-country-radio-unsigned-uploader-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Unsigned uploader is open",
+   "West Midlands focus",
+   "Small community audience"
+  ],
+  "pitchTip": "Mention Midlands roots in the uploader."
+ },
+ {
+  "id": "bradley-stoke-radio-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Keen on local but considers all",
+   "Specialist shows can be pitched",
+   "Small community audience"
+  ],
+  "pitchTip": "Also pitch their specialist indie/rock shows directly."
+ },
+ {
+  "id": "brum-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Main playlist is West Midlands only",
+   "Specialist shows open to others",
+   "Neighbouring region"
+  ],
+  "pitchTip": "Upload a radio edit under 4:30 as MP3 or WAV."
+ },
+ {
+  "id": "burton-radio-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Just over the East Midlands border",
+   "Chart show takes music links",
+   "Small local audience"
+  ],
+  "pitchTip": "Mention you're from just up the road."
+ },
+ {
+  "id": "c-lab-88-4-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus committee address",
+   "Plays some English indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "cam-fm-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Student station with a music inbox",
+   "Open to submissions",
+   "Small Cambridge audience"
+  ],
+  "pitchTip": "Email music@camfm.co.uk with a download link."
+ },
+ {
+  "id": "camglen-radio-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Invites artists to send music",
+   "Info may be dated",
+   "Small Scottish community audience"
+  ],
+  "pitchTip": "Send music and a short bio to promo@."
+ },
+ {
+  "id": "campus-city-radio-94-4-at",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Austrian campus music desk",
+   "Takes email servicing",
+   "Small audience"
+  ],
+  "pitchTip": "Email a download link to the music desk."
+ },
+ {
+  "id": "campus-fm-toulouse-94-0-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "campus-r-di-fm90-hu",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Alternative/rock campus station",
+   "Music info email listed",
+   "Hungarian audience"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "campusradio-jena-103-4-de",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Campus music desk takes download links",
+   "German student audience",
+   "Small reach"
+  ],
+  "pitchTip": "Email download links to the music desk."
+ },
+ {
+  "id": "charlie-mason-radio-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "Large library of indie and unsigned",
+   "Simple submit page",
+   "Small online audience"
+  ],
+  "pitchTip": "Upload 320 kbps files only."
+ },
+ {
+  "id": "ct-das-radio-de",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Campus music desk address",
+   "German student audience",
+   "Small reach"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "daz-in-the-hat-radio-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "Gateway for unsigned artists",
+   "Clear submission guidance",
+   "Small online audience"
+  ],
+  "pitchTip": "Follow their PDF submission guidance."
+ },
+ {
+  "id": "eldoradio-de",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Campus music desk address",
+   "German student audience",
+   "Small reach"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "embrace-radio-formerly-horizon-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Northants/MK community station",
+   "Ask before sending"
+  ],
+  "pitchTip": "Ask how they take new music first."
+ },
+ {
+  "id": "endeavour-fm-local-musicians-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Lincolnshire station for local musicians",
+   "East Midlands, but far from Loughborough",
+   "Small community audience"
+  ],
+  "pitchTip": "Ask whether East Midlands bands count as local."
+ },
+ {
+  "id": "erb-radio-emerging-rock-bands-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Rock-focused unsigned platform",
+   "Submission via Facebook or site",
+   "Small audience, info from 2020"
+  ],
+  "pitchTip": "Check it's still active before submitting."
+ },
+ {
+  "id": "exile-fm-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Welcomes music via contact form",
+   "No promise of reply",
+   "Small online audience"
+  ],
+  "pitchTip": "Include links and downloadable MP3s."
+ },
+ {
+  "id": "fbi-radio-94-5-fm-au",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Favours Australian and Sydney music",
+   "Music submissions address exists",
+   "Respected but distant"
+  ],
+  "pitchTip": "Keep it short; they prioritise local acts."
+ },
+ {
+  "id": "flirt-fm-101-3-ie",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Focus is Irish music",
+   "UK acts get little traction",
+   "Small student audience"
+  ],
+  "pitchTip": "Send a download link with clear file names."
+ },
+ {
+  "id": "fuse-fm-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No explicit music route",
+   "Student station in Manchester",
+   "Ask via programming contact"
+  ],
+  "pitchTip": "Use the Programming option to ask first."
+ },
+ {
+  "id": "fusion-radio-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "Takes new and unsigned tracks",
+   "Simple submit form",
+   "Small online audience"
+  ],
+  "pitchTip": "Submit your strongest track via the form."
+ },
+ {
+  "id": "gateway-97-8-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Dedicated unsigned artists address",
+   "Essex community station",
+   "Small audience"
+  ],
+  "pitchTip": "Email unsigned@gateway978.com with a download link."
+ },
+ {
+  "id": "gds-fm-ch",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Eclectic Swiss station with indie",
+   "Promo address listed",
+   "Small audience"
+  ],
+  "pitchTip": "Email a download link to promo@."
+ },
+ {
+  "id": "get-ready-to-rock-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Rock/indie-leaning web station",
+   "Ask first"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "get-ready-to-rock-radio-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Rock station with submissions page",
+   "Indie rock may suit",
+   "Small online audience"
+  ],
+  "pitchTip": "Use the Music Submissions page."
+ },
+ {
+  "id": "hertz-87-9-de",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Weekly meeting picks new songs",
+   "Campus music desk takes releases",
+   "German student audience"
+  ],
+  "pitchTip": "Email musik@radiohertz.de with a download link."
+ },
+ {
+  "id": "horads-88-6-de",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Campus music contact listed",
+   "German student audience",
+   "Small reach"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "hoxton-radio-new-music-show-james-sayer-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "New Music Show takes submissions",
+   "Page dated 2021",
+   "London online station"
+  ],
+  "pitchTip": "Check the show still runs first."
+ },
+ {
+  "id": "insanity-radio-103-2fm-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Student station with airplay form",
+   "No unsolicited emails",
+   "Small audience"
+  ],
+  "pitchTip": "Use 'Submit Music For Airplay', never email."
+ },
+ {
+  "id": "kennet-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Invites bands by email",
+   "Local music emphasis",
+   "Small Newbury audience"
+  ],
+  "pitchTip": "Tell them who you are and why you fit."
+ },
+ {
+  "id": "lincs-sound-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Lincolnshire, East Midlands region",
+   "No music route found",
+   "Small online audience"
+  ],
+  "pitchTip": "Ask how they take new local music."
+ },
+ {
+  "id": "louder-than-war-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Influential indie/punk publication",
+   "No radio submission route found",
+   "Ask first"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "mad-wasp-radio-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "Asks for all music by email",
+   "MP3s preferred",
+   "Small online audience"
+  ],
+  "pitchTip": "Email MP3s to studio@madwaspradio.com."
+ },
+ {
+  "id": "mansfield-103-2-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Nottinghamshire commercial station",
+   "No music route found",
+   "Mainstream format"
+  ],
+  "pitchTip": "Ask about local new-music features first."
+ },
+ {
+  "id": "max-neo-de",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Youth/alternative German station",
+   "Music desk email listed",
+   "German audience"
+  ],
+  "pitchTip": "Email musik@maxneo.de with a download link."
+ },
+ {
+  "id": "merseyland-alternative-radio-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "Alternative station invites email",
+   "Simple route",
+   "Small online audience"
+  ],
+  "pitchTip": "Email music@mar.me.uk with a download link."
+ },
+ {
+  "id": "mystery-train-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Rock/indie-leaning web station",
+   "Ask first"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "northants-1-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Every submission considered",
+   "Must fit station's sound",
+   "Small Northants audience"
+  ],
+  "pitchTip": "Use the Send Us Your Music uploader."
+ },
+ {
+  "id": "novaradio-citt-futura-it",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Indie-tagged Florence community station",
+   "Music desk email listed",
+   "Italian audience"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "npo-3fm-nl",
+  "eligible": true,
+  "chance": 1,
+  "value": 4,
+  "reasons": [
+   "Big Dutch national pop/rock station",
+   "Open email, very competitive",
+   "Rarely plays unknown foreign bands"
+  ],
+  "pitchTip": "Keep the email short with one strong track."
+ },
+ {
+  "id": "pbs-106-7-fm-au",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Welcomes international acts",
+   "Specialist shows include rock and punk",
+   "Australian audience"
+  ],
+  "pitchTip": "Use the online form and name suitable presenters."
+ },
+ {
+  "id": "pinguin-radio-nl",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Dutch indie/alternative station",
+   "Pitching goes via Musisum platform",
+   "Check whether pitching costs money"
+  ],
+  "pitchTip": "Check Musisum's free tier before signing up."
+ },
+ {
+  "id": "primordial-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Rock/metal playlist station",
+   "Indie rock may be too light",
+   "Listener-funded DAB audience"
+  ],
+  "pitchTip": "Pitch your heaviest track via the form."
+ },
+ {
+  "id": "pure-fm-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Student station with music form",
+   "Studios temporarily relocated",
+   "Small Portsmouth audience"
+  ],
+  "pitchTip": "Use the Music Submission form."
+ },
+ {
+  "id": "purple-radio-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "New Music Hour and live sessions",
+   "Music inbox listed",
+   "Small Durham audience"
+  ],
+  "pitchTip": "Email music@purpleradio.co.uk with a download link."
+ },
+ {
+  "id": "queen-s-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music team inbox, wording unclear",
+   "Belfast student audience",
+   "Small reach"
+  ],
+  "pitchTip": "Ask the music team if they take submissions."
+ },
+ {
+  "id": "radio-98eins-de",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Invites music promotion by email",
+   "German student audience",
+   "Small reach"
+  ],
+  "pitchTip": "Email musik@radio98eins.de with a download link."
+ },
+ {
+  "id": "radio-af-se",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Large Swedish student station",
+   "Music manager address listed",
+   "Swedish audience"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "radio-alpa-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French music programmer listed",
+   "Mixed format",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-brume-90-7-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-campus-66-perpignan-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-campus-amiens-87-7-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-campus-angers-103-0-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-campus-besan-on-102-4-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-campus-bordeaux-88-1-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-campus-clermont-ferrand-programmation-pop-rock-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Dedicated pop-rock programmer form",
+   "French campus station",
+   "Small French audience"
+  ],
+  "pitchTip": "Use the Pop-Rock form or rock@ address."
+ },
+ {
+  "id": "radio-campus-grenoble-90-8-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-campus-lille-106-6-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-campus-lorraine-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-campus-orl-ans-88-3-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-campus-pau-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-campus-rouen-92-9-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-campus-tours-99-5-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-dijon-campus-92-2-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-dio-89-5-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Rock-leaning associative station",
+   "Programming address listed",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-free-fm-de",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music desk inbox, no invitation",
+   "German free radio",
+   "Small audience"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "radio-fro-105-0-at",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Volunteer producers pick music",
+   "Music enquiries address listed",
+   "Small Austrian audience"
+  ],
+  "pitchTip": "Email musik@fro.at with a download link."
+ },
+ {
+  "id": "radio-grenouille-88-8-fr",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Leans electronic and eclectic",
+   "Music proposals by email",
+   "Small French audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-hartlepool-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Clear email route for clean edits",
+   "Northern community station",
+   "Small audience"
+  ],
+  "pitchTip": "Send one clean radio edit with bio, once only."
+ },
+ {
+  "id": "radio-helsinki-92-6-at",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Free radio music desk",
+   "Takes email",
+   "Small Austrian audience"
+  ],
+  "pitchTip": "Email a download link to the music desk."
+ },
+ {
+  "id": "radio-lora-97-5-ch",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Alternative community station",
+   "Music coordination address",
+   "Swiss audience"
+  ],
+  "pitchTip": "Email musik@lora.ch with a download link."
+ },
+ {
+  "id": "radio-mar-si",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Alternative-leaning student station",
+   "Music address listed",
+   "Slovenian audience"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "radio-meuh-fr",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Eclectic funk/electro-leaning web radio",
+   "Indie rock is a stretch",
+   "No reply expected"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-mne-107-5-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-onda-d-urto-it",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Alternative radio takes band tips",
+   "Also books festival bands",
+   "Italian audience"
+  ],
+  "pitchTip": "Email musica@ with a download link."
+ },
+ {
+  "id": "radio-ph-nix-92-7-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-pulsar-95-9-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Takes download links by email",
+   "French campus committee",
+   "Small French audience"
+  ],
+  "pitchTip": "Email download links to coprog@."
+ },
+ {
+  "id": "radio-rabe-ch",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Eclectic Bern community station",
+   "Music desk address listed",
+   "Swiss audience"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "radio-rasa-ch",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Swiss community music desk",
+   "Takes email",
+   "Small audience"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "radio-revolt-no",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Role-based music address, no invitation",
+   "Norwegian student audience",
+   "Small reach"
+  ],
+  "pitchTip": "Ask politely if they take submissions."
+ },
+ {
+  "id": "radio-six-international-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Broad international playlist",
+   "Clear music submissions address",
+   "Small online audience"
+  ],
+  "pitchTip": "Email musicsubmissions@radiosix.com with a download link."
+ },
+ {
+  "id": "radio-stadtfilter-96-3-ch",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music servicing address, no attachments",
+   "Swiss community audience",
+   "Small reach"
+  ],
+  "pitchTip": "Send links only, never attachments."
+ },
+ {
+  "id": "radio-u-101-1-fm-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "radio-x-basel-ch",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Indie-friendly cultural station",
+   "Music enquiries address",
+   "Swiss audience"
+  ],
+  "pitchTip": "Email music@radiox.ch with a download link."
+ },
+ {
+  "id": "radiofabrik-107-5-at",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Salzburg free radio music desk",
+   "Takes email",
+   "Small Austrian audience"
+  ],
+  "pitchTip": "Email a download link to the music desk."
+ },
+ {
+  "id": "radiom-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "French campus music programmer",
+   "Plays some indie/rock",
+   "Small French audience"
+  ],
+  "pitchTip": "Short email with a download link and bio."
+ },
+ {
+  "id": "raw-1251am-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music submission route",
+   "West Midlands student station",
+   "Ask the exec team first"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "revolution-radio-local-music-show-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Local music show for Northants and MK",
+   "East Midlands region, not your town",
+   "Small community audience"
+  ],
+  "pitchTip": "Ask whether East Midlands bands qualify."
+ },
+ {
+  "id": "riverside-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music address listed, no guidance",
+   "Small London online station",
+   "Ask how they take new music"
+  ],
+  "pitchTip": "Ask how they take new music first."
+ },
+ {
+  "id": "salford-city-radio-new-music-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "New Music page invites MP3 samples",
+   "Small Salford community audience",
+   "Easy route"
+  ],
+  "pitchTip": "Send a sample MP3 with a few details."
+ },
+ {
+  "id": "scratch-radio-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Contact form has submit-music option",
+   "Birmingham student station",
+   "Small audience"
+  ],
+  "pitchTip": "Pick 'Submit music' in the contact form."
+ },
+ {
+  "id": "sheffield-live-unsigned-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Unsigned show with live guests",
+   "Nearest big-city unsigned show",
+   "Must be gigging and well recorded"
+  ],
+  "pitchTip": "Mention upcoming gigs; send a download link to unsigned@."
+ },
+ {
+  "id": "sine-fm-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Tracks go straight to presenters",
+   "Doncaster community station",
+   "Small audience"
+  ],
+  "pitchTip": "Use the upload tool and name a fitting presenter."
+ },
+ {
+  "id": "spark-sunderland-local-music-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Music team takes submissions",
+   "Local route is North East only",
+   "Small student audience"
+  ],
+  "pitchTip": "Use musicteam@, not the local music address."
+ },
+ {
+  "id": "studentenfunk-regensburg-de",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Campus music desk takes servicing",
+   "German student audience",
+   "Small reach"
+  ],
+  "pitchTip": "Email the music desk with a download link."
+ },
+ {
+  "id": "syn-media-90-7-au",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Youth-run station reviews all music",
+   "Clear download-link process",
+   "Australian audience"
+  ],
+  "pitchTip": "Include a 320 kbps download link and release date."
+ },
+ {
+  "id": "the-most-fm-104-4-nz",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Takes singles via form",
+   "Small NZ community station",
+   "Little UK value"
+  ],
+  "pitchTip": "Flag Companion as the focus track."
+ },
+ {
+  "id": "three-d-radio-93-7-fm-au",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Progressive and alternative focus",
+   "Prefers albums/EPs and local acts",
+   "Australian audience"
+  ],
+  "pitchTip": "Use the MP3-only submission form."
+ },
+ {
+  "id": "totally-wired-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Music submissions address listed",
+   "Leans soul, jazz and eclectic",
+   "London online audience"
+  ],
+  "pitchTip": "Email a download link to submissions@."
+ },
+ {
+  "id": "toxic-fm-ch",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Youth/student music desk",
+   "Takes servicing by email",
+   "Swiss audience"
+  ],
+  "pitchTip": "Email musik@toxic.fm with a download link."
+ },
+ {
+  "id": "tuks-fm-107-2-za",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Alternative/rock student station",
+   "Submissions address listed",
+   "South African audience"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "ucfm-87-8-au",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Student station with music inbox",
+   "Australian audience",
+   "Small reach"
+  ],
+  "pitchTip": "Email music@ucfm.com.au with links."
+ },
+ {
+  "id": "university-radio-york-ury-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Long-running student station",
+   "Music team welcomes musicians",
+   "Small York audience"
+  ],
+  "pitchTip": "Email the music team with a download link."
+ },
+ {
+  "id": "wythenshawe-fm-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Dedicated music submissions inbox",
+   "Small Manchester community station",
+   "Easy route"
+  ],
+  "pitchTip": "Use Music@wfmradio.org, not the studio email."
+ },
+ {
+  "id": "xcellent-radio-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "Looking for unsigned artists",
+   "They request your single after the form",
+   "Small online audience"
+  ],
+  "pitchTip": "Fill in the form and wait for their request."
+ },
+ {
+  "id": "xpression-fm-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Music team handles airplay enquiries",
+   "Exeter student audience",
+   "Small reach"
+  ],
+  "pitchTip": "Email music@xpression.fm with a download link."
+ },
+ {
+  "id": "1btn-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Brighton community station",
+   "Ask first"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "24-7-restaurant-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Lounge/chillout background music",
+   "Poor fit for indie rock"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "2cbd-fm-105-9-au",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Rural Australian community station",
+   "Takes music by email",
+   "Tiny audience, no UK value"
+  ],
+  "pitchTip": "Email music@radio2cbd.com.au with an MP3 link."
+ },
+ {
+  "id": "2max-fm-91-3-au",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Invites bands, all genres considered",
+   "Rural Australian station",
+   "Tiny audience, no UK value"
+  ],
+  "pitchTip": "Send MP3s to the music department."
+ },
+ {
+  "id": "2ncr-fm-92-9-au",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Regional Australian community station",
+   "Music inbox listed",
+   "Little UK value"
+  ],
+  "pitchTip": "Email music@2ncr.org.au with links."
+ },
+ {
+  "id": "2xx-98-3-fm-au",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Strong Australian/Canberra focus",
+   "Open upload form",
+   "Little UK value"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "3cr-855-am-au",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Prioritises Australian and political music",
+   "Weak fit for UK indie rock"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "6-towns-radio-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Submit Your Music page",
+   "Stoke community station",
+   "Small audience"
+  ],
+  "pitchTip": "Use the Submit YOUR Music page."
+ },
+ {
+  "id": "abbey104-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music submissions to studio address",
+   "Small Dorset community station",
+   "Easy route"
+  ],
+  "pitchTip": "Email studio@abbey104.com with a download link."
+ },
+ {
+  "id": "access-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "'Get Your Music On Air' link",
+   "Charity online station",
+   "Small audience"
+  ],
+  "pitchTip": "Follow the Get Your Music On Air page."
+ },
+ {
+  "id": "air3-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Student station with Head of Music",
+   "No clear submission route",
+   "Small Stirling audience"
+  ],
+  "pitchTip": "Ask the Head of Music via the form."
+ },
+ {
+  "id": "anchor-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Dedicated music submission form",
+   "Online/DAB station",
+   "Small audience"
+  ],
+  "pitchTip": "Use the Music Submission form."
+ },
+ {
+  "id": "ashdown-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Sussex community station",
+   "Ask first"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "asian-star-101-6-fm-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Asian community station",
+   "No route and genre mismatch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "aw-radio-aspen-waite-radio-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Send Us Your Music page",
+   "Small online station",
+   "Easy route"
+  ],
+  "pitchTip": "Use the Send Us Your Music page."
+ },
+ {
+  "id": "b-radio-berkshire-unplugged-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Needs a Berkshire connection",
+   "You have no Berkshire link"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bay-trust-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "For local Dover creatives",
+   "You're not local"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-cwr-bbc-introducing-in-west-midlands-warwickshire-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-essex-bbc-introducing-in-essex-cambridgeshire-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-hereford-worcester-bbc-introducing-in-shropshire-stoke-h",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-essex-cambridgeshire-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-hampshire-dorset-and-the-isle-of-wight-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-kent-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-lancashire-cumbria-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-leeds-sheffield-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-london-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-manchester-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-merseyside-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-northern-ireland-bbc-radio-ulster-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-oxfordshire-berkshire-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-scotland-bbc-radio-scotland-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-shropshire-stoke-hereford-worcester-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-suffolk-norfolk-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-sussex-surrey-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-the-channel-islands-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-the-north-east-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-the-south-west-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-the-west-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-the-west-midlands-warwickshire-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-wales-bethan-elfyn-adam-walton-bbc-radio-",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-introducing-in-york-humberside-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-berkshire-bbc-introducing-in-oxfordshire-berkshire",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-bristol-bbc-introducing-in-the-west-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-cambridgeshire-bbc-introducing-in-essex-cambridges",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-cornwall-bbc-introducing-in-the-south-west-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-cumbria-bbc-introducing-in-lancashire-cumbria-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-cymru-bbc-introducing-in-wales-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-devon-bbc-introducing-in-the-south-west-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-foyle-bbc-introducing-in-northern-ireland-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-gloucestershire-bbc-introducing-in-the-west-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-guernsey-bbc-introducing-in-the-channel-islands-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-humberside-bbc-introducing-in-york-humberside-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-jersey-bbc-introducing-in-the-channel-islands-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-kent-bbc-introducing-in-kent-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-lancashire-bbc-introducing-in-lancashire-cumbria-g",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-leeds-bbc-introducing-in-leeds-sheffield-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-london-bbc-introducing-in-london-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-manchester-bbc-introducing-in-manchester-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-merseyside-bbc-introducing-in-merseyside-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-newcastle-bbc-introducing-in-the-north-east-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-norfolk-bbc-introducing-in-suffolk-norfolk-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-oxford-bbc-introducing-in-oxfordshire-berkshire-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-scotland-bbc-introducing-in-scotland-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-sheffield-bbc-introducing-in-leeds-sheffield-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-shropshire-bbc-introducing-in-shropshire-stoke-her",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-solent-bbc-introducing-in-hampshire-dorset-and-the",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-somerset-bbc-introducing-in-the-west-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-stoke-bbc-introducing-in-shropshire-stoke-hereford",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-suffolk-bbc-introducing-in-suffolk-norfolk-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-surrey-bbc-introducing-in-sussex-surrey-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-sussex-bbc-introducing-in-sussex-surrey-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-tees-bbc-introducing-in-the-north-east-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-ulster-bbc-introducing-in-northern-ireland-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-wales-bbc-introducing-in-wales-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-wiltshire-bbc-introducing-in-the-west-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-wm-bbc-introducing-in-west-midlands-warwickshire-g",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bbc-radio-york-bbc-introducing-in-york-humberside-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Postcode-routed to another region",
+   "Your uploads go to East Midlands Introducing"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bcfm-the-bristol-music-show-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Show is for Bristol artists",
+   "You're not Bristol-based"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bedford-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "For musicians in or near Bedford",
+   "You're not Bedford-based"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bedrock-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Unsigned acts rarely playlisted",
+   "Specialist shows at presenter discretion",
+   "Small community audience"
+  ],
+  "pitchTip": "No Spotify links; send a download link to airplay@."
+ },
+ {
+  "id": "best-smooth-jazz-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Smooth jazz only",
+   "Wrong genre for indie rock"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "beyond-radio-local-music-hour-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "North Lancashire musicians only",
+   "You're not local"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bgfm-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "big-l-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bishop-fm-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "North East/North Yorkshire artists only",
+   "You're outside the area"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "black-cat-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bolton-fm-foster-the-music-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "For Bolton musicians only",
+   "You're not local"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "boogaloo-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bournemouth-one-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bradford-asian-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Asian community station",
+   "No route and genre mismatch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "bro-radio-local-music-playlist-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Local Vale of Glamorgan bands only",
+   "You're not local"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "brooklands-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Surrey station, mostly local music",
+   "Music submission address listed",
+   "Small community audience"
+  ],
+  "pitchTip": "Mention any Surrey gigs if you have them."
+ },
+ {
+  "id": "bute-island-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music team inbox takes submissions",
+   "Tiny island community audience",
+   "Easy but low value"
+  ],
+  "pitchTip": "Use music@ only; other addresses are deleted."
+ },
+ {
+  "id": "calder-valley-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cambridge-105-amplify-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Amplify is for local Cambridge artists",
+   "You're not Cambridge-based"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "castledown-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "celtic-music-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Wrong genre for indie rock",
+   "Not worth a pitch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "celtica-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "central-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Local music page is for Lancashire artists",
+   "You're not local"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "channel-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "New music inbox listed",
+   "Small Kent community station",
+   "Easy route"
+  ],
+  "pitchTip": "Email newmusic@ with a download link."
+ },
+ {
+  "id": "chester-student-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Contact form only",
+   "Small student station",
+   "Ask first"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "classic-hits-forest-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Wrong genre for indie rock",
+   "Not worth a pitch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "clyde-coast-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "colourful-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Soulful music focus",
+   "Poor genre fit"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "community-voice-fm-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "cosoro-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Wrong genre for indie rock",
+   "Not worth a pitch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "country-gospel-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Wrong genre for indie rock",
+   "Not worth a pitch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "countryline-radio-countryline-homegrown-tim-prottey-jones-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Country-only show",
+   "Wrong genre"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "dance-revolution-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Wrong genre for indie rock",
+   "Not worth a pitch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "dean-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Form has submit-music option",
+   "Small Forest of Dean station",
+   "Easy route"
+  ],
+  "pitchTip": "Pick 'Submit Music/Band Info' in the form."
+ },
+ {
+  "id": "deveron-fm-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "devoncast-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "different-drumz-dnb-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Wrong genre for indie rock",
+   "Not worth a pitch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "dover-community-radio-dcrfm-local-music-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Local Dover artists only",
+   "You're not local"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "drift-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Wrong genre for indie rock",
+   "Not worth a pitch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "dune-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "east-coast-fm-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "eava-fm-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Leicester station, near Loughborough",
+   "No music route found",
+   "Small community audience"
+  ],
+  "pitchTip": "Ask if they play local East Midlands bands."
+ },
+ {
+  "id": "eden-fm-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "express-fm-local-music-show-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Local Portsmouth music show",
+   "You're not local"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "fcr-plymouth-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "fiesta-fm-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "forest-fm-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "fraser-coast-fm-107-5-au",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Form takes music submissions",
+   "Regional Australian station",
+   "No UK value"
+  ],
+  "pitchTip": "Pick 'Music Submission' and include genre and bio."
+ },
+ {
+  "id": "freirad-105-9-at",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Visible music call is for Tyrolean acts",
+   "Music desk address listed",
+   "Small Austrian audience"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "fun-kids-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Children's station",
+   "Wrong audience for indie rock"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "fuse-fm-107-5-fm-ballymoney-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "future-radio-local-music-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Non-local artists may email MP3s",
+   "Local upload is NR postcodes only",
+   "Small Norwich audience"
+  ],
+  "pitchTip": "Email MP3s to music@futureradio.co.uk."
+ },
+ {
+  "id": "gaydio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Dance/pop-focused LGBTQ+ station",
+   "Poor genre fit"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "gold-dust-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Dedicated music submissions address",
+   "Small online station",
+   "Easy route"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "hearme-fm-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Open upload network",
+   "Pick up to three channels",
+   "Small audience"
+  ],
+  "pitchTip": "Upload 320 kbps MP3s to indie/rock channels."
+ },
+ {
+  "id": "hope-fm-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Christian station",
+   "Poor fit for your music"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "hot-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Show is for local BCP artists",
+   "You're not local"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "hoxton-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "indie-soul-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Soul and jazz focus",
+   "Poor genre fit"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "ipswich-community-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Post-only submissions",
+   "Small Ipswich community station",
+   "Low value for the cost"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "islands-fm-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "isle-of-wight-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "itch-fm-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Hip hop only",
+   "Wrong genre"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "itisnow-radio-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Invites indie musicians by email",
+   "Runs a voted Top 40",
+   "Small online audience"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "joy-94-9-au",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Needs Australian or LGBTIQA+ link",
+   "Upbeat pop/RnB daytime sound"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "k107fm-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kane-fm-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Mainly dance music station",
+   "Has a music submission option"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "kic-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Youth station takes artist tracks",
+   "Must own 100% of the recording",
+   "Small online audience"
+  ],
+  "pitchTip": "Confirm you own all rights in the form."
+ },
+ {
+  "id": "kmfm-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Kent commercial station",
+   "No music route found",
+   "Mainstream format"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "koast-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "liberty-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "London commercial station",
+   "Ask first"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "like-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music submissions address listed",
+   "Small online station",
+   "Easy route"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "liverpool-community-radio-new-daily-croissant-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Liverpool City Region bands only",
+   "Asks non-local acts not to send"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "lomond-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Local West Dunbartonshire acts only",
+   "You're not local"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "love-da-beat-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Unsigned and new talent focus",
+   "Leans urban and dance",
+   "Small online audience"
+  ],
+  "pitchTip": "Email a download link to Submissions@."
+ },
+ {
+  "id": "manchester-bee-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Form has music submissions option",
+   "Manchester online station",
+   "Small audience"
+  ],
+  "pitchTip": "Choose 'Music submissions' in the contact form."
+ },
+ {
+  "id": "manx-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "mix-92-6-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "moon-phase-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Ambient/chill only",
+   "Prefers paid platforms like Groover"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "more-radio-eastbourne-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "morley-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "nagrecha-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Faith or language community station",
+   "No route and poor fit"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "nonstopplay-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Dance and hits, CD or vinyl only",
+   "Poor fit for indie rock"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "nova-radio-north-east-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music For Airplay option on form",
+   "Newcastle community station",
+   "Small audience"
+  ],
+  "pitchTip": "Use the Music For Airplay option and its document."
+ },
+ {
+  "id": "nts-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 4,
+  "reasons": [
+   "No music submission route",
+   "Only takes show proposals"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "one-jazz-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Wrong genre for indie rock",
+   "Not worth a pitch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "onlinedjradio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Wrong genre for indie rock",
+   "Not worth a pitch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "orion-global-house-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Wrong genre for indie rock",
+   "Not worth a pitch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "outreach-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "passion-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Pop/hits network",
+   "Indie rock is a poor fit"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "phoenix-radio-1208-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Rock/indie-leaning web station",
+   "No music route found",
+   "Ask first"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "portobello-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music submissions page",
+   "Small West London online station",
+   "Easy route"
+  ],
+  "pitchTip": "Use the Music Submissions page."
+ },
+ {
+  "id": "power-ace-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Takes independent artists' music",
+   "Small online station",
+   "Easy route"
+  ],
+  "pitchTip": "Use the Submit Your Music page."
+ },
+ {
+  "id": "power-of-worship-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Wrong genre for indie rock",
+   "Not worth a pitch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "pride-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "progzilla-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Prog rock audience",
+   "Indie rock unlikely to suit"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-adelaide-101-5-fm-au",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Focus is Adelaide and Australian artists",
+   "No UK value"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-agora-105-5-at",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Bilingual Slovenian/German free radio",
+   "Music staff address listed",
+   "Tiny relevance for you"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-alty-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "For local Altrincham singers and bands",
+   "You're not local"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-bury-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-caley-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Contact form only",
+   "Small student station"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-christmas-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Festive music only",
+   "Wrong format"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-essex-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-exe-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-groovy-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Lounge and TV themes",
+   "Wrong genre"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-hillingdon-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-ikhlas-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Faith or language community station",
+   "No route and poor fit"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-leyland-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-newquay-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-ninesprings-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-northern-beaches-88-7-90-3-au",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "General Sydney community station",
+   "Music inbox listed",
+   "No UK value"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-proton-at",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Small Vorarlberg free radio",
+   "Music desk address listed",
+   "Tiny relevance for you"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-reverb-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Home of local Brighton music",
+   "Local acts favoured, no playlist"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-sangam-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Faith or language community station",
+   "No route and poor fit"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-seerah-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Faith or language community station",
+   "No route and poor fit"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-unerh-rt-marburg-rum-de",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Form has a Bemusterung option",
+   "Small German free radio",
+   "Low value"
+  ],
+  "pitchTip": "Choose 'Bemusterung' in the contact form."
+ },
+ {
+  "id": "radio-wester-ross-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-woking-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Local acts only",
+   "You are not based there"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "radio-wyvern-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "raidi-f-ilte-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Faith or language community station",
+   "No route and poor fit"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "raven-s-cave-radio-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Invites unsigned bands by email",
+   "Small Scottish web station",
+   "Easy route"
+  ],
+  "pitchTip": "Email a download link and short bio."
+ },
+ {
+  "id": "redroad-fm-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Music director invites music",
+   "Small Rotherham community station",
+   "Easy route"
+  ],
+  "pitchTip": "Contact the Programming and Music Director."
+ },
+ {
+  "id": "revolution-radio-one-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "How-to-submit section on site",
+   "Small online station",
+   "Easy route"
+  ],
+  "pitchTip": "Follow the How To Submit Your Music steps."
+ },
+ {
+  "id": "riviera-fm-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Local acts only",
+   "You are not based there"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "rock-scot-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Scottish rock acts only",
+   "You're not Scottish"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "rwsfm-103-3-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "seahaven-fm-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Submit Music option on site",
+   "Small Sussex community station",
+   "Easy route"
+  ],
+  "pitchTip": "Use the Submit Music option."
+ },
+ {
+  "id": "select-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Dance/DJ pool",
+   "Wrong genre"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "shoreditch-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Advertises guaranteed radio play",
+   "Possible pay-to-play",
+   "Small London online station"
+  ],
+  "pitchTip": "Check whether it costs money before using it."
+ },
+ {
+  "id": "sibc-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "sle-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Join platform to submit tracks",
+   "Small online station",
+   "Low value"
+  ],
+  "pitchTip": "Check the platform is free before joining."
+ },
+ {
+  "id": "soul-rhythms-radio-uk-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Wrong genre for indie rock",
+   "Not worth a pitch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "soundart-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "soundwave-radio-plymouth-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Local acts only",
+   "You are not based there"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "speysound-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Dedicated new music address",
+   "Tiny Highlands community station",
+   "Easy route"
+  ],
+  "pitchTip": "Email newmusic@speysound.com with a download link."
+ },
+ {
+  "id": "star-st-andrews-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Suggest a track for their playlist",
+   "St Andrews student station",
+   "Small audience"
+  ],
+  "pitchTip": "Suggest Companion for the Autofade playlist."
+ },
+ {
+  "id": "stirling-community-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "sunny-g-community-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Scottish artists only",
+   "You're not Scottish"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "surf-rock-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Wrong genre for indie rock",
+   "Not worth a pitch"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "surrey-hills-community-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Takes MP3s and bio by email",
+   "Live sessions possible",
+   "Small Surrey audience"
+  ],
+  "pitchTip": "Email your MP3 and bio to mymusic@."
+ },
+ {
+  "id": "susy-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "switch-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "today-fm-stepping-stone-bauer-ireland-talent-programme-ie",
+  "eligible": false,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Competition for acts in Ireland",
+   "UK band unlikely to qualify"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "trans-radio-uk-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Submit Music page exists",
+   "Small niche online station"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "triple-j-unearthed-au",
+  "eligible": false,
+  "chance": 1,
+  "value": 4,
+  "reasons": [
+   "Australian artists only",
+   "No international route"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "tuxtra-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "General contact form only",
+   "Small Teesside student station"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "uk-national-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Two named presenters take submissions",
+   "Small online station",
+   "Easy route"
+  ],
+  "pitchTip": "Send to the Mix at Six or Tune Time presenter."
+ },
+ {
+  "id": "unity-radio-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Urban and hip-hop focus",
+   "Poor fit for indie rock"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "v2-radio-local-talent-show-emilia-barnden-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Local acts only",
+   "You are not based there"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "vectis-radio-send-your-local-music-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Local acts only",
+   "You are not based there"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "vibe-1-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "voice-fm-south-coast-music-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "South Coast focus",
+   "Upload grants broadcast licence"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "w-c-r-welsh-coast-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wayne-holden-music-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Takes independent artists for airplay",
+   "Small online station",
+   "Easy route"
+  ],
+  "pitchTip": "Use the submission page on the site."
+ },
+ {
+  "id": "wellington-access-radio-nz",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Prioritises New Zealand music",
+   "Access/community format",
+   "No UK value"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "welwyn-hatfield-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "winchester-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "wrexham-city-radio-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No music route found",
+   "Ask before sending anything"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "xtra-hot-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Rock/indie-leaning web station",
+   "No music route found",
+   "Ask first"
+  ],
+  "pitchTip": null
+ }
+]
