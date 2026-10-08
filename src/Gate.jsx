@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, configured } from "./firebase.js";
 import { band } from "./songs.js";
 import App from "./App.jsx";
 
 const messages = {
   "auth/invalid-credential": "That email and password don't match. Check them and try again.",
-  "auth/wrong-password": "That password isn't right. Try again, or reset it below.",
+  "auth/wrong-password": "That password isn't right. Try again.",
   "auth/user-not-found": "There's no band account with that email.",
-  "auth/too-many-requests": "Too many tries. Wait a few minutes, or reset the password below.",
+  "auth/too-many-requests": "Too many tries. Wait a few minutes and try again.",
   "auth/network-request-failed": "Couldn't reach the sign-in server. Check your connection and try again.",
 };
 
@@ -30,16 +30,6 @@ function SignIn() {
       setBusy(false);
     }
   };
-  const reset = async () => {
-    if (!email.trim()) return setMsg("Enter the band email first, then choose Reset password.");
-    try {
-      await sendPasswordResetEmail(auth, email.trim());
-      setMsg(`A reset link is on its way to ${email.trim()}.`);
-    } catch (err) {
-      setMsg(messages[err.code] || `Couldn't send a reset link (${err.code}).`);
-    }
-  };
-
   return (
     <main className="gate">
       <motion.form className="gate-card" onSubmit={submit} initial={{ opacity: 0, y: 30, rotate: -1 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ type: "spring", stiffness: 160, damping: 20 }}>
@@ -54,7 +44,6 @@ function SignIn() {
         </label>
         {msg && <p className="form-err" role="alert">{msg}</p>}
         <button className="btn btn-primary gate-go" disabled={busy}>{busy ? "Signing in…" : "Sign in"}</button>
-        <button type="button" className="link-btn" onClick={reset}>Reset password</button>
       </motion.form>
     </main>
   );
