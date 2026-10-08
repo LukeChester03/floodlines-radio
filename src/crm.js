@@ -36,12 +36,22 @@ export function migrate(raw) {
   return out;
 }
 
+// Known history (plays from before the site existed) and the send log Claude writes after each send
 export function withSentLog(crm, sentLog) {
   const next = { ...crm };
   for (const s of sentLog) {
     const songId = s.song || "companion";
     const st = next[s.id] ? { ...next[s.id], songs: { ...next[s.id].songs } } : blankStation();
     const r = st.songs[songId] ? { ...st.songs[songId] } : blankSong();
+    if (s.kind === "played") {
+      if (!r.log.some(l => l.at === s.at && l.type === "history")) {
+        r.log = [...r.log, { at: s.at, type: "history", text: s.subject }];
+        if (r.status === "new") r.status = "played";
+      }
+      st.songs[songId] = r;
+      next[s.id] = st;
+      continue;
+    }
     const kind = s.kind === "followup" ? "followup" : "pitch";
     if (!r.log.some(l => l.at === s.sentAt && l.type === kind)) {
       r.log = [...r.log, { at: s.sentAt, type: kind, text: `${kind === "pitch" ? "Pitched" : "Followed up"}: ${s.subject}` }];
@@ -72,4 +82,5 @@ export function songInfo(rec, now = Date.now()) {
   };
 }
 
+export const sentKey = q => `${q.id}:${q.song || "companion"}:${q.kind === "followup" ? "followup" : "pitch"}`;
 export const fmtDate = d => (d ? d.toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "—");

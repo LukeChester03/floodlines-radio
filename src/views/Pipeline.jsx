@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { GripVertical } from "lucide-react";
+import { GripVertical, Search } from "lucide-react";
 import { fmtDate, statuses } from "../crm.js";
 import { flag } from "../ui/bits.jsx";
 
@@ -42,7 +42,12 @@ function Card({ s, song, onMove, openSheet }) {
 
 export default function Pipeline({ stations, song, setStatus, openSheet }) {
   const [limit, setLimit] = useState({});
-  const reach = stations.filter(s => !["contact", "none"].includes(s.route) && s.genreFit !== "other" && !s.rec.dnc).sort((a, b) => a.rank - b.rank);
+  const [q, setQ] = useState("");
+  const needle = q.trim().toLowerCase();
+  const reach = stations
+    .filter(s => !["contact", "none"].includes(s.route) && s.genreFit !== "other" && !s.rec.dnc)
+    .filter(s => !needle || `${s.name} ${s.show || ""} ${s.region} ${s.rec.tags.join(" ")}`.toLowerCase().includes(needle))
+    .sort((a, b) => a.rank - b.rank);
   const onMove = (id, status) => setStatus([id], status, song.id);
 
   return (
@@ -53,6 +58,11 @@ export default function Pipeline({ stations, song, setStatus, openSheet }) {
           <p className="view-sub">Drag a station into the next column as things happen, or use the menu on each card. Not pitched shows the best-ranked first.</p>
         </div>
       </div>
+      <label className="search board-search">
+        <Search size={18} aria-hidden="true" />
+        <span className="sr-only">Find a station on the board</span>
+        <input type="search" name="board-search" autoComplete="off" spellCheck={false} placeholder="Find a station on the board…" value={q} onChange={e => setQ(e.target.value)} />
+      </label>
       <div className="board">
         {statuses.map(col => {
           const items = reach.filter(s => s.cur.status === col.key);

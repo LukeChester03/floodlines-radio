@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Mail, Star } from "lucide-react";
 import { fmtDate, statuses } from "../crm.js";
 import { Meter, Modal, StatusTag, flag, genreLabel, routeLabel, tierLabel, typeLabel } from "../ui/bits.jsx";
@@ -9,6 +9,15 @@ export default function StationSheet({ id, stations, songs, song, updateStation,
   const [notes, setNotes] = useState("");
   const [tag, setTag] = useState("");
   useEffect(() => { setNotes(s?.rec.notes || ""); setTag(""); }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Notes save shortly after you stop typing, and straight away if the panel closes
+  const pending = useRef(null);
+  const saveNotes = (sid, text) => { clearTimeout(pending.current?.t); pending.current = null; updateStation(sid, { notes: text }); };
+  const onNotes = text => {
+    setNotes(text);
+    clearTimeout(pending.current?.t);
+    pending.current = { id: s.id, text, t: setTimeout(() => saveNotes(s.id, text), 500) };
+  };
+  useEffect(() => () => { if (pending.current) saveNotes(pending.current.id, pending.current.text); }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const history = s ? songs.flatMap(sg => (s.rec.songs[sg.id]?.log || []).map(l => ({ ...l, song: sg }))).sort((a, b) => b.at.localeCompare(a.at)) : [];
 
@@ -40,6 +49,7 @@ export default function StationSheet({ id, stations, songs, song, updateStation,
             <a href={s.sourceUrl} target="_blank" rel="noopener" className="ext">Their submission page <ExternalLink size={14} aria-hidden="true" /></a>
           </section>
 
+          {s.rec.dnc && <p className="warn">Marked do not contact, so you can't pitch this station. Untick "Do not contact" below to allow it again.</p>}
           <div className="sheet-actions">
             {s.route === "email" && !s.rec.dnc && (
               <button className="btn btn-primary" onClick={() => { onClose(); openMailer([s.id], s.cur.status === "new" ? "pitch" : "followup"); }}>
@@ -93,7 +103,8 @@ export default function StationSheet({ id, stations, songs, song, updateStation,
 
           <section className="sheet-sec">
             <h3><label htmlFor="notes">Notes</label></h3>
-            <textarea id="notes" rows={4} value={notes} onChange={e => setNotes(e.target.value)} onBlur={() => notes !== s.rec.notes && updateStation(s.id, { notes })} placeholder="Who you spoke to, what they said, which show played you…" />
+            <textarea id="notes" rows={4} value={notes} onChange={e => onNotes(e.target.value)} placeholder="Who you spoke to, what they said, which show played you…" />
+            <p className="muted small">Saved automatically.</p>
           </section>
 
           <section className="sheet-sec">

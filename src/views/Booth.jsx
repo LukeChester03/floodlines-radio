@@ -1,30 +1,45 @@
 import { motion } from "motion/react";
-import { ArrowRight, BellRing, Inbox, Send } from "lucide-react";
+import { ArrowRight, BellRing, DatabaseBackup, Inbox, Send, Upload } from "lucide-react";
+import { backup, restore } from "../store.js";
 import { flag, tierLabel } from "../ui/bits.jsx";
 
 // Overview for the song you're pitching: what to do next, and how far the campaign has got
-export default function Booth({ stations, song, due, queue, openMailer, openSheet, setView }) {
+const songs_untouched = s => Object.values(s.per).every(p => p.status === "new" || p.status === "played") && !s.rec.notes && !s.rec.tags.length;
+
+export default function Booth({ stations, song, dueAll, queue, openMailer, openSheet, setView }) {
   const reach = stations.filter(s => !["contact", "none"].includes(s.route) && s.genreFit !== "other" && !s.rec.dnc);
   const count = k => reach.filter(s => s.cur.status === k).length;
-  const pitched = reach.filter(s => s.cur.status !== "new").length;
+  const contacted = reach.filter(s => s.cur.status !== "new").length;
   const funnel = [
     ["Can apply", reach.length],
-    ["Pitched", pitched],
+    ["Contacted", contacted],
     ["Replied", count("replied") + count("played")],
     ["Played", count("played")],
   ];
-  const top = reach.filter(s => s.cur.status === "new").sort((a, b) => a.rank - b.rank).slice(0, 9);
+  const top = reach.filter(s => s.cur.status === "new" && !s.cur.queued).sort((a, b) => a.rank - b.rank).slice(0, 9);
   const topEmail = top.filter(s => s.route === "email").map(s => s.id);
   const queuedForSong = queue.filter(q => q.song === song.id).length;
 
   const cues = [
-    { icon: BellRing, label: "Follow-ups due", n: due.length, hot: due.length > 0, go: "followups", text: due.length ? "No reply yet and the wait is up." : "Nothing due right now." },
+    { icon: BellRing, label: "Follow-ups due", n: dueAll.length, hot: dueAll.length > 0, go: "followups", text: dueAll.length ? "No reply yet and the wait is up, across all your songs." : "Nothing due right now." },
     { icon: Send, label: "In the send list", n: queuedForSong, hot: false, go: "sendlist", text: queuedForSong ? `Waiting to go out for ${song.title}.` : "Approve pitches to fill it." },
     { icon: Inbox, label: "Waiting on replies", n: count("pitched") + count("followed"), hot: false, go: "pipeline", text: "Pitched and not heard back yet." },
   ];
 
+  const fresh = stations.every(s => songs_untouched(s));
   return (
     <div className="booth">
+      {fresh && (
+        <section className="intro-strip" aria-label="How this works">
+          <p className="intro-lead">Your one place for every radio station FloodLines can send music to. Here's how a campaign runs:</p>
+          <ol>
+            <li><b>Pick stations</b> in Stations. Filter by region, genre or how they take music.</li>
+            <li><b>Check the emails.</b> Blanket email writes one personal email per station for the song you're pitching. Read and edit each one.</li>
+            <li><b>Send with Claude.</b> Give the send list to Claude, who shows you every recipient and sends only after you say yes.</li>
+            <li><b>Track replies</b> in the pipeline. Follow-ups come up automatically 10 days after each pitch.</li>
+          </ol>
+        </section>
+      )}
       <div className="cues">
         {cues.map(({ icon: Icon, label, n, hot, go, text }, i) => (
           <motion.button
@@ -53,7 +68,7 @@ export default function Booth({ stations, song, due, queue, openMailer, openShee
               <span className="level-label">{label}</span>
               <span className="level-track">
                 <motion.span
-                  className="level-fill"
+                  className={`level-fill${i === 0 ? " base" : ""}`}
                   initial={{ width: 0 }}
                   animate={{ width: `${reach.length ? Math.max(n ? 2 : 0, (n / reach.length) * 100) : 0}%` }}
                   transition={{ type: "spring", stiffness: 60, damping: 16, delay: 0.15 + i * 0.1 }}
@@ -89,6 +104,17 @@ export default function Booth({ stations, song, due, queue, openMailer, openShee
             </motion.li>
           ))}
         </ol>
+      </section>
+
+      <section className="card-panel" aria-labelledby="data-h">
+        <h2 id="data-h" className="panel-title">Your campaign data</h2>
+        <p className="panel-sub">Statuses, notes, tags, songs and the send list are saved in this browser only. Back them up now and then, and restore the file on another computer or for another band member.</p>
+        <div className="row-actions">
+          <button className="btn" onClick={backup}><DatabaseBackup size={16} aria-hidden="true" /> Back up to a file</button>
+          <label className="btn file-btn"><Upload size={16} aria-hidden="true" /> Restore from a file
+            <input type="file" accept="application/json" className="sr-only" onChange={e => e.target.files?.[0] && restore(e.target.files[0])} />
+          </label>
+        </div>
       </section>
     </div>
   );

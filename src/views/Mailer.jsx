@@ -7,7 +7,7 @@ import { DAILY_SEND_CAP, statusLabel } from "../crm.js";
 import { Modal, Sleeve } from "../ui/bits.jsx";
 
 // The promo mailer: one template, one personal email per station, tagged with the song being pitched
-export default function Mailer({ job, stations, songs, song: currentSong, queue, onApprove, onClose }) {
+export default function Mailer({ job, stations, songs, song: currentSong, onApprove, onClose }) {
   const kind = job?.kind || "pitch";
   const [songId, setSongId] = useState(currentSong.id);
   const song = songs.find(s => s.id === songId) || currentSong;
@@ -19,13 +19,15 @@ export default function Mailer({ job, stations, songs, song: currentSong, queue,
   const [cursor, setCursor] = useState(0);
 
   const list = useMemo(() => (job ? job.ids.map(id => stations.find(s => s.id === id)).filter(Boolean) : []), [job, stations]);
-  const fresh = (s, sid) => s.email && !s.rec.dnc && !(kind === "pitch" && s.per[sid].status !== "new");
+  // Ticked by default: has an email, not do-not-contact, not already pitched or queued for this song
+  const fresh = (s, sid) => s.email && !s.rec.dnc && !(kind === "pitch" && (s.per[sid].status !== "new" || s.per[sid].queued));
   useEffect(() => {
     if (!job) return;
-    setSongId(job.song || currentSong.id);
-    setEdits({});
+    const sid = job.song || currentSong.id;
+    setSongId(sid);
+    setEdits(job.prefill || {});
     setCursor(0);
-    setInclude(Object.fromEntries(list.map(s => [s.id, fresh(s, job.song || currentSong.id)])));
+    setInclude(Object.fromEntries(list.map(s => [s.id, job.prefill?.[s.id] ? true : fresh(s, sid)])));
   }, [job]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const tpl = tpls[kind] || baseTemplates[kind];
@@ -33,17 +35,19 @@ export default function Mailer({ job, stations, songs, song: currentSong, queue,
   const current = list[cursor];
   const draft = current ? draftFor(current) : null;
   const chosen = list.filter(s => include[s.id]);
-  const queued = new Set(queue.map(q => `${q.id}:${q.song}:${q.kind}`));
 
   const warn = s =>
     !s.email ? "No email address"
     : s.rec.dnc ? "Marked do not contact"
     : kind === "pitch" && s.per[song.id].status !== "new" ? `Already ${statusLabel[s.per[song.id].status].toLowerCase()} for ${song.title}`
-    : queued.has(`${s.id}:${song.id}:${kind}`) ? "Already in the send list, will be replaced"
+    : s.per[song.id].queued && !job?.prefill?.[s.id] ? "Already in the send list. Tick to replace it"
     : s.restricted ? "Says local acts only"
     : null;
 
+  const editedCount = Object.keys(edits).length;
   const pickSong = id => {
+    if (id === songId) return;
+    if (editedCount && !confirm(`Switching song rewrites the emails and loses your changes to ${editedCount} of them. Switch anyway?`)) return;
     setSongId(id);
     setEdits({});
     setInclude(Object.fromEntries(list.map(s => [s.id, fresh(s, id)])));
@@ -55,10 +59,17 @@ export default function Mailer({ job, stations, songs, song: currentSong, queue,
     }));
     onClose();
   };
-  const setTpl = patch => { setTpls(t => ({ ...t, [kind]: { ...tpl, ...patch } })); setEdits({}); };
+  // Template edits rewrite every email, so they replace any hand edits (after asking once)
+  const setTpl = patch => {
+    if (editedCount && !confirm(`Changing the template rewrites every email and loses your changes to ${editedCount} of them. Carry on?`)) return;
+    setTpls(t => ({ ...t, [kind]: { ...tpl, ...patch } }));
+    setEdits({});
+  };
+  const guard = () => !editedCount || confirm(`Close without adding these emails? Your changes to ${editedCount} ${editedCount === 1 ? "email" : "emails"} will be lost.`);
+  const nounFor = n => (kind === "followup" ? (n === 1 ? "follow-up" : "follow-ups") : (n === 1 ? "pitch" : "pitches"));
 
   return (
-    <Modal open={!!(job && current)} onClose={onClose} label="Blanket email" className="mailer">
+    <Modal open={!!(job && current)} onClose={onClose} guard={guard} label="Blanket email" className="mailer">
       {current && (
         <>
           <header className="ml-head" style={{ "--song": song.color }}>
@@ -96,9 +107,9 @@ export default function Mailer({ job, stations, songs, song: currentSong, queue,
 
             <div className="ml-editor">
               <div className="ml-controls">
-                <label className="inline"><span>Signed</span><input value={signoff} onChange={e => { setSignoff(e.target.value); setEdits({}); }} /></label>
+                <label className="inline"><span>Signed</span><input name="signoff" autoComplete="off" value={signoff} onChange={e => setSignoff(e.target.value)} /></label>
                 {kind === "pitch" && songs.length > 1 && (
-                  <label className="check"><input type="checkbox" checked={others} onChange={e => { setOthers(e.target.checked); setEdits({}); }} /> Mention your other songs too</label>
+                  <label className="check"><input type="checkbox" checked={others} onChange={e => setOthers(e.target.checked)} /> Mention your other released songs</label>
                 )}
               </div>
               <AnimatePresence mode="wait">
@@ -108,7 +119,7 @@ export default function Mailer({ job, stations, songs, song: currentSong, queue,
                     <div><dt>To</dt><dd>{current.email || "No email address"}{current.contactName ? ` (${current.contactName})` : ""}</dd></div>
                     <div><dt>Song</dt><dd>{song.title}</dd></div>
                   </dl>
-                  {current.instructions && <p className="their-rules"><b>They ask for:</b> {current.instructions}</p>}
+                  {current.instructions && <p className="their-rules"><b>They ask for:</b> {current.instructions}{current.pitchTip ? <><br /><b>Tip:</b> {current.pitchTip}</> : null}</p>}
                   <label className="field"><span>Subject</span>
                     <input value={draft.subject} onChange={e => setEdits(x => ({ ...x, [current.id]: { ...draft, subject: e.target.value } }))} />
                   </label>
@@ -125,16 +136,16 @@ export default function Mailer({ job, stations, songs, song: currentSong, queue,
 
               <details className="ml-template">
                 <summary>Edit the template used for every {kind === "followup" ? "follow-up" : "pitch"}</summary>
-                <p className="hint">Placeholders: {placeholders.join(" ")}. {"{name}"} uses the contact's first name where the station publishes one, otherwise "[station] team". Changing the template resets per-station edits.</p>
+                <p className="hint">Placeholders: {placeholders.join(" ")}. {"{name}"} uses the contact's first name where the station publishes one, otherwise "[station] team". Changing the template rewrites every email, including ones you've edited.</p>
                 <label className="field"><span>Subject</span><input value={tpl.subject} onChange={e => setTpl({ subject: e.target.value })} /></label>
                 <label className="field"><span>Body</span><textarea rows={10} value={tpl.body} onChange={e => setTpl({ body: e.target.value })} /></label>
-                <button className="link-btn" onClick={() => { setTpls(t => ({ ...t, [kind]: baseTemplates[kind] })); setEdits({}); }}>Reset to the original template</button>
+                <button className="link-btn" onClick={() => { if (!editedCount || confirm("Resetting the template loses your per-email changes. Carry on?")) { setTpls(t => ({ ...t, [kind]: baseTemplates[kind] })); setEdits({}); } }}>Reset to the original template</button>
               </details>
             </div>
           </div>
 
           <footer className="ml-foot">
-            <button className="btn btn-primary" disabled={!chosen.length} onClick={approve}>Add {chosen.length} {song.title} {kind === "followup" ? "follow-ups" : "pitches"} to the send list</button>
+            <button className="btn btn-primary" disabled={!chosen.length} onClick={approve}>Add {chosen.length} {song.title} {nounFor(chosen.length)} to the send list</button>
             <p className="hint">{chosen.length > DAILY_SEND_CAP ? `More than ${DAILY_SEND_CAP}, so the send list splits it into daily batches. ` : ""}Nothing sends until you give the list to Claude and confirm.</p>
           </footer>
         </>

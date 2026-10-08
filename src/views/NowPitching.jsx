@@ -8,7 +8,7 @@ export default function NowPitching({ songs, song, setSongId, stations, openSong
   const by = k => stations.filter(s => s.cur.status === k).length;
   const sent = stations.filter(s => s.cur.status !== "new").length;
   const stats = [
-    ["Pitched", sent],
+    ["Contacted", sent],
     ["Replied", by("replied")],
     ["Played", by("played")],
   ];

@@ -52,7 +52,7 @@ export default function SendList({ items, setItems, songs, openMailer, logEvent,
       </section>
 
       {!items.length ? (
-        <Empty title="Nothing waiting to send." action={<button className="btn" onClick={() => setView("stations")}>Pick stations</button>}>Tick stations in the station log and choose Blanket email.</Empty>
+        <section className="card-panel"><Empty title="Nothing waiting to send." action={<button className="btn" onClick={() => setView("stations")}>Pick stations</button>}>Tick stations in the station log and choose Blanket email.</Empty></section>
       ) : (
         <ul className="sl-list">
           <AnimatePresence initial={false}>
@@ -69,7 +69,7 @@ export default function SendList({ items, setItems, songs, openMailer, logEvent,
                   <pre className="sl-body">{q.body}</pre>
                 </details>
                 <div className="sl-actions">
-                  <button className="link-btn" onClick={() => openMailer([q.id], q.kind, q.song)}>Edit</button>
+                  <button className="link-btn" onClick={() => openMailer([q.id], q.kind, q.song, { [q.id]: { subject: q.subject, body: q.body } })}>Edit</button>
                   <button className="link-btn danger" onClick={() => { setItems(list => list.filter(x => key(x) !== key(q))); logEvent(q.id, q.song, "note", "Removed from the send list"); }}>Remove</button>
                 </div>
               </motion.li>

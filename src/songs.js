@@ -68,7 +68,9 @@ export const placeholders = ["{name}", "{station}", "{target}", "{song}", "{song
 // Fills a template for one station and one song
 export function fill(template, station, song, songs, { signoff = band.signoff, includeOthers = true } = {}) {
   const first = station.contactName ? station.contactName.split(/[\s(]/)[0] : null;
-  const others = songs.filter(s => s.id !== song.id && s.link);
+  const today = new Date().toISOString().slice(0, 10);
+  // Only released songs the band has chosen to mention
+  const others = songs.filter(s => s.id !== song.id && s.link && s.mention !== false && (!s.released || s.released <= today));
   const map = {
     name: first || (station.show ? `${station.show} team` : `${station.name} team`),
     station: station.name,
