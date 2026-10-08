@@ -66,7 +66,7 @@ export default function Tapes({ stats }) {
     <section className="intro">
       <div className="intro-copy">
         <h1 className="intro-title">
-          {["Radio stations", "that take", "submissions"].map((line, i) => (
+          {["Every station", "FloodLines", "can apply to"].map((line, i) => (
             <span className="line-mask" key={i}>
               <motion.span
                 className="line"
@@ -80,12 +80,12 @@ export default function Tapes({ stats }) {
           ))}
         </h1>
         <p className="intro-lede">
-          Every station we could find in the UK and around the world that takes new music, checked against its own website. Tune the dial to a region, draft a pitch for {songs.companion.title} or {songs.finalfear.title}, approve it, then give the send list to Claude to post from {band.email}.
+          Every radio station in the UK and around the world that FloodLines can apply to, checked against its own website and ranked for where you are as a band right now. Tune the dial to a region, start at the top of the chart, draft a pitch for {songs.companion.title} or {songs.finalfear.title}, then give the send list to Claude to post from {band.email}.
         </p>
         <dl className="counters">
-          <div><dt>Stations</dt><dd><Count to={stats.total} /></dd></div>
+          <div><dt>You can apply to</dt><dd><Count to={stats.total} /></dd></div>
+          <div><dt>Start here</dt><dd><Count to={stats.start} /></dd></div>
           <div><dt>Take email</dt><dd><Count to={stats.email} /></dd></div>
-          <div><dt>Form or platform</dt><dd><Count to={stats.form} /></dd></div>
           <div><dt>Countries</dt><dd><Count to={stats.countries} /></dd></div>
         </dl>
       </div>

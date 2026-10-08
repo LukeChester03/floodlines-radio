@@ -56,19 +56,56 @@ for (const f of files) {
   }
 }
 
+// Scores from the per-station judgement pass (research/scores/*.json), keyed by id
+const scores = new Map();
+try {
+  for (const f of readdirSync("research/scores").filter(f => f.endsWith(".json")))
+    for (const r of JSON.parse(readFileSync(`research/scores/${f}`, "utf8"))) scores.set(r.id, r);
+} catch { /* no scores yet */ }
+
+const EAST_MIDS = /(east midlands|leicester|loughborough|nottingham|derby|lincoln|northampton|rutland|mansfield|coalville|melton|hinckley)/i;
+function category(s) {
+  if (s.group === "uk" && (/\bBBC\b/.test(s.name) || EAST_MIDS.test(s.region || ""))) return "bbc-em";
+  if (s.group === "uk" && s.type === "student") return "uk-student";
+  if (s.group === "uk" && ["community", "regional"].includes(s.type)) return "uk-local";
+  if (s.group === "uk") return "uk-national";
+  if (s.group === "us" && s.type === "college") return "us-college";
+  if (s.group === "us") return "us-other";
+  if (s.group === "canada") return "canada";
+  if (s.group === "ausnz") return "ausnz";
+  return "europe";
+}
+// Provisional score for stations the judgement pass hasn't reached yet
+function provisional(s) {
+  const chance = { high: 4, medium: 3, low: 2 }[s.fit] - (s.paid ? 1 : 0);
+  const value = { national: 4, public: 4, regional: 3, show: 3, online: 2, commercial: 3, college: 2, student: 2, community: 2 }[s.type] || 2;
+  return { eligible: true, chance, value, reasons: ["Not ranked by hand yet"], pitchTip: null, provisional: true };
+}
+const tierOf = (chance, value, score) =>
+  chance >= 4 && score >= 64 ? "start" : score >= 56 ? "strong" : score >= 40 ? "worth" : "long";
+
 const used = new Set();
-const out = [...seen.values()]
-  .sort((a, b) => ({ high: 0, medium: 1, low: 2 }[a.fit] - { high: 0, medium: 1, low: 2 }[b.fit]) || a.name.localeCompare(b.name))
+const all = [...seen.values()];
+const applyable = all.filter(s => !(s.method === "email" && !s.emailAllowed) && s.method !== "none-found");
+const out = applyable
   .map(s => {
     let id = slug(`${s.name}-${s.show || ""}-${s.country}`);
     while (used.has(id)) id += "-x";
     used.add(id);
-    return { id, ...s };
-  });
-
+    const j = scores.get(id) || provisional(s);
+    const score = j.chance * 12 + j.value * 8;
+    return { id, ...s, category: category(s), eligible: j.eligible !== false, chance: j.chance, value: j.value, score, tier: tierOf(j.chance, j.value, score), reasons: j.reasons || [], pitchTip: j.pitchTip || null, provisional: !!j.provisional };
+  })
+  .filter(s => s.eligible)
+  .sort((a, b) => b.score - a.score || b.chance - a.chance || a.name.localeCompare(b.name))
+  .map((s, i) => ({ ...s, rank: i + 1 }));
+console.log(`${all.length - applyable.length} general-contact or no-route rows hidden; ${applyable.length - out.length} not eligible for FloodLines`);
 writeFileSync("src/data/stations.json", JSON.stringify(out, null, 1));
 const count = k => out.reduce((m, s) => ((m[s[k]] = (m[s[k]] || 0) + 1), m), {});
 console.log(`${out.length} stations (${dropped} dropped/duplicates)`);
 console.log("by group", count("group"));
 console.log("by method", count("method"));
+console.log("by tier", count("tier"));
+console.log("by category", count("category"));
+console.log("provisional", out.filter(s => s.provisional).length);
 console.log("email allowed", out.filter(s => s.emailAllowed).length);

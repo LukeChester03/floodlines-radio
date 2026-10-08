@@ -6,23 +6,19 @@ import { band, defaultTemplate } from "./band.js";
 import { useLocal } from "./store.js";
 import Receiver, { Keys, bands } from "./sections/Receiver.jsx";
 import Tapes from "./sections/Tapes.jsx";
-import Stations from "./sections/Stations.jsx";
+import Chart from "./sections/Chart.jsx";
+import Standing from "./sections/Standing.jsx";
 import Composer from "./sections/Composer.jsx";
 import Queue from "./sections/Queue.jsx";
 
 const routes = [["all", "Any route"], ["email", "Takes email"], ["form", "Form/platform"]];
-const types = [["all", "All"], ["student", "Student"], ["college", "College"], ["community", "Community"], ["online", "Online"], ["public", "Public"], ["broadcast", "National/regional"], ["show", "Shows"]];
-const fits = [["all", "Any fit"], ["high", "Strong fit"]];
-
-const typeMatch = (s, t) => t === "all" || (t === "broadcast" ? ["national", "regional", "commercial"].includes(s.type) : s.type === t);
+const groupings = [["tier", "By priority"], ["category", "By type of station"]];
 
 export default function App() {
   const [region, setRegion] = useLocal("fl-region", "all");
   const [method, setMethod] = useLocal("fl-method", "email");
-  const [type, setType] = useState("all");
-  const [fit, setFit] = useState("all");
+  const [groupBy, setGroupBy] = useLocal("fl-groupby", "tier");
   const [query, setQuery] = useState("");
-  const [shown, setShown] = useState(40);
   const [selected, setSelected] = useState([]);
   const [composing, setComposing] = useState(null);
   const [powered, setPowered] = useState(false);
@@ -44,20 +40,18 @@ export default function App() {
 
   const stats = useMemo(() => ({
     total: stations.length,
+    start: stations.filter(s => s.tier === "start").length,
     email: stations.filter(s => s.emailAllowed).length,
-    form: stations.filter(s => !s.emailAllowed && (s.method === "form" || s.method === "platform")).length,
     countries: new Set(stations.map(s => s.country)).size,
   }), []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return stations.filter(s =>
-      (method === "all" || (method === "email" ? s.emailAllowed : !s.emailAllowed && (s.method === "form" || s.method === "platform"))) &&
-      typeMatch(s, type) &&
-      (fit === "all" || s.fit === "high") &&
+      (method === "all" || (method === "email" ? s.emailAllowed : !s.emailAllowed)) &&
       (!q || `${s.name} ${s.show || ""} ${s.region} ${s.country}`.toLowerCase().includes(q))
     );
-  }, [method, type, fit, query]);
+  }, [method, query]);
 
   const inRegion = useMemo(() => filtered.filter(s => region === "all" || s.group === region), [filtered, region]);
   const counts = useMemo(() => {
@@ -66,7 +60,7 @@ export default function App() {
     return c;
   }, [filtered]);
 
-  const resetPage = fn => v => { fn(v); setShown(40); };
+  const resetPage = fn => v => fn(v);
   const toggle = id => setSelected(sel => (sel.includes(id) ? sel.filter(x => x !== id) : [...sel, id]));
   const selectable = inRegion.filter(s => s.emailAllowed && !statuses[s.id]);
   const draftFor = ids => setComposing(ids.map(id => stations.find(s => s.id === id)).filter(s => s && s.emailAllowed));
@@ -92,12 +86,8 @@ export default function App() {
             <Keys options={routes} value={method} onChange={resetPage(setMethod)} label="Submission route" />
           </div>
           <div className="control-group">
-            <span className="plate-label">Station type</span>
-            <Keys options={types} value={type} onChange={resetPage(setType)} label="Station type" />
-          </div>
-          <div className="control-group">
-            <span className="plate-label">Fit</span>
-            <Keys options={fits} value={fit} onChange={resetPage(setFit)} label="Fit" />
+            <span className="plate-label">Group the chart</span>
+            <Keys options={groupings} value={groupBy} onChange={setGroupBy} label="Group the chart" />
           </div>
           <label className="control-group lcd-wrap">
             <span className="plate-label">Search</span>
@@ -107,10 +97,14 @@ export default function App() {
       </div>
 
       <Tapes stats={stats} />
+      <Standing />
 
       <main className="wrap">
         <div className="list-head">
-          <h2 className="list-title">{inRegion.length} {inRegion.length === 1 ? "station" : "stations"} on the printout</h2>
+          <div>
+            <h2 className="list-title">The FloodLines Radio Chart</h2>
+            <p className="list-sub">{inRegion.length} stations you can apply to{region !== "all" ? " in this region" : ""}, highest score first.</p>
+          </div>
           <div className="bulk">
             <button className="chip" disabled={!selectable.length} onClick={() => setSelected(selectable.map(s => s.id))}>
               Select all that take email ({selectable.length})
@@ -122,18 +116,10 @@ export default function App() {
           </div>
         </div>
 
-        <Stations
-          list={inRegion}
-          shown={shown}
-          onMore={() => setShown(n => n + 40)}
-          statuses={statuses}
-          selected={selected}
-          onSelect={toggle}
-          onDraft={draftFor}
-        />
+        <Chart list={inRegion} groupBy={groupBy} statuses={statuses} selected={selected} onSelect={toggle} onDraft={draftFor} />
 
         <footer className="foot">
-          <p>Every station was checked against its own website in October 2026. Only stations that invite email submissions, or publish a dedicated music address, can be pitched by email here. The rest link to their own form or platform.</p>
+          <p>Every station was checked against its own website in October 2026, then ranked by hand for where FloodLines are now. Stations that only list a general contact address, or only take acts from somewhere you're not, are left off. Only stations that invite email submissions can be pitched by email here; the rest link to their own form, uploader or postal address.</p>
           <p>Approved pitches are saved in this browser. Nothing sends from this page. Claude sends them from {band.email} only after you confirm the list.</p>
         </footer>
       </main>
