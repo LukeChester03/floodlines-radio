@@ -1,12 +1,15 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, LayoutGroup, MotionConfig, motion } from "motion/react";
-import { CalendarClock, KanbanSquare, LayoutDashboard, Mail, Table2 } from "lucide-react";
+import { CalendarClock, KanbanSquare, LayoutDashboard, LogOut, Mail, Table2 } from "lucide-react";
+import { signOut } from "firebase/auth";
+import { auth } from "./firebase.js";
+import { importLocal, localData, useCloud } from "./cloud.js";
 import stations from "./data/stations.json";
 import sentLog from "./data/sent-log.json";
 import pastPlays from "./data/history.json";
 import { useLocal } from "./store.js";
 import { defaultSongs } from "./songs.js";
-import { blankSong, blankStation, migrate, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
+import { blankSong, blankStation, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
 import { OnAir } from "./ui/bits.jsx";
 import NowPitching from "./views/NowPitching.jsx";
 import Booth from "./views/Booth.jsx";
@@ -31,7 +34,7 @@ const nav = [
 const views = nav.map(n => n[0]);
 const fromHash = () => (views.includes(location.hash.slice(1)) ? location.hash.slice(1) : null);
 
-export default function App() {
+export default function App({ user }) {
   const [view, setViewState] = useState(() => fromHash() || "booth");
   const setView = useCallback(v => {
     if (v !== fromHash()) window.history.pushState(null, "", `#${v}`);
@@ -44,27 +47,31 @@ export default function App() {
     return () => window.removeEventListener("popstate", onPop);
   }, []);
 
-  const [songs, setSongs] = useLocal("fl2-songs", defaultSongs);
+  const cloud = useCloud(user);
+  const songs = cloud.songs;
   const [songId, setSongId] = useLocal("fl2-song", "companion");
-  const [crmRaw, setCrmRaw] = useLocal("fl-crm", {});
-  const [queueRaw, setQueue] = useLocal("fl2-sendlist", []);
   const [selected, setSelected] = useState([]);
   const [sheet, setSheet] = useState(null);
   const [mailer, setMailer] = useState(null); // { ids, kind, song, prefill }
   const [songForm, setSongForm] = useState(null); // null | "new" | song
+  const [local, setLocal] = useState(() => localData());
 
-  const song = songs.find(s => s.id === songId) || songs[0];
-  const crm = useMemo(() => withSentLog(migrate(crmRaw), knownLog), [crmRaw]);
+  const song = songs.find(s => s.id === songId) || songs[0] || defaultSongs[0];
+  const crm = useMemo(() => withSentLog(cloud.crm, knownLog), [cloud.crm]);
 
   // Anything Claude has already sent drops out of the send list, so it can't be sent twice
-  const queue = useMemo(() => queueRaw.filter(q => !sentKeys.has(sentKey(q))), [queueRaw]);
-  useEffect(() => { if (queue.length !== queueRaw.length) setQueue(queue); }, [queue, queueRaw, setQueue]);
+  const queue = useMemo(() => cloud.queue.filter(q => !sentKeys.has(sentKey(q))), [cloud.queue]);
+  const sentStillQueued = useMemo(() => cloud.queue.filter(q => sentKeys.has(sentKey(q))).map(sentKey), [cloud.queue]);
+  const { removeFromQueue } = cloud;
+  useEffect(() => { if (sentStillQueued.length) removeFromQueue(sentStillQueued); }, [sentStillQueued, removeFromQueue]);
   const queuedKeys = useMemo(() => new Set(queue.map(sentKey)), [queue]);
 
-  const updateStation = useCallback((id, patch) => setCrmRaw(raw => {
-    const cur = withSentLog(migrate(raw), knownLog)[id] || blankStation();
-    return { ...migrate(raw), [id]: { ...cur, ...(typeof patch === "function" ? patch(cur) : patch) } };
-  }), [setCrmRaw]);
+  // Edits start from the record as shown (including what the send log knows), then save to the database
+  const { updateStation: saveStation } = cloud;
+  const updateStation = useCallback((id, patch) => saveStation(id, cur => {
+    const merged = withSentLog({ [id]: cur }, knownLog)[id] || blankStation();
+    return typeof patch === "function" ? patch(merged) : patch;
+  }), [saveStation]);
   const updateSong = useCallback((id, sid, patch) => updateStation(id, st => {
     const cur = st.songs[sid] || blankSong();
     return { songs: { ...st.songs, [sid]: { ...cur, ...(typeof patch === "function" ? patch(cur) : patch) } } };
@@ -96,26 +103,28 @@ export default function App() {
     if (list.length) setMailer({ ids: list, kind, song: songFor || song.id, prefill });
   };
   const approve = items => {
-    setQueue(q => {
-      const m = new Map(q.map(x => [sentKey(x), x]));
-      items.forEach(x => m.set(sentKey(x), { ...x, approvedAt: new Date().toISOString() }));
-      return [...m.values()];
-    });
+    cloud.addToQueue(items);
     items.forEach(x => logEvent(x.id, x.song, "queued", `${x.kind === "followup" ? "Follow-up" : "Pitch"} added to the send list`));
     setSelected([]);
   };
   const saveSong = s => {
-    setSongs(list => (list.some(x => x.id === s.id) ? list.map(x => (x.id === s.id ? s : x)) : [s, ...list]));
+    cloud.saveSong(s);
     setSongId(s.id);
     setSongForm(null);
   };
   const deleteSong = id => {
-    setSongs(list => list.filter(x => x.id !== id));
+    cloud.deleteSong(id);
     if (songId === id) setSongId(songs.find(x => x.id !== id)?.id);
     setSongForm(null);
   };
+  const runImport = async () => {
+    try { await importLocal(user, local); setLocal(null); } catch (e) { alert(`Couldn't import (${e.code || e.message}). Nothing was lost; try again.`); }
+  };
 
-  const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, queue, dueAll, setView, openSongForm: setSongForm };
+  if (cloud.error) return <main className="gate"><div className="gate-card"><h1 className="gate-title">Something's off</h1><p className="gate-sub">{cloud.error}</p><button className="btn" onClick={() => signOut(auth)}>Sign out</button></div></main>;
+  if (!cloud.ready) return <main className="gate" aria-busy="true"><p className="gate-loading">Loading the band's campaign…</p></main>;
+
+  const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, queue, dueAll, setView, openSongForm: setSongForm, cloud, user };
   const badges = { stations: stations.length, followups: dueAll.length || null, sendlist: queue.length || null };
 
   return (
@@ -140,7 +149,15 @@ export default function App() {
             </nav>
           </LayoutGroup>
           <OnAir count={queue.length} onClick={() => setView("sendlist")} />
+          <button className="icon-btn signout" onClick={() => signOut(auth)} aria-label={`Sign out ${user.email}`} title={`Signed in as ${user.email}`}><LogOut size={16} aria-hidden="true" /></button>
         </header>
+        {local && (
+          <div className="import-bar" role="region" aria-label="Import data from this browser">
+            <span>This browser has campaign data from before the shared database. Move it in so the whole band can see it?</span>
+            <button className="btn btn-primary" onClick={runImport}>Import it</button>
+            <button className="link-btn" onClick={() => setLocal(null)}>Not now</button>
+          </div>
+        )}
 
         <NowPitching {...ctx} />
 
@@ -151,7 +168,7 @@ export default function App() {
               {view === "stations" && <StationsTable {...ctx} />}
               {view === "pipeline" && <Pipeline {...ctx} />}
               {view === "followups" && <Followups {...ctx} />}
-              {view === "sendlist" && <SendList {...ctx} items={queue} setItems={setQueue} />}
+              {view === "sendlist" && <SendList {...ctx} items={queue} />}
             </motion.div>
           </AnimatePresence>
         </main>

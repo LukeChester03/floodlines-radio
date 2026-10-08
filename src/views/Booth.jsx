@@ -1,12 +1,13 @@
 import { motion } from "motion/react";
-import { ArrowRight, BellRing, DatabaseBackup, Inbox, Send, Upload } from "lucide-react";
-import { backup, restore } from "../store.js";
+import { ArrowRight, BellRing, DatabaseBackup, Inbox, Send } from "lucide-react";
+import { download } from "../store.js";
+import { exportAll } from "../cloud.js";
 import { flag, tierLabel } from "../ui/bits.jsx";
 
 // Overview for the song you're pitching: what to do next, and how far the campaign has got
 const songs_untouched = s => Object.values(s.per).every(p => p.status === "new" || p.status === "played") && !s.rec.notes && !s.rec.tags.length;
 
-export default function Booth({ stations, song, dueAll, queue, openMailer, openSheet, setView }) {
+export default function Booth({ stations, song, dueAll, queue, openMailer, openSheet, setView, cloud, user }) {
   const reach = stations.filter(s => !["contact", "none"].includes(s.route) && s.genreFit !== "other" && !s.rec.dnc);
   const count = k => reach.filter(s => s.cur.status === k).length;
   const contacted = reach.filter(s => s.cur.status !== "new").length;
@@ -108,12 +109,9 @@ export default function Booth({ stations, song, dueAll, queue, openMailer, openS
 
       <section className="card-panel" aria-labelledby="data-h">
         <h2 id="data-h" className="panel-title">Your campaign data</h2>
-        <p className="panel-sub">Statuses, notes, tags, songs and the send list are saved in this browser only. Back them up now and then, and restore the file on another computer or for another band member.</p>
+        <p className="panel-sub">Saved in the band's shared database, so changes show up straight away on everyone's devices. Signed in as {user.email}. Download a copy now and then to keep for yourselves.</p>
         <div className="row-actions">
-          <button className="btn" onClick={backup}><DatabaseBackup size={16} aria-hidden="true" /> Back up to a file</button>
-          <label className="btn file-btn"><Upload size={16} aria-hidden="true" /> Restore from a file
-            <input type="file" accept="application/json" className="sr-only" onChange={e => e.target.files?.[0] && restore(e.target.files[0])} />
-          </label>
+          <button className="btn" onClick={() => download(`floodlines-campaign-${new Date().toISOString().slice(0, 10)}.json`, exportAll(cloud))}><DatabaseBackup size={16} aria-hidden="true" /> Download a copy</button>
         </div>
       </section>
     </div>

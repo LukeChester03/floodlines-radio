@@ -458,3 +458,17 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 }
 
 #main:focus { outline: none; }
+
+/* ---------- Sign-in & database ---------- */
+.gate { min-height: 100svh; display: grid; place-items: center; padding: 20px; }
+.gate-card { position: relative; width: min(440px, 100%); background: var(--log); color: var(--ink); border-radius: 18px; padding: 30px 26px 24px; box-shadow: 0 30px 70px rgba(0,0,0,.6); display: grid; gap: 4px; }
+.gate-card .btn { color: var(--ink); }
+.gate-lamp { position: absolute; top: -18px; right: 22px; pointer-events: none; }
+.gate-title { margin: 0; font-family: var(--display); font-size: 1.9rem; line-height: 1.05; }
+.gate-sub { margin: 6px 0 16px; color: var(--ink-2); }
+.gate-go { width: 100%; margin-top: 4px; }
+.gate-card .link-btn { justify-self: center; margin-top: 6px; color: var(--ink-2); }
+.gate-loading { font-family: var(--marker); font-size: 1.3rem; color: var(--amber); }
+.signout { flex: none; color: var(--text-2); }
+.import-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 10px clamp(12px, 3vw, 28px); background: var(--tape); color: var(--ink); font-weight: 600; }
+.import-bar .btn { color: var(--ink); }

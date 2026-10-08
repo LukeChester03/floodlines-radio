@@ -7,7 +7,7 @@ import { download } from "../store.js";
 import { Empty } from "../ui/bits.jsx";
 
 // Approved emails, every song. Claude sends them after you confirm, then the site marks them pitched.
-export default function SendList({ items, setItems, songs, openMailer, logEvent, setView }) {
+export default function SendList({ items, cloud, songs, openMailer, logEvent, setView }) {
   const [copied, setCopied] = useState(false);
   const batch = items.slice(0, DAILY_SEND_CAP);
   const songTitle = id => songs.find(s => s.id === id)?.title || id;
@@ -47,7 +47,7 @@ export default function SendList({ items, setItems, songs, openMailer, logEvent,
           </button>
           <button className="btn" disabled={!batch.length} onClick={copy}><Copy size={16} aria-hidden="true" /> {copied ? "Copied" : "Copy for Claude"}</button>
           {items.length > DAILY_SEND_CAP && <span className="muted">{items.length - DAILY_SEND_CAP} more wait for the next batch.</span>}
-          {items.length > 0 && <button className="link-btn danger" onClick={() => { if (confirm(`Remove all ${items.length} emails from the send list?`)) setItems([]); }}><Trash2 size={14} aria-hidden="true" /> Clear list</button>}
+          {items.length > 0 && <button className="link-btn danger" onClick={() => { if (confirm(`Remove all ${items.length} emails from the send list? This clears it for the whole band.`)) cloud.removeFromQueue(items.map(key)); }}><Trash2 size={14} aria-hidden="true" /> Clear list</button>}
         </div>
       </section>
 
@@ -70,7 +70,7 @@ export default function SendList({ items, setItems, songs, openMailer, logEvent,
                 </details>
                 <div className="sl-actions">
                   <button className="link-btn" onClick={() => openMailer([q.id], q.kind, q.song, { [q.id]: { subject: q.subject, body: q.body } })}>Edit</button>
-                  <button className="link-btn danger" onClick={() => { setItems(list => list.filter(x => key(x) !== key(q))); logEvent(q.id, q.song, "note", "Removed from the send list"); }}>Remove</button>
+                  <button className="link-btn danger" onClick={() => { cloud.removeFromQueue([key(q)]); logEvent(q.id, q.song, "note", "Removed from the send list"); }}>Remove</button>
                 </div>
               </motion.li>
             ))}

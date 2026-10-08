@@ -7,13 +7,16 @@ import { DAILY_SEND_CAP, statusLabel } from "../crm.js";
 import { Modal, Sleeve } from "../ui/bits.jsx";
 
 // The promo mailer: one template, one personal email per station, tagged with the song being pitched
-export default function Mailer({ job, stations, songs, song: currentSong, onApprove, onClose }) {
+export default function Mailer({ job, stations, songs, song: currentSong, cloud, onApprove, onClose }) {
   const kind = job?.kind || "pitch";
   const [songId, setSongId] = useState(currentSong.id);
   const song = songs.find(s => s.id === songId) || currentSong;
-  const [tpls, setTpls] = useLocal("fl2-templates", baseTemplates);
+  // Templates and "mention other songs" are shared by the band; the sign-off is per device, so each member signs their own name
+  const tpls = cloud.settings.templates || baseTemplates;
+  const setTpls = fn => cloud.saveSettings({ templates: fn(tpls) });
+  const others = cloud.settings.includeOthers !== false;
+  const setOthers = v => cloud.saveSettings({ includeOthers: v });
   const [signoff, setSignoff] = useLocal("fl-signoff", band.signoff);
-  const [others, setOthers] = useLocal("fl2-include-others", true);
   const [edits, setEdits] = useState({});
   const [include, setInclude] = useState({});
   const [cursor, setCursor] = useState(0);
