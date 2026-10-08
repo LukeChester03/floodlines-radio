@@ -29,6 +29,7 @@ function Card({ s, song, onMove, openSheet }) {
         {s.show && <span>{s.show}</span>}
         <span className="kmeta">{flag(s.country)} {s.region}{s.cur.lastAt ? ` · ${fmtDate(s.cur.lastAt)}` : ""}</span>
         {s.cur.isDue && <span className="due-tag">Follow-up due</span>}
+        {s.cur.queued && s.cur.status === "new" && <span className="stag st-queued small">In send list</span>}
       </button>
       <label className="kmove">
         <span className="sr-only">Move {s.name} to</span>

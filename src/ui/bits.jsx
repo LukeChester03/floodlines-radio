@@ -34,9 +34,8 @@ export function OnAir({ count, onClick }) {
         transition={lit ? { duration: 2.4, repeat: Infinity, times: [0, 0.2, 0.5, 1] } : { duration: 0.3 }}
         aria-hidden="true"
       />
-      <span className="onair-text">On air</span>
-      <span className="sr-only">{lit ? "" : "Nothing waiting to send"}</span>
-      {lit && <span className="onair-n">{count}</span>}
+      <span className="onair-text">{lit ? "On air" : "Off air"}</span>
+      {lit && <span className="onair-n">{count} to send</span>}
     </button>
   );
 }
@@ -54,7 +53,13 @@ export function Sleeve({ song, size = 64 }) {
 export function Modal({ open, onClose, label, className = "", children, side = false, guard }) {
   const ref = useRef(null);
   const opener = useRef(null);
-  const tryClose = useCallback(() => { if (!guard || guard()) onClose(); }, [guard, onClose]);
+  // Latest handlers kept in refs so the focus effect runs once per open, not on every keystroke
+  const handlers = useRef({ onClose, guard });
+  handlers.current = { onClose, guard };
+  const tryClose = useCallback(() => {
+    const { onClose: close, guard: g } = handlers.current;
+    if (!g || g()) close();
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -70,13 +75,16 @@ export function Modal({ open, onClose, label, className = "", children, side = f
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     };
     window.addEventListener("keydown", onKey);
-    const main = document.querySelector(".app-shell");
-    main?.setAttribute("inert", "");
+    const shell = document.querySelector(".app-shell");
+    shell?.setAttribute("inert", "");
     return () => {
       clearTimeout(t);
       window.removeEventListener("keydown", onKey);
-      main?.removeAttribute("inert");
-      opener.current?.focus?.();
+      shell?.removeAttribute("inert");
+      // Return focus to whatever opened the dialog, or to the main area if that's gone
+      // (checked after exit animations, since the opener may be removed, e.g. the bulk bar after approving)
+      const back = opener.current;
+      setTimeout(() => (back && back.isConnected && !back.closest(".bulkbar") ? back : document.getElementById("main"))?.focus?.(), 60);
     };
   }, [open, tryClose]);
 

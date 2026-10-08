@@ -3,5 +3,10 @@
     "emailAllowed": false,
     "method": "none-found",
     "notes": "The submit@ address the research found is no longer on the station's site (checked 8 Oct 2026). Only general contact addresses are listed."
+  },
+  "1BTN": {
+    "method": "none-found",
+    "formUrl": null,
+    "notes": "Only a general contact form, with no music submission route (checked 8 Oct 2026). Ask how they take new music before sending anything."
   }
 }

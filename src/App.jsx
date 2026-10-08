@@ -144,7 +144,7 @@ export default function App() {
 
         <NowPitching {...ctx} />
 
-        <main id="main" className="stage">
+        <main id="main" className="stage" tabIndex={-1}>
           <AnimatePresence mode="wait">
             <motion.div key={view} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.22, ease: [0.2, 0.8, 0.3, 1] }}>
               {view === "booth" && <Booth {...ctx} />}

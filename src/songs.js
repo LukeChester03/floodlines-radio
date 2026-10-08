@@ -70,7 +70,8 @@ export function fill(template, station, song, songs, { signoff = band.signoff, i
   const first = station.contactName ? station.contactName.split(/[\s(]/)[0] : null;
   const today = new Date().toISOString().slice(0, 10);
   // Only released songs the band has chosen to mention
-  const others = songs.filter(s => s.id !== song.id && s.link && s.mention !== false && (!s.released || s.released <= today));
+  const others = songs.filter(s => s.id !== song.id && s.link && s.mention !== false && s.released && s.released <= today);
+  // A song with no release date counts as unreleased, so it's never mentioned by accident
   const map = {
     name: first || (station.show ? `${station.show} team` : `${station.name} team`),
     station: station.name,

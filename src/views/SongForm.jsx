@@ -46,7 +46,7 @@ export default function SongForm({ value, songs, onSave, onDelete, onClose }) {
           <label className="field"><span>Or upload</span><input type="file" accept="image/*" onChange={onCover} /></label>
         </div>
         {f.cover && <img className="cover-preview" src={f.cover} alt="Cover preview" width="88" height="88" />}
-        <label className="check mention"><input type="checkbox" checked={f.mention !== false} onChange={e => set({ mention: e.target.checked })} /> Mention this song in pitches for your other songs (only once it's released)</label>
+        <label className="check mention"><input type="checkbox" checked={f.mention !== false} onChange={e => set({ mention: e.target.checked })} /> Mention this song in pitches for your other songs (only once its release date has passed)</label>
         <fieldset className="field">
           <legend>Colour on the site</legend>
           <div className="swatches">

@@ -92,7 +92,8 @@ export default function StationsTable({ stations, songs, song, selected, setSele
   const selRows = stations.filter(s => selSet.has(s.id));
   const emailable = selRows.filter(s => s.route === "email" && !s.rec.dnc).map(s => s.id);
   const visible = phone ? rows.slice(0, shown) : rows;
-  const allIds = rows.map(s => s.id);
+  // "Select all" only ever selects what's on screen
+  const allIds = visible.map(s => s.id);
   const allOn = allIds.length > 0 && allIds.every(id => selSet.has(id));
   const toggle = id => setSelected(sel => (sel.includes(id) ? sel.filter(x => x !== id) : [...sel, id]));
 
@@ -219,6 +220,11 @@ export default function StationsTable({ stations, songs, song, selected, setSele
           </button>
         ))}
         {active.length > 0 && <button className="link-btn" onClick={reset}>Clear all</button>}
+        {phone && rows.length > 0 && (
+          <button className="link-btn" onClick={() => setSelected(allOn ? selected.filter(id => !allIds.includes(id)) : [...new Set([...selected, ...allIds])])}>
+            {allOn ? "Unselect these" : `Select the ${allIds.length} on screen`}
+          </button>
+        )}
         {f.route === "reachable" && f.genre === "fits" && hiddenByDefault > 0 && (
           <button className="link-btn" onClick={() => set({ route: "all", genre: "all" })}>Show the {hiddenByDefault} with no route or other genres</button>
         )}
@@ -232,7 +238,7 @@ export default function StationsTable({ stations, songs, song, selected, setSele
             <thead>
               <tr>
                 <th scope="col" className="c-sel">
-                  <input type="checkbox" aria-label={`Select all ${rows.length} shown`} checked={allOn} onChange={e => setSelected(e.target.checked ? [...new Set([...selected, ...allIds])] : selected.filter(id => !allIds.includes(id)))} />
+                  <input type="checkbox" aria-label={`Select all ${allIds.length} on screen`} checked={allOn} onChange={e => setSelected(e.target.checked ? [...new Set([...selected, ...allIds])] : selected.filter(id => !allIds.includes(id)))} />
                 </th>
                 <Th k="rank" sort={sort} setSort={setSort} className="c-rank">#</Th>
                 <Th k="name" sort={sort} setSort={setSort} className="c-name">Station</Th>

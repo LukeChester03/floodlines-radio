@@ -87,7 +87,7 @@ button { cursor: pointer; }
 .onair.lit { color: #fff; border-color: var(--onair); background: #5a0f0a; }
 .onair-glow { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(255,59,47,.95), rgba(255,59,47,.35) 70%); }
 .onair-text, .onair-n { position: relative; z-index: 1; }
-.onair-n { font-family: var(--body); font-weight: 800; background: #fff; color: var(--onair); border-radius: 999px; padding: 0 7px; font-size: .8rem; }
+.onair-n { font-family: var(--body); font-weight: 800; background: #fff; color: var(--onair); border-radius: 999px; padding: 0 8px; font-size: .75rem; letter-spacing: 0; text-transform: none; }
 
 /* ---------- Now pitching ---------- */
 .now { position: relative; background: linear-gradient(90deg, color-mix(in srgb, var(--song) 55%, var(--desk)), var(--desk) 60%); border-bottom: 1px solid var(--line); }
@@ -280,6 +280,7 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .kgrip { color: #b5ab99; margin-top: 2px; }
 .kcard-btn { border: 0; background: none; padding: 0; text-align: left; display: grid; gap: 2px; color: var(--ink); }
 .kcard-btn span { font-size: .8125rem; color: var(--ink-2); }
+.kcard-btn .stag { justify-self: start; margin-top: 2px; }
 .kmeta { font-size: .8125rem; }
 .kmove { grid-column: 2; }
 .kmove select { width: 100%; margin-top: 6px; min-height: 32px; font-size: .8125rem; border: 1px solid var(--rule); border-radius: 6px; background: #fff; padding: 2px 6px; }
@@ -447,10 +448,13 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 }
 @media (max-width: 700px) {
   .masthead { position: static; gap: 8px; padding-bottom: 6px; }
-  .nav { order: 3; width: 100%; margin-left: 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
-  .nav::-webkit-scrollbar { display: none; }
-  .nav-btn { flex: none; padding: 8px 10px; }
-  .onair { display: none; }
+  /* All five tabs fit on a phone: icon over a short label */
+  .nav { order: 3; width: 100%; margin-left: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+  .nav-btn { flex-direction: column; gap: 2px; padding: 6px 2px; font-size: .6875rem; min-height: 52px; }
+  .nav-badge { position: absolute; top: 2px; right: 4px; font-size: .625rem; min-width: 18px; line-height: 1.5; }
+  .onair { margin-left: auto; min-height: 36px; padding: 4px 10px; font-size: .75rem; }
   .now-inner { padding-top: 10px; padding-bottom: 10px; gap: 8px 14px; }
   .now-stats dd { font-size: 1.2rem; }
 }
+
+#main:focus { outline: none; }
