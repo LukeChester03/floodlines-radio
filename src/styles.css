@@ -92,7 +92,7 @@ button { cursor: pointer; }
 /* ---------- Now pitching ---------- */
 .now { position: relative; background: linear-gradient(90deg, color-mix(in srgb, var(--song) 55%, var(--desk)), var(--desk) 60%); border-bottom: 1px solid var(--line); }
 .now::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(0,0,0,.08) 0 1px, transparent 1px 4px); pointer-events: none; }
-.now-inner { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 14px clamp(12px, 3vw, 28px); display: grid; grid-template-columns: auto auto 1fr auto; gap: 14px 22px; align-items: center; }
+.now-inner { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 14px clamp(12px, 3vw, 28px); display: grid; grid-template-columns: auto auto 1fr auto auto; gap: 14px 22px; align-items: center; }
 .now-sleeve { perspective: 600px; }
 .sleeve { display: inline-grid; place-items: center; flex: none; overflow: hidden; border-radius: 4px; background: var(--song); box-shadow: 0 6px 16px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.15); }
 .sleeve img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -114,6 +114,7 @@ button { cursor: pointer; }
 @media (max-width: 980px) {
   .now-inner { grid-template-columns: auto 1fr; }
   .now-stats { grid-column: 1 / -1; }
+  .now-live { grid-column: 1 / -1; }
   .now-switch { grid-column: 1 / -1; justify-content: flex-start; }
 }
 

@@ -52,7 +52,19 @@ export default function NowPitching({ songs, song, setSongId, stations, openSong
 
         <div className="now-live">
           <button className="btn btn-primary" disabled={!ok} aria-describedby="golive-hint" onClick={() => setConfirming(true)}><Radio size={16} aria-hidden="true" /> Go live</button>
-          <span id="golive-hint" className="now-meta">{ok ? "Adds pitches to the Send list for review" : "Needs a streaming link and a release date"}</span>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.span
+              key={ok}
+              id="golive-hint"
+              className="now-meta"
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ duration: 0.18 }}
+            >
+              {ok ? "Adds pitches to the Send list for review" : "Needs a streaming link and a release date"}
+            </motion.span>
+          </AnimatePresence>
         </div>
 
         <div className="now-switch" role="group" aria-label="Switch song">
