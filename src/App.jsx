@@ -10,7 +10,7 @@ import pastPlays from "./data/history.json";
 import { useLocal } from "./store.js";
 import { gmailBanner } from "./gmail.js";
 import { defaultSongs } from "./songs.js";
-import { blankSong, blankStation, knownSends, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
+import { blankSong, blankStation, followupBadge, knownSends, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
 import { OnAir } from "./ui/bits.jsx";
 import NowPitching from "./views/NowPitching.jsx";
 import Booth from "./views/Booth.jsx";
@@ -128,7 +128,7 @@ export default function App({ user }) {
 
   const gmail = cloud.gmail === undefined ? null : gmailBanner(cloud.gmail);
   const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, approve, queue, dueAll, setView, openSongForm: setSongForm, cloud, user, gmail, gmailStatus: cloud.gmail };
-  const badges = { stations: stations.length, followups: dueAll.length || null, sendlist: queue.length || null };
+  const badges = { stations: stations.length, followups: followupBadge(dueAll.length, cloud.replies) || null, sendlist: queue.length || null };
 
   return (
     <MotionConfig reducedMotion="user">

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { canGoLive, knownSends, releaseBatch, withSentLog } from "./crm.js";
+import { canGoLive, followupBadge, knownSends, releaseBatch, replyGroups, withSentLog } from "./crm.js";
 import { templates } from "./songs.js";
 
 const song = { id: "s1", title: "Tidal Lines", link: "https://x.test/s1", released: "2026-01-01", blurb: "" };
@@ -53,4 +53,29 @@ test("a send in both the sent-log and Firestore is counted once", () => {
 
 test("the sent-log and a later Firestore send for the same key are both kept", () => {
   assert.equal(knownSends([send], [{ ...send, sentAt: "2026-06-09T10:00:00Z" }]).length, 2);
+});
+
+const rep = (id, o = {}) => ({ id, stationId: "s1", song: "s1", outcome: "replied", decision: "undecided", date: "2026-10-02T09:00:00Z", ...o });
+
+test("replyGroups splits replies into undecided, want-reply and done, newest first", () => {
+  const g = replyGroups([
+    rep("a", { date: "2026-10-02T09:00:00Z" }),
+    rep("b", { date: "2026-10-05T09:00:00Z" }),
+    rep("c", { decision: "want-reply" }),
+    rep("d", { decision: "no-action" }),
+    rep("e", { outcome: "auto" }),
+  ]);
+  assert.deepEqual(g.undecided.map(r => r.id), ["b", "a"]);
+  assert.deepEqual(g.wantReply.map(r => r.id), ["c"]);
+  assert.deepEqual(g.done.map(r => r.id).sort(), ["d", "e"]);
+});
+
+test("a replied-done reply is in done, and an auto-reply the band moved is not", () => {
+  const g = replyGroups([rep("a", { decision: "replied-done" }), rep("b", { outcome: "auto", decision: "want-reply" })]);
+  assert.deepEqual(g.done.map(r => r.id), ["a"]);
+  assert.deepEqual(g.wantReply.map(r => r.id), ["b"]);
+});
+
+test("the Follow-ups badge is due follow-ups plus undecided replies", () => {
+  assert.equal(followupBadge(3, [rep("a"), rep("b", { decision: "no-action" }), rep("c", { outcome: "auto" })]), 4);
 });
