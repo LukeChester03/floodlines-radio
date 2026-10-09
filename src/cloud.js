@@ -1,11 +1,12 @@
 // Shared campaign data in Firestore, synced live between the band's devices.
 //   stations/{stationId}  status per song, notes, tags, star, do-not-contact
 //   songs/{songId}        the singles being pitched
-//   sendlist/{key}        approved emails waiting for Claude to send
+//   sendlist/{key}        approved emails the band reviews, approves and the scheduled run sends
 //   settings/shared       email templates, sign-off, "mention other songs"
 import { useCallback, useEffect, useRef, useState } from "react";
 import { collection, deleteDoc, doc, onSnapshot, setDoc, writeBatch } from "firebase/firestore";
-import { db } from "./firebase.js";
+import { httpsCallable } from "firebase/functions";
+import { db, functions } from "./firebase.js";
 import { defaultSongs, templates as baseTemplates, band } from "./songs.js";
 import { blankStation, migrate, sentKey } from "./crm.js";
 
@@ -45,7 +46,7 @@ export function useCloud(user) {
       onSnapshot(collection(db, "sendlist"), snap => {
         const list = [];
         snap.forEach(d => list.push(strip(d.data())));
-        list.sort((a, b) => (a.approvedAt || "").localeCompare(b.approvedAt || ""));
+        list.sort((a, b) => (a.addedAt || a.approvedAt || "").localeCompare(b.addedAt || b.approvedAt || ""));
         setQueue(list);
         done("sendlist");
       }, fail),
@@ -78,7 +79,7 @@ export function useCloud(user) {
 
   const addToQueue = useCallback(items => {
     const batch = writeBatch(db);
-    items.forEach(x => batch.set(doc(db, "sendlist", sentKey(x)), { ...x, approvedAt: new Date().toISOString(), ...stamp(user) }));
+    items.forEach(x => batch.set(doc(db, "sendlist", sentKey(x)), { ...x, state: "review", addedAt: new Date().toISOString(), ...stamp(user) }));
     return batch.commit();
   }, [user]);
   const removeFromQueue = useCallback(keys => {
@@ -87,13 +88,15 @@ export function useCloud(user) {
     return batch.commit();
   }, []);
 
+  const approveAll = useCallback(keys => httpsCallable(functions, "sendPitch")({ keys }).then(r => r.data), []);
+
   const saveSettings = useCallback(patch => {
     setSettings(s => ({ ...s, ...patch }));
     return setDoc(doc(db, "settings", "shared"), { ...patch, ...stamp(user) }, { merge: true });
   }, [user]);
 
   const ready = Object.values(loaded).every(Boolean) && songs?.length > 0;
-  return { ready, error, crm, songs: songs || [], queue, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, saveSettings };
+  return { ready, error, crm, songs: songs || [], queue, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, approveAll, saveSettings };
 }
 
 // One-off move of data saved in this browser (before the database existed) into Firestore
