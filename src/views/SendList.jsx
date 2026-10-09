@@ -1,8 +1,10 @@
-import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { Send, Trash2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, animate, motion } from "motion/react";
+import { Pause, RotateCcw, Send, Trash2 } from "lucide-react";
 import { band } from "../songs.js";
 import { approvalSummary } from "../../functions/approve.js";
+import { queueProgress } from "../../functions/core/progress.js";
+import { sendPace } from "../../functions/core/pace.js";
 import { Empty, Modal } from "../ui/bits.jsx";
 
 const STATES = {
@@ -14,6 +16,16 @@ const STATES = {
 };
 const stateOf = q => q.state || "review";
 
+// A number that counts up or down to its new value
+function Count({ value }) {
+  const [shown, setShown] = useState(value);
+  useEffect(() => {
+    const c = animate(shown, value, { duration: 0.6, ease: "easeOut", onUpdate: v => setShown(Math.round(v)) });
+    return () => c.stop();
+  }, [value]); // eslint-disable-line react-hooks/exhaustive-deps
+  return <>{shown}</>;
+}
+
 // Every email waiting to go, for every song. Approve & send hands the reviewed list to the scheduled run.
 export default function SendList({ items, cloud, songs, openMailer, logEvent, setView }) {
   const [confirming, setConfirming] = useState(false);
@@ -23,6 +35,15 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
   const songTitle = id => songs.find(s => s.id === id)?.title || id;
   const songColor = id => songs.find(s => s.id === id)?.color;
   const key = q => `${q.id}:${q.song}:${q.kind}`;
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => { const t = setInterval(() => setNow(Date.now()), 30000); return () => clearInterval(t); }, []);
+  const progress = queueProgress(items, cloud.sends || [], sendPace, now);
+  const approved = items.filter(q => stateOf(q) === "approved").map(key);
+  const move = async (keys, state) => {
+    setError(null);
+    try { await cloud.setEntryState(keys, state); } catch { setError("Couldn't update the list. Check your connection and try again."); }
+  };
+  const nextRun = new Date(progress.nextRunAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   const pending = items.filter(q => stateOf(q) === "review");
   const summary = approvalSummary(pending);
 
@@ -64,6 +85,19 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
         </div>
       </section>
 
+      <section className="card-panel progress-panel" aria-label="Send progress">
+        <dl className="sl-progress">
+          {[["Sent today", <><Count value={progress.sentToday} /> / {progress.cap}</>], ["Approved to go", <Count value={progress.approved} />], ["Sending", <Count value={progress.sending} />], ["Failed", <Count value={progress.failed} />], ["Next run", nextRun]].map(([label, v]) => (
+            <div key={label}><dt>{label}</dt><dd>{v}</dd></div>
+          ))}
+        </dl>
+        <div className="sl-bar" role="progressbar" aria-label="Sent today" aria-valuemin={0} aria-valuemax={progress.cap} aria-valuenow={progress.sentToday}>
+          <motion.span animate={{ width: `${Math.min(100, (progress.sentToday / (progress.cap || 1)) * 100)}%` }} transition={{ duration: 0.6 }} />
+        </div>
+        {error && !confirming && <p className="error" role="alert">{error}</p>}
+        {approved.length > 0 && <div className="row-actions"><button className="btn" onClick={() => move(approved, "review")}><Pause size={16} aria-hidden="true" /> Pause all ({approved.length})</button></div>}
+      </section>
+
       <Modal open={confirming} onClose={() => !busy && setConfirming(false)} label="Approve and send">
         <h3>Approve {summary.emails} {summary.emails === 1 ? "email" : "emails"}?</h3>
         <p>{summary.emails} separate {summary.emails === 1 ? "email" : "emails"} to {summary.stations} {summary.stations === 1 ? "station" : "stations"}, for {summary.songs.map(songTitle).join(" and ")}.</p>
@@ -91,10 +125,13 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
                     <span className="sl-to">{q.to}</span>
                     <span className="sl-subject">{q.subject}</span>
                   </summary>
+                  {stateOf(q) === "failed" && q.error && <p className="error sl-reason">Failed: {q.error}</p>}
                   <pre className="sl-body">{q.body}</pre>
                 </details>
                 <div className="sl-actions">
                   {stateOf(q) === "review" && <button className="link-btn" onClick={() => openMailer([q.id], q.kind, q.song, { [q.id]: { subject: q.subject, body: q.body } })}>Edit</button>}
+                  {stateOf(q) === "approved" && <button className="link-btn" onClick={() => move([key(q)], "review")}><Pause size={14} aria-hidden="true" /> Pause</button>}
+                  {stateOf(q) === "failed" && <button className="link-btn" onClick={() => move([key(q)], "approved")}><RotateCcw size={14} aria-hidden="true" /> Retry</button>}
                   <button className="link-btn danger" onClick={() => { cloud.removeFromQueue([key(q)]); logEvent(q.id, q.song, "note", "Removed from the send list"); }}>Remove</button>
                 </div>
               </motion.li>

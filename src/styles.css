@@ -479,3 +479,9 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .signout { flex: none; color: var(--text-2); }
 .import-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 10px clamp(12px, 3vw, 28px); background: var(--tape); color: var(--ink); font-weight: 600; }
 .import-bar .btn { color: var(--ink); }
+.sl-progress { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 12px; margin: 0; }
+.sl-progress dt { font-size: .75rem; font-weight: 800; text-transform: uppercase; color: var(--ink-2); }
+.sl-progress dd { margin: 0; font-size: 1.5rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.sl-bar { height: 8px; border-radius: 999px; background: var(--log-2); margin: 12px 0; overflow: hidden; }
+.sl-bar span { display: block; height: 100%; background: #1d6b32; border-radius: inherit; }
+.sl-reason { margin: 8px 0 0; }
