@@ -14,7 +14,7 @@ test("fakeTransport sends one recipient and records it", async () => {
 
 test("fakeTransport rejects more than one address", async () => {
   const t = fakeTransport();
-  for (const to of ["a@x.com, b@y.com", "a@x.com; b@y.com", ["a@x.com", "b@y.com"]]) {
+  for (const to of ["a@x.com, b@y.com", "a@x.com; b@y.com", ["a@x.com", "b@y.com"], ["a@x.com, b@y.com"], undefined, ""]) {
     await assert.rejects(t.send({ to, subject: "s", body: "b" }));
   }
   assert.equal(t.sent.length, 0);

@@ -5,8 +5,8 @@ export function fakeTransport({ inbox = [] } = {}) {
   return {
     sent,
     async send(msg) {
-      const addrs = Array.isArray(msg.to) ? msg.to : String(msg.to).split(/[,;]/);
-      if (addrs.length !== 1 || !addrs[0].trim()) throw new Error("One recipient per email");
+      const addrs = [msg.to].flat().flatMap((a) => String(a ?? "").split(/[,;]/)).map((a) => a.trim()).filter(Boolean);
+      if (addrs.length !== 1) throw new Error("One recipient per email");
       n += 1;
       const out = { messageId: `m${n}`, threadId: msg.threadId ?? `t${n}` };
       sent.push({ ...msg, ...out });
