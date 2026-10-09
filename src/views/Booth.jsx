@@ -2,13 +2,14 @@ import { motion } from "motion/react";
 import { ArrowRight, BellRing, DatabaseBackup, Inbox, Send } from "lucide-react";
 import { download } from "../store.js";
 import { exportAll } from "../cloud.js";
+import { reachable } from "../../functions/core/stations.js";
 import { flag, tierLabel } from "../ui/bits.jsx";
 
 // Overview for the song you're pitching: what to do next, and how far the campaign has got
 const songs_untouched = s => Object.values(s.per).every(p => p.status === "new" || p.status === "played") && !s.rec.notes && !s.rec.tags.length;
 
 export default function Booth({ stations, song, dueAll, queue, openMailer, openSheet, setView, cloud, user }) {
-  const reach = stations.filter(s => !["contact", "none"].includes(s.route) && s.genreFit !== "other" && !s.rec.dnc);
+  const reach = stations.filter(reachable);
   const count = k => reach.filter(s => s.cur.status === k).length;
   const contacted = reach.filter(s => s.cur.status !== "new").length;
   const funnel = [
