@@ -25,6 +25,21 @@ export function firestoreStore(db, stations = []) {
     async listSends({ since = 0 } = {}) {
       return data(await db.collection("sends").where("sentAt", ">=", new Date(since).toISOString()).get());
     },
+    async listStations() {
+      return stations.map(({ id, email }) => ({ id, email }));
+    },
+    async addReply(reply) {
+      try {
+        await db.doc(`replies/${reply.id}`).create(reply);
+        return true;
+      } catch (e) {
+        if (e.code === 6) return false; // ALREADY_EXISTS
+        throw e;
+      }
+    },
+    async listReplies() {
+      return data(await db.collection("replies").get());
+    },
     async getStatus() {
       return (await status.get()).data() ?? {};
     },

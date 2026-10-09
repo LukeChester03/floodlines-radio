@@ -18,11 +18,12 @@ export function fakeTransport({ inbox = [] } = {}) {
   };
 }
 
-export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {} } = {}) {
+export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {}, replies = [] } = {}) {
   const list = sendlist.map((e) => ({ ...e }));
   const st = structuredClone(stations);
   const log = [...sends];
   let stat = { ...status };
+  const inbox = [...replies];
   return {
     async listSendlist({ state } = {}) {
       return list.filter((e) => !state || e.state === state);
@@ -42,6 +43,17 @@ export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {
     },
     async listSends({ since = 0 } = {}) {
       return log.filter((s) => new Date(s.sentAt) >= since);
+    },
+    async listStations() {
+      return Object.entries(st).map(([id, s]) => ({ id, email: s.email }));
+    },
+    async addReply(reply) {
+      if (inbox.some((r) => r.id === reply.id)) return false;
+      inbox.push(reply);
+      return true;
+    },
+    async listReplies() {
+      return [...inbox];
     },
     async getStatus() {
       return stat;

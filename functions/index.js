@@ -9,6 +9,8 @@ import { REGION } from "./core/band.js";
 import { requireBand, PermissionDenied } from "./auth.js";
 import { firestoreStore } from "./store.js";
 import { drain } from "./drain.js";
+import { syncReplies } from "./replies.js";
+import { BAND_EMAIL } from "./core/band.js";
 import { gmailTransport } from "./gmail.js";
 import { consentUrl, handleCallback, googleExchange, secretWriter, secretReader } from "./connect.js";
 import { approveBatch } from "./approve.js";
@@ -36,7 +38,9 @@ const getAccessToken = async () => (await getApp().options.credential.getAccessT
 export const mailRound = onSchedule({ schedule: "*/10 * * * *", secrets: [clientId, clientSecret] }, async () => {
   const refreshToken = await secretReader({ secret: "GMAIL_REFRESH_TOKEN", getAccessToken })();
   const transport = gmailTransport({ clientId: clientId.value(), clientSecret: clientSecret.value(), refreshToken });
-  await drain({ store: firestoreStore(getFirestore()), transport });
+  const store = firestoreStore(getFirestore());
+  await drain({ store, transport });
+  await syncReplies({ store, transport, bandEmail: BAND_EMAIL });
 });
 
 export const connectGmail = onRequest({ secrets: [clientId] }, (req, res) => {
