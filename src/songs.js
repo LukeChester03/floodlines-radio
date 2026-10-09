@@ -1,7 +1,9 @@
+import { BAND_EMAIL } from "../functions/core/band.js";
+
 // The band, their songs and the email templates. Songs added in the app are stored in the browser.
 export const band = {
   name: "FloodLines",
-  email: "floodlinesbanduk@gmail.com",
+  email: BAND_EMAIL,
   signoff: "Luke",
   linktree: "https://linktr.ee/floodlinesbanduk",
 };
