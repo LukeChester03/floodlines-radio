@@ -1,3 +1,4 @@
+import { sendPace } from "../functions/core/pace.js";
 // Campaign state, tracked per station and per song. Stored in this browser and
 // merged with the send log Claude writes after each send (src/data/sent-log.json).
 
@@ -16,7 +17,7 @@ export const ACTIVE = ["pitched", "followed"];
 export const FIRST_FOLLOW_UP_DAYS = 10;
 export const SECOND_FOLLOW_UP_DAYS = 14;
 export const MAX_FOLLOW_UPS = 2;
-export const DAILY_SEND_CAP = 50; // well under Gmail's 500 a day, sent as separate personal emails
+export const DAILY_SEND_CAP = sendPace.perDay; // well under Gmail's 500 a day, sent as separate personal emails
 
 const DAY = 86400000;
 export const blankStation = () => ({ starred: false, dnc: false, tags: [], notes: "", songs: {} });
