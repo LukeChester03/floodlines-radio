@@ -6,6 +6,7 @@ const DAY = 86400e3;
 
 // Send the oldest approved emails, within the per-run and per-day pace, recording each real send.
 export async function drain({ store, transport, now = Date.now, pace = sendPace }) {
+  if ((await store.getStatus()).needsReconnect) return { sent: 0 };
   const today = await store.listSends({ since: now() - DAY });
   const budget = Math.min(pace.perRun, pace.perDay - today.length);
   if (budget <= 0) return { sent: 0 };
@@ -32,6 +33,11 @@ export async function drain({ store, transport, now = Date.now, pace = sendPace 
       await store.updateEntry(entry.key, { state: "sent" });
       sent += 1;
     } catch (e) {
+      if (e.code === "auth") {
+        await store.setStatus({ needsReconnect: true });
+        await store.updateEntry(entry.key, { state: "approved" });
+        return { sent };
+      }
       await store.updateEntry(entry.key, { state: "failed", reason: e.message });
     }
   }
