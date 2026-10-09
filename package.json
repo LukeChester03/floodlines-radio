@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "merge": "node scripts/merge.mjs"
+    "merge": "node scripts/merge.mjs",
+    "test": "node --test 'functions/**/*.test.js'"
   },
   "dependencies": {
     "firebase": "^13.0.0",
