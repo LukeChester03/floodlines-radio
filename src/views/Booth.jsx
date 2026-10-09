@@ -37,7 +37,7 @@ export default function Booth({ stations, song, dueAll, queue, openMailer, openS
           <ol>
             <li><b>Pick stations</b> in Stations. Filter by region, genre or how they take music.</li>
             <li><b>Check the emails.</b> Blanket email writes one personal email per station for the song you're pitching. Read and edit each one.</li>
-            <li><b>Send with Claude.</b> Give the send list to Claude, who shows you every recipient and sends only after you say yes.</li>
+            <li><b>Approve &amp; send.</b> One tap approves the checked list. It then sends gradually from the band's Gmail, one personal email at a time.</li>
             <li><b>Track replies</b> in the pipeline. Follow-ups come up automatically 10 days after each pitch.</li>
           </ol>
         </section>

@@ -149,7 +149,7 @@ export default function Mailer({ job, stations, songs, song: currentSong, cloud,
 
           <footer className="ml-foot">
             <button className="btn btn-primary" disabled={!chosen.length} onClick={approve}>Add {chosen.length} {song.title} {nounFor(chosen.length)} to the send list</button>
-            <p className="hint">{chosen.length > DAILY_SEND_CAP ? `More than ${DAILY_SEND_CAP}, so the send list splits it into daily batches. ` : ""}Nothing sends until you give the list to Claude and confirm.</p>
+            <p className="hint">{chosen.length > DAILY_SEND_CAP ? `More than ${DAILY_SEND_CAP}, so the send list splits it into daily batches. ` : ""}Nothing sends until you approve the send list.</p>
           </footer>
         </>
       )}

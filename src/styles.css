@@ -309,6 +309,10 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .sl-list summary::-webkit-details-marker { display: none; }
 .sl-song { font-size: .75rem; font-weight: 800; padding: 1px 8px; border-radius: 4px; background: var(--song); color: #fff; }
 .sl-kind { font-size: .75rem; font-weight: 700; padding: 1px 8px; border-radius: 4px; background: var(--ink); color: var(--log); }
+.sl-state { font-size: .75rem; font-weight: 800; padding: 1px 8px; border-radius: 999px; background: var(--log-2); color: var(--ink); border: 1px solid currentColor; }
+.sl-approved, .sl-sending { background: #fff1c2; color: #7a5600; }
+.sl-sent { background: #d7f0dc; color: #1d6b32; }
+.sl-failed { background: #ffd9cc; color: #9a2f12; }
 .sl-station { font-weight: 800; }
 .sl-to { text-align: right; color: var(--ink-2); word-break: break-all; }
 .sl-subject { grid-column: 3 / -1; color: var(--ink-2); font-size: .9375rem; }
