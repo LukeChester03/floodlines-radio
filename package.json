@@ -7,7 +7,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "merge": "node scripts/merge.mjs",
-    "test": "node --test 'functions/**/*.test.js'"
+    "test": "node --test"
   },
   "dependencies": {
     "firebase": "^13.0.0",
