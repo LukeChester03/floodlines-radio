@@ -10,7 +10,7 @@ import pastPlays from "./data/history.json";
 import { useLocal } from "./store.js";
 import { gmailBanner } from "./gmail.js";
 import { defaultSongs } from "./songs.js";
-import { blankSong, blankStation, knownSends, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
+import { blankSong, blankStation, followupBadge, knownSends, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
 import { OnAir } from "./ui/bits.jsx";
 import NowPitching from "./views/NowPitching.jsx";
 import Booth from "./views/Booth.jsx";

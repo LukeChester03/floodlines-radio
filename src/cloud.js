@@ -127,7 +127,7 @@ export function useCloud(user) {
   }, [user]);
 
   const ready = Object.values(loaded).every(Boolean) && songs?.length > 0;
-  return { ready, error, gmail, crm, songs: songs || [], queue, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings };
+  return { ready, error, gmail, crm, songs: songs || [], queue, replies, decideReply, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings };
 }
 
 // One-off move of data saved in this browser (before the database existed) into Firestore
