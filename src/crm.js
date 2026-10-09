@@ -10,6 +10,7 @@ export const statuses = [
   { key: "followed", label: "Followed up", hint: "Nudged at least once" },
   { key: "replied", label: "Replied", hint: "They got back to you" },
   { key: "played", label: "Played", hint: "Airplay, add or session" },
+  { key: "bounced", label: "Bounced", hint: "Email address didn't work" },
   { key: "declined", label: "Passed", hint: "Not for them this time" },
 ];
 export const statusLabel = Object.fromEntries(statuses.map(s => [s.key, s.label]));
