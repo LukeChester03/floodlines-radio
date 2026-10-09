@@ -126,7 +126,7 @@ export default function App({ user }) {
   if (!cloud.ready) return <main className="gate" aria-busy="true"><p className="gate-loading">Loading the band's campaign…</p></main>;
 
   const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, approve, queue, dueAll, setView, openSongForm: setSongForm, cloud, user };
-  const badges = { stations: stations.length, followups: dueAll.length || null, sendlist: queue.length || null };
+  const badges = { stations: stations.length, followups: followupBadge(dueAll.length, cloud.replies) || null, sendlist: queue.length || null };
 
   return (
     <MotionConfig reducedMotion="user">

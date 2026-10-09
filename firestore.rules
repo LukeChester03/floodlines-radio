@@ -13,6 +13,11 @@ service cloud.firestore {
       allow read, delete: if isBand();
       allow create, update: if isBand() && request.resource.data.get('state', 'review') in ['review', 'approved'];
     }
+    // Replies are written by the server (Admin); the band only records its decision
+    match /replies/{id} {
+      allow read: if isBand();
+      allow update: if isBand() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['decision', 'decidedAt']);
+    }
     // Send records are written by the server (Admin) only
     match /sends/{id} {
       allow read: if isBand();
