@@ -9,7 +9,7 @@ import sentLog from "./data/sent-log.json";
 import pastPlays from "./data/history.json";
 import { useLocal } from "./store.js";
 import { defaultSongs } from "./songs.js";
-import { blankSong, blankStation, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
+import { blankSong, blankStation, knownSends, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
 import { OnAir } from "./ui/bits.jsx";
 import NowPitching from "./views/NowPitching.jsx";
 import Booth from "./views/Booth.jsx";
@@ -22,8 +22,6 @@ import Mailer from "./views/Mailer.jsx";
 import SongForm from "./views/SongForm.jsx";
 
 const byId = Object.fromEntries(stations.map(s => [s.id, s]));
-const knownLog = [...pastPlays, ...sentLog];
-const sentKeys = new Set(sentLog.map(sentKey));
 const nav = [
   ["booth", "The booth", LayoutDashboard],
   ["stations", "Stations", Table2],
@@ -57,11 +55,14 @@ export default function App({ user }) {
   const [local, setLocal] = useState(() => localData());
 
   const song = songs.find(s => s.id === songId) || songs[0] || defaultSongs[0];
-  const crm = useMemo(() => withSentLog(cloud.crm, knownLog), [cloud.crm]);
+  const sends = useMemo(() => knownSends(sentLog, cloud.sends), [cloud.sends]);
+  const knownLog = useMemo(() => [...pastPlays, ...sends], [sends]);
+  const crm = useMemo(() => withSentLog(cloud.crm, knownLog), [cloud.crm, knownLog]);
+  const sentKeys = useMemo(() => new Set(sends.map(sentKey)), [sends]);
 
   // Anything Claude has already sent drops out of the send list, so it can't be sent twice
-  const queue = useMemo(() => cloud.queue.filter(q => !sentKeys.has(sentKey(q))), [cloud.queue]);
-  const sentStillQueued = useMemo(() => cloud.queue.filter(q => sentKeys.has(sentKey(q))).map(sentKey), [cloud.queue]);
+  const queue = useMemo(() => cloud.queue.filter(q => !sentKeys.has(sentKey(q))), [cloud.queue, sentKeys]);
+  const sentStillQueued = useMemo(() => cloud.queue.filter(q => sentKeys.has(sentKey(q))).map(sentKey), [cloud.queue, sentKeys]);
   const { removeFromQueue } = cloud;
   useEffect(() => { if (sentStillQueued.length) removeFromQueue(sentStillQueued); }, [sentStillQueued, removeFromQueue]);
   const queuedKeys = useMemo(() => new Set(queue.map(sentKey)), [queue]);
@@ -71,7 +72,7 @@ export default function App({ user }) {
   const updateStation = useCallback((id, patch) => saveStation(id, cur => {
     const merged = withSentLog({ [id]: cur }, knownLog)[id] || blankStation();
     return typeof patch === "function" ? patch(merged) : patch;
-  }), [saveStation]);
+  }), [saveStation, knownLog]);
   const updateSong = useCallback((id, sid, patch) => updateStation(id, st => {
     const cur = st.songs[sid] || blankSong();
     return { songs: { ...st.songs, [sid]: { ...cur, ...(typeof patch === "function" ? patch(cur) : patch) } } };

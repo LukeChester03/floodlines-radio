@@ -6,7 +6,16 @@ service cloud.firestore {
       return request.auth != null && request.auth.token.email == 'floodlinesbanduk@gmail.com';
     }
     match /{collection}/{id} {
-      allow read, write: if isBand() && collection in ['stations', 'songs', 'sendlist', 'settings'];
+      allow read, write: if isBand() && collection in ['stations', 'songs', 'settings'];
+    }
+    // Clients only ever queue (review) or approve; the server owns every other state
+    match /sendlist/{id} {
+      allow read, delete: if isBand();
+      allow create, update: if isBand() && request.resource.data.get('state', 'review') in ['review', 'approved'];
+    }
+    // Send records are written by the server (Admin) only
+    match /sends/{id} {
+      allow read: if isBand();
     }
   }
 }

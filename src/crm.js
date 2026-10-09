@@ -86,6 +86,14 @@ export function songInfo(rec, now = Date.now()) {
 }
 
 export const sentKey = q => `${q.id}:${q.song || "companion"}:${q.kind === "followup" ? "followup" : "pitch"}`;
+// The frozen sent-log plus the server's send records, each send counted once
+export function knownSends(sentLog, sends) {
+  const seen = new Set();
+  return [...sentLog, ...sends].filter(s => {
+    const k = `${sentKey(s)}|${s.sentAt}`;
+    return !seen.has(k) && seen.add(k);
+  });
+}
 export const fmtDate = d => (d ? d.toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "—");
 
 export const canGoLive = song => !!(song.link && song.released);
