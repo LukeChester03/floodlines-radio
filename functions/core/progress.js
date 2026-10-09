@@ -12,3 +12,9 @@ export function queueProgress(entries, sends, pace, now) {
   const sentToday = sends.filter(s => { const age = t - new Date(s.sentAt).getTime(); return age >= 0 && age <= DAY; }).length;
   return { ...n, sentToday, cap: pace.perDay, nextRunAt: new Date((Math.floor(t / RUN) + 1) * RUN).toISOString() };
 }
+
+// Why a failed entry failed, for the Send list. null when the entry hasn't failed.
+export function failureReason(entry) {
+  if (entry.state !== "failed") return null;
+  return entry.reason || "Couldn't send, no reason recorded";
+}
