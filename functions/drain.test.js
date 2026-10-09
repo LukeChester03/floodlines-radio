@@ -58,8 +58,7 @@ test("canSend reasons", () => {
   const e = entry(0);
   assert.equal(canSend(e, st("s0"), []), null);
   assert.ok(canSend(e, undefined, []));
-  assert.ok(canSend(e, st("s0", { rec: { bounced: "s0@x.com" } }), []));
-  assert.equal(canSend(e, st("s0", { rec: { bounced: "old@x.com" } }), []), null);
+  assert.ok(canSend(e, st("s0", { rec: { bounced: "2026-02-01" } }), []));
   assert.equal(canSend(entry(0, { kind: "followup" }), st("s0"), [{ id: "s0", song: "companion", kind: "pitch" }]), null);
 });
 

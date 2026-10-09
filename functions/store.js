@@ -1,5 +1,7 @@
 // Firestore Admin implementation of the same store methods as fakeStore.
-export function firestoreStore(db) {
+// `stations` is the generated stations list; getStation joins its email onto the CRM record as { email, rec }.
+export function firestoreStore(db, stations = []) {
+  const emails = new Map(stations.map((s) => [s.id, s.email]));
   const data = (snap) => snap.docs.map((d) => ({ key: d.id, ...d.data() }));
   const status = db.doc("settings/status");
   return {
@@ -12,7 +14,7 @@ export function firestoreStore(db) {
     },
     async getStation(id) {
       const s = await db.doc(`stations/${id}`).get();
-      return s.exists ? s.data() : undefined;
+      return emails.has(id) ? { email: emails.get(id), rec: s.exists ? s.data() : {} } : undefined;
     },
     async updateStation(id, patch) {
       await db.doc(`stations/${id}`).set(patch, { merge: true });

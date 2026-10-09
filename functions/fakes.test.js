@@ -1,3 +1,4 @@
+import { firestoreStore } from "./store.js";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { fakeTransport, fakeStore } from "./fakes.js";
@@ -44,12 +45,21 @@ test("fakeStore lists the sendlist by state", async () => {
 });
 
 test("fakeStore stations, sends and status", async () => {
-  const s = fakeStore({ stations: { x: { name: "X" } } });
-  await s.updateStation("x", { n: 1 });
-  assert.deepEqual(await s.getStation("x"), { name: "X", n: 1 });
+  const s = fakeStore({ stations: { x: { email: "x@x.com", rec: { dnc: false } } } });
+  await s.updateStation("x", { dnc: true });
+  assert.deepEqual(await s.getStation("x"), { email: "x@x.com", rec: { dnc: true } });
   await s.addSend({ sentAt: 5 });
   await s.addSend({ sentAt: 1 });
   assert.equal((await s.listSends({ since: 2 })).length, 1);
   await s.setStatus({ ok: true });
   assert.deepEqual(await s.getStatus(), { ok: true });
+});
+
+test("firestoreStore.getStation joins the static email onto the CRM record", async () => {
+  const doc = (data) => ({ get: async () => ({ exists: !!data, data: () => data }) });
+  const db = { doc: (p) => doc(p === "stations/a" ? { dnc: true } : undefined) };
+  const s = firestoreStore(db, [{ id: "a", email: "a@x.com" }, { id: "b", email: "b@x.com" }]);
+  assert.deepEqual(await s.getStation("a"), { email: "a@x.com", rec: { dnc: true } });
+  assert.deepEqual(await s.getStation("b"), { email: "b@x.com", rec: {} });
+  assert.equal(await s.getStation("zzz"), undefined);
 });

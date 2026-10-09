@@ -35,7 +35,7 @@ export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {
       return st[id];
     },
     async updateStation(id, patch) {
-      st[id] = { ...st[id], ...patch };
+      st[id] = { ...st[id], rec: { ...st[id]?.rec, ...patch } };
     },
     async addSend(record) {
       log.push(record);
