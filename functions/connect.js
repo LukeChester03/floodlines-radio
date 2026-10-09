@@ -43,3 +43,14 @@ export function secretWriter({ secret, getAccessToken, project = process.env.GCL
     if (!res.ok) throw new Error(`Could not store the token (${res.status})`);
   };
 }
+
+// Reads the newest version at run time, so a reconnect reaches the next run without a redeploy.
+export function secretReader({ secret, getAccessToken, project = process.env.GCLOUD_PROJECT }) {
+  return async () => {
+    const res = await fetch(`https://secretmanager.googleapis.com/v1/projects/${project}/secrets/${secret}/versions/latest:access`, {
+      headers: { Authorization: `Bearer ${await getAccessToken()}` },
+    });
+    if (!res.ok) throw new Error(`Could not read the token (${res.status})`);
+    return Buffer.from((await res.json()).payload.data, "base64").toString();
+  };
+}

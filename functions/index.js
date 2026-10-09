@@ -10,7 +10,7 @@ import { requireBand, PermissionDenied } from "./auth.js";
 import { firestoreStore } from "./store.js";
 import { drain } from "./drain.js";
 import { gmailTransport } from "./gmail.js";
-import { consentUrl, handleCallback, googleExchange, secretWriter } from "./connect.js";
+import { consentUrl, handleCallback, googleExchange, secretWriter, secretReader } from "./connect.js";
 import { approveBatch } from "./approve.js";
 
 initializeApp();
@@ -30,11 +30,12 @@ export const sendPitch = onCall(async (request) => {
 
 const clientId = defineSecret("GMAIL_CLIENT_ID");
 const clientSecret = defineSecret("GMAIL_CLIENT_SECRET");
-const refreshToken = defineSecret("GMAIL_REFRESH_TOKEN");
 const redirectUri = defineString("GMAIL_REDIRECT_URI");
+const getAccessToken = async () => (await getApp().options.credential.getAccessToken()).access_token;
 
-export const mailRound = onSchedule({ schedule: "*/10 * * * *", secrets: [clientId, clientSecret, refreshToken] }, async () => {
-  const transport = gmailTransport({ clientId: clientId.value(), clientSecret: clientSecret.value(), refreshToken: refreshToken.value() });
+export const mailRound = onSchedule({ schedule: "*/10 * * * *", secrets: [clientId, clientSecret] }, async () => {
+  const refreshToken = await secretReader({ secret: "GMAIL_REFRESH_TOKEN", getAccessToken })();
+  const transport = gmailTransport({ clientId: clientId.value(), clientSecret: clientSecret.value(), refreshToken });
   await drain({ store: firestoreStore(getFirestore()), transport });
 });
 
@@ -46,7 +47,7 @@ export const connectGmailCallback = onRequest({ secrets: [clientId, clientSecret
   try {
     await handleCallback({ code: String(req.query.code ?? "") }, {
       exchangeCode: googleExchange({ clientId: clientId.value(), clientSecret: clientSecret.value(), redirectUri: redirectUri.value() }),
-      writeSecret: secretWriter({ secret: "GMAIL_REFRESH_TOKEN", getAccessToken: async () => (await getApp().options.credential.getAccessToken()).access_token }),
+      writeSecret: secretWriter({ secret: "GMAIL_REFRESH_TOKEN", getAccessToken }),
       store: firestoreStore(getFirestore()),
     });
     res.send("Gmail connected. You can close this tab.");

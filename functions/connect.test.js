@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { fakeStore, fakeTransport } from "./fakes.js";
 import { drain } from "./drain.js";
-import { handleCallback } from "./connect.js";
+import { handleCallback, secretReader } from "./connect.js";
 import { gmailTransport } from "./gmail.js";
 import { BAND_EMAIL } from "./core/band.js";
 
@@ -57,4 +57,16 @@ test("real Gmail is disabled under test, with no network", async () => {
     globalThis.fetch = real;
   }
   assert.equal(hit, false);
+});
+
+test("secretReader fetches the latest secret version", async () => {
+  const real = globalThis.fetch;
+  let url;
+  globalThis.fetch = async (u) => { url = u; return { ok: true, json: async () => ({ payload: { data: Buffer.from("rt2").toString("base64") } }) }; };
+  try {
+    assert.equal(await secretReader({ secret: "S", project: "p", getAccessToken: async () => "t" })(), "rt2");
+  } finally {
+    globalThis.fetch = real;
+  }
+  assert.match(url, /projects\/p\/secrets\/S\/versions\/latest:access$/);
 });
