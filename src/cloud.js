@@ -10,6 +10,7 @@ import { httpsCallable } from "firebase/functions";
 import { db, functions } from "./firebase.js";
 import { defaultSongs, templates as baseTemplates, band } from "./songs.js";
 import config from "./firebase-config.json";
+import { entryStateWrites } from "../functions/core/entryState.js";
 import { blankStation, migrate, sentKey } from "./crm.js";
 
 export const connectGmailUrl = `https://europe-west2-${config.projectId}.cloudfunctions.net/connectGmail`;
@@ -103,9 +104,8 @@ export function useCloud(user) {
 
   // Retry (failed -> approved) and Pause (approved -> review): only the entry's state is written
   const setEntryState = useCallback((keys, state) => {
-    if (state !== "approved" && state !== "review") throw new Error(`Clients can't set state ${state}`);
     const batch = writeBatch(db);
-    keys.forEach(k => batch.update(doc(db, "sendlist", k), { state, ...stamp(user) }));
+    entryStateWrites(keys, state, user).forEach(w => batch.update(doc(db, ...w.path.split("/")), w.data));
     return batch.commit();
   }, [user]);
 
