@@ -13,6 +13,10 @@ service cloud.firestore {
       allow read, delete: if isBand();
       allow create, update: if isBand() && request.resource.data.get('state', 'review') in ['review', 'approved'];
     }
+    // Gmail connection status is written by the server only
+    match /gmail/status {
+      allow read: if isBand();
+    }
     // Send records are written by the server (Admin) only
     match /sends/{id} {
       allow read: if isBand();

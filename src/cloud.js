@@ -9,8 +9,10 @@ import { collection, deleteDoc, doc, onSnapshot, setDoc, writeBatch } from "fire
 import { httpsCallable } from "firebase/functions";
 import { db, functions } from "./firebase.js";
 import { defaultSongs, templates as baseTemplates, band } from "./songs.js";
+import config from "./firebase-config.json";
 import { blankStation, migrate, sentKey } from "./crm.js";
 
+export const connectGmailUrl = `https://europe-west2-${config.projectId}.cloudfunctions.net/connectGmail`;
 const defaultSettings = { templates: baseTemplates, signoff: band.signoff, includeOthers: true };
 const stamp = user => ({ updatedAt: new Date().toISOString(), updatedBy: user?.email || null });
 const strip = ({ updatedAt, updatedBy, ...rest }) => rest; // eslint-disable-line no-unused-vars
@@ -22,6 +24,7 @@ export function useCloud(user) {
   const [sends, setSends] = useState([]);
   const [settings, setSettings] = useState(defaultSettings);
   const [loaded, setLoaded] = useState({ stations: false, songs: false, sendlist: false, sends: false, settings: false });
+  const [gmail, setGmail] = useState(undefined);
   const [error, setError] = useState(null);
   const crmRef = useRef({});
   crmRef.current = crm;
@@ -63,6 +66,8 @@ export function useCloud(user) {
         done("settings");
       }, fail),
     ];
+    // Not part of "loaded": a missing status just means Gmail isn't connected yet
+    unsubs.push(onSnapshot(doc(db, "gmail", "status"), snap => setGmail(snap.exists() ? snap.data() : {}), () => setGmail({})));
     return () => unsubs.forEach(u => u());
   }, [user]);
 
@@ -112,7 +117,7 @@ export function useCloud(user) {
   }, [user]);
 
   const ready = Object.values(loaded).every(Boolean) && songs?.length > 0;
-  return { ready, error, crm, songs: songs || [], queue, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings };
+  return { ready, error, gmail, crm, songs: songs || [], queue, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings };
 }
 
 // One-off move of data saved in this browser (before the database existed) into Firestore
