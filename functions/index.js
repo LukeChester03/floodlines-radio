@@ -1,12 +1,16 @@
 import { setGlobalOptions } from "firebase-functions/v2";
 import { onSchedule } from "firebase-functions/v2/scheduler";
 import { onCall, HttpsError } from "firebase-functions/v2/https";
-import { initializeApp } from "firebase-admin/app";
+import { onRequest } from "firebase-functions/v2/https";
+import { defineSecret, defineString } from "firebase-functions/params";
+import { initializeApp, getApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { REGION } from "./core/band.js";
 import { requireBand, PermissionDenied } from "./auth.js";
 import { firestoreStore } from "./store.js";
 import { drain } from "./drain.js";
+import { gmailTransport } from "./gmail.js";
+import { consentUrl, handleCallback, googleExchange, secretWriter, secretReader } from "./connect.js";
 import { approveBatch } from "./approve.js";
 
 initializeApp();
@@ -24,9 +28,30 @@ export const sendPitch = onCall(async (request) => {
   return approveBatch({ keys }, { store: firestoreStore(getFirestore()) });
 });
 
-// Gmail transport is wired in by the Gmail connection ticket; until then the scheduled run has nothing to send through.
-export const mailRound = onSchedule("*/10 * * * *", async () => {
-  const { gmailTransport } = await import("./gmail.js").catch(() => ({}));
-  if (!gmailTransport) return;
-  await drain({ store: firestoreStore(getFirestore()), transport: gmailTransport() });
+const clientId = defineSecret("GMAIL_CLIENT_ID");
+const clientSecret = defineSecret("GMAIL_CLIENT_SECRET");
+const redirectUri = defineString("GMAIL_REDIRECT_URI");
+const getAccessToken = async () => (await getApp().options.credential.getAccessToken()).access_token;
+
+export const mailRound = onSchedule({ schedule: "*/10 * * * *", secrets: [clientId, clientSecret] }, async () => {
+  const refreshToken = await secretReader({ secret: "GMAIL_REFRESH_TOKEN", getAccessToken })();
+  const transport = gmailTransport({ clientId: clientId.value(), clientSecret: clientSecret.value(), refreshToken });
+  await drain({ store: firestoreStore(getFirestore()), transport });
+});
+
+export const connectGmail = onRequest({ secrets: [clientId] }, (req, res) => {
+  res.redirect(consentUrl({ clientId: clientId.value(), redirectUri: redirectUri.value() }));
+});
+
+export const connectGmailCallback = onRequest({ secrets: [clientId, clientSecret] }, async (req, res) => {
+  try {
+    await handleCallback({ code: String(req.query.code ?? "") }, {
+      exchangeCode: googleExchange({ clientId: clientId.value(), clientSecret: clientSecret.value(), redirectUri: redirectUri.value() }),
+      writeSecret: secretWriter({ secret: "GMAIL_REFRESH_TOKEN", getAccessToken }),
+      store: firestoreStore(getFirestore()),
+    });
+    res.send("Gmail connected. You can close this tab.");
+  } catch (e) {
+    res.status(403).send(e.message);
+  }
 });
