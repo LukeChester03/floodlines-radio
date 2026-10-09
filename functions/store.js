@@ -21,7 +21,7 @@ export function firestoreStore(db) {
       await db.collection("sends").add(record);
     },
     async listSends({ since = 0 } = {}) {
-      return data(await db.collection("sends").where("at", ">=", since).get());
+      return data(await db.collection("sends").where("sentAt", ">=", new Date(since).toISOString()).get());
     },
     async getStatus() {
       return (await status.get()).data() ?? {};

@@ -47,8 +47,8 @@ test("fakeStore stations, sends and status", async () => {
   const s = fakeStore({ stations: { x: { name: "X" } } });
   await s.updateStation("x", { n: 1 });
   assert.deepEqual(await s.getStation("x"), { name: "X", n: 1 });
-  await s.addSend({ at: 5 });
-  await s.addSend({ at: 1 });
+  await s.addSend({ sentAt: 5 });
+  await s.addSend({ sentAt: 1 });
   assert.equal((await s.listSends({ since: 2 })).length, 1);
   await s.setStatus({ ok: true });
   assert.deepEqual(await s.getStatus(), { ok: true });

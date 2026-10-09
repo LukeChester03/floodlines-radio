@@ -41,7 +41,7 @@ export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {
       log.push(record);
     },
     async listSends({ since = 0 } = {}) {
-      return log.filter((s) => s.at >= since);
+      return log.filter((s) => new Date(s.sentAt) >= since);
     },
     async getStatus() {
       return stat;
