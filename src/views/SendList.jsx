@@ -27,7 +27,7 @@ function Count({ value }) {
 }
 
 // Every email waiting to go, for every song. Approve & send hands the reviewed list to the scheduled run.
-export default function SendList({ items, cloud, songs, openMailer, logEvent, setView }) {
+export default function SendList({ items, cloud, songs, openMailer, logEvent, setView, gmail, gmailStatus }) {
   const [confirming, setConfirming] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(null);
@@ -66,6 +66,7 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
         <div>
           <h2 className="view-title">Send list</h2>
           <p className="view-sub">Everything queued, for every song. Nothing sends until you approve it.</p>
+          {gmail?.kind === "connected" && <p className="view-sub gmail-status">{gmail.text}{gmailStatus?.lastRunAt ? ` · last run ${new Date(gmailStatus.lastRunAt).toLocaleString([], { dateStyle: "medium", timeStyle: "short" })}` : ""}</p>}
         </div>
       </div>
 

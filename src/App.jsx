@@ -3,11 +3,12 @@ import { AnimatePresence, LayoutGroup, MotionConfig, motion } from "motion/react
 import { CalendarClock, KanbanSquare, LayoutDashboard, LogOut, Mail, Table2 } from "lucide-react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase.js";
-import { importLocal, localData, useCloud } from "./cloud.js";
+import { connectGmailUrl, importLocal, localData, useCloud } from "./cloud.js";
 import stations from "./data/stations.json";
 import sentLog from "./data/sent-log.json";
 import pastPlays from "./data/history.json";
 import { useLocal } from "./store.js";
+import { gmailBanner } from "./gmail.js";
 import { defaultSongs } from "./songs.js";
 import { blankSong, blankStation, knownSends, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
 import { OnAir } from "./ui/bits.jsx";
@@ -125,7 +126,8 @@ export default function App({ user }) {
   if (cloud.error) return <main className="gate"><div className="gate-card"><h1 className="gate-title">Something's off</h1><p className="gate-sub">{cloud.error}</p><button className="btn" onClick={() => signOut(auth)}>Sign out</button></div></main>;
   if (!cloud.ready) return <main className="gate" aria-busy="true"><p className="gate-loading">Loading the band's campaign…</p></main>;
 
-  const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, approve, queue, dueAll, setView, openSongForm: setSongForm, cloud, user };
+  const gmail = cloud.gmail === undefined ? null : gmailBanner(cloud.gmail);
+  const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, approve, queue, dueAll, setView, openSongForm: setSongForm, cloud, user, gmail, gmailStatus: cloud.gmail };
   const badges = { stations: stations.length, followups: dueAll.length || null, sendlist: queue.length || null };
 
   return (
@@ -159,6 +161,15 @@ export default function App({ user }) {
             <button className="link-btn" onClick={() => setLocal(null)}>Not now</button>
           </div>
         )}
+
+        <AnimatePresence initial={false}>
+          {gmail && gmail.kind !== "connected" && (
+            <motion.div key="gmail" className="import-bar" role="region" aria-label="Gmail connection" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }}>
+              <span>{gmail.text}</span>
+              <a className="btn btn-primary" href={connectGmailUrl}>{gmail.kind === "reconnect" ? "Reconnect Gmail" : "Connect Gmail"}</a>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <NowPitching {...ctx} />
 
