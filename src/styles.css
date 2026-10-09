@@ -485,3 +485,13 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .sl-bar { height: 8px; border-radius: 999px; background: var(--log-2); margin: 12px 0; overflow: hidden; }
 .sl-bar span { display: block; height: 100%; background: #1d6b32; border-radius: inherit; }
 .sl-reason { margin: 8px 0 0; }
+
+.reply-list li { align-items: flex-start; justify-content: space-between; border-left: 6px solid var(--song, var(--rule)); }
+.reply-main { flex: 1 1 260px; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.reply-snippet { flex-basis: 100%; margin: 2px 0 0; overflow-wrap: anywhere; }
+.reply-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.reply-main .tag { font-size: .75rem; font-weight: 800; padding: 2px 8px; border-radius: 99px; border: 2px solid var(--rule); background: #fff; }
+.reply-main .reply-bounced { border-color: #b3261e; color: #b3261e; }
+.reply-main .reply-replied { border-color: #1b7a3e; color: #1b7a3e; }
+.reply-done { margin-top: 12px; }
+.reply-done summary { cursor: pointer; font-weight: 800; padding: 6px 0; }

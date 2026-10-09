@@ -107,3 +107,21 @@ export const releaseBatch = (song, stations, songs, { template, signoff, include
       const d = fill(template, s, song, songs, { signoff, includeOthers });
       return { id: s.id, song: song.id, kind: "pitch", station: s.name, show: s.show, to: s.email, subject: d.subject, body: d.body, state: "review" };
     });
+
+// Replies the server read from Gmail, grouped for the Follow-ups view, newest first.
+// Auto-replies need no decision, so they go straight to done unless the band moved them.
+export function replyGroups(replies) {
+  const g = { undecided: [], wantReply: [], done: [] };
+  for (const r of replies) {
+    const d = r.decision || "undecided";
+    if (d === "want-reply") g.wantReply.push(r);
+    else if (d === "undecided" && r.outcome !== "auto") g.undecided.push(r);
+    else g.done.push(r);
+  }
+  Object.values(g).forEach(list => list.sort((a, b) => (b.date || "").localeCompare(a.date || "")));
+  return g;
+}
+
+export const followupBadge = (due, replies) => due + replyGroups(replies).undecided.length;
+
+export const gmailThreadUrl = threadId => `https://mail.google.com/mail/u/?authuser=floodlinesbanduk@gmail.com#all/${threadId}`;

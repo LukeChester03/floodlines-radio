@@ -5,7 +5,7 @@
 //   sends/{id}            one record per email the server sent (written by the server only)
 //   settings/shared       email templates, sign-off, "mention other songs"
 import { useCallback, useEffect, useRef, useState } from "react";
-import { collection, deleteDoc, doc, onSnapshot, setDoc, writeBatch } from "firebase/firestore";
+import { collection, deleteDoc, doc, onSnapshot, setDoc, updateDoc, writeBatch } from "firebase/firestore";
 import { httpsCallable } from "firebase/functions";
 import { db, functions } from "./firebase.js";
 import { defaultSongs, templates as baseTemplates, band } from "./songs.js";
@@ -21,6 +21,7 @@ export function useCloud(user) {
   const [crm, setCrm] = useState({});
   const [songs, setSongs] = useState(null);
   const [queue, setQueue] = useState([]);
+  const [replies, setReplies] = useState([]);
   const [sends, setSends] = useState([]);
   const [settings, setSettings] = useState(defaultSettings);
   const [loaded, setLoaded] = useState({ stations: false, songs: false, sendlist: false, sends: false, settings: false });
@@ -60,6 +61,11 @@ export function useCloud(user) {
         snap.forEach(d => list.push({ id: d.id, ...d.data() }));
         setSends(list);
         done("sends");
+      }, fail),
+      onSnapshot(collection(db, "replies"), snap => {
+        const list = [];
+        snap.forEach(d => list.push({ id: d.id, ...d.data() }));
+        setReplies(list);
       }, fail),
       onSnapshot(doc(db, "settings", "shared"), snap => {
         setSettings({ ...defaultSettings, ...(snap.exists() ? strip(snap.data()) : {}) });
@@ -110,6 +116,10 @@ export function useCloud(user) {
   }, [user]);
 
   const approveAll =useCallback(keys => httpsCallable(functions, "sendPitch")({ keys }).then(r => r.data), []);
+
+  // Only the band's decision is written; the app never replies by itself
+  const decideReply = useCallback((id, decision) => updateDoc(doc(db, "replies", id), { decision, decidedAt: new Date().toISOString() })
+    .catch(e => setError(`Couldn't save that decision (${e.code}).`)), []);
 
   const saveSettings = useCallback(patch => {
     setSettings(s => ({ ...s, ...patch }));

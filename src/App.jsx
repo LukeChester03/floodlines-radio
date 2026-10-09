@@ -128,7 +128,7 @@ export default function App({ user }) {
 
   const gmail = cloud.gmail === undefined ? null : gmailBanner(cloud.gmail);
   const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, approve, queue, dueAll, setView, openSongForm: setSongForm, cloud, user, gmail, gmailStatus: cloud.gmail };
-  const badges = { stations: stations.length, followups: dueAll.length || null, sendlist: queue.length || null };
+  const badges = { stations: stations.length, followups: followupBadge(dueAll.length, cloud.replies) || null, sendlist: queue.length || null };
 
   return (
     <MotionConfig reducedMotion="user">
