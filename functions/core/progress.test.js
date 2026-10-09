@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { queueProgress } from "./progress.js";
+import { queueProgress, failureReason } from "./progress.js";
 
 const at = (h, m, s = 0) => new Date(Date.UTC(2026, 0, 5, h, m, s));
 const pace = { perRun: 5, perDay: 50 };
@@ -24,4 +24,16 @@ test("nextRunAt is the next 10-minute boundary, strictly after now", () => {
 
 test("entries with no state count as review", () => {
   assert.equal(queueProgress([{}], [], pace, at(1, 0)).review, 1);
+});
+
+test("failureReason returns the recorded reason for a failed entry", () => {
+  assert.equal(failureReason({ state: "failed", reason: "Station is do-not-contact" }), "Station is do-not-contact");
+});
+
+test("failureReason falls back when a failed entry has no reason", () => {
+  assert.equal(failureReason({ state: "failed" }), "Couldn't send, no reason recorded");
+});
+
+test("failureReason is null for an entry that isn't failed", () => {
+  assert.equal(failureReason({ state: "approved", reason: "old" }), null);
 });

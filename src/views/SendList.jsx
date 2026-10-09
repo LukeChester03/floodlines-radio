@@ -3,7 +3,7 @@ import { AnimatePresence, animate, motion } from "motion/react";
 import { Pause, RotateCcw, Send, Trash2 } from "lucide-react";
 import { band } from "../songs.js";
 import { approvalSummary } from "../../functions/approve.js";
-import { queueProgress } from "../../functions/core/progress.js";
+import { queueProgress, failureReason } from "../../functions/core/progress.js";
 import { sendPace } from "../../functions/core/pace.js";
 import { Empty, Modal } from "../ui/bits.jsx";
 
@@ -126,9 +126,15 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
                     <span className="sl-to">{q.to}</span>
                     <span className="sl-subject">{q.subject}</span>
                   </summary>
-                  {stateOf(q) === "failed" && q.error && <p className="error sl-reason">Failed: {q.error}</p>}
                   <pre className="sl-body">{q.body}</pre>
                 </details>
+                <AnimatePresence initial={false}>
+                  {failureReason(q) && (
+                    <motion.p key="reason" className="error sl-reason" style={{ overflow: "hidden" }} role="status" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }}>
+                      Failed: {failureReason(q)}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
                 <div className="sl-actions">
                   {stateOf(q) === "review" && <button className="link-btn" onClick={() => openMailer([q.id], q.kind, q.song, { [q.id]: { subject: q.subject, body: q.body } })}>Edit</button>}
                   {stateOf(q) === "approved" && <button className="link-btn" onClick={() => move([key(q)], "review")}><Pause size={14} aria-hidden="true" /> Pause</button>}
