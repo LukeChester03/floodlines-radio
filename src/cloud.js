@@ -88,7 +88,15 @@ export function useCloud(user) {
     return batch.commit();
   }, []);
 
-  const approveAll = useCallback(keys => httpsCallable(functions, "sendPitch")({ keys }).then(r => r.data), []);
+  // Retry (failed -> approved) and Pause (approved -> review): only the entry's state is written
+  const setEntryState = useCallback((keys, state) => {
+    if (state !== "approved" && state !== "review") throw new Error(`Clients can't set state ${state}`);
+    const batch = writeBatch(db);
+    keys.forEach(k => batch.update(doc(db, "sendlist", k), { state, ...stamp(user) }));
+    return batch.commit();
+  }, [user]);
+
+  const approveAll =useCallback(keys => httpsCallable(functions, "sendPitch")({ keys }).then(r => r.data), []);
 
   const saveSettings = useCallback(patch => {
     setSettings(s => ({ ...s, ...patch }));
@@ -96,7 +104,7 @@ export function useCloud(user) {
   }, [user]);
 
   const ready = Object.values(loaded).every(Boolean) && songs?.length > 0;
-  return { ready, error, crm, songs: songs || [], queue, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, approveAll, saveSettings };
+  return { ready, error, crm, songs: songs || [], queue, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings };
 }
 
 // One-off move of data saved in this browser (before the database existed) into Firestore
