@@ -2,6 +2,7 @@
 //   stations/{stationId}  status per song, notes, tags, star, do-not-contact
 //   songs/{songId}        the singles being pitched
 //   sendlist/{key}        approved emails the band reviews, approves and the scheduled run sends
+//   sends/{id}            one record per email the server sent (written by the server only)
 //   settings/shared       email templates, sign-off, "mention other songs"
 import { useCallback, useEffect, useRef, useState } from "react";
 import { collection, deleteDoc, doc, onSnapshot, setDoc, writeBatch } from "firebase/firestore";
@@ -18,8 +19,9 @@ export function useCloud(user) {
   const [crm, setCrm] = useState({});
   const [songs, setSongs] = useState(null);
   const [queue, setQueue] = useState([]);
+  const [sends, setSends] = useState([]);
   const [settings, setSettings] = useState(defaultSettings);
-  const [loaded, setLoaded] = useState({ stations: false, songs: false, sendlist: false, settings: false });
+  const [loaded, setLoaded] = useState({ stations: false, songs: false, sendlist: false, sends: false, settings: false });
   const [error, setError] = useState(null);
   const crmRef = useRef({});
   crmRef.current = crm;
@@ -49,6 +51,12 @@ export function useCloud(user) {
         list.sort((a, b) => (a.addedAt || a.approvedAt || "").localeCompare(b.addedAt || b.approvedAt || ""));
         setQueue(list);
         done("sendlist");
+      }, fail),
+      onSnapshot(collection(db, "sends"), snap => {
+        const list = [];
+        snap.forEach(d => list.push({ id: d.id, ...d.data() }));
+        setSends(list);
+        done("sends");
       }, fail),
       onSnapshot(doc(db, "settings", "shared"), snap => {
         setSettings({ ...defaultSettings, ...(snap.exists() ? strip(snap.data()) : {}) });
@@ -104,7 +112,7 @@ export function useCloud(user) {
   }, [user]);
 
   const ready = Object.values(loaded).every(Boolean) && songs?.length > 0;
-  return { ready, error, crm, songs: songs || [], queue, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings };
+  return { ready, error, crm, songs: songs || [], queue, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings };
 }
 
 // One-off move of data saved in this browser (before the database existed) into Firestore
