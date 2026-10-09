@@ -124,7 +124,7 @@ export default function App({ user }) {
   if (cloud.error) return <main className="gate"><div className="gate-card"><h1 className="gate-title">Something's off</h1><p className="gate-sub">{cloud.error}</p><button className="btn" onClick={() => signOut(auth)}>Sign out</button></div></main>;
   if (!cloud.ready) return <main className="gate" aria-busy="true"><p className="gate-loading">Loading the band's campaign…</p></main>;
 
-  const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, queue, dueAll, setView, openSongForm: setSongForm, cloud, user };
+  const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, approve, queue, dueAll, setView, openSongForm: setSongForm, cloud, user };
   const badges = { stations: stations.length, followups: dueAll.length || null, sendlist: queue.length || null };
 
   return (

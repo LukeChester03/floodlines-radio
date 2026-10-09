@@ -1,4 +1,6 @@
 import { sendPace } from "../functions/core/pace.js";
+import { reachable } from "../functions/core/stations.js";
+import { fill } from "./songs.js";
 // Campaign state, tracked per station and per song. Stored in this browser and
 // merged with the send log Claude writes after each send (src/data/sent-log.json).
 
@@ -85,3 +87,14 @@ export function songInfo(rec, now = Date.now()) {
 
 export const sentKey = q => `${q.id}:${q.song || "companion"}:${q.kind === "followup" ? "followup" : "pitch"}`;
 export const fmtDate = d => (d ? d.toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "—");
+
+export const canGoLive = song => !!(song.link && song.released);
+
+// One review-state pitch per station that fits and hasn't heard this song; never sends anything
+export const releaseBatch = (song, stations, songs, { template, signoff, includeOthers }) =>
+  stations
+    .filter(s => reachable(s) && s.email && !s.rec.bounced && s.per[song.id].status === "new" && !s.per[song.id].queued)
+    .map(s => {
+      const d = fill(template, s, song, songs, { signoff, includeOthers });
+      return { id: s.id, song: song.id, kind: "pitch", station: s.name, show: s.show, to: s.email, subject: d.subject, body: d.body, state: "review" };
+    });
