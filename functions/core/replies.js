@@ -1,4 +1,4 @@
-const addr = (s = "") => (/<([^>]+)>/.exec(s)?.[1] ?? s).trim().toLowerCase();
+const addr = (s) => (/<([^>]+)>/.exec(s ?? "")?.[1] ?? s ?? "").trim().toLowerCase();
 
 export function classify(msg, bandEmail) {
   const from = addr(msg.from);
@@ -18,7 +18,7 @@ export function classify(msg, bandEmail) {
 
 export function matchReply(msg, sends, stations) {
   const h = msg.headers ?? {};
-  const byTo = (send) => stations.find((s) => addr(s.email) === addr(send.to));
+  const byTo = (send) => stations.find((s) => s.email && addr(s.email) === addr(send.to));
   const hit = (send) => {
     const st = byTo(send);
     return st && { stationId: st.id, song: send.song, kind: send.kind };
@@ -31,7 +31,7 @@ export function matchReply(msg, sends, stations) {
   const ref = sends.find((s) => s.messageId && refs.includes(s.messageId));
   if (ref && hit(ref)) return hit(ref);
 
-  const station = stations.find((s) => addr(s.email) === addr(msg.from));
+  const station = stations.find((s) => s.email && addr(s.email) === addr(msg.from));
   if (!station) return null;
   const last = sends
     .filter((s) => addr(s.to) === addr(station.email))

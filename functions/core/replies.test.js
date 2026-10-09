@@ -5,7 +5,7 @@ import { classify, matchReply } from "./replies.js";
 const band = "band@gmail.com";
 const msg = (o = {}) => ({ id: "m", threadId: "x", from: "a@b.com", headers: {}, ...o });
 const sends = [{ id: "1", song: "companion", kind: "pitch", to: "jo@station.com", messageId: "<mid1>", threadId: "t1" }];
-const stations = [{ id: "s1", email: "jo@station.com" }];
+const stations = [{ id: "s0", email: null }, { id: "s1", email: "jo@station.com" }];
 
 test("matches by threadId", () => {
   assert.deepEqual(matchReply(msg({ threadId: "t1" }), sends, stations), { stationId: "s1", song: "companion", kind: "pitch" });
