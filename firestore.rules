@@ -13,9 +13,10 @@ service cloud.firestore {
       allow read, delete: if isBand();
       allow create, update: if isBand() && request.resource.data.get('state', 'review') in ['review', 'approved'];
     }
-    // Gigs and the weekly search status are written by the server; the band only reads them
+    // Gigs are written by the server; the band only reads them and records its decision
     match /gigs/{id} {
       allow read: if isBand();
+      allow update: if isBand() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['decision', 'decidedAt']);
     }
     match /gigstatus/{id} {
       allow read: if isBand();
@@ -29,10 +30,7 @@ service cloud.firestore {
       allow read: if isBand();
       allow update: if isBand() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['decision', 'decidedAt']);
     }
-    // Gigs and the weekly run status are written by the server (Admin) only
-    match /gigs/{id} {
-      allow read: if isBand();
-    }
+    // The weekly run status is written by the server (Admin) only
     match /gigstatus/last {
       allow read: if isBand();
     }

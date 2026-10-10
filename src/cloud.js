@@ -15,6 +15,7 @@ import { defaultSongs, templates as baseTemplates, band } from "./songs.js";
 import config from "./firebase-config.json";
 import { entryStateWrites } from "../functions/core/entryState.js";
 import { EPK_PATH, blankStation, epkRecord, migrate, sentKey } from "./crm.js";
+import { gigDecisionPatch } from "./gigs.js";
 
 export const connectGmailUrl = `https://europe-west2-${config.projectId}.cloudfunctions.net/connectGmail`;
 const defaultSettings = { templates: baseTemplates, signoff: band.signoff, includeOthers: true };
@@ -150,7 +151,11 @@ export function useCloud(user) {
   }, [user]);
 
   const ready = Object.values(loaded).every(Boolean) && songs?.length > 0;
-  return { ready, error, gmail, crm, songs: songs || [], queue, replies, decideReply, gigs, gigStatus, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings, uploadEpk, removeEpk };
+  // Only the band's decision is written; nothing is ever sent for a gig
+  const decideGig = useCallback((id, decision) => updateDoc(doc(db, "gigs", id), gigDecisionPatch(decision, new Date()))
+    .catch(e => setError(`Couldn't save that decision (${e.code}).`)), []);
+
+  return { ready, error, gmail, crm, songs: songs || [], queue, replies, decideReply, gigs, decideGig, gigStatus, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings, uploadEpk, removeEpk };
 }
 
 // One-off move of data saved in this browser (before the database existed) into Firestore

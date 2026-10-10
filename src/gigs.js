@@ -19,10 +19,21 @@ export function gigId(url) {
 
 const day = ms => new Date(ms).toISOString().slice(0, 10);
 
-export function gigView(gigs, { now }) {
+export const gigDecisions = ["interested", "applied", "booked", "passed"];
+
+// The only fields the band may write on a gig (see firestore.rules)
+export function gigDecisionPatch(decision, now) {
+  if (!gigDecisions.includes(decision)) throw new Error(`Unknown gig decision: ${decision}`);
+  return { decision, decidedAt: now.toISOString() };
+}
+
+// decision: "new" (undecided), a decision, or "all"; month: "YYYY-MM" or "" for any
+export function gigView(gigs, { now, decision = "all", month = "" }) {
   const today = day(now);
   return gigs
     .filter(x => !x.date || x.date >= today)
+    .filter(x => decision === "all" || (decision === "new" ? !x.decision : x.decision === decision))
+    .filter(x => !month || x.date?.startsWith(month))
     .sort((a, b) => (b.score || 0) - (a.score || 0) || (a.date || "9999").localeCompare(b.date || "9999"));
 }
 
