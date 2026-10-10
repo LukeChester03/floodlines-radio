@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { fakeStore, fakeTransport } from "./fakes.js";
+import { fakeStore, fakeTransport, fakeEpk } from "./fakes.js";
 import { drain } from "./drain.js";
 import { canSend, buildMessage } from "./core/message.js";
 import { BAND_EMAIL } from "./core/band.js";
@@ -67,4 +67,60 @@ test("follow-up threads onto the earlier pitch", () => {
   const m = buildMessage(entry(0, { kind: "followup" }), BAND_EMAIL, prior);
   assert.deepEqual(m, { from: BAND_EMAIL, to: "s0@x.com", subject: "Hi", body: "Body", threadId: "t1", inReplyTo: "<m1>" });
   assert.equal(buildMessage(entry(0), BAND_EMAIL).threadId, undefined);
+});
+
+const file = { name: "FloodLines EPK.pdf", mimeType: "application/pdf", data: Buffer.from("pdf") };
+const run = async (list, epk) => {
+  const transport = fakeTransport();
+  await drain({ store: fakeStore({ stations: stations(2), sendlist: list }), transport, epk, now });
+  return transport.sent;
+};
+
+test("every pitch carries the EPK, read once", async () => {
+  const epk = fakeEpk(file);
+  const sent = await run([entry(0), entry(1)], epk);
+  assert.equal(sent.length, 2);
+  assert.ok(sent.every((m) => m.attachments.length === 1 && m.attachments[0].name === file.name));
+  assert.equal(epk.reads, 1);
+});
+
+test("follow-ups carry no attachment and never read the EPK", async () => {
+  const epk = fakeEpk(file);
+  const sent = await run([entry(0, { kind: "followup" })], epk);
+  assert.equal(sent.length, 1);
+  assert.equal(sent[0].attachments, undefined);
+  assert.equal(epk.reads, 0);
+});
+
+test("no uploaded EPK: pitches still send, without attachments", async () => {
+  const sent = await run([entry(0), entry(1)], fakeEpk(null));
+  assert.equal(sent.length, 2);
+  assert.ok(sent.every((m) => m.attachments === undefined));
+});
+
+const runFull = async (list, epk) => {
+  const transport = fakeTransport();
+  const store = fakeStore({ stations: stations(3), sendlist: list });
+  await drain({ store, transport, epk, now });
+  return { transport, store, all: await store.listSendlist(), sends: await store.listSends() };
+};
+
+test("EPK read fails: pitches fail with the reason, follow-up still sends", async () => {
+  const epk = { reads: 0, async read() { this.reads += 1; throw new Error("boom"); } };
+  const { transport, all, sends } = await runFull([entry(0), entry(1), entry(2, { kind: "followup" })], epk);
+  const pitches = all.filter((e) => e.kind === "pitch");
+  assert.ok(pitches.every((e) => e.state === "failed" && e.reason === "Couldn't read the EPK: boom"));
+  assert.equal(all.find((e) => e.kind === "followup").state, "sent");
+  assert.equal(transport.sent.length, 1);
+  assert.equal(sends.length, 1);
+  assert.equal(epk.reads, 1);
+});
+
+test("EPK over 18 MB: pitches fail with the reason and nothing is sent for them", async () => {
+  const epk = fakeEpk({ ...file, data: Buffer.alloc(19 * 1024 * 1024) });
+  const { transport, all, sends } = await runFull([entry(0), entry(1)], epk);
+  assert.ok(all.every((e) => e.state === "failed" && e.reason === "EPK too large to attach (max 18 MB)"));
+  assert.equal(transport.sent.length, 0);
+  assert.equal(sends.length, 0);
+  assert.equal(epk.reads, 1);
 });

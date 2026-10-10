@@ -40,6 +40,19 @@ export function firestoreStore(db, stations = []) {
     async listReplies() {
       return data(await db.collection("replies").get());
     },
+    async getSettings() {
+      return (await db.doc("settings/shared").get()).data() ?? {};
+    },
+    async listGigIds() {
+      return (await db.collection("gigs").select().get()).docs.map((d) => d.id);
+    },
+    async upsertGig(gig) {
+      const { decision, decidedAt, ...rest } = gig; // the band's decision is never overwritten
+      await db.doc(`gigs/${gig.id}`).set(rest, { merge: true });
+    },
+    async setGigStatus(s) {
+      await db.doc("gigstatus/last").set(s);
+    },
     async getStatus() {
       return (await status.get()).data() ?? {};
     },

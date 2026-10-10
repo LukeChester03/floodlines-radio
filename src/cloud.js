@@ -5,15 +5,16 @@
 //   sends/{id}            one record per email the server sent (written by the server only)
 //   gigs/{id}             upcoming gigs the weekly search found
 //   gigstatus/last        when the weekly search last ran, and its problems
-//   settings/shared       email templates, sign-off, "mention other songs"
+//   settings/shared       email templates, sign-off, "mention other songs", epk (the uploaded press kit)
 import { useCallback, useEffect, useRef, useState } from "react";
-import { collection, deleteDoc, doc, onSnapshot, setDoc, updateDoc, writeBatch } from "firebase/firestore";
+import { collection, deleteDoc, deleteField, doc, onSnapshot, setDoc, updateDoc, writeBatch } from "firebase/firestore";
 import { httpsCallable } from "firebase/functions";
-import { db, functions } from "./firebase.js";
+import { deleteObject, ref, uploadBytesResumable } from "firebase/storage";
+import { db, functions, storage } from "./firebase.js";
 import { defaultSongs, templates as baseTemplates, band } from "./songs.js";
 import config from "./firebase-config.json";
 import { entryStateWrites } from "../functions/core/entryState.js";
-import { blankStation, migrate, sentKey } from "./crm.js";
+import { EPK_PATH, blankStation, epkRecord, migrate, sentKey } from "./crm.js";
 
 export const connectGmailUrl = `https://europe-west2-${config.projectId}.cloudfunctions.net/connectGmail`;
 const defaultSettings = { templates: baseTemplates, signoff: band.signoff, includeOthers: true };
@@ -136,8 +137,20 @@ export function useCloud(user) {
     return setDoc(doc(db, "settings", "shared"), { ...patch, ...stamp(user) }, { merge: true });
   }, [user]);
 
+  // The EPK lives at one fixed Storage path, so a replace overwrites it. onProgress gets 0..1.
+  const uploadEpk = useCallback((file, onProgress) => new Promise((resolve, reject) => {
+    const task = uploadBytesResumable(ref(storage, EPK_PATH), file, { contentType: file.type, customMetadata: { name: file.name } });
+    task.on("state_changed", s => onProgress?.(s.bytesTransferred / s.totalBytes), reject, () => {
+      setDoc(doc(db, "settings", "shared"), { epk: epkRecord(file, new Date()), ...stamp(user) }, { merge: true }).then(resolve, reject);
+    });
+  }), [user]);
+  const removeEpk = useCallback(async () => {
+    await deleteObject(ref(storage, EPK_PATH)).catch(e => { if (e.code !== "storage/object-not-found") throw e; });
+    await updateDoc(doc(db, "settings", "shared"), { epk: deleteField(), ...stamp(user) });
+  }, [user]);
+
   const ready = Object.values(loaded).every(Boolean) && songs?.length > 0;
-  return { ready, error, gmail, crm, songs: songs || [], queue, replies, decideReply, gigs, gigStatus, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings };
+  return { ready, error, gmail, crm, songs: songs || [], queue, replies, decideReply, gigs, gigStatus, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings, uploadEpk, removeEpk };
 }
 
 // One-off move of data saved in this browser (before the database existed) into Firestore

@@ -5,14 +5,19 @@ import { onRequest } from "firebase-functions/v2/https";
 import { defineSecret, defineString } from "firebase-functions/params";
 import { initializeApp, getApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
+import { getStorage } from "firebase-admin/storage";
 import { REGION } from "./core/band.js";
 import { requireBand, PermissionDenied } from "./auth.js";
 import { firestoreStore } from "./store.js";
 import { drain } from "./drain.js";
+import { storageEpk } from "./epk.js";
 import { syncReplies } from "./replies.js";
 import { BAND_EMAIL } from "./core/band.js";
 import { gmailTransport } from "./gmail.js";
 import { consentUrl, handleCallback, googleExchange, secretWriter, secretReader } from "./connect.js";
+import { gigRound as runGigRound } from "./gigs.js";
+import { tavilySearch } from "./search.js";
+import { anthropicAsk } from "./read-post.js";
 import { approveBatch } from "./approve.js";
 
 initializeApp();
@@ -39,7 +44,7 @@ export const mailRound = onSchedule({ schedule: "*/10 * * * *", secrets: [client
   const refreshToken = await secretReader({ secret: "GMAIL_REFRESH_TOKEN", getAccessToken })();
   const transport = gmailTransport({ clientId: clientId.value(), clientSecret: clientSecret.value(), refreshToken });
   const store = firestoreStore(getFirestore());
-  await drain({ store, transport });
+  await drain({ store, transport, epk: storageEpk(getStorage().bucket()) });
   await syncReplies({ store, transport, bandEmail: BAND_EMAIL });
 });
 
@@ -58,4 +63,15 @@ export const connectGmailCallback = onRequest({ secrets: [clientId, clientSecret
   } catch (e) {
     res.status(403).send(e.message);
   }
+});
+
+const tavilyKey = defineSecret("TAVILY_API_KEY");
+const anthropicKey = defineSecret("ANTHROPIC_API_KEY");
+
+export const gigRound = onSchedule({ schedule: "0 7 * * 1", timeZone: "Europe/London", secrets: [tavilyKey, anthropicKey], timeoutSeconds: 540 }, async () => {
+  await runGigRound({
+    store: firestoreStore(getFirestore()),
+    search: tavilySearch(tavilyKey.value(), fetch),
+    ask: anthropicAsk(anthropicKey.value()),
+  });
 });
