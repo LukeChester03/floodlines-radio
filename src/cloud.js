@@ -3,6 +3,8 @@
 //   songs/{songId}        the singles being pitched
 //   sendlist/{key}        approved emails the band reviews, approves and the scheduled run sends
 //   sends/{id}            one record per email the server sent (written by the server only)
+//   gigs/{id}             upcoming gigs the weekly search found
+//   gigstatus/last        when the weekly search last ran, and its problems
 //   settings/shared       email templates, sign-off, "mention other songs", epk (the uploaded press kit)
 import { useCallback, useEffect, useRef, useState } from "react";
 import { collection, deleteDoc, deleteField, doc, onSnapshot, setDoc, updateDoc, writeBatch } from "firebase/firestore";
@@ -24,6 +26,8 @@ export function useCloud(user) {
   const [songs, setSongs] = useState(null);
   const [queue, setQueue] = useState([]);
   const [replies, setReplies] = useState([]);
+  const [gigs, setGigs] = useState([]);
+  const [gigStatus, setGigStatus] = useState(null);
   const [sends, setSends] = useState([]);
   const [settings, setSettings] = useState(defaultSettings);
   const [loaded, setLoaded] = useState({ stations: false, songs: false, sendlist: false, sends: false, settings: false });
@@ -69,6 +73,12 @@ export function useCloud(user) {
         snap.forEach(d => list.push({ id: d.id, ...d.data() }));
         setReplies(list);
       }, fail),
+      onSnapshot(collection(db, "gigs"), snap => {
+        const list = [];
+        snap.forEach(d => list.push({ id: d.id, ...d.data() }));
+        setGigs(list);
+      }, fail),
+      onSnapshot(doc(db, "gigstatus", "last"), snap => setGigStatus(snap.exists() ? snap.data() : null), fail),
       onSnapshot(doc(db, "settings", "shared"), snap => {
         setSettings({ ...defaultSettings, ...(snap.exists() ? strip(snap.data()) : {}) });
         done("settings");
@@ -140,7 +150,7 @@ export function useCloud(user) {
   }, [user]);
 
   const ready = Object.values(loaded).every(Boolean) && songs?.length > 0;
-  return { ready, error, gmail, crm, songs: songs || [], queue, replies, decideReply, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings, uploadEpk, removeEpk };
+  return { ready, error, gmail, crm, songs: songs || [], queue, replies, decideReply, gigs, gigStatus, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings, uploadEpk, removeEpk };
 }
 
 // One-off move of data saved in this browser (before the database existed) into Firestore
