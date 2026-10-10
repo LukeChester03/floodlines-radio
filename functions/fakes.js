@@ -18,6 +18,16 @@ export function fakeTransport({ inbox = [] } = {}) {
   };
 }
 
+export function fakeEpk(file = null) {
+  return {
+    reads: 0,
+    async read() {
+      this.reads += 1;
+      return file;
+    },
+  };
+}
+
 export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {}, replies = [] } = {}) {
   const list = sendlist.map((e) => ({ ...e }));
   const st = structuredClone(stations);

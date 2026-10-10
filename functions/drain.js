@@ -5,7 +5,7 @@ import { canSend, buildMessage } from "./core/message.js";
 const DAY = 86400e3;
 
 // Send the oldest approved emails, within the per-run and per-day pace, recording each real send.
-export async function drain({ store, transport, now = Date.now, pace = sendPace }) {
+export async function drain({ store, transport, epk = { read: async () => null }, now = Date.now, pace = sendPace }) {
   if ((await store.getStatus()).needsReconnect) return { sent: 0 };
   const today = await store.listSends({ since: now() - DAY });
   const budget = Math.min(pace.perRun, pace.perDay - today.length);
@@ -15,6 +15,9 @@ export async function drain({ store, transport, now = Date.now, pace = sendPace 
   const queue = (await store.listSendlist({ state: "approved" }))
     .sort((a, b) => String(a.approvedAt).localeCompare(String(b.approvedAt)))
     .slice(0, budget);
+
+  const file = queue.some((e) => e.kind === "pitch") ? await epk.read() : null;
+  const attachments = file ? [file] : undefined;
 
   let sent = 0;
   for (const entry of queue) {
@@ -26,7 +29,7 @@ export async function drain({ store, transport, now = Date.now, pace = sendPace 
     await store.updateEntry(entry.key, { state: "sending" });
     try {
       const prior = sends.find((s) => s.id === entry.id && s.song === entry.song && s.kind === "pitch");
-      const { messageId, threadId } = await transport.send(buildMessage(entry, BAND_EMAIL, prior));
+      const { messageId, threadId } = await transport.send(buildMessage(entry, BAND_EMAIL, prior, attachments));
       const record = { id: entry.id, song: entry.song, kind: entry.kind, to: entry.to, subject: entry.subject, sentAt: new Date(now()).toISOString(), messageId, threadId };
       await store.addSend(record);
       sends.push(record);
