@@ -97,3 +97,30 @@ test("no uploaded EPK: pitches still send, without attachments", async () => {
   assert.equal(sent.length, 2);
   assert.ok(sent.every((m) => m.attachments === undefined));
 });
+
+const runFull = async (list, epk) => {
+  const transport = fakeTransport();
+  const store = fakeStore({ stations: stations(3), sendlist: list });
+  await drain({ store, transport, epk, now });
+  return { transport, store, all: await store.listSendlist(), sends: await store.listSends() };
+};
+
+test("EPK read fails: pitches fail with the reason, follow-up still sends", async () => {
+  const epk = { reads: 0, async read() { this.reads += 1; throw new Error("boom"); } };
+  const { transport, all, sends } = await runFull([entry(0), entry(1), entry(2, { kind: "followup" })], epk);
+  const pitches = all.filter((e) => e.kind === "pitch");
+  assert.ok(pitches.every((e) => e.state === "failed" && e.reason === "Couldn't read the EPK: boom"));
+  assert.equal(all.find((e) => e.kind === "followup").state, "sent");
+  assert.equal(transport.sent.length, 1);
+  assert.equal(sends.length, 1);
+  assert.equal(epk.reads, 1);
+});
+
+test("EPK over 18 MB: pitches fail with the reason and nothing is sent for them", async () => {
+  const epk = fakeEpk({ ...file, data: Buffer.alloc(19 * 1024 * 1024) });
+  const { transport, all, sends } = await runFull([entry(0), entry(1)], epk);
+  assert.ok(all.every((e) => e.state === "failed" && e.reason === "EPK too large to attach (max 18 MB)"));
+  assert.equal(transport.sent.length, 0);
+  assert.equal(sends.length, 0);
+  assert.equal(epk.reads, 1);
+});
