@@ -1,6 +1,6 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { gigView, runSummary } from "../gigs.js";
+import { gigDecisions, gigView, runSummary } from "../gigs.js";
 import { fmtDate } from "../crm.js";
 import { Empty } from "../ui/bits.jsx";
 
@@ -8,7 +8,11 @@ const host = u => { try { return new URL(u).host; } catch { return u; } };
 // A gig is still being read until it has been scored
 const reading = g => g.score == null;
 
-function Card({ g }) {
+const label = d => d[0].toUpperCase() + d.slice(1);
+const filters = ["new", ...gigDecisions, "all"];
+const monthName = m => new Date(`${m}-01T00:00:00Z`).toLocaleString("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
+
+function Card({ g, decide }) {
   if (reading(g)) {
     return (
       <motion.li layout className="gig-card gig-skeleton" aria-busy="true" initial={{ opacity: 0 }} animate={{ opacity: [0.5, 1, 0.5] }} exit={{ opacity: 0 }} transition={{ duration: 1.4, repeat: Infinity }}>
@@ -36,6 +40,11 @@ function Card({ g }) {
       )}
       {g.howToApply && <p className="gig-line"><span className="muted">How to apply: </span>{g.howToApply}</p>}
       {g.reasons?.length > 0 && <ul className="gig-reasons">{g.reasons.map(r => <li key={r}>{r}</li>)}</ul>}
+      <div className="gig-decide" role="group" aria-label={`Your decision on ${g.venue || g.title}`}>
+        {gigDecisions.map(d => (
+          <motion.button key={d} type="button" className={`view-chip${g.decision === d ? " on" : ""}`} aria-pressed={g.decision === d} onClick={() => decide(g.id, d)} whileTap={{ scale: 0.94 }} animate={{ scale: g.decision === d ? [1, 1.12, 1] : 1 }} transition={{ duration: 0.25 }}>{label(d)}</motion.button>
+        ))}
+      </div>
       <p className="gig-line"><a className="link-btn" href={g.url} target="_blank" rel="noreferrer">Original post · {host(g.url)}<span className="sr-only"> (new tab)</span></a></p>
     </motion.li>
   );
@@ -43,7 +52,10 @@ function Card({ g }) {
 
 export default function Gigs({ cloud }) {
   const now = Date.now();
-  const gigs = useMemo(() => gigView(cloud.gigs, { now: Date.now() }), [cloud.gigs]);
+  const [decision, setDecision] = useState("all");
+  const [month, setMonth] = useState("");
+  const gigs = useMemo(() => gigView(cloud.gigs, { now: Date.now(), decision, month }), [cloud.gigs, decision, month]);
+  const months = useMemo(() => [...new Set(gigView(cloud.gigs, { now: Date.now() }).map(g => g.date?.slice(0, 7)).filter(Boolean))].sort(), [cloud.gigs]);
   return (
     <div className="gigs">
       <div className="view-head">
@@ -52,11 +64,24 @@ export default function Gigs({ cloud }) {
           <p className="view-sub">{runSummary(cloud.gigStatus, now)}</p>
         </div>
       </div>
+      {cloud.gigs.length > 0 && (
+        <div className="gig-filters">
+          <div role="group" aria-label="Filter by decision" className="gig-decide">
+            {filters.map(f => <button key={f} type="button" className={`view-chip${decision === f ? " on" : ""}`} aria-pressed={decision === f} onClick={() => setDecision(f)}>{label(f)}</button>)}
+          </div>
+          <label className="gig-month">Month
+            <select value={month} onChange={e => setMonth(e.target.value)}>
+              <option value="">Any month</option>
+              {months.map(m => <option key={m} value={m}>{monthName(m)}</option>)}
+            </select>
+          </label>
+        </div>
+      )}
       {gigs.length === 0 ? (
-        <Empty title="No gigs yet: the weekly search runs on Mondays." />
+        <Empty title={cloud.gigs.length ? "No gigs match these filters." : "No gigs yet: the weekly search runs on Mondays."} />
       ) : (
         <ul className="gig-list" aria-label="Upcoming gigs, best first">
-          <AnimatePresence initial={false}>{gigs.map(g => <Card key={g.id} g={g} />)}</AnimatePresence>
+          <AnimatePresence initial={false}>{gigs.map(g => <Card key={g.id} g={g} decide={cloud.decideGig} />)}</AnimatePresence>
         </ul>
       )}
     </div>

@@ -514,3 +514,9 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .tpl-preview { background: #fff; border: 2px dashed var(--rule); border-radius: var(--r); padding: 12px 14px; min-width: 0; }
 .tpl-subject { margin: 6px 0; font-weight: 700; }
 .tpl-body { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; line-height: 1.5; }
+.gig-filters { display: flex; flex-wrap: wrap; align-items: end; gap: 10px 16px; margin-bottom: 12px; }
+.gig-decide { display: flex; flex-wrap: wrap; gap: 8px; }
+.gig-month { display: grid; gap: 4px; font-size: .8125rem; font-weight: 700; color: var(--text-2); }
+.gig-month select { min-height: 42px; padding: 6px 10px; border-radius: 8px; border: 0; background: var(--log); color: var(--ink); }
+.gig-card .view-chip { background: var(--paper, #fff); color: var(--ink); border-color: var(--rule); }
+.gig-card .view-chip.on { background: var(--tape); border-color: var(--tape); }
