@@ -495,3 +495,15 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .reply-main .reply-replied { border-color: #1b7a3e; color: #1b7a3e; }
 .reply-done { margin-top: 12px; }
 .reply-done summary { cursor: pointer; font-weight: 800; padding: 6px 0; }
+
+/* Gigs */
+.gig-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.gig-card { background: var(--log); color: var(--ink); border-radius: 14px; padding: 14px 18px; display: grid; gap: 6px; box-shadow: 0 16px 36px -18px rgba(0,0,0,.7); }
+.gig-top { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.gig-score { margin-left: auto; font-weight: 800; }
+.gig-line, .gig-reasons { margin: 0; }
+.gig-reasons { padding-left: 1.2em; font-size: .875rem; }
+.gig-skeleton { min-height: 84px; align-content: center; }
+.gig-bar { height: 12px; border-radius: 6px; background: var(--rule); width: 70%; }
+.gig-bar.short { width: 40%; }
+.gig-card :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, LayoutGroup, MotionConfig, motion } from "motion/react";
-import { CalendarClock, KanbanSquare, LayoutDashboard, LogOut, Mail, Table2 } from "lucide-react";
+import { CalendarClock, KanbanSquare, Ticket, LayoutDashboard, LogOut, Mail, Table2 } from "lucide-react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase.js";
 import { connectGmailUrl, importLocal, localData, useCloud } from "./cloud.js";
@@ -18,6 +18,7 @@ import StationsTable from "./views/StationsTable.jsx";
 import Pipeline from "./views/Pipeline.jsx";
 import Followups from "./views/Followups.jsx";
 import SendList from "./views/SendList.jsx";
+import Gigs from "./views/Gigs.jsx";
 import StationSheet from "./views/StationSheet.jsx";
 import Mailer from "./views/Mailer.jsx";
 import SongForm from "./views/SongForm.jsx";
@@ -29,6 +30,7 @@ const nav = [
   ["pipeline", "Pipeline", KanbanSquare],
   ["followups", "Follow-ups", CalendarClock],
   ["sendlist", "Send list", Mail],
+  ["gigs", "Gigs", Ticket],
 ];
 const views = nav.map(n => n[0]);
 const fromHash = () => (views.includes(location.hash.slice(1)) ? location.hash.slice(1) : null);
@@ -180,6 +182,7 @@ export default function App({ user }) {
               {view === "stations" && <StationsTable {...ctx} />}
               {view === "pipeline" && <Pipeline {...ctx} />}
               {view === "followups" && <Followups {...ctx} />}
+              {view === "gigs" && <Gigs {...ctx} />}
               {view === "sendlist" && <SendList {...ctx} items={queue} />}
             </motion.div>
           </AnimatePresence>
