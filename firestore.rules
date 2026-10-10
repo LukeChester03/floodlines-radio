@@ -22,6 +22,13 @@ service cloud.firestore {
       allow read: if isBand();
       allow update: if isBand() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['decision', 'decidedAt']);
     }
+    // Gigs and the weekly run status are written by the server (Admin) only
+    match /gigs/{id} {
+      allow read: if isBand();
+    }
+    match /gigstatus/last {
+      allow read: if isBand();
+    }
     // Send records are written by the server (Admin) only
     match /sends/{id} {
       allow read: if isBand();

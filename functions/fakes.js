@@ -28,13 +28,32 @@ export function fakeEpk(file = null) {
   };
 }
 
-export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {}, replies = [] } = {}) {
+export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {}, replies = [], gigs = {}, settings = {} } = {}) {
+  const gigDocs = structuredClone(gigs);
+  let gigStatus = {};
   const list = sendlist.map((e) => ({ ...e }));
   const st = structuredClone(stations);
   const log = [...sends];
   let stat = { ...status };
   const inbox = [...replies];
   return {
+    gigs: gigDocs,
+    async getSettings() {
+      return settings;
+    },
+    async listGigIds() {
+      return Object.keys(gigDocs);
+    },
+    async upsertGig(gig) {
+      const { decision, decidedAt, ...rest } = gig;
+      gigDocs[gig.id] = { ...gigDocs[gig.id], ...rest };
+    },
+    async setGigStatus(s) {
+      gigStatus = s;
+    },
+    async getGigStatus() {
+      return gigStatus;
+    },
     async listSendlist({ state } = {}) {
       return list.filter((e) => !state || e.state === state);
     },
