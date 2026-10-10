@@ -11,11 +11,12 @@ export function canSend(entry, station, sends) {
   return null;
 }
 
-export function buildMessage(entry, from, priorSend) {
+export function buildMessage(entry, from, priorSend, attachments) {
   const msg = { from, to: entry.to, subject: entry.subject, body: entry.body };
   if (entry.kind === "followup" && priorSend) {
     msg.threadId = priorSend.threadId;
     msg.inReplyTo = priorSend.messageId;
   }
+  if (entry.kind === "pitch" && attachments?.length) msg.attachments = attachments;
   return msg;
 }
