@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { canGoLive, followupBadge, knownSends, releaseBatch, replyGroups, withSentLog, withTemplate } from "./crm.js";
+import { canGoLive, checkEpkFile, epkRecord, followupBadge, knownSends, releaseBatch, replyGroups, withSentLog, withTemplate } from "./crm.js";
 import { templates } from "./songs.js";
 
 const song = { id: "s1", title: "Tidal Lines", link: "https://x.test/s1", released: "2026-01-01", blurb: "" };
@@ -88,4 +88,20 @@ test("withTemplate patches one template and leaves the other alone", () => {
 test("withTemplate reset restores the original from songs.js", () => {
   const t = { pitch: { subject: "P", body: "pb" }, followup: { subject: "F", body: "fb" } };
   assert.deepEqual(withTemplate(t, "followup", "reset"), { pitch: t.pitch, followup: templates.followup });
+});
+
+test("checkEpkFile rejects files over 18 MB and accepts a 2 MB PDF", () => {
+  const MB = 1024 * 1024;
+  assert.equal(checkEpkFile({ name: "e.pdf", size: 19 * MB, type: "application/pdf" }), "The EPK must be 18 MB or smaller.");
+  assert.equal(checkEpkFile({ name: "e.pdf", size: 2 * MB, type: "application/pdf" }), null);
+});
+
+test("checkEpkFile rejects types other than PDF, ZIP or Word", () => {
+  assert.equal(checkEpkFile({ name: "e.exe", size: 100, type: "application/x-msdownload" }), "Upload a PDF, ZIP or Word file.");
+});
+
+test("epkRecord describes the uploaded file for settings", () => {
+  const now = new Date("2026-10-10T12:00:00Z");
+  assert.deepEqual(epkRecord({ name: "FloodLines EPK.pdf", size: 2048, type: "application/pdf" }, now),
+    { path: "epk/current", name: "FloodLines EPK.pdf", size: 2048, contentType: "application/pdf", uploadedAt: now.toISOString() });
 });

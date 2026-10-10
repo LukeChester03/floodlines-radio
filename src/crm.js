@@ -128,3 +128,17 @@ export const gmailThreadUrl = threadId => `https://mail.google.com/mail/u/?authu
 
 // The templates object after editing one template, or putting it back to the original from songs.js
 export const withTemplate = (templates, kind, patch) => ({ ...templates, [kind]: patch === "reset" ? originalTemplates[kind] : { ...templates[kind], ...patch } });
+
+// The band's EPK: one uploaded file at a fixed Storage path, attached to every pitch.
+// 18 MB keeps it under Gmail's 25 MB once base64 has inflated it.
+export const EPK_PATH = "epk/current";
+export const EPK_MAX = 18 * 1024 * 1024;
+const EPK_TYPES = ["application/pdf", "application/zip", "application/x-zip-compressed", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+
+export function checkEpkFile({ size, type }) {
+  if (!EPK_TYPES.includes(type)) return "Upload a PDF, ZIP or Word file.";
+  if (size > EPK_MAX) return "The EPK must be 18 MB or smaller.";
+  return null;
+}
+
+export const epkRecord = ({ name, size, type }, now) => ({ path: EPK_PATH, name, size, contentType: type, uploadedAt: now.toISOString() });
