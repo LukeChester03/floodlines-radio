@@ -1,19 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { band, fill, placeholders, templates as baseTemplates } from "../songs.js";
+import { band, fill, templates as baseTemplates } from "../songs.js";
 import { useLocal } from "../store.js";
 import { DAILY_SEND_CAP, statusLabel } from "../crm.js";
 import { Modal, Sleeve } from "../ui/bits.jsx";
 
 // The promo mailer: one template, one personal email per station, tagged with the song being pitched
-export default function Mailer({ job, stations, songs, song: currentSong, cloud, onApprove, onClose }) {
+export default function Mailer({ job, stations, songs, song: currentSong, cloud, setView, onApprove, onClose }) {
   const kind = job?.kind || "pitch";
   const [songId, setSongId] = useState(currentSong.id);
   const song = songs.find(s => s.id === songId) || currentSong;
   // Templates and "mention other songs" are shared by the band; the sign-off is per device, so each member signs their own name
   const tpls = cloud.settings.templates || baseTemplates;
-  const setTpls = fn => cloud.saveSettings({ templates: fn(tpls) });
   const others = cloud.settings.includeOthers !== false;
   const setOthers = v => cloud.saveSettings({ includeOthers: v });
   const [signoff, setSignoff] = useLocal("fl-signoff", band.signoff);
@@ -61,12 +60,6 @@ export default function Mailer({ job, stations, songs, song: currentSong, cloud,
       return { id: s.id, song: song.id, kind, station: s.name, show: s.show, to: s.email, subject: d.subject, body: d.body };
     }));
     onClose();
-  };
-  // Template edits rewrite every email, so they replace any hand edits (after asking once)
-  const setTpl = patch => {
-    if (editedCount && !confirm(`Changing the template rewrites every email and loses your changes to ${editedCount} of them. Carry on?`)) return;
-    setTpls(t => ({ ...t, [kind]: { ...tpl, ...patch } }));
-    setEdits({});
   };
   const guard = () => !editedCount || confirm(`Close without adding these emails? Your changes to ${editedCount} ${editedCount === 1 ? "email" : "emails"} will be lost.`);
   const nounFor = n => (kind === "followup" ? (n === 1 ? "follow-up" : "follow-ups") : (n === 1 ? "pitch" : "pitches"));
@@ -137,13 +130,7 @@ export default function Mailer({ job, stations, songs, song: currentSong, cloud,
                 </motion.div>
               </AnimatePresence>
 
-              <details className="ml-template">
-                <summary>Edit the template used for every {kind === "followup" ? "follow-up" : "pitch"}</summary>
-                <p className="hint">Placeholders: {placeholders.join(" ")}. {"{name}"} uses the contact's first name where the station publishes one, otherwise "[station] team". Changing the template rewrites every email, including ones you've edited.</p>
-                <label className="field"><span>Subject</span><input value={tpl.subject} onChange={e => setTpl({ subject: e.target.value })} /></label>
-                <label className="field"><span>Body</span><textarea rows={10} value={tpl.body} onChange={e => setTpl({ body: e.target.value })} /></label>
-                <button className="link-btn" onClick={() => { if (!editedCount || confirm("Resetting the template loses your per-email changes. Carry on?")) { setTpls(t => ({ ...t, [kind]: baseTemplates[kind] })); setEdits({}); } }}>Reset to the original template</button>
-              </details>
+              <p className="hint ml-template">Change the wording for every {kind === "followup" ? "follow-up" : "pitch"} in <button className="link-btn" onClick={() => { if (guard()) { onClose(); setView("templates"); } }}>Edit templates</button>.</p>
             </div>
           </div>
 

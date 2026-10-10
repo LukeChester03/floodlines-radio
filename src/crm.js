@@ -1,6 +1,6 @@
 import { sendPace } from "../functions/core/pace.js";
 import { reachable } from "../functions/core/stations.js";
-import { fill } from "./songs.js";
+import { fill, templates as originalTemplates } from "./songs.js";
 // Campaign state, tracked per station and per song. Stored in this browser and
 // merged with the send log Claude writes after each send (src/data/sent-log.json).
 
@@ -125,3 +125,6 @@ export function replyGroups(replies) {
 export const followupBadge = (due, replies) => due + replyGroups(replies).undecided.length;
 
 export const gmailThreadUrl = threadId => `https://mail.google.com/mail/u/?authuser=floodlinesbanduk@gmail.com#all/${threadId}`;
+
+// The templates object after editing one template, or putting it back to the original from songs.js
+export const withTemplate = (templates, kind, patch) => ({ ...templates, [kind]: patch === "reset" ? originalTemplates[kind] : { ...templates[kind], ...patch } });
