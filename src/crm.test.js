@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { canGoLive, followupBadge, knownSends, releaseBatch, replyGroups, withSentLog } from "./crm.js";
+import { canGoLive, followupBadge, knownSends, releaseBatch, replyGroups, withSentLog, withTemplate } from "./crm.js";
 import { templates } from "./songs.js";
 
 const song = { id: "s1", title: "Tidal Lines", link: "https://x.test/s1", released: "2026-01-01", blurb: "" };
@@ -78,4 +78,14 @@ test("a replied-done reply is in done, and an auto-reply the band moved is not",
 
 test("the Follow-ups badge is due follow-ups plus undecided replies", () => {
   assert.equal(followupBadge(3, [rep("a"), rep("b", { decision: "no-action" }), rep("c", { outcome: "auto" })]), 4);
+});
+
+test("withTemplate patches one template and leaves the other alone", () => {
+  const t = { pitch: { subject: "P", body: "pb" }, followup: { subject: "F", body: "fb" } };
+  assert.deepEqual(withTemplate(t, "pitch", { subject: "New" }), { pitch: { subject: "New", body: "pb" }, followup: t.followup });
+});
+
+test("withTemplate reset restores the original from songs.js", () => {
+  const t = { pitch: { subject: "P", body: "pb" }, followup: { subject: "F", body: "fb" } };
+  assert.deepEqual(withTemplate(t, "followup", "reset"), { pitch: t.pitch, followup: templates.followup });
 });
