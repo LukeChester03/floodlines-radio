@@ -1,4 +1,6 @@
 // Real Gmail over REST. Only ever runs inside deployed functions; tests and the emulator use fakeTransport.
+import { randomUUID } from "node:crypto";
+
 const API = "https://gmail.googleapis.com/gmail/v1/users/me";
 
 export function assertDeployed(env = process.env) {
@@ -11,11 +13,32 @@ const authError = (message) => Object.assign(new Error(message), { code: "auth" 
 const b64url = (s) => Buffer.from(s).toString("base64url");
 const header = (s) => (/^[\x20-\x7e]*$/.test(s) ? s : `=?UTF-8?B?${Buffer.from(s).toString("base64")}?=`);
 
+const wrap = (buf) => buf.toString("base64").replace(/.{76}/g, "$&\r\n");
+
+function filenameParams(name) {
+  if (/^[\x20-\x7e]*$/.test(name)) return `filename="${name.replace(/["\\]/g, "\\$&")}"`;
+  return `filename="${header(name)}"; filename*=UTF-8''${encodeURIComponent(name)}`;
+}
+
 export function rawMessage(msg) {
   const lines = [`From: ${msg.from}`, `To: ${msg.to}`, `Subject: ${header(msg.subject ?? "")}`];
   if (msg.inReplyTo) lines.push(`In-Reply-To: ${msg.inReplyTo}`, `References: ${msg.inReplyTo}`);
-  lines.push("MIME-Version: 1.0", "Content-Type: text/plain; charset=UTF-8", "Content-Transfer-Encoding: base64", "");
-  lines.push(Buffer.from(msg.body ?? "").toString("base64").replace(/.{76}/g, "$&\r\n"));
+  lines.push("MIME-Version: 1.0");
+  const textPart = ["Content-Type: text/plain; charset=UTF-8", "Content-Transfer-Encoding: base64", "", wrap(Buffer.from(msg.body ?? ""))];
+  if (!msg.attachments?.length) return b64url([...lines, ...textPart].join("\r\n"));
+  const boundary = `=_floodlines_${randomUUID()}`;
+  lines.push(`Content-Type: multipart/mixed; boundary="${boundary}"`, "", `--${boundary}`, ...textPart);
+  for (const a of msg.attachments) {
+    lines.push(
+      `--${boundary}`,
+      `Content-Type: ${a.mimeType}`,
+      `Content-Disposition: attachment; ${filenameParams(a.name)}`,
+      "Content-Transfer-Encoding: base64",
+      "",
+      wrap(Buffer.from(a.data)),
+    );
+  }
+  lines.push(`--${boundary}--`, "");
   return b64url(lines.join("\r\n"));
 }
 
