@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { RotateCcw } from "lucide-react";
+import { FileText, RotateCcw, Upload } from "lucide-react";
 import { band, fill, placeholders, templates as baseTemplates } from "../songs.js";
 import { reachable } from "../../functions/core/stations.js";
 import { useLocal } from "../store.js";
-import { withTemplate } from "../crm.js";
+import { checkEpkFile, withTemplate } from "../crm.js";
 import { Modal } from "../ui/bits.jsx";
 
 const KINDS = [
@@ -17,6 +17,26 @@ export default function Templates({ stations, songs, song, cloud }) {
   const tpls = cloud.settings.templates || baseTemplates;
   const [signoff] = useLocal("fl-signoff", band.signoff);
   const [resetting, setResetting] = useState(null);
+  const epk = cloud.settings.epk;
+  const [removing, setRemoving] = useState(false);
+  const [progress, setProgress] = useState(null);
+  const [epkError, setEpkError] = useState(null);
+  const pick = useRef(null);
+  const upload = async e => {
+    const file = e.target.files[0];
+    e.target.value = "";
+    if (!file) return;
+    const why = checkEpkFile(file);
+    setEpkError(why);
+    if (why) return;
+    setProgress(0);
+    try { await cloud.uploadEpk(file, setProgress); } catch (err) { setEpkError(`Couldn't upload that (${err.code || err.message}).`); }
+    setProgress(null);
+  };
+  const remove = async () => {
+    setRemoving(false);
+    try { await cloud.removeEpk(); setEpkError(null); } catch (err) { setEpkError(`Couldn't remove that (${err.code || err.message}).`); }
+  };
   const sample = stations.find(s => reachable(s) && s.email) || stations.find(reachable) || stations[0];
   const save = (kind, patch) => cloud.saveSettings({ templates: withTemplate(tpls, kind, patch) });
 
@@ -30,6 +50,37 @@ export default function Templates({ stations, songs, song, cloud }) {
       </div>
 
       <p className="hint tpl-ph">Placeholders: {placeholders.join(" ")}. {"{name}"} uses the contact's first name where the station publishes one, otherwise "[station] team".</p>
+
+      <section className="card-panel epk-card" aria-labelledby="epk-h">
+        <h3 className="dlg-title" id="epk-h">EPK</h3>
+        <p className="dlg-sub">Upload your electronic press kit once. Every pitch carries it as an attachment. PDF, ZIP or Word, up to 18 MB.</p>
+        <input ref={pick} type="file" hidden aria-label="EPK file" accept=".pdf,.zip,.doc,.docx,application/pdf,application/zip,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" onChange={upload} />
+        <AnimatePresence mode="wait" initial={false}>
+          {epk ? (
+            <motion.div key="have" className="epk-file" initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+              <FileText size={22} aria-hidden="true" />
+              <div style={{ flex: "1 1 12rem", minWidth: 0 }}>
+                <p style={{ margin: 0, fontWeight: 700, overflowWrap: "anywhere" }}>{epk.name}</p>
+                <p className="hint">{(epk.size / 1048576).toFixed(1)} MB · uploaded {new Date(epk.uploadedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</p>
+              </div>
+              <button className="btn" disabled={progress !== null} onClick={() => pick.current.click()}><Upload size={14} aria-hidden="true" /> Replace</button>
+              <button className="link-btn danger" disabled={progress !== null} onClick={() => setRemoving(true)}>Remove</button>
+            </motion.div>
+          ) : (
+            <motion.div key="none" initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+              <button className="btn btn-primary" disabled={progress !== null} onClick={() => pick.current.click()}><Upload size={14} aria-hidden="true" /> Upload EPK</button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence initial={false}>
+          {progress !== null && (
+            <motion.div key="bar" role="progressbar" aria-label="Uploading EPK" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress * 100)} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ height: 6, borderRadius: 3, background: "var(--rule)", marginTop: 12, overflow: "hidden" }}>
+              <motion.div animate={{ width: `${progress * 100}%` }} style={{ height: "100%", background: "var(--song, currentColor)" }} />
+            </motion.div>
+          )}
+          {epkError && <motion.p key="err" role="alert" className="hint" style={{ color: "#c2321f", marginTop: 10 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>{epkError}</motion.p>}
+        </AnimatePresence>
+      </section>
 
       {KINDS.map(([kind, label, sub]) => {
         const t = tpls[kind] || baseTemplates[kind];
@@ -71,6 +122,15 @@ export default function Templates({ stations, songs, song, cloud }) {
         <div className="dlg-actions">
           <button className="btn btn-primary" onClick={() => { save(resetting, "reset"); setResetting(null); }}>Reset to original</button>
           <button className="btn" onClick={() => setResetting(null)}>Keep my version</button>
+        </div>
+      </Modal>
+
+      <Modal open={removing} onClose={() => setRemoving(false)} label="Remove EPK">
+        <h2 className="dlg-title">Remove the EPK?</h2>
+        <p className="dlg-sub">New pitches will go out without an attachment until you upload another.</p>
+        <div className="dlg-actions">
+          <button className="btn btn-primary" onClick={remove}>Remove EPK</button>
+          <button className="btn" onClick={() => setRemoving(false)}>Keep it</button>
         </div>
       </Modal>
     </div>
