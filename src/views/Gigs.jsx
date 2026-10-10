@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { gigDecisions, gigView, runSummary } from "../gigs.js";
 import { fmtDate } from "../crm.js";
+import { Plus } from "lucide-react";
 import { Empty } from "../ui/bits.jsx";
 
 const host = u => { try { return new URL(u).host; } catch { return u; } };
@@ -50,6 +51,49 @@ function Card({ g, decide }) {
   );
 }
 
+function AddGig({ add }) {
+  const [open, setOpen] = useState(false);
+  const [url, setUrl] = useState("");
+  const [text, setText] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  const opener = useRef(null);
+  const close = () => { setOpen(false); setError(""); setTimeout(() => opener.current?.focus(), 0); };
+  const submit = async e => {
+    e.preventDefault();
+    setBusy(true);
+    setError("");
+    try {
+      await add(url.trim(), text);
+      setUrl(""); setText("");
+      close();
+    } catch (err) {
+      setError(err.message || "Couldn't add that gig");
+    } finally {
+      setBusy(false);
+    }
+  };
+  return (
+    <div className="gig-add">
+      <button ref={opener} type="button" className="btn" aria-expanded={open} onClick={() => setOpen(o => !o)}><Plus size={14} aria-hidden="true" /> Add a gig</button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.form key="form" className="gig-add-form" onSubmit={submit} initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} style={{ overflow: "hidden" }}>
+            <p className="hint">Instagram and TikTok can't be searched, so paste the post here.</p>
+            <label className="field"><span>Link to the post</span><input type="url" inputMode="url" value={url} onChange={e => setUrl(e.target.value)} placeholder="https://www.instagram.com/p/…" required /></label>
+            <label className="field"><span>The post's text</span><textarea rows={5} value={text} onChange={e => setText(e.target.value)} required /></label>
+            {error && <p className="form-err" role="alert">{error}</p>}
+            <div className="dlg-actions">
+              <button type="submit" className="btn btn-primary" disabled={busy}>{busy ? "Reading the post…" : "Add gig"}</button>
+              <button type="button" className="btn" onClick={close}>Cancel</button>
+            </div>
+          </motion.form>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 export default function Gigs({ cloud }) {
   const now = Date.now();
   const [decision, setDecision] = useState("all");
@@ -64,6 +108,7 @@ export default function Gigs({ cloud }) {
           <p className="view-sub">{runSummary(cloud.gigStatus, now)}</p>
         </div>
       </div>
+      <AddGig add={cloud.addGig} />
       {cloud.gigs.length > 0 && (
         <div className="gig-filters">
           <div role="group" aria-label="Filter by decision" className="gig-decide">
