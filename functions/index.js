@@ -19,6 +19,7 @@ import { gigRound as runGigRound } from "./gigs.js";
 import { tavilySearch } from "./search.js";
 import { anthropicAsk } from "./read-post.js";
 import { approveBatch } from "./approve.js";
+import { addPastedGig } from "./add-gig.js";
 
 initializeApp();
 setGlobalOptions({ region: REGION });
@@ -74,4 +75,18 @@ export const gigRound = onSchedule({ schedule: "0 7 * * 1", timeZone: "Europe/Lo
     search: tavilySearch(tavilyKey.value(), fetch),
     ask: anthropicAsk(anthropicKey.value()),
   });
+});
+
+export const addGig = onCall({ secrets: [anthropicKey] }, async (request) => {
+  try {
+    requireBand(request);
+  } catch (e) {
+    if (e instanceof PermissionDenied) throw new HttpsError("permission-denied", e.message);
+    throw e;
+  }
+  try {
+    return await addPastedGig(request.data ?? {}, { store: firestoreStore(getFirestore()), ask: anthropicAsk(anthropicKey.value()) });
+  } catch (e) {
+    throw new HttpsError("invalid-argument", e.message);
+  }
 });

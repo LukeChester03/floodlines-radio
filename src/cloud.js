@@ -127,6 +127,7 @@ export function useCloud(user) {
     return batch.commit();
   }, [user]);
 
+  const addGig = useCallback((url, text) => httpsCallable(functions, "addGig")({ url, text }).then(r => r.data), []);
   const approveAll =useCallback(keys => httpsCallable(functions, "sendPitch")({ keys }).then(r => r.data), []);
 
   // Only the band's decision is written; the app never replies by itself
@@ -155,7 +156,7 @@ export function useCloud(user) {
   const decideGig = useCallback((id, decision) => updateDoc(doc(db, "gigs", id), gigDecisionPatch(decision, new Date()))
     .catch(e => setError(`Couldn't save that decision (${e.code}).`)), []);
 
-  return { ready, error, gmail, crm, songs: songs || [], queue, replies, decideReply, gigs, decideGig, gigStatus, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings, uploadEpk, removeEpk };
+  return { ready, error, gmail, crm, songs: songs || [], queue, replies, decideReply, gigs, decideGig, addGig, gigStatus, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings, uploadEpk, removeEpk };
 }
 
 // One-off move of data saved in this browser (before the database existed) into Firestore

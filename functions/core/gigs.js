@@ -38,7 +38,7 @@ export function gigId(url) {
 
 const lc = v => String(v || "").toLowerCase();
 
-function score(c, similarArtists, days) {
+export function scoreGig(c, similarArtists, days) {
   let points = 0;
   const reasons = [];
   for (const artist of similarArtists) {
@@ -82,7 +82,7 @@ export function matchGigs(candidates, { areas = DEFAULT_GIG_AREAS, similarArtist
     if (!wanted.some(a => [c.town, c.county, c.venue].some(f => lc(f).includes(a)))) continue;
     const id = gigId(c.url);
     if (byId.has(id)) continue;
-    byId.set(id, { ...c, id, ...score(c, similarArtists, days) });
+    byId.set(id, { ...c, id, ...scoreGig(c, similarArtists, days) });
   }
   return [...byId.values()].sort((a, b) => b.score - a.score);
 }
