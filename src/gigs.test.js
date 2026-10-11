@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { gigDecisionPatch, gigId, gigView, runSummary } from "./gigs.js";
+import { DEFAULT_GIG_AREAS, DEFAULT_GIG_PHRASES, gigDecisionPatch, gigId, gigSettings, gigView, parseList, runSummary } from "./gigs.js";
 
 const now = new Date("2026-10-10T12:00:00Z").getTime();
 const g = (id, date, score) => ({ id, date, score });
@@ -36,4 +36,13 @@ test("gigView filters by decision, new meaning undecided", () => {
 test("gigView filters by month", () => {
   const gs = [g("nov", "2026-11-05", 1), g("dec", "2026-12-05", 1), g("none", null, 1)];
   assert.deepEqual(gigView(gs, { now, month: "2026-11" }).map(x => x.id), ["nov"]);
+});
+
+test("parseList trims, drops blanks, de-dupes case-insensitively keeping the first", () => {
+  assert.deepEqual(parseList("Brighton\n brighton \n\nHove"), ["Brighton", "Hove"]);
+});
+
+test("gigSettings applies defaults for unset or empty lists", () => {
+  assert.deepEqual(gigSettings({}), { areas: DEFAULT_GIG_AREAS, similarArtists: [], phrases: DEFAULT_GIG_PHRASES });
+  assert.deepEqual(gigSettings({ gigAreas: ["Bristol"], gigPhrases: [] }), { areas: ["Bristol"], similarArtists: [], phrases: DEFAULT_GIG_PHRASES });
 });
