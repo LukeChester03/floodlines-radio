@@ -4,8 +4,8 @@ import { readPost } from "./read-post.js";
 
 export async function gigRound({ store, search, ask, now = Date.now }) {
   const settings = (await store.getSettings()) ?? {};
-  const areas = settings.gigAreas ?? DEFAULT_GIG_AREAS;
-  const phrases = settings.gigPhrases ?? DEFAULT_GIG_PHRASES;
+  const areas = settings.gigAreas?.length ? settings.gigAreas : DEFAULT_GIG_AREAS;
+  const phrases = settings.gigPhrases?.length ? settings.gigPhrases : DEFAULT_GIG_PHRASES;
   const similarArtists = settings.similarArtists ?? [];
   const queries = slotQueries(areas, phrases);
   const { results, errors: searchErrors } = await searchSlots(queries, { search });

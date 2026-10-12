@@ -47,3 +47,9 @@ test("a failed query and a failed read are recorded; the rest still save", async
   assert.equal(s.errors.length, 2);
   assert.ok(s.errors.every((e) => e.where && e.message));
 });
+
+test("empty areas and phrases fall back to the defaults", async () => {
+  const store = fakeStore({ settings: { gigAreas: [], gigPhrases: [] } });
+  await gigRound({ store, search, ask: async () => reply(), now });
+  assert.ok((await store.getGigStatus()).queries.length > 0);
+});
