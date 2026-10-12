@@ -1,7 +1,18 @@
 // Gigs the band could play: pure helpers shared by the app and the weekly search.
-export const defaultGigAreas = [];
-export const defaultSimilarArtists = [];
-export const defaultGigPhrases = [];
+import { DEFAULT_GIG_AREAS, DEFAULT_GIG_PHRASES } from "../functions/core/gigs.js";
+export { DEFAULT_GIG_AREAS, DEFAULT_GIG_PHRASES };
+
+// One entry per line: trimmed, blanks dropped, case-insensitive de-duplication keeps the first
+export function parseList(text) {
+  const seen = new Set();
+  return String(text ?? "").split("\n").map(l => l.trim()).filter(l => l && !seen.has(l.toLowerCase()) && seen.add(l.toLowerCase()));
+}
+
+// Search settings with the defaults applied to empty lists
+export function gigSettings(settings) {
+  const list = (v, d) => (v?.length ? v : d);
+  return { areas: list(settings?.gigAreas, DEFAULT_GIG_AREAS), similarArtists: settings?.similarArtists ?? [], phrases: list(settings?.gigPhrases, DEFAULT_GIG_PHRASES) };
+}
 
 // Stable id from the normalised URL (plain JS, so it also runs in the browser)
 export function gigId(url) {

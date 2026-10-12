@@ -1,9 +1,9 @@
 import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { gigDecisions, gigView, runSummary } from "../gigs.js";
+import { gigDecisions, gigSettings, gigView, parseList, runSummary } from "../gigs.js";
 import { fmtDate } from "../crm.js";
-import { Plus } from "lucide-react";
-import { Empty } from "../ui/bits.jsx";
+import { Plus, Settings2 } from "lucide-react";
+import { Empty, Modal } from "../ui/bits.jsx";
 
 const host = u => { try { return new URL(u).host; } catch { return u; } };
 // A gig is still being read until it has been scored
@@ -94,6 +94,79 @@ function AddGig({ add }) {
   );
 }
 
+const fields = [
+  ["gigAreas", "areas", "Areas", "Towns and counties to look in."],
+  ["similarArtists", "similarArtists", "Similar artists", "Gigs with these on the bill score higher."],
+  ["gigPhrases", "phrases", "Search phrases", "What a slot post tends to say, e.g. support slot."],
+];
+
+function SearchSettings({ settings, save }) {
+  const [open, setOpen] = useState(false);
+  const [draft, setDraft] = useState({});
+  const [busy, setBusy] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [error, setError] = useState("");
+  const [confirming, setConfirming] = useState(false);
+  const opener = useRef(null);
+  const toggle = () => {
+    if (!open) {
+      const cur = gigSettings(settings);
+      setDraft(Object.fromEntries(fields.map(([key, k]) => [key, cur[k].join("\n")])));
+      setSaved(false); setError("");
+    }
+    setOpen(o => !o);
+  };
+  const write = async patch => {
+    setBusy(true); setError(""); setSaved(false);
+    try { await save(patch); return true; } catch (err) { setError(err.message || "Couldn't save the settings"); return false; } finally { setBusy(false); }
+  };
+  const submit = async e => {
+    e.preventDefault();
+    if (await write(Object.fromEntries(fields.map(([key]) => [key, parseList(draft[key])])))) setSaved(true);
+  };
+  const reset = async () => {
+    if (await write({ gigAreas: [], similarArtists: [], gigPhrases: [] })) {
+      const cur = gigSettings({});
+      setDraft(Object.fromEntries(fields.map(([key, k]) => [key, cur[k].join("\n")])));
+      setConfirming(false); setSaved(true);
+      setTimeout(() => opener.current?.focus(), 0);
+    }
+  };
+  return (
+    <div className="gig-add">
+      <button ref={opener} type="button" className="btn" aria-expanded={open} onClick={toggle}><Settings2 size={14} aria-hidden="true" /> Search settings</button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.form key="form" className="gig-add-form" onSubmit={submit} initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} style={{ overflow: "hidden" }}>
+            <p className="hint">One per line. The weekly search on Mondays uses these.</p>
+            {fields.map(([key, , title, help]) => (
+              <label key={key} className="field"><span>{title}</span>
+                <textarea rows={5} value={draft[key] ?? ""} onChange={e => { setDraft(d => ({ ...d, [key]: e.target.value })); setSaved(false); }} aria-describedby={`${key}-hint`} />
+                <span id={`${key}-hint`} className="hint">{help}{key !== "similarArtists" && !parseList(draft[key]).length && " Empty, so the defaults are used."}</span>
+              </label>
+            ))}
+            {error && <p className="form-err" role="alert">{error}</p>}
+            <div className="dlg-actions">
+              <button type="submit" className="btn btn-primary" disabled={busy}>{busy ? "Saving…" : "Save settings"}</button>
+              <button type="button" className="btn" disabled={busy} onClick={() => setConfirming(true)}>Reset to defaults</button>
+              <AnimatePresence>{saved && <motion.span className="muted" role="status" initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0 }}>Saved</motion.span>}</AnimatePresence>
+            </div>
+          </motion.form>
+        )}
+      </AnimatePresence>
+      <Modal open={confirming} onClose={() => !busy && setConfirming(false)} label="Reset search settings">
+        <h3>Reset to defaults?</h3>
+        <p>Areas and phrases go back to the built-in lists, and the similar artists list is cleared.</p>
+        {error && <p className="error" role="alert">{error}</p>}
+        <div className="row-actions">
+          <button className="btn btn-primary" disabled={busy} onClick={reset}>{busy ? "Resetting…" : "Reset"}</button>
+          <button className="btn" disabled={busy} onClick={() => setConfirming(false)}>Cancel</button>
+        </div>
+      </Modal>
+    </div>
+  );
+}
+
 export default function Gigs({ cloud }) {
   const now = Date.now();
   const [decision, setDecision] = useState("all");
@@ -109,6 +182,7 @@ export default function Gigs({ cloud }) {
         </div>
       </div>
       <AddGig add={cloud.addGig} />
+      <SearchSettings settings={cloud.settings} save={cloud.saveSettings} />
       {cloud.gigs.length > 0 && (
         <div className="gig-filters">
           <div role="group" aria-label="Filter by decision" className="gig-decide">
