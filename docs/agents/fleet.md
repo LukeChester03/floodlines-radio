@@ -7,6 +7,7 @@ repo. It reads the lines below from the default branch; change them with a PR.
 - aliases: radio, floodlines-radio
 - test: `npm run build`
 - setup: `npm ci`
+- preview: `npm run dev -- --port {port}` /
 
 There is no test suite and no linter yet. The only check that exists today is the
 build (`npm run build`), so it is the test command.
