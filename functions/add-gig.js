@@ -1,6 +1,6 @@
 import { gigId } from "./core/gigs.js";
 
-const isHttp = (u) => {
+export const isHttp = (u) => {
   try {
     return ["http:", "https:"].includes(new URL(u).protocol);
   } catch {

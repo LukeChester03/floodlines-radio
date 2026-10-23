@@ -1,11 +1,4 @@
-export const DEFAULT_GIG_AREAS = [
-  "Sussex", "East Sussex", "West Sussex", "Brighton", "Hove", "Worthing", "Eastbourne", "Lewes", "Hastings", "Chichester",
-  "Hampshire", "Southampton", "Portsmouth", "Winchester", "Basingstoke",
-  "Kent", "Canterbury", "Maidstone", "Margate", "Folkestone", "Tunbridge Wells",
-  "Surrey", "Guildford", "Woking", "Croydon", "Kingston",
-  "Dorset", "Bournemouth", "Poole", "Brighton and Hove",
-  "Bristol", "Bath", "London", "Reading", "Oxford",
-];
+export const DEFAULT_GIG_AREAS = ["Bristol", "Gloucestershire", "Berkshire", "London"];
 
 export const DEFAULT_GIG_PHRASES = [
   "support slot", "bands wanted", "free slot", "looking for bands", "open slot", "support band wanted",
