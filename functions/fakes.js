@@ -44,6 +44,9 @@ export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {
     async listGigIds() {
       return Object.keys(gigDocs);
     },
+    async listReadingGigs() {
+      return Object.values(gigDocs).filter((g) => g.score === null);
+    },
     async upsertGig(gig) {
       const { decision, decidedAt, ...rest } = gig;
       gigDocs[gig.id] = { ...gigDocs[gig.id], ...rest };
