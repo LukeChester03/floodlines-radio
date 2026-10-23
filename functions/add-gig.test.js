@@ -6,38 +6,30 @@ import { fakeStore } from "./fakes.js";
 
 const now = () => Date.parse("2026-10-10T12:00:00Z");
 const url = "https://www.instagram.com/p/abc/?utm_source=x";
-const text = "Support slot wanted, Brighton, 2026-10-20. Email us.";
-const ask = async () => ({ isSlotOffer: true, date: "2026-10-20", town: "Brighton", howToApply: "email us" });
+const text = "Support slot wanted, Brighton, 2026-10-20. Email us. " + "x".repeat(400);
 
-test("saves a pasted gig with its stable id and returns it", async () => {
+test("saves a pasted gig at once as being read, and returns it", async () => {
   const store = fakeStore();
-  const gig = await addPastedGig({ url, text }, { store, ask, now });
-  assert.equal(gig.source, "pasted");
-  assert.equal(gig.id, gigId(url));
-  assert.ok(gig.score > 0 && gig.reasons.length > 0);
-  assert.equal(store.gigs[gig.id].url, url);
+  const gig = await addPastedGig({ url, text }, { store, now });
+  assert.deepEqual(store.gigs[gigId(url)], {
+    id: gigId(url), url, text, source: "pasted", excerpt: text.slice(0, 280), foundAt: "2026-10-10T12:00:00.000Z", score: null, reasons: [],
+  });
+  assert.equal(gig.excerpt.length, 280);
+  assert.deepEqual(gig, store.gigs[gig.id]);
 });
 
-test("a pasted gig outside the areas and date window is kept, and an existing decision survives", async () => {
+test("re-pasting a gig keeps the band's decision", async () => {
   const id = gigId(url);
   const store = fakeStore({ gigs: { [id]: { id, url, decision: "applied" } } });
-  const far = async () => ({ isSlotOffer: false, date: "2027-06-01", town: "Aberdeen" });
-  await addPastedGig({ url, text }, { store, ask: far, now });
-  assert.equal(store.gigs[id].town, "Aberdeen");
+  await addPastedGig({ url, text }, { store, now });
   assert.equal(store.gigs[id].decision, "applied");
+  assert.equal(store.gigs[id].score, null);
 });
 
 test("rejects an empty text or a non-http(s) url and saves nothing", async () => {
   const store = fakeStore();
   for (const input of [{ url, text: "  " }, { url: "ftp://x.com/a", text }, { url: "nonsense", text }, {}]) {
-    await assert.rejects(addPastedGig(input, { store, ask, now }), { message: "Paste the post's link and its text" });
+    await assert.rejects(addPastedGig(input, { store, now }), { message: "Paste the post's link and its text" });
   }
-  assert.deepEqual(await store.listGigIds(), []);
-});
-
-test("rejects when the post can't be read and saves nothing", async () => {
-  const store = fakeStore();
-  const bad = async () => { throw new Error("haiku down"); };
-  await assert.rejects(addPastedGig({ url, text }, { store, ask: bad, now }), { message: "Couldn't read that post" });
   assert.deepEqual(await store.listGigIds(), []);
 });
