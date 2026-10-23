@@ -1,14 +1,13 @@
 import { BAND_EMAIL } from "./core/band.js";
-import { sendPace } from "./core/pace.js";
+import { sendPace, startOfUtcDay } from "./core/pace.js";
 import { canSend, buildMessage } from "./core/message.js";
 
-const DAY = 86400e3;
 const MAX_EPK = 18 * 1024 * 1024;
 
-// Send the oldest approved emails, within the per-run and per-day pace, recording each real send.
+// Send the oldest approved emails, within the per-run pace and the per-day cap (since 00:00 UTC), recording each real send.
 export async function drain({ store, transport, epk = { read: async () => null }, now = Date.now, pace = sendPace }) {
   if ((await store.getStatus()).needsReconnect) return { sent: 0 };
-  const today = await store.listSends({ since: now() - DAY });
+  const today = await store.listSends({ since: startOfUtcDay(now()) });
   const budget = Math.min(pace.perRun, pace.perDay - today.length);
   if (budget <= 0) return { sent: 0 };
 

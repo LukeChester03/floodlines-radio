@@ -10,6 +10,7 @@ import { REGION } from "./core/band.js";
 import { requireBand, PermissionDenied } from "./auth.js";
 import { firestoreStore } from "./store.js";
 import { drain } from "./drain.js";
+import { RUN_HOUR_UTC } from "./core/pace.js";
 import { storageEpk } from "./epk.js";
 import { syncReplies } from "./replies.js";
 import { BAND_EMAIL } from "./core/band.js";
@@ -41,7 +42,7 @@ const clientSecret = defineSecret("GMAIL_CLIENT_SECRET");
 const redirectUri = defineString("GMAIL_REDIRECT_URI");
 const getAccessToken = async () => (await getApp().options.credential.getAccessToken()).access_token;
 
-export const mailRound = onSchedule({ schedule: "*/10 * * * *", secrets: [clientId, clientSecret] }, async () => {
+export const mailRound = onSchedule({ schedule: `0 ${RUN_HOUR_UTC} * * *`, timeZone: "Etc/UTC", timeoutSeconds: 540, secrets: [clientId, clientSecret] }, async () => {
   const refreshToken = await secretReader({ secret: "GMAIL_REFRESH_TOKEN", getAccessToken })();
   const transport = gmailTransport({ clientId: clientId.value(), clientSecret: clientSecret.value(), refreshToken });
   const store = firestoreStore(getFirestore());
