@@ -2,7 +2,7 @@ import { gigId, scoreGig } from "./core/gigs.js";
 import { readPost } from "./read-post.js";
 
 const DAY = 864e5;
-const isHttp = (u) => {
+export const isHttp = (u) => {
   try {
     return ["http:", "https:"].includes(new URL(u).protocol);
   } catch {
