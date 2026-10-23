@@ -17,7 +17,7 @@ const stations = (n) => Object.fromEntries(Array.from({ length: n }, (_, i) => [
 test("sends one run's budget, one recipient each, and records every send", async () => {
   const store = fakeStore({ stations: stations(8), sendlist: Array.from({ length: 8 }, (_, i) => entry(i)) });
   const transport = fakeTransport();
-  await drain({ store, transport, now });
+  await drain({ store, transport, now, pace: { perRun: 5, perDay: 50 } });
   assert.equal(transport.sent.length, 5);
   assert.ok(transport.sent.every((m) => typeof m.to === "string" && m.from === BAND_EMAIL));
   const sends = await store.listSends({ since: 0 });
@@ -25,6 +25,24 @@ test("sends one run's budget, one recipient each, and records every send", async
   assert.deepEqual(sends.map((s) => s.threadId), transport.sent.map((m) => m.threadId));
   assert.equal((await store.listSendlist({ state: "sent" })).length, 5);
   assert.equal((await store.listSendlist({ state: "approved" })).length, 3);
+});
+
+test("one daily run sends everything approved, up to the daily cap", async () => {
+  const sendlist = Array.from({ length: 60 }, (_, i) => entry(i, { approvedAt: new Date(NOW - (60 - i) * 60e3).toISOString() }));
+  const store = fakeStore({ stations: stations(60), sendlist });
+  const transport = fakeTransport();
+  await drain({ store, transport, now });
+  assert.equal(transport.sent.length, 50);
+  assert.equal((await store.listSendlist({ state: "approved" })).length, 10);
+});
+
+test("the daily cap counts sends since 00:00 UTC, so yesterday's run doesn't block today's", async () => {
+  const runAt = Date.parse("2026-06-02T08:00:00Z");
+  const yesterday = Array.from({ length: 50 }, (_, i) => ({ id: `o${i}`, song: "x", kind: "pitch", sentAt: "2026-06-01T08:00:30Z" }));
+  const store = fakeStore({ stations: stations(5), sends: yesterday, sendlist: Array.from({ length: 5 }, (_, i) => entry(i)) });
+  const transport = fakeTransport();
+  await drain({ store, transport, now: () => runAt });
+  assert.equal(transport.sent.length, 5);
 });
 
 test("respects the daily cap", async () => {

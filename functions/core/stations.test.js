@@ -12,4 +12,4 @@ test("reachable: route none or contact is false", () => {
 });
 test("reachable: genreFit other is false", () => assert.equal(reachable(st({ genreFit: "other" })), false));
 test("reachable: dnc is false", () => assert.equal(reachable(st({ rec: { dnc: true } })), false));
-test("sendPace", () => assert.deepEqual(sendPace, { perRun: 5, perDay: 50 }));
+test("sendPace", () => assert.deepEqual(sendPace, { perRun: 50, perDay: 50 }));
