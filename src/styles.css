@@ -364,7 +364,7 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .facts small { display: block; font-weight: 400; font-size: .8125rem; color: var(--ink-2); word-break: break-all; }
 @media (max-width: 560px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .warn { padding: 10px 14px; border-radius: 10px; background: #ffd9cc; color: #7a2410; margin: 0 0 12px; }
-.view-sub + .hint { margin-top: 4px; }
+.view-sub + .hint { margin-top: 4px; color: var(--text-2); }
 .view-sub + .search-missed { margin: 8px 0 0; }
 .reasons { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .reasons li { padding: 3px 10px; border-radius: 999px; background: #e9e2d3; font-size: .875rem; }
