@@ -82,10 +82,12 @@ export function runSummary(status, now) {
   const thisWeek = scheduledRun(now, 0);
   const next = thisWeek > now ? thisWeek : scheduledRun(now, 1);
   const recent = next === thisWeek ? [scheduledRun(now, -1), scheduledRun(now, -2)] : [thisWeek, scheduledRun(now, -1)];
+  const found = ranAt !== null && typeof status.found === "number" ? { total: status.found, new: status.saved ?? 0 } : null;
   return {
-    last: ranAt === null ? null : `Last search ${ukDay(ranAt)}`,
+    last: ranAt === null ? null : `Last search ${ukDay(ranAt)}${found ? ` · found ${found.total}, ${found.new} new` : ""}`,
     next: `Next search ${ukDay(next)}, ${WEEKLY_SEARCH.hour}am`,
     missed: ranAt !== null && recent.some(t => t > ranAt && t + GRACE_MS < now),
-    problems: status?.errors?.length || 0,
+    found,
+    problems: (status?.errors ?? []).map(e => ({ where: e?.where ?? "", message: e?.message ?? "" })),
   };
 }

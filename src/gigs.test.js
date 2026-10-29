@@ -15,7 +15,7 @@ const at = s => new Date(s).getTime();
 const ran = s => ({ ranAt: new Date(s).toISOString(), errors: [] });
 
 test("runSummary with no status: never searched, nothing missed, next Monday", () => {
-  assert.deepEqual(runSummary(null, at("2026-10-29T12:00:00Z")), { last: null, next: "Next search Mon 2 Nov, 7am", missed: false, problems: 0 });
+  assert.deepEqual(runSummary(null, at("2026-10-29T12:00:00Z")), { last: null, next: "Next search Mon 2 Nov, 7am", missed: false, found: null, problems: [] });
 });
 
 test("runSummary after Monday's run says when it last ran and when it runs next", () => {
@@ -46,8 +46,10 @@ test("runSummary next search is 7am UK time in both BST and GMT", () => {
   assert.equal(runSummary(ran("2026-07-13T06:05:00Z"), at("2026-07-20T12:30:00Z")).missed, true);
 });
 
-test("runSummary counts problems", () => {
-  assert.equal(runSummary({ ...ran("2026-10-26T07:05:00Z"), errors: ["a", "b"] }, at("2026-10-29T12:00:00Z")).problems, 2);
+test("runSummary gives what the last search found, on the last-search line", () => {
+  const s = runSummary({ ...ran("2026-10-26T07:05:00Z"), found: 14, saved: 6 }, at("2026-10-29T12:00:00Z"));
+  assert.deepEqual(s.found, { total: 14, new: 6 });
+  assert.equal(s.last, "Last search Mon 26 Oct · found 14, 6 new");
 });
 
 test("gigId ignores host case, trailing slash, utm_* and fbclid", () => {
@@ -91,4 +93,23 @@ test("gigStub gives the stub's date parts in UTC and the stamp tier", () => {
 test("gigDecisionPatch(null) clears the decision", () => {
   const at = new Date("2026-10-10T12:00:00Z");
   assert.deepEqual(gigDecisionPatch(null, at), { decision: null, decidedAt: at.toISOString() });
+});
+
+test("runSummary lists no problems when the search had no errors", () => {
+  assert.deepEqual(runSummary(ran("2026-10-26T07:05:00Z"), at("2026-10-29T12:00:00Z")).problems, []);
+});
+
+test("runSummary lists one problem as where and message", () => {
+  const s = runSummary({ ...ran("2026-10-26T07:05:00Z"), errors: [{ where: "Festivals", message: "timeout" }] }, at("2026-10-29T12:00:00Z"));
+  assert.deepEqual(s.problems, [{ where: "Festivals", message: "timeout" }]);
+});
+
+test("runSummary lists every problem in order", () => {
+  const errors = [{ where: "a", message: "1" }, { where: "b", message: "2" }, { where: "c", message: "3" }];
+  assert.deepEqual(runSummary({ ...ran("2026-10-26T07:05:00Z"), errors }, at("2026-10-29T12:00:00Z")).problems, errors);
+});
+
+test("runSummary fills a problem's missing where or message with an empty string", () => {
+  const s = runSummary({ ...ran("2026-10-26T07:05:00Z"), errors: [{ message: "boom" }, { where: "pasted" }] }, at("2026-10-29T12:00:00Z"));
+  assert.deepEqual(s.problems, [{ where: "", message: "boom" }, { where: "pasted", message: "" }]);
 });
