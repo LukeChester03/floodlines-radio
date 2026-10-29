@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { festivalView } from "../festivals.js";
 import { gigDecisions } from "../gigs.js";
+import { Plus } from "lucide-react";
 import { Empty } from "../ui/bits.jsx";
 
 const label = d => d[0].toUpperCase() + d.slice(1);
@@ -11,6 +12,20 @@ const part = (date, opt) => new Date(`${date}T00:00:00Z`).toLocaleString("en-GB"
 
 // A festival is a ticket: the stub holds the apply-by date, the body the festival
 function Card({ f, decide }) {
+  // Still being read until the Mac gives it a tier: no decision yet
+  if (f.tier === null) {
+    return (
+      <motion.li layout className="fest-ticket reading" aria-busy="true" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+        <div className="fest-stub"><span className="gig-vu" aria-hidden="true"><i /><i /><i /><i /></span></div>
+        <div className="fest-body">
+          <p className="gig-reading">Reading this festival</p>
+          <a className="fest-link fest-url" href={f.url} target="_blank" rel="noreferrer">{f.url}<span className="sr-only"> (new tab)</span></a>
+          {f.note && <blockquote className="fest-read">{f.note}</blockquote>}
+          <p className="gig-hint">Details fill in by themselves, usually within 15 minutes. If the band's Mac is asleep, it happens when it wakes.</p>
+        </div>
+      </motion.li>
+    );
+  }
   const facts = [["Where", f.where], ["When", f.when], ["Size", f.size], ["Pay", f.pay]].filter(([, v]) => v);
   return (
     <motion.li layout className="fest-ticket" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, x: 24 }} transition={{ duration: 0.2 }}>
@@ -47,6 +62,49 @@ function Card({ f, decide }) {
   );
 }
 
+function AddFestival({ add }) {
+  const [open, setOpen] = useState(false);
+  const [url, setUrl] = useState("");
+  const [note, setNote] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  const opener = useRef(null);
+  const close = () => { setOpen(false); setError(""); setTimeout(() => opener.current?.focus(), 0); };
+  const submit = async e => {
+    e.preventDefault();
+    setBusy(true);
+    setError("");
+    try {
+      await add(url.trim(), note);
+      setUrl(""); setNote("");
+      close();
+    } catch (err) {
+      setError(err.message || "Couldn't add that festival");
+    } finally {
+      setBusy(false);
+    }
+  };
+  return (
+    <div className="gig-add">
+      <button ref={opener} type="button" className="btn" aria-expanded={open} onClick={() => setOpen(o => !o)}><Plus size={14} aria-hidden="true" /> Add a festival</button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.form key="form" className="gig-add-form" onSubmit={submit} initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} style={{ overflow: "hidden" }}>
+            <p className="hint">Found a festival online? Paste its link. It goes straight onto the list and fills in by itself.</p>
+            <label className="field"><span>Link to the festival</span><input type="url" inputMode="url" name="url" autoComplete="off" value={url} onChange={e => setUrl(e.target.value)} placeholder="https://…" required /></label>
+            <label className="field"><span>Note (optional)</span><textarea rows={3} name="note" maxLength={1000} value={note} onChange={e => setNote(e.target.value)} /></label>
+            {error && <p className="form-err" role="alert">{error}</p>}
+            <div className="dlg-actions">
+              <button type="submit" className="btn btn-primary" disabled={busy}>{busy ? "Adding…" : "Add festival"}</button>
+              <button type="button" className="btn" onClick={close}>Cancel</button>
+            </div>
+          </motion.form>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 export default function Festivals({ cloud }) {
   const [decision, setDecision] = useState("all");
   const tiers = useMemo(() => festivalView(cloud.festivals, { now: Date.now(), decision }), [cloud.festivals, decision]);
@@ -58,6 +116,7 @@ export default function Festivals({ cloud }) {
           <p className="view-sub">Best chances first. Mark each one as you go.</p>
         </div>
       </div>
+      <AddFestival add={cloud.addFestival} />
       {cloud.festivals.length > 0 && (
         <div className="gig-filters">
           <div role="group" aria-label="Filter by decision" className="gig-decide">

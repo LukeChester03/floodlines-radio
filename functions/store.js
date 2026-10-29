@@ -56,6 +56,12 @@ export function firestoreStore(db, stations = []) {
     async listFestivalIds() {
       return (await db.collection("festivals").select().get()).docs.map((d) => d.id);
     },
+    async getFestival(id) {
+      return (await db.doc(`festivals/${id}`).get()).data();
+    },
+    async listReadingFestivals() {
+      return (await db.collection("festivals").where("tier", "==", null).get()).docs.map((d) => d.data());
+    },
     async upsertFestival(f) {
       const { decision, decidedAt, ...rest } = f; // the band's decision is never overwritten
       await db.doc(`festivals/${f.id}`).set(rest, { merge: true });
