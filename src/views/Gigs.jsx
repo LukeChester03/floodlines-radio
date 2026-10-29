@@ -12,13 +12,19 @@ const label = d => d[0].toUpperCase() + d.slice(1);
 const filters = ["new", ...gigDecisions, "all"];
 const monthName = m => new Date(`${m}-01T00:00:00Z`).toLocaleString("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
 
-// Where the weekly search stands; a missed run replaces the next-search line
+// Where the weekly search stands; a missed run replaces the next-search line, problems open on demand
 export function SearchStatus({ status }) {
   const s = runSummary(status, Date.now());
   return (
     <>
-      <p className="view-sub">{s.last ? `${s.last} · ${s.problems} ${s.problems === 1 ? "problem" : "problems"}` : "Not searched yet"}</p>
+      <p className="view-sub">{s.last ?? "Not searched yet"}</p>
       {s.missed ? <p className="warn search-missed">Missed Monday's search: is the Mac on?</p> : <p className="hint">{s.next}</p>}
+      {s.problems.length > 0 && (
+        <details className="hint search-problems">
+          <summary>{s.problems.length} {s.problems.length === 1 ? "problem" : "problems"}</summary>
+          <ul>{s.problems.map((p, i) => <li key={i}>{p.where && <b>{p.where}: </b>}{p.message}</li>)}</ul>
+        </details>
+      )}
     </>
   );
 }
