@@ -1,14 +1,18 @@
+import { useMemo } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, BellRing, DatabaseBackup, Inbox, Send } from "lucide-react";
 import { download } from "../store.js";
 import { exportAll } from "../cloud.js";
 import { reachable } from "../../functions/core/stations.js";
+import { activePursuits } from "../pursuits.js";
 import { flag, tierLabel } from "../ui/bits.jsx";
 
 // Overview for the song you're pitching: what to do next, and how far the campaign has got
+const fmtDay = d => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+
 const songs_untouched = s => Object.values(s.per).every(p => p.status === "new" || p.status === "played") && !s.rec.notes && !s.rec.tags.length;
 
-export default function Booth({ stations, song, dueAll, queue, openMailer, openSheet, setView, cloud, user }) {
+export default function Booth({ stations, songs, song, dueAll, queue, openMailer, openSheet, setView, cloud, user }) {
   const reach = stations.filter(reachable);
   const count = k => reach.filter(s => s.cur.status === k).length;
   const contacted = reach.filter(s => s.cur.status !== "new").length;
@@ -27,6 +31,12 @@ export default function Booth({ stations, song, dueAll, queue, openMailer, openS
     { icon: Send, label: "In the send list", n: queuedForSong, hot: false, go: "sendlist", text: queuedForSong ? `Waiting to go out for ${song.title}.` : "Approve pitches to fill it." },
     { icon: Inbox, label: "Waiting on replies", n: count("pitched") + count("followed"), hot: false, go: "pipeline", text: "Pitched and not heard back yet." },
   ];
+
+  const pursuits = useMemo(
+    () => activePursuits({ gigs: cloud.gigs, festivals: cloud.festivals, stations: stations.filter(s => !s.rec.dnc).map(s => ({ id: s.id, name: s.name, songs: s.rec.songs })) }, Date.now()),
+    [cloud.gigs, cloud.festivals, stations],
+  );
+  const songTitle = id => songs.find(sg => sg.id === id)?.title || id;
 
   const fresh = stations.every(s => songs_untouched(s));
   return (
@@ -61,6 +71,26 @@ export default function Booth({ stations, song, dueAll, queue, openMailer, openS
           </motion.button>
         ))}
       </div>
+
+      <section className="card-panel" aria-labelledby="chasing-h">
+        <h2 id="chasing-h" className="panel-title">On the go</h2>
+        <p className="panel-sub">Every gig, festival and station you're chasing, with what to do next. Soonest first.</p>
+        {pursuits.length === 0 ? (
+          <p className="pursuits-empty">Nothing on the go. Mark a gig or festival interested, or pitch a station.</p>
+        ) : (
+          <ol className="pursuits">
+            {pursuits.map(p => (
+              <li key={`${p.kind}:${p.id}:${p.song || ""}`}>
+                <button className={`pursuit${p.overdue ? " overdue" : ""}`} onClick={() => setView(p.view)}>
+                  <span className="pursuit-action">{p.action}</span>
+                  <span className="pursuit-title">{p.title}{p.song && <span className="pursuit-song"> for {songTitle(p.song)}</span>}</span>
+                  <span className="pursuit-date">{p.overdue && <b>Overdue</b>}{p.date ? <time dateTime={p.date}>{fmtDay(p.date)}</time> : "No date"}</span>
+                </button>
+              </li>
+            ))}
+          </ol>
+        )}
+      </section>
 
       <section className="card-panel" aria-labelledby="levels-h">
         <h2 id="levels-h" className="panel-title">{song.title}: campaign levels</h2>
