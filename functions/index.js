@@ -16,9 +16,6 @@ import { syncReplies } from "./replies.js";
 import { BAND_EMAIL } from "./core/band.js";
 import { gmailTransport } from "./gmail.js";
 import { consentUrl, handleCallback, googleExchange, secretWriter, secretReader } from "./connect.js";
-import { gigRound as runGigRound } from "./gigs.js";
-import { tavilySearch } from "./search.js";
-import { anthropicAsk } from "./read-post.js";
 import { approveBatch } from "./approve.js";
 import { addPastedGig } from "./add-gig.js";
 
@@ -65,17 +62,6 @@ export const connectGmailCallback = onRequest({ secrets: [clientId, clientSecret
   } catch (e) {
     res.status(403).send(e.message);
   }
-});
-
-const tavilyKey = defineSecret("TAVILY_API_KEY");
-const anthropicKey = defineSecret("ANTHROPIC_API_KEY");
-
-export const gigRound = onSchedule({ schedule: "0 7 * * 1", timeZone: "Europe/London", secrets: [tavilyKey, anthropicKey], timeoutSeconds: 540 }, async () => {
-  await runGigRound({
-    store: firestoreStore(getFirestore()),
-    search: tavilySearch(tavilyKey.value(), fetch),
-    ask: anthropicAsk(anthropicKey.value()),
-  });
 });
 
 export const addGig = onCall(async (request) => {
