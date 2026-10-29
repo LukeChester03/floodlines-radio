@@ -32,6 +32,7 @@ export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {
   const gigDocs = structuredClone(gigs);
   const festivalDocs = structuredClone(festivals);
   let gigStatus = {};
+  let festivalStatus = {};
   const list = sendlist.map((e) => ({ ...e }));
   const st = structuredClone(stations);
   const log = [...sends];
@@ -71,6 +72,12 @@ export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {
     },
     async getGigStatus() {
       return gigStatus;
+    },
+    async setFestivalStatus(s) {
+      festivalStatus = s;
+    },
+    async getFestivalStatus() {
+      return festivalStatus;
     },
     async listSendlist({ state } = {}) {
       return list.filter((e) => !state || e.state === state);

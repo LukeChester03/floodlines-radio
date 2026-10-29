@@ -1,4 +1,4 @@
-// Weekly gig hunt on the maintainer's Mac (launchd: see gig-hunt.plist).
+// Weekly gig hunt and festival scout on the maintainer's Mac (launchd: see gig-hunt.plist).
 // With --pasted, reads the posts pasted with Add a gig and the festivals pasted with Add a festival instead (every 15 minutes: see gig-pasted.plist).
 // With --seed-festivals, loads data/festivals.json once through importFestivals (the maintainer runs this once).
 // Needs Application Default Credentials: `gcloud auth application-default login`.
@@ -8,7 +8,7 @@ import { readFileSync } from "node:fs";
 import { initializeApp, applicationDefault } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { firestoreStore } from "../store.js";
-import { gigHunt, readPasted, readPastedFestivals } from "../hunt.js";
+import { festivalHunt, gigHunt, readPasted, readPastedFestivals } from "../hunt.js";
 import { importFestivals } from "../festivals.js";
 import seed from "../data/festivals.json" with { type: "json" };
 
@@ -35,20 +35,17 @@ function session(tools, prompt) {
 const store = firestoreStore(getFirestore());
 if (process.argv.includes("--seed-festivals")) {
   console.log(JSON.stringify(await importFestivals({ store, festivals: seed }), null, 2));
-} else if (pasted) {
-  // Each read in its own try, so one failing doesn't stop the other.
-  const reads = [
-    [readPasted, (p) => session([], p)],
-    [readPastedFestivals, (p) => session(["WebFetch"], p)],
-  ];
-  for (const [read, runSession] of reads) {
+} else {
+  // Each run in its own try, so one failing doesn't stop the other.
+  const runs = pasted
+    ? [[readPasted, (p) => session([], p)], [readPastedFestivals, (p) => session(["WebFetch"], p)]]
+    : [[gigHunt, (p) => session(["WebSearch", "WebFetch"], p)], [festivalHunt, (p) => session(["WebSearch", "WebFetch"], p)]];
+  for (const [run, runSession] of runs) {
     try {
-      console.log(JSON.stringify(await read({ store, runSession }), null, 2));
+      console.log(JSON.stringify(await run({ store, runSession }), null, 2));
     } catch (e) {
-      console.error(`${read.name} failed: ${e.message}`);
+      console.error(`${run.name} failed: ${e.message}`);
       process.exitCode = 1;
     }
   }
-} else {
-  console.log(JSON.stringify(await gigHunt({ store, runSession: (p) => session(["WebSearch", "WebFetch"], p) }), null, 2));
 }
