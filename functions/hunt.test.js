@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { gigHunt, readPasted } from "./hunt.js";
+import { gigHunt, readPasted, readPastedFestivals } from "./hunt.js";
 import { gigId } from "./core/gigs.js";
 import { fakeStore } from "./fakes.js";
 
@@ -86,4 +86,34 @@ test("a session that throws leaves the gig queued", async () => {
   const r = await readPasted({ store, runSession: async () => { throw new Error("claude crashed"); }, now });
   assert.deepEqual(store.gigs[gigId(a)], reading(a));
   assert.equal(r.errors.length, 1);
+});
+
+const readingFest = (url) => ({ id: gigId(url), url, note: `note for ${url}`, source: "pasted", foundAt: "2026-10-01T00:00:00.000Z", tier: null });
+
+test("with no festivals being read, no session runs", async () => {
+  let calls = 0;
+  const r = await readPastedFestivals({ store: fakeStore(), runSession: async () => (calls++, "[]"), now });
+  assert.equal(calls, 0);
+  assert.deepEqual(r, { read: 0, saved: 0, errors: [] });
+});
+
+test("one session reads every queued festival; only queued URLs are saved", async () => {
+  const [a, b, c] = ["https://a.fest/", "https://b.fest/", "https://c.fest/"];
+  const store = fakeStore({ festivals: { [gigId(a)]: readingFest(a), [gigId(b)]: readingFest(b) } });
+  const prompts = [];
+  const answer = "Here you go:\n```json\n" + JSON.stringify([{ url: a, tier: "long", name: "A Fest" }, { url: c, tier: "good", name: "C Fest" }]) + "\n```";
+  await readPastedFestivals({ store, runSession: async (p) => (prompts.push(p), answer), now });
+  assert.equal(prompts.length, 1);
+  assert.ok(prompts[0].includes(a) && prompts[0].includes(b));
+  const fa = store.festivals[gigId(a)];
+  assert.deepEqual([fa.tier, fa.name, fa.source, fa.note], ["long", "A Fest", "pasted", `note for ${a}`]);
+  assert.equal(store.festivals[gigId(b)].tier, null);
+  assert.equal(store.festivals[gigId(c)], undefined);
+});
+
+test("a session that throws leaves the festival queued", async () => {
+  const a = "https://a.fest/";
+  const store = fakeStore({ festivals: { [gigId(a)]: readingFest(a) } });
+  await readPastedFestivals({ store, runSession: async () => { throw new Error("claude crashed"); }, now });
+  assert.deepEqual(store.festivals[gigId(a)], readingFest(a));
 });
