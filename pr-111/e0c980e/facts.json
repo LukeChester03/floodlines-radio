@@ -1,0 +1,16 @@
+[
+  {
+    "page": "/#templates",
+    "width": 375,
+    "image": "-templates-375.png",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#templates",
+    "width": 1280,
+    "image": "-templates-1280.png",
+    "overflow": false,
+    "console_errors": []
+  }
+]
