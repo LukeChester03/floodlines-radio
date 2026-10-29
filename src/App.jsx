@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, LayoutGroup, MotionConfig, motion } from "motion/react";
-import { CalendarClock, KanbanSquare, Ticket, FileText, LayoutDashboard, LogOut, Mail, Table2 } from "lucide-react";
+import { CalendarClock, Tent, KanbanSquare, Ticket, FileText, LayoutDashboard, LogOut, Mail, Table2 } from "lucide-react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase.js";
 import { connectGmailUrl, importLocal, localData, useCloud } from "./cloud.js";
@@ -19,6 +19,7 @@ import Pipeline from "./views/Pipeline.jsx";
 import Followups from "./views/Followups.jsx";
 import SendList from "./views/SendList.jsx";
 import Gigs from "./views/Gigs.jsx";
+import Festivals from "./views/Festivals.jsx";
 import StationSheet from "./views/StationSheet.jsx";
 import Templates from "./views/Templates.jsx";
 import Mailer from "./views/Mailer.jsx";
@@ -32,6 +33,7 @@ const nav = [
   ["followups", "Follow-ups", CalendarClock],
   ["sendlist", "Send list", Mail],
   ["gigs", "Gigs", Ticket],
+  ["festivals", "Festivals", Tent],
   ["templates", "Templates", FileText],
 ];
 const views = nav.map(n => n[0]);
@@ -185,6 +187,7 @@ export default function App({ user }) {
               {view === "pipeline" && <Pipeline {...ctx} />}
               {view === "followups" && <Followups {...ctx} />}
               {view === "gigs" && <Gigs {...ctx} />}
+              {view === "festivals" && <Festivals {...ctx} />}
               {view === "sendlist" && <SendList {...ctx} items={queue} />}
               {view === "templates" && <Templates {...ctx} />}
             </motion.div>

@@ -4,6 +4,7 @@
 //   sendlist/{key}        approved emails the band reviews, approves and the scheduled run sends
 //   sends/{id}            one record per email the server sent (written by the server only)
 //   gigs/{id}             upcoming gigs the weekly search found
+//   festivals/{id}        festivals the band could apply to (loaded by the server)
 //   gigstatus/last        when the weekly search last ran, and its problems
 //   settings/shared       email templates, sign-off, "mention other songs", epk (the uploaded press kit)
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -28,6 +29,7 @@ export function useCloud(user) {
   const [queue, setQueue] = useState([]);
   const [replies, setReplies] = useState([]);
   const [gigs, setGigs] = useState([]);
+  const [festivals, setFestivals] = useState([]);
   const [gigStatus, setGigStatus] = useState(null);
   const [sends, setSends] = useState([]);
   const [settings, setSettings] = useState(defaultSettings);
@@ -78,6 +80,11 @@ export function useCloud(user) {
         const list = [];
         snap.forEach(d => list.push({ id: d.id, ...d.data() }));
         setGigs(list);
+      }, fail),
+      onSnapshot(collection(db, "festivals"), snap => {
+        const list = [];
+        snap.forEach(d => list.push({ id: d.id, ...d.data() }));
+        setFestivals(list);
       }, fail),
       onSnapshot(doc(db, "gigstatus", "last"), snap => setGigStatus(snap.exists() ? snap.data() : null), fail),
       onSnapshot(doc(db, "settings", "shared"), snap => {
@@ -155,8 +162,11 @@ export function useCloud(user) {
   // Only the band's decision is written; nothing is ever sent for a gig
   const decideGig = useCallback((id, decision) => updateDoc(doc(db, "gigs", id), gigDecisionPatch(decision, new Date()))
     .catch(e => setError(`Couldn't save that decision (${e.code}).`)), []);
+  // Same as gigs; null clears the decision
+  const decideFestival = useCallback((id, decision) => updateDoc(doc(db, "festivals", id), decision === null ? { decision: null, decidedAt: new Date().toISOString() } : gigDecisionPatch(decision, new Date()))
+    .catch(e => setError(`Couldn't save that decision (${e.code}).`)), []);
 
-  return { ready, error, gmail, crm, songs: songs || [], queue, replies, decideReply, gigs, decideGig, addGig, gigStatus, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings, uploadEpk, removeEpk };
+  return { ready, error, gmail, crm, songs: songs || [], queue, replies, decideReply, gigs, decideGig, addGig, festivals, decideFestival, gigStatus, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings, uploadEpk, removeEpk };
 }
 
 // One-off move of data saved in this browser (before the database existed) into Firestore
