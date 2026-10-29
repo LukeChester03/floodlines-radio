@@ -16,9 +16,11 @@ const monthName = m => new Date(`${m}-01T00:00:00Z`).toLocaleString("en-GB", { m
 function Card({ g, decide }) {
   if (reading(g)) {
     return (
-      <motion.li layout className="gig-card gig-skeleton" aria-busy="true" initial={{ opacity: 0 }} animate={{ opacity: [0.5, 1, 0.5] }} exit={{ opacity: 0 }} transition={{ duration: 1.4, repeat: Infinity }}>
-        <span className="sr-only">Reading this gig…</span>
-        <span className="gig-bar" /><span className="gig-bar short" />
+      <motion.li layout className="gig-card" aria-busy="true" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+        <div className="gig-top"><b>Reading this post</b></div>
+        {g.excerpt && <blockquote className="gig-line">{g.excerpt}</blockquote>}
+        <p className="hint">Date, venue and line-up fill in by themselves, usually within 15 minutes. If the band's Mac is asleep, it happens when it wakes.</p>
+        <p className="gig-line"><a className="link-btn" href={g.url} target="_blank" rel="noreferrer">Original post · {host(g.url)}<span className="sr-only"> (new tab)</span></a></p>
       </motion.li>
     );
   }
@@ -79,12 +81,12 @@ function AddGig({ add }) {
       <AnimatePresence initial={false}>
         {open && (
           <motion.form key="form" className="gig-add-form" onSubmit={submit} initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} style={{ overflow: "hidden" }}>
-            <p className="hint">Instagram and TikTok can't be searched, so paste the post here.</p>
+            <p className="hint">Instagram and TikTok can't be searched, so paste the post here. It goes straight onto the list and fills in by itself.</p>
             <label className="field"><span>Link to the post</span><input type="url" inputMode="url" value={url} onChange={e => setUrl(e.target.value)} placeholder="https://www.instagram.com/p/…" required /></label>
             <label className="field"><span>The post's text</span><textarea rows={5} value={text} onChange={e => setText(e.target.value)} required /></label>
             {error && <p className="form-err" role="alert">{error}</p>}
             <div className="dlg-actions">
-              <button type="submit" className="btn btn-primary" disabled={busy}>{busy ? "Reading the post…" : "Add gig"}</button>
+              <button type="submit" className="btn btn-primary" disabled={busy}>{busy ? "Adding…" : "Add gig"}</button>
               <button type="button" className="btn" onClick={close}>Cancel</button>
             </div>
           </motion.form>

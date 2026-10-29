@@ -63,3 +63,8 @@ test("firestoreStore.getStation joins the static email onto the CRM record", asy
   assert.deepEqual(await s.getStation("b"), { email: "b@x.com", rec: {} });
   assert.equal(await s.getStation("zzz"), undefined);
 });
+
+test("fakeStore.listReadingGigs returns only gigs still being read", async () => {
+  const s = fakeStore({ gigs: { a: { id: "a", score: null }, b: { id: "b", score: 12 } } });
+  assert.deepEqual(await s.listReadingGigs(), [{ id: "a", score: null }]);
+});

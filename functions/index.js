@@ -78,7 +78,7 @@ export const gigRound = onSchedule({ schedule: "0 7 * * 1", timeZone: "Europe/Lo
   });
 });
 
-export const addGig = onCall({ secrets: [anthropicKey] }, async (request) => {
+export const addGig = onCall(async (request) => {
   try {
     requireBand(request);
   } catch (e) {
@@ -86,7 +86,7 @@ export const addGig = onCall({ secrets: [anthropicKey] }, async (request) => {
     throw e;
   }
   try {
-    return await addPastedGig(request.data ?? {}, { store: firestoreStore(getFirestore()), ask: anthropicAsk(anthropicKey.value()) });
+    return await addPastedGig(request.data ?? {}, { store: firestoreStore(getFirestore()) });
   } catch (e) {
     throw new HttpsError("invalid-argument", e.message);
   }
