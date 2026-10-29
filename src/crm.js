@@ -142,3 +142,15 @@ export function checkEpkFile({ size, type }) {
 }
 
 export const epkRecord = ({ name, size, type }, now) => ({ path: EPK_PATH, name, size, contentType: type, uploadedAt: now.toISOString() });
+
+// The signature logo: a small image kept as base64 in the shared settings, no Storage
+const LOGO_MAX = 200 * 1024;
+const LOGO_TYPES = ["image/png", "image/jpeg", "image/gif"];
+
+export function checkLogoFile({ size, type }) {
+  if (!LOGO_TYPES.includes(type)) return "Use a PNG, JPEG or GIF image.";
+  if (size > LOGO_MAX) return "The logo must be 200 KB or smaller.";
+  return null;
+}
+
+export const logoRecord = ({ name, size, type }, data, now) => ({ name, mimeType: type, data, size, updatedAt: now.toISOString() });

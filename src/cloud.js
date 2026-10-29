@@ -7,7 +7,7 @@
 //   festivals/{id}        festivals the band could apply to (loaded by the server)
 //   gigstatus/last        when the weekly search last ran, and its problems
 //   gigstatus/festivals   when the weekly festival scout last ran, and its problems
-//   settings/shared       email templates, sign-off, "mention other songs", epk (the uploaded press kit)
+//   settings/shared       email templates, sign-off, "mention other songs", epk (the uploaded press kit), logo (the signature image)
 import { useCallback, useEffect, useRef, useState } from "react";
 import { collection, deleteDoc, deleteField, doc, onSnapshot, setDoc, updateDoc, writeBatch } from "firebase/firestore";
 import { httpsCallable } from "firebase/functions";
