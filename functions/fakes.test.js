@@ -66,6 +66,20 @@ test("firestoreStore.getStation joins the static email onto the CRM record", asy
   assert.equal(await s.getStation("zzz"), undefined);
 });
 
+test("firestoreStore.setStatus merges into gmail/status, not settings/", async () => {
+  const writes = [];
+  const db = { doc: (p) => ({ set: async (data, opts) => writes.push({ p, data, opts }) }) };
+  await firestoreStore(db, []).setStatus({ needsReconnect: true });
+  assert.deepEqual(writes, [{ p: "gmail/status", data: { needsReconnect: true }, opts: { merge: true } }]);
+});
+
+test("firestoreStore.getStatus reads gmail/status, {} when missing", async () => {
+  const stored = { connected: "a@x.com", replyCursor: "c1" };
+  const db = (data) => ({ doc: (p) => ({ get: async () => ({ data: () => (p === "gmail/status" ? data : undefined) }) }) });
+  assert.deepEqual(await firestoreStore(db(stored), []).getStatus(), stored);
+  assert.deepEqual(await firestoreStore(db(undefined), []).getStatus(), {});
+});
+
 test("firestoreStore defaults to the generated station emails", async () => {
   const withEmail = appStations.filter((x) => x.email);
   const db = { doc: () => ({ get: async () => ({ exists: false }) }) };
