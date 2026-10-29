@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { DEFAULT_GIG_AREAS, DEFAULT_GIG_PHRASES, gigDecisionPatch, gigId, gigSettings, gigView, parseList, runSummary } from "./gigs.js";
+import { DEFAULT_GIG_AREAS, DEFAULT_GIG_PHRASES, gigDecisionPatch, gigId, gigSettings, gigStub, gigView, parseList, runSummary } from "./gigs.js";
 
 const now = new Date("2026-10-10T12:00:00Z").getTime();
 const g = (id, date, score) => ({ id, date, score });
@@ -45,4 +45,15 @@ test("parseList trims, drops blanks, de-dupes case-insensitively keeping the fir
 test("gigSettings applies defaults for unset or empty lists", () => {
   assert.deepEqual(gigSettings({}), { areas: DEFAULT_GIG_AREAS, similarArtists: [], phrases: DEFAULT_GIG_PHRASES });
   assert.deepEqual(gigSettings({ gigAreas: ["Bristol"], gigPhrases: [] }), { areas: ["Bristol"], similarArtists: [], phrases: DEFAULT_GIG_PHRASES });
+});
+
+test("gigStub gives the stub's date parts in UTC and the stamp tier", () => {
+  assert.deepEqual(gigStub({ date: "2026-11-08", score: 52 }), { dow: "Sun", day: "8", mon: "Nov", tier: "hot" });
+  assert.deepEqual(gigStub({ date: null, score: 41 }), { dow: null, day: null, mon: null, tier: "warm" });
+  assert.equal(gigStub({ date: null, score: 10 }).tier, "");
+});
+
+test("gigDecisionPatch(null) clears the decision", () => {
+  const at = new Date("2026-10-10T12:00:00Z");
+  assert.deepEqual(gigDecisionPatch(null, at), { decision: null, decidedAt: at.toISOString() });
 });
