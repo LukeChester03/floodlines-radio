@@ -5,6 +5,7 @@ import { importFestivals } from "./festivals.js";
 
 const PROMPT = readFileSync(new URL("./scripts/gig-hunt-prompt.md", import.meta.url), "utf8");
 const FESTIVAL_PROMPT = readFileSync(new URL("./scripts/festival-read-prompt.md", import.meta.url), "utf8");
+const SCOUT_PROMPT = readFileSync(new URL("./scripts/festival-scout-prompt.md", import.meta.url), "utf8");
 
 export function huntPrompt({ areas, phrases, similarArtists, today }) {
   const fill = { areas: areas.join(", "), phrases: phrases.join(", "), similarArtists: similarArtists.join(", ") || "(none given)", today };
@@ -116,4 +117,22 @@ export async function readPastedFestivals({ store, runSession, now = Date.now })
     if (f) festivals.push({ ...a, url: f.url, note: f.note, source: "pasted" });
   }
   return importFestivals({ store, festivals, now });
+}
+
+// Weekly search for new UK festivals. Festivals already stored are dropped, so the band's own and their decisions are never touched.
+export async function festivalHunt({ store, runSession, now = Date.now }) {
+  const today = new Date(now()).toISOString().slice(0, 10);
+  const errors = [];
+  let found = [];
+  try {
+    found = parsePosts(await runSession(SCOUT_PROMPT.replace("{{today}}", today)));
+  } catch (e) {
+    errors.push({ where: "Festivals", message: e.message });
+  }
+  const stored = new Set(await store.listFestivalIds());
+  const fresh = found.filter((f) => !(typeof f?.url === "string" && stored.has(gigId(f.url))));
+  const res = await importFestivals({ store, festivals: fresh.map((f) => ({ ...f, source: "scout" })), now });
+  const status = { ranAt: new Date(now()).toISOString(), queries: ["UK festivals"], found: found.length, read: res.read, saved: res.saved, errors: [...errors, ...res.errors] };
+  await store.setFestivalStatus(status);
+  return status;
 }

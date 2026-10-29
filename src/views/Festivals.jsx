@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { festivalView } from "../festivals.js";
-import { gigDecisions } from "../gigs.js";
+import { gigDecisions, runSummary } from "../gigs.js";
 import { Plus } from "lucide-react";
 import { Empty } from "../ui/bits.jsx";
 
@@ -113,6 +113,7 @@ export default function Festivals({ cloud }) {
       <div className="view-head">
         <div>
           <h2 className="view-title">Festivals</h2>
+          <p className="view-sub">{runSummary(cloud.festivalStatus, Date.now())}</p>
           <p className="view-sub">Best chances first. Mark each one as you go.</p>
         </div>
       </div>

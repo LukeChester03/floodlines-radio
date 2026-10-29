@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { gigHunt, readPasted, readPastedFestivals } from "./hunt.js";
+import { festivalHunt, gigHunt, readPasted, readPastedFestivals } from "./hunt.js";
 import { gigId } from "./core/gigs.js";
 import { fakeStore } from "./fakes.js";
 
@@ -116,4 +116,52 @@ test("a session that throws leaves the festival queued", async () => {
   const store = fakeStore({ festivals: { [gigId(a)]: readingFest(a) } });
   await readPastedFestivals({ store, runSession: async () => { throw new Error("claude crashed"); }, now });
   assert.deepEqual(store.festivals[gigId(a)], readingFest(a));
+});
+
+const scoutNow = () => Date.parse("2026-11-02T09:00:00Z");
+const fest = (url, extra = {}) => ({ url, name: `Fest ${url}`, tier: "good", read: "Open form", ...extra });
+
+test("the festival scout runs one session with the band and today's date", async () => {
+  const prompts = [];
+  await festivalHunt({ store: fakeStore(), runSession: async (p) => (prompts.push(p), "[]"), now: scoutNow });
+  assert.equal(prompts.length, 1);
+  for (const s of ["indie", "South England", "2026-11-02"]) assert.ok(prompts[0].includes(s), s);
+});
+
+test("the scout adds only new festivals and leaves the band's decisions alone", async () => {
+  const [a, b] = ["https://fest.com/a", "https://fest.com/b"];
+  const store = fakeStore({ festivals: { [gigId(a)]: { id: gigId(a), url: a, name: "Ours", tier: "good", decision: "applied" } } });
+  await festivalHunt({ store, runSession: async () => JSON.stringify([fest(a, { name: "Changed" }), fest(b)]), now: scoutNow });
+  assert.deepEqual(store.festivals[gigId(a)], { id: gigId(a), url: a, name: "Ours", tier: "good", decision: "applied" });
+  assert.equal(store.festivals[gigId(b)].source, "scout");
+});
+
+test("a top pick from the scout keeps its reasons", async () => {
+  const b = "https://fest.com/b";
+  const store = fakeStore();
+  await festivalHunt({ store, runSession: async () => JSON.stringify([fest(b, { topPick: true, topReasons: ["Open form", "Indie bill"] })]), now: scoutNow });
+  assert.equal(store.festivals[gigId(b)].topPick, true);
+  assert.deepEqual(store.festivals[gigId(b)].topReasons, ["Open form", "Indie bill"]);
+});
+
+test("a scout answer with no JSON array saves nothing and is one Festivals error", async () => {
+  const store = fakeStore();
+  await festivalHunt({ store, runSession: async () => "I couldn't find any.", now: scoutNow });
+  assert.deepEqual(await store.listFestivalIds(), []);
+  const s = await store.getFestivalStatus();
+  assert.deepEqual(s.errors.map((e) => e.where), ["Festivals"]);
+});
+
+test("a scout session that throws is a Festivals error", async () => {
+  const s = await festivalHunt({ store: fakeStore(), runSession: async () => { throw new Error("claude crashed"); }, now: scoutNow });
+  assert.deepEqual(s.errors, [{ where: "Festivals", message: "claude crashed" }]);
+});
+
+test("the scout's run status is written for the Festivals screen", async () => {
+  const store = fakeStore();
+  await festivalHunt({ store, runSession: async () => JSON.stringify([fest("https://fest.com/c"), { name: "no url" }]), now: scoutNow });
+  const s = await store.getFestivalStatus();
+  assert.equal(s.ranAt, "2026-11-02T09:00:00.000Z");
+  assert.deepEqual(s.queries, ["UK festivals"]);
+  assert.deepEqual([s.found, s.read, s.saved], [2, 2, 1]);
 });

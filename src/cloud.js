@@ -6,6 +6,7 @@
 //   gigs/{id}             upcoming gigs the weekly search found
 //   festivals/{id}        festivals the band could apply to (loaded by the server)
 //   gigstatus/last        when the weekly search last ran, and its problems
+//   gigstatus/festivals   when the weekly festival scout last ran, and its problems
 //   settings/shared       email templates, sign-off, "mention other songs", epk (the uploaded press kit)
 import { useCallback, useEffect, useRef, useState } from "react";
 import { collection, deleteDoc, deleteField, doc, onSnapshot, setDoc, updateDoc, writeBatch } from "firebase/firestore";
@@ -31,6 +32,7 @@ export function useCloud(user) {
   const [gigs, setGigs] = useState([]);
   const [festivals, setFestivals] = useState([]);
   const [gigStatus, setGigStatus] = useState(null);
+  const [festivalStatus, setFestivalStatus] = useState(null);
   const [sends, setSends] = useState([]);
   const [settings, setSettings] = useState(defaultSettings);
   const [loaded, setLoaded] = useState({ stations: false, songs: false, sendlist: false, sends: false, settings: false });
@@ -87,6 +89,7 @@ export function useCloud(user) {
         setFestivals(list);
       }, fail),
       onSnapshot(doc(db, "gigstatus", "last"), snap => setGigStatus(snap.exists() ? snap.data() : null), fail),
+      onSnapshot(doc(db, "gigstatus", "festivals"), snap => setFestivalStatus(snap.exists() ? snap.data() : null), fail),
       onSnapshot(doc(db, "settings", "shared"), snap => {
         setSettings({ ...defaultSettings, ...(snap.exists() ? strip(snap.data()) : {}) });
         done("settings");
@@ -167,7 +170,7 @@ export function useCloud(user) {
   const decideFestival = useCallback((id, decision) => updateDoc(doc(db, "festivals", id), decision === null ? { decision: null, decidedAt: new Date().toISOString() } : gigDecisionPatch(decision, new Date()))
     .catch(e => setError(`Couldn't save that decision (${e.code}).`)), []);
 
-  return { ready, error, gmail, crm, songs: songs || [], queue, replies, decideReply, gigs, decideGig, addGig, festivals, decideFestival, addFestival, gigStatus, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings, uploadEpk, removeEpk };
+  return { ready, error, gmail, crm, songs: songs || [], queue, replies, decideReply, gigs, decideGig, addGig, festivals, decideFestival, addFestival, gigStatus, festivalStatus, sends, settings, updateStation, saveSong, deleteSong, addToQueue, removeFromQueue, setEntryState, approveAll, saveSettings, uploadEpk, removeEpk };
 }
 
 // One-off move of data saved in this browser (before the database existed) into Firestore
