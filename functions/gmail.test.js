@@ -35,3 +35,48 @@ test("a non-ASCII filename is encoded and decodes back", () => {
   assert.equal(decodeURIComponent(star), name);
   assert.ok(!/[^\x00-\x7f]/.test(text.split("\r\n\r\n")[0]));
 });
+
+const sig = { html: "<b>Contact</b><br>", text: "Contact" };
+const tree = (raw) => {
+  const node = (s) => {
+    const [head, ...rest] = s.split("\r\n\r\n");
+    const body = rest.join("\r\n\r\n");
+    const b = /boundary="([^"]+)"/.exec(head)?.[1];
+    if (!b) return { head, data: Buffer.from(body, "base64") };
+    return { head, parts: body.split(`--${b}`).slice(1, -1).map((p) => node(p.replace(/^\r\n/, ""))) };
+  };
+  return node(decode(raw));
+};
+
+test("a signature makes multipart/alternative with plain text and escaped html", () => {
+  const t = tree(rawMessage({ ...base, body: "Hi & <b>\nbye", signature: sig }));
+  assert.match(t.head, /Content-Type: multipart\/alternative/);
+  const [text, html] = t.parts;
+  assert.match(text.head, /text\/plain; charset=UTF-8/);
+  assert.equal(text.data.toString(), "Hi & <b>\nbye\n\nContact");
+  assert.match(html.head, /text\/html; charset=UTF-8/);
+  assert.ok(html.data.toString().includes("Hi &amp; &lt;b&gt;<br>bye<br><br><b>Contact</b><br>"));
+});
+
+test("a signature with the logo puts the html and an inline image in multipart/related", () => {
+  const signature = { html: '<img src="cid:logo@floodlines" alt="FloodLines">', text: "FloodLines – ✓" };
+  const logo = { name: "fl.png", mimeType: "image/png", data: Buffer.from([1, 2, 3]) };
+  const [text, related] = tree(rawMessage({ ...base, signature, logo })).parts;
+  assert.equal(text.data.toString(), "Hello there\n\nFloodLines – ✓");
+  assert.match(related.head, /multipart\/related/);
+  const [html, img] = related.parts;
+  assert.ok(html.data.toString().includes("cid:logo@floodlines"));
+  assert.match(img.head, /Content-Type: image\/png/);
+  assert.match(img.head, /Content-ID: <logo@floodlines>/);
+  assert.match(img.head, /Content-Disposition: inline/);
+  assert.deepEqual([...img.data], [1, 2, 3]);
+});
+
+test("a signature with attachments: multipart/mixed of the alternative then the file", () => {
+  const t = tree(rawMessage({ ...base, signature: sig, attachments: [{ name: "EPK.pdf", mimeType: "application/pdf", data }] }));
+  assert.match(t.head, /multipart\/mixed/);
+  assert.equal(t.parts.length, 2);
+  assert.match(t.parts[0].head, /multipart\/alternative/);
+  assert.match(t.parts[1].head, /Content-Disposition: attachment/);
+  assert.deepEqual(t.parts[1].data, data);
+});

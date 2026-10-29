@@ -142,3 +142,52 @@ test("EPK over 18 MB: pitches fail with the reason and nothing is sent for them"
   assert.equal(sends.length, 0);
   assert.equal(epk.reads, 1);
 });
+
+const logoSettings = (over = {}) => ({
+  signature: { source: "x", html: '<b>FL</b><img src="cid:logo@floodlines" alt="FloodLines"> bye', text: "FL" },
+  logo: { name: "fl.png", mimeType: "image/png", data: Buffer.from([1, 2, 3]).toString("base64"), size: 3, updatedAt: "x" },
+  ...over,
+});
+const sigRun = async (settings, list = [entry(0), entry(1, { kind: "followup" })]) => {
+  const store = fakeStore({ stations: stations(2), sendlist: list, settings });
+  let calls = 0;
+  const get = store.getSettings;
+  store.getSettings = async () => { calls += 1; return get(); };
+  const transport = fakeTransport();
+  await drain({ store, transport, epk: fakeEpk(file), now });
+  return { sent: transport.sent, calls, store };
+};
+
+test("pitch and follow-up both carry the signature and the decoded logo, settings read once", async () => {
+  const { sent, calls } = await sigRun(logoSettings());
+  assert.equal(sent.length, 2);
+  assert.equal(calls, 1);
+  for (const m of sent) {
+    assert.deepEqual(m.signature, { html: '<b>FL</b><img src="cid:logo@floodlines" alt="FloodLines"> bye', text: "FL" });
+    assert.equal(m.logo.mimeType, "image/png");
+    assert.deepEqual([...m.logo.data], [1, 2, 3]);
+  }
+});
+
+test("an SVG logo is dropped and its cid img removed, the rest of the signature still goes", async () => {
+  const { sent } = await sigRun(logoSettings({ logo: { ...logoSettings().logo, mimeType: "image/svg+xml" } }));
+  assert.equal(sent.length, 2);
+  for (const m of sent) {
+    assert.deepEqual(m.signature, { html: "<b>FL</b> bye", text: "FL" });
+    assert.equal(m.logo, undefined);
+  }
+});
+
+test("getSettings rejecting sends every entry without a signature", async () => {
+  const store = fakeStore({ stations: stations(2), sendlist: [entry(0), entry(1)] });
+  store.getSettings = async () => { throw new Error("nope"); };
+  const transport = fakeTransport();
+  await drain({ store, transport, now });
+  assert.equal(transport.sent.length, 2);
+  assert.ok(transport.sent.every((m) => m.signature === undefined && m.logo === undefined));
+});
+
+test("an empty approved queue never reads settings", async () => {
+  const { calls } = await sigRun(logoSettings(), []);
+  assert.equal(calls, 0);
+});
