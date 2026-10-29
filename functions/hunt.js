@@ -51,3 +51,43 @@ export async function gigHunt({ store, runSession, now = Date.now }) {
   await store.setGigStatus(status);
   return status;
 }
+
+export function pastedPrompt(gigs) {
+  const posts = gigs.map((g) => `URL: ${g.url}\nPost:\n${g.text}`).join("\n\n---\n\n");
+  return `You are reading gig posts for Floodlines, a band looking for support slots and open calls to play. The band pasted each post below themselves; read only the text given, don't search the web.
+
+${posts}
+
+Answer with only a JSON array, one object per URL above, with these fields:
+
+- "url": the post's URL, exactly as given (required)
+- "isSlotOffer": true if the post offers a slot or asks bands to apply, else false
+- "title": a short name for the gig
+- "date": the gig date as YYYY-MM-DD, or null
+- "venue": the venue name, or null
+- "town": the town or city, or null
+- "county": the county, or null
+- "genre": the genre, or null
+- "howToApply": how a band applies (email, DM, form link), or null
+- "bands": names of bands already on the bill, as an array
+`;
+}
+
+// Reads the gigs pasted with Add a gig (score null) in one session. A post the answer leaves out stays queued.
+export async function readPasted({ store, runSession, now = Date.now }) {
+  const queued = await store.listReadingGigs();
+  if (!queued.length) return { read: 0, saved: 0, errors: [] };
+  let answers;
+  try {
+    answers = parsePosts(await runSession(pastedPrompt(queued)));
+  } catch (e) {
+    return { read: 0, saved: 0, errors: [{ where: "pasted", message: e.message }] };
+  }
+  const byId = new Map(queued.map((g) => [g.id, g]));
+  const posts = [];
+  for (const a of answers) {
+    const g = typeof a?.url === "string" && byId.get(gigId(a.url));
+    if (g) posts.push({ ...a, url: g.url, text: g.text, source: "pasted" });
+  }
+  return importGigs({ store, posts, now });
+}
