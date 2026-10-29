@@ -57,9 +57,35 @@ export function gigView(gigs, { now, decision = "all", month = "" }) {
     .sort((a, b) => (b.score || 0) - (a.score || 0) || (a.date || "9999").localeCompare(b.date || "9999"));
 }
 
+// When the weekly search runs, UK time. Keep in step with StartCalendarInterval in functions/scripts/gig-hunt.plist
+export const WEEKLY_SEARCH = { weekday: 1, hour: 7 };
+const GRACE_MS = 6 * 36e5;
+const tz = "Europe/London";
+const ukParts = new Intl.DateTimeFormat("en-GB", { timeZone: tz, year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric", hourCycle: "h23" });
+const ukDay = ms => new Date(ms).toLocaleString("en-GB", { timeZone: tz, weekday: "short", day: "numeric", month: "short" });
+
+// UK wall clock as if it were UTC
+function ukWall(ms) {
+  const p = Object.fromEntries(ukParts.formatToParts(ms).map(x => [x.type, Number(x.value)]));
+  return Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second);
+}
+
+// The scheduled run in the UK week offset by `weeks` from the one containing `now`
+function scheduledRun(now, weeks) {
+  const w = new Date(ukWall(now));
+  const wall = Date.UTC(w.getUTCFullYear(), w.getUTCMonth(), w.getUTCDate() + (WEEKLY_SEARCH.weekday - w.getUTCDay()) + 7 * weeks, WEEKLY_SEARCH.hour);
+  return wall - (ukWall(wall) - wall);
+}
+
 export function runSummary(status, now) {
-  if (!status?.ranAt) return "Not searched yet";
-  const d = Math.max(0, Math.floor((now - new Date(status.ranAt).getTime()) / 864e5));
-  const n = status.errors?.length || 0;
-  return `Last searched ${d === 0 ? "today" : d === 1 ? "1 day ago" : `${d} days ago`} · ${n} ${n === 1 ? "problem" : "problems"}`;
+  const ranAt = status?.ranAt ? new Date(status.ranAt).getTime() : null;
+  const thisWeek = scheduledRun(now, 0);
+  const next = thisWeek > now ? thisWeek : scheduledRun(now, 1);
+  const recent = next === thisWeek ? [scheduledRun(now, -1), scheduledRun(now, -2)] : [thisWeek, scheduledRun(now, -1)];
+  return {
+    last: ranAt === null ? null : `Last search ${ukDay(ranAt)}`,
+    next: `Next search ${ukDay(next)}, ${WEEKLY_SEARCH.hour}am`,
+    missed: ranAt !== null && recent.some(t => t > ranAt && t + GRACE_MS < now),
+    problems: status?.errors?.length || 0,
+  };
 }

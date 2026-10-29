@@ -10,9 +10,44 @@ test("gigView hides past gigs, keeps undated, orders by score then soonest date"
   assert.deepEqual(out.map(x => x.id), ["hiSoon", "hiLate", "undated", "lo", "today"]);
 });
 
-test("runSummary", () => {
-  assert.equal(runSummary({ ranAt: now - 3 * 864e5, errors: ["a", "b"] }, now), "Last searched 3 days ago · 2 problems");
-  assert.equal(runSummary(null, now), "Not searched yet");
+// UK clock times; 25 Oct 2026 is when BST ends, so these late-October dates are GMT (= UTC)
+const at = s => new Date(s).getTime();
+const ran = s => ({ ranAt: new Date(s).toISOString(), errors: [] });
+
+test("runSummary with no status: never searched, nothing missed, next Monday", () => {
+  assert.deepEqual(runSummary(null, at("2026-10-29T12:00:00Z")), { last: null, next: "Next search Mon 2 Nov, 7am", missed: false, problems: 0 });
+});
+
+test("runSummary after Monday's run says when it last ran and when it runs next", () => {
+  const s = runSummary(ran("2026-10-26T07:05:00Z"), at("2026-10-29T12:00:00Z"));
+  assert.equal(s.last, "Last search Mon 26 Oct");
+  assert.equal(s.missed, false);
+  assert.equal(s.next, "Next search Mon 2 Nov, 7am");
+});
+
+test("runSummary next search is strictly after now", () => {
+  assert.equal(runSummary(null, at("2026-11-02T07:00:00Z")).next, "Next search Mon 9 Nov, 7am");
+});
+
+test("runSummary only flags a missed run after 6 hours of grace", () => {
+  assert.equal(runSummary(ran("2026-10-26T07:05:00Z"), at("2026-11-02T07:30:00Z")).missed, false);
+  assert.equal(runSummary(ran("2026-10-26T07:05:00Z"), at("2026-11-02T14:00:00Z")).missed, true);
+});
+
+test("runSummary flags a run two weeks old, not one after the latest scheduled time", () => {
+  assert.equal(runSummary(ran("2026-10-15T12:00:00Z"), at("2026-10-29T12:00:00Z")).missed, true);
+  assert.equal(runSummary(ran("2026-10-27T09:00:00Z"), at("2026-10-29T12:00:00Z")).missed, false);
+});
+
+test("runSummary next search is 7am UK time in both BST and GMT", () => {
+  assert.equal(runSummary(null, at("2026-07-15T12:00:00Z")).next, "Next search Mon 20 Jul, 7am");
+  assert.equal(runSummary(null, at("2026-12-02T12:00:00Z")).next, "Next search Mon 7 Dec, 7am");
+  // 7am BST is 06:00 UTC, so the grace ends at 12:00 UTC, not 13:00
+  assert.equal(runSummary(ran("2026-07-13T06:05:00Z"), at("2026-07-20T12:30:00Z")).missed, true);
+});
+
+test("runSummary counts problems", () => {
+  assert.equal(runSummary({ ...ran("2026-10-26T07:05:00Z"), errors: ["a", "b"] }, at("2026-10-29T12:00:00Z")).problems, 2);
 });
 
 test("gigId ignores host case, trailing slash, utm_* and fbclid", () => {
