@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "main": "index.js",
-  "scripts": { "gig-hunt": "node scripts/gig-hunt.mjs", "gig-pasted": "node scripts/gig-hunt.mjs --pasted" },
+  "scripts": { "gig-hunt": "node scripts/gig-hunt.mjs", "gig-pasted": "node scripts/gig-hunt.mjs --pasted", "seed-festivals": "node scripts/gig-hunt.mjs --seed-festivals" },
   "engines": { "node": "22" },
   "dependencies": {
     "firebase-admin": "^13.0.0",

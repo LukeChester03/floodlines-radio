@@ -53,6 +53,13 @@ export function firestoreStore(db, stations = []) {
       const { decision, decidedAt, ...rest } = gig; // the band's decision is never overwritten
       await db.doc(`gigs/${gig.id}`).set(rest, { merge: true });
     },
+    async listFestivalIds() {
+      return (await db.collection("festivals").select().get()).docs.map((d) => d.id);
+    },
+    async upsertFestival(f) {
+      const { decision, decidedAt, ...rest } = f; // the band's decision is never overwritten
+      await db.doc(`festivals/${f.id}`).set(rest, { merge: true });
+    },
     async setGigStatus(s) {
       await db.doc("gigstatus/last").set(s);
     },

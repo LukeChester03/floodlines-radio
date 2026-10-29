@@ -28,8 +28,9 @@ export function fakeEpk(file = null) {
   };
 }
 
-export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {}, replies = [], gigs = {}, settings = {} } = {}) {
+export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {}, replies = [], gigs = {}, festivals = {}, settings = {} } = {}) {
   const gigDocs = structuredClone(gigs);
+  const festivalDocs = structuredClone(festivals);
   let gigStatus = {};
   const list = sendlist.map((e) => ({ ...e }));
   const st = structuredClone(stations);
@@ -38,6 +39,14 @@ export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {
   const inbox = [...replies];
   return {
     gigs: gigDocs,
+    festivals: festivalDocs,
+    async listFestivalIds() {
+      return Object.keys(festivalDocs);
+    },
+    async upsertFestival(f) {
+      const { decision, decidedAt, ...rest } = f;
+      festivalDocs[f.id] = { ...festivalDocs[f.id], ...rest };
+    },
     async getSettings() {
       return settings;
     },

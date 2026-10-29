@@ -1,5 +1,5 @@
 const s = (v) => (typeof v === "string" ? v : "");
-const isDate = (v) => typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v) && !isNaN(Date.parse(v));
+export const isDate = (v) => typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v) && !isNaN(Date.parse(v));
 
 const band = (b) => (typeof b.link === "string" ? { name: b.name, link: b.link } : { name: b.name });
 
