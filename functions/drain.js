@@ -1,6 +1,6 @@
 import { BAND_EMAIL } from "./core/band.js";
 import { sendPace, startOfUtcDay } from "./core/pace.js";
-import { canSend, buildMessage } from "./core/message.js";
+import { canSend, buildMessage, signatureFrom } from "./core/message.js";
 
 const MAX_EPK = 18 * 1024 * 1024;
 
@@ -27,6 +27,7 @@ export async function drain({ store, transport, epk = { read: async () => null }
     }
   }
   const attachments = file && !epkReason ? [file] : undefined;
+  const sig = queue.length ? signatureFrom(await store.getSettings().catch(() => null)) : {};
 
   let sent = 0;
   for (const entry of queue) {
@@ -42,7 +43,7 @@ export async function drain({ store, transport, epk = { read: async () => null }
     await store.updateEntry(entry.key, { state: "sending" });
     try {
       const prior = sends.find((s) => s.id === entry.id && s.song === entry.song && s.kind === "pitch");
-      const { messageId, threadId } = await transport.send(buildMessage(entry, BAND_EMAIL, prior, attachments));
+      const { messageId, threadId } = await transport.send(buildMessage(entry, BAND_EMAIL, prior, attachments, sig));
       const record = { id: entry.id, song: entry.song, kind: entry.kind, to: entry.to, subject: entry.subject, sentAt: new Date(now()).toISOString(), messageId, threadId };
       await store.addSend(record);
       sends.push(record);

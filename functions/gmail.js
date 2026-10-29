@@ -20,26 +20,34 @@ function filenameParams(name) {
   return `filename="${header(name)}"; filename*=UTF-8''${encodeURIComponent(name)}`;
 }
 
+const leaf = (type, buf, extra = []) => [`Content-Type: ${type}`, ...extra, "Content-Transfer-Encoding: base64", "", wrap(Buffer.from(buf))];
+
+function multipart(type, parts) {
+  const boundary = `=_floodlines_${randomUUID()}`;
+  return [`Content-Type: multipart/${type}; boundary="${boundary}"`, "", ...parts.flatMap((p) => [`--${boundary}`, ...p]), `--${boundary}--`, ""];
+}
+
+const escapeHtml = (s) => s.replace(/[&<>"']/g, (c) => `&${{ "&": "amp", "<": "lt", ">": "gt", '"': "quot", "'": "#39" }[c]};`);
+
+// The body, with the signature (and its inline logo) when there is one.
+function bodyPart(msg) {
+  const body = msg.body ?? "";
+  const { signature, logo } = msg;
+  if (!signature) return leaf("text/plain; charset=UTF-8", body);
+  const text = leaf("text/plain; charset=UTF-8", `${body}\n\n${signature.text}`);
+  const html = leaf("text/html; charset=UTF-8", `${escapeHtml(body).replace(/\r\n|\r|\n/g, "<br>")}<br><br>${signature.html}`);
+  if (!logo) return multipart("alternative", [text, html]);
+  const image = leaf(logo.mimeType, logo.data, ["Content-ID: <logo@floodlines>", `Content-Disposition: inline; ${filenameParams(logo.name)}`]);
+  return multipart("alternative", [text, multipart("related", [html, image])]);
+}
+
 export function rawMessage(msg) {
   const lines = [`From: ${msg.from}`, `To: ${msg.to}`, `Subject: ${header(msg.subject ?? "")}`];
   if (msg.inReplyTo) lines.push(`In-Reply-To: ${msg.inReplyTo}`, `References: ${msg.inReplyTo}`);
   lines.push("MIME-Version: 1.0");
-  const textPart = ["Content-Type: text/plain; charset=UTF-8", "Content-Transfer-Encoding: base64", "", wrap(Buffer.from(msg.body ?? ""))];
-  if (!msg.attachments?.length) return b64url([...lines, ...textPart].join("\r\n"));
-  const boundary = `=_floodlines_${randomUUID()}`;
-  lines.push(`Content-Type: multipart/mixed; boundary="${boundary}"`, "", `--${boundary}`, ...textPart);
-  for (const a of msg.attachments) {
-    lines.push(
-      `--${boundary}`,
-      `Content-Type: ${a.mimeType}`,
-      `Content-Disposition: attachment; ${filenameParams(a.name)}`,
-      "Content-Transfer-Encoding: base64",
-      "",
-      wrap(Buffer.from(a.data)),
-    );
-  }
-  lines.push(`--${boundary}--`, "");
-  return b64url(lines.join("\r\n"));
+  if (!msg.attachments?.length) return b64url([...lines, ...bodyPart(msg)].join("\r\n"));
+  const files = msg.attachments.map((a) => leaf(a.mimeType, a.data, [`Content-Disposition: attachment; ${filenameParams(a.name)}`]));
+  return b64url([...lines, ...multipart("mixed", [bodyPart(msg), ...files])].join("\r\n"));
 }
 
 export function gmailTransport({ clientId, clientSecret, refreshToken }) {
