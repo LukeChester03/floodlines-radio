@@ -6,7 +6,6 @@
   "scripts": { "gig-hunt": "node scripts/gig-hunt.mjs", "gig-pasted": "node scripts/gig-hunt.mjs --pasted" },
   "engines": { "node": "22" },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.70.0",
     "firebase-admin": "^13.0.0",
     "firebase-functions": "^6.0.0"
   }
