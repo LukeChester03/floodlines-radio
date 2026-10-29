@@ -12,6 +12,17 @@ const label = d => d[0].toUpperCase() + d.slice(1);
 const filters = ["new", ...gigDecisions, "all"];
 const monthName = m => new Date(`${m}-01T00:00:00Z`).toLocaleString("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
 
+// Where the weekly search stands; a missed run replaces the next-search line
+export function SearchStatus({ status }) {
+  const s = runSummary(status, Date.now());
+  return (
+    <>
+      <p className="view-sub">{s.last ? `${s.last} · ${s.problems} ${s.problems === 1 ? "problem" : "problems"}` : "Not searched yet"}</p>
+      {s.missed ? <p className="warn search-missed">Missed Monday's search: is the Mac on?</p> : <p className="hint">{s.next}</p>}
+    </>
+  );
+}
+
 function Source({ g }) {
   return (
     <span className="gig-src">{g.source === "pasted" ? "Added by you" : "Found by search"}, <a href={g.url} target="_blank" rel="noreferrer">{host(g.url)}<span className="sr-only"> (new tab)</span></a></span>
@@ -186,7 +197,6 @@ function SearchSettings({ settings, save }) {
 }
 
 export default function Gigs({ cloud }) {
-  const now = Date.now();
   const [decision, setDecision] = useState("all");
   const [month, setMonth] = useState("");
   const gigs = useMemo(() => gigView(cloud.gigs, { now: Date.now(), decision, month }), [cloud.gigs, decision, month]);
@@ -196,7 +206,7 @@ export default function Gigs({ cloud }) {
       <div className="view-head">
         <div>
           <h2 className="view-title">Gigs</h2>
-          <p className="view-sub">{runSummary(cloud.gigStatus, now)}</p>
+          <SearchStatus status={cloud.gigStatus} />
         </div>
       </div>
       <AddGig add={cloud.addGig} />
@@ -215,7 +225,7 @@ export default function Gigs({ cloud }) {
         </div>
       )}
       {gigs.length === 0 ? (
-        <Empty title={cloud.gigs.length ? "No gigs match these filters." : "No gigs yet: the weekly search runs on Mondays."} />
+        <Empty title={cloud.gigs.length ? "No gigs match these filters." : "No gigs yet."} />
       ) : (
         <ul className="gig-list" aria-label="Upcoming gigs, best first">
           <AnimatePresence initial={false}>{gigs.map(g => <Card key={g.id} g={g} decide={cloud.decideGig} />)}</AnimatePresence>
