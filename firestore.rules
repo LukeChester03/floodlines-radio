@@ -24,6 +24,11 @@ service cloud.firestore {
       allow read: if isBand() || isTester();
       allow update: if isBand() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['decision', 'decidedAt']);
     }
+    // Festivals are loaded by the server; the band only reads them and records its decision
+    match /festivals/{id} {
+      allow read: if isBand() || isTester();
+      allow update: if isBand() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['decision', 'decidedAt']);
+    }
     match /gigstatus/{id} {
       allow read: if isBand() || isTester();
     }
