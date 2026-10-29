@@ -5,7 +5,7 @@ import stationEmails from "./data/station-emails.json" with { type: "json" };
 export function firestoreStore(db, stations = stationEmails) {
   const emails = new Map(stations.map((s) => [s.id, s.email]));
   const data = (snap) => snap.docs.map((d) => ({ key: d.id, ...d.data() }));
-  const status = db.doc("settings/status");
+  const status = db.doc("gmail/status");
   return {
     async listSendlist({ state } = {}) {
       const col = db.collection("sendlist");
