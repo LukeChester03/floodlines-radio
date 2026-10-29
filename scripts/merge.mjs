@@ -157,6 +157,8 @@ const out = all
   .sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || a.name.localeCompare(b.name))
   .map((s, i) => ({ ...s, rank: i + 1 }));
 writeFileSync("src/data/stations.json", JSON.stringify(out, null, 1));
+// The server only needs each station's email, so it gets just those
+writeFileSync("functions/data/station-emails.json", JSON.stringify(out.filter(s => s.email).map(({ id, email }) => ({ id, email })), null, 1));
 const count = k => out.reduce((m, s) => ((m[s[k]] = (m[s[k]] || 0) + 1), m), {});
 console.log(`${out.length} stations (${dropped} dropped/duplicates)`);
 console.log("by group", count("group"));

@@ -1,6 +1,8 @@
+import stationEmails from "./data/station-emails.json" with { type: "json" };
+
 // Firestore Admin implementation of the same store methods as fakeStore.
-// `stations` is the generated stations list; getStation joins its email onto the CRM record as { email, rec }.
-export function firestoreStore(db, stations = []) {
+// `stations` defaults to the station emails `npm run merge` writes; getStation joins its email onto the CRM record as { email, rec }.
+export function firestoreStore(db, stations = stationEmails) {
   const emails = new Map(stations.map((s) => [s.id, s.email]));
   const data = (snap) => snap.docs.map((d) => ({ key: d.id, ...d.data() }));
   const status = db.doc("settings/status");
