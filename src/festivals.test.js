@@ -30,6 +30,7 @@ test("festivalView filters by decision, new meaning undecided", () => {
   assert.deepEqual(ids("all"), ["a", "b", "c"]);
 });
 
-test("festivalView skips festivals with no tier yet", () => {
-  assert.deepEqual(festivalView([f("x", null)], { now }), []);
+test("festivalView puts festivals still being read first", () => {
+  const out = festivalView([f("g", "good"), f("x", null)], { now });
+  assert.deepEqual(out.map(t => [t.tier, t.title, t.festivals.map(x => x.id)]), [[null, "Being read", ["x"]], ["good", "Good shot", ["g"]]]);
 });

@@ -43,6 +43,12 @@ export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {
     async listFestivalIds() {
       return Object.keys(festivalDocs);
     },
+    async getFestival(id) {
+      return festivalDocs[id];
+    },
+    async listReadingFestivals() {
+      return Object.values(festivalDocs).filter((f) => f.tier === null);
+    },
     async upsertFestival(f) {
       const { decision, decidedAt, ...rest } = f;
       festivalDocs[f.id] = { ...festivalDocs[f.id], ...rest };

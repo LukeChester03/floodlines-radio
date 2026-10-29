@@ -18,6 +18,7 @@ import { gmailTransport } from "./gmail.js";
 import { consentUrl, handleCallback, googleExchange, secretWriter, secretReader } from "./connect.js";
 import { approveBatch } from "./approve.js";
 import { addPastedGig } from "./add-gig.js";
+import { addPastedFestival } from "./add-festival.js";
 
 initializeApp();
 setGlobalOptions({ region: REGION });
@@ -73,6 +74,20 @@ export const addGig = onCall(async (request) => {
   }
   try {
     return await addPastedGig(request.data ?? {}, { store: firestoreStore(getFirestore()) });
+  } catch (e) {
+    throw new HttpsError("invalid-argument", e.message);
+  }
+});
+
+export const addFestival = onCall(async (request) => {
+  try {
+    requireBand(request);
+  } catch (e) {
+    if (e instanceof PermissionDenied) throw new HttpsError("permission-denied", e.message);
+    throw e;
+  }
+  try {
+    return await addPastedFestival(request.data ?? {}, { store: firestoreStore(getFirestore()) });
   } catch (e) {
     throw new HttpsError("invalid-argument", e.message);
   }

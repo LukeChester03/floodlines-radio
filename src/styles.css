@@ -617,6 +617,8 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .fest-seg button:focus-visible { outline-offset: -5px; }
 .fest-seg button[aria-pressed="true"]:focus-visible { outline-color: var(--log); }
 .fest-link { font-size: .8125rem; font-weight: 700; color: var(--ink); text-underline-offset: 3px; }
+.fest-ticket.reading .fest-stub, .fest-ticket.reading .fest-body { background: color-mix(in srgb, var(--log) 82%, var(--tape)); }
+.fest-url { overflow-wrap: anywhere; }
 .fest-ticket :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
 @media (max-width: 520px) {
   .fest-ticket { grid-template-columns: 64px minmax(0, 1fr); }

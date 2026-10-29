@@ -1,5 +1,5 @@
 // Festivals the band could apply to: pure helpers for the Festivals screen.
-const festivalTiers = [["good", "Good shot"], ["worth", "Worth a shot"], ["long", "Long shot"], ["closed", "Closed"]];
+const festivalTiers = [[null, "Being read"], ["good", "Good shot"], ["worth", "Worth a shot"], ["long", "Long shot"], ["closed", "Closed"]];
 
 const order = (a, b) => !!b.topPick - !!a.topPick || (a.applyBy || "9999").localeCompare(b.applyBy || "9999") || (a.name || "").localeCompare(b.name || "");
 
