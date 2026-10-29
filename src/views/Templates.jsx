@@ -6,6 +6,16 @@ import { reachable } from "../../functions/core/stations.js";
 import { useLocal } from "../store.js";
 import { checkEpkFile, withTemplate } from "../crm.js";
 import { Modal } from "../ui/bits.jsx";
+import { renderSignature, signatureSetting } from "../signature.js";
+
+const SIG_EXAMPLE = `Kind regards,
+{logo}
+**Listen & Connect**
+[Spotify](https://…)
+[Instagram](https://…)
+
+**Contact**
+[floodlinesbanduk@gmail.com](mailto:floodlinesbanduk@gmail.com)`;
 
 const KINDS = [
   ["pitch", "Pitch", "The first email to a station."],
@@ -39,6 +49,9 @@ export default function Templates({ stations, songs, song, cloud }) {
   };
   const sample = stations.find(s => reachable(s) && s.email) || stations.find(reachable) || stations[0];
   const save = (kind, patch) => cloud.saveSettings({ templates: withTemplate(tpls, kind, patch) });
+  const [sigSource, setSigSource] = useState(cloud.settings.signature?.source || "");
+  const sigHtml = sigSource.trim() ? renderSignature(sigSource).html : "";
+  const saveSig = source => { setSigSource(source); cloud.saveSettings({ signature: signatureSetting(source) }); };
 
   return (
     <div className="templates">
@@ -82,6 +95,21 @@ export default function Templates({ stations, songs, song, cloud }) {
         </AnimatePresence>
       </section>
 
+      <section className="card-panel tpl-card" aria-labelledby="sig-h">
+        <h3 className="dlg-title" id="sig-h">Signature</h3>
+        <p className="dlg-sub">Added under every pitch and follow-up.</p>
+        <div className="tpl-grid">
+          <div>
+            <label className="field"><span>Signature</span><textarea rows={12} value={sigSource} placeholder={SIG_EXAMPLE} aria-describedby="sig-syntax" onChange={e => saveSig(e.target.value)} /></label>
+            <p className="hint" id="sig-syntax">**Bold heading**, [Link text](https://…) for links (also mailto: and tel:), and {"{logo}"} on its own line for the band logo.</p>
+          </div>
+          <div className="tpl-preview" aria-live="polite">
+            <p className="hint">Preview</p>
+            {sigHtml ? <div className="tpl-sig" dangerouslySetInnerHTML={{ __html: sigHtml }} /> : <p className="hint">No signature yet.</p>}
+          </div>
+        </div>
+      </section>
+
       {KINDS.map(([kind, label, sub]) => {
         const t = tpls[kind] || baseTemplates[kind];
         const same = t.subject === baseTemplates[kind].subject && t.body === baseTemplates[kind].body;
@@ -108,6 +136,7 @@ export default function Templates({ stations, songs, song, cloud }) {
                   <motion.div key={preview.subject + preview.body} initial={{ opacity: 0.4 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
                     <p className="tpl-subject">{preview.subject}</p>
                     <pre className="tpl-body">{preview.body}</pre>
+                    {sigHtml && <div className="tpl-sig" dangerouslySetInnerHTML={{ __html: sigHtml }} />}
                   </motion.div>
                 )}
               </div>
