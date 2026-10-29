@@ -1,4 +1,6 @@
 import { firestoreStore } from "./store.js";
+import appStations from "../src/data/stations.json" with { type: "json" };
+import stationEmails from "./data/station-emails.json" with { type: "json" };
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { fakeTransport, fakeStore } from "./fakes.js";
@@ -62,6 +64,19 @@ test("firestoreStore.getStation joins the static email onto the CRM record", asy
   assert.deepEqual(await s.getStation("a"), { email: "a@x.com", rec: { dnc: true } });
   assert.deepEqual(await s.getStation("b"), { email: "b@x.com", rec: {} });
   assert.equal(await s.getStation("zzz"), undefined);
+});
+
+test("firestoreStore defaults to the generated station emails", async () => {
+  const withEmail = appStations.filter((x) => x.email);
+  const db = { doc: () => ({ get: async () => ({ exists: false }) }) };
+  const s = firestoreStore(db);
+  assert.deepEqual(await s.getStation(withEmail[0].id), { email: withEmail[0].email, rec: {} });
+  assert.equal((await s.listStations()).length, withEmail.length);
+});
+
+test("the server's station emails match the app's station list", () => {
+  const pairs = (list) => new Set(list.map(({ id, email }) => `${id} ${email}`));
+  assert.deepEqual(pairs(stationEmails), pairs(appStations.filter((x) => x.email)));
 });
 
 test("fakeStore.listReadingGigs returns only gigs still being read", async () => {
