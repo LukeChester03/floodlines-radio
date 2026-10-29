@@ -33,7 +33,7 @@ export default function Booth({ stations, songs, song, dueAll, queue, openMailer
   ];
 
   const pursuits = useMemo(
-    () => activePursuits({ gigs: cloud.gigs, festivals: cloud.festivals, stations: stations.map(s => ({ id: s.id, name: s.name, songs: s.rec.songs })) }, Date.now()),
+    () => activePursuits({ gigs: cloud.gigs, festivals: cloud.festivals, stations: stations.filter(s => !s.rec.dnc).map(s => ({ id: s.id, name: s.name, songs: s.rec.songs })) }, Date.now()),
     [cloud.gigs, cloud.festivals, stations],
   );
   const songTitle = id => songs.find(sg => sg.id === id)?.title || id;
