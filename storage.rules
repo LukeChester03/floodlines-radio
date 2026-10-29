@@ -1,9 +1,11 @@
 rules_version = '2';
 // Only the band's shared login can touch the EPK, and only at epk/current (under 18 MB).
+// The test login test@test.com can only read it, for screenshots (ui-evidence).
 service firebase.storage {
   match /b/{bucket}/o {
     match /epk/current {
-      allow read, delete: if request.auth != null && request.auth.token.email == 'floodlinesbanduk@gmail.com';
+      allow read: if request.auth != null && request.auth.token.email in ['floodlinesbanduk@gmail.com', 'test@test.com'];
+      allow delete: if request.auth != null && request.auth.token.email == 'floodlinesbanduk@gmail.com';
       allow create, update: if request.auth != null && request.auth.token.email == 'floodlinesbanduk@gmail.com'
         && request.resource.size < 18 * 1024 * 1024;
     }
