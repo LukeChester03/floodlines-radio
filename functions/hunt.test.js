@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { gigHunt } from "./hunt.js";
+import { gigHunt, readPasted } from "./hunt.js";
 import { gigId } from "./core/gigs.js";
 import { fakeStore } from "./fakes.js";
 
@@ -55,4 +55,35 @@ test("the run status is written to gigstatus/last", async () => {
   assert.equal(s.ranAt, "2026-10-10T12:00:00.000Z");
   assert.equal(s.queries.length, 2);
   assert.deepEqual([s.found, s.read, s.saved], [2, 2, 1]);
+});
+
+const reading = (url) => ({ id: gigId(url), url, text: `pasted ${url}`, source: "pasted", score: null, reasons: [] });
+
+test("with no gigs being read, no session runs", async () => {
+  let calls = 0;
+  const r = await readPasted({ store: fakeStore(), runSession: async () => (calls++, "[]"), now });
+  assert.equal(calls, 0);
+  assert.deepEqual(r, { read: 0, saved: 0, errors: [] });
+});
+
+test("one session reads every queued post; a post missing from the answer stays queued", async () => {
+  const [a, b] = ["https://a.com/p/A", "https://a.com/p/B"];
+  const store = fakeStore({ gigs: { [gigId(a)]: reading(a), [gigId(b)]: reading(b) } });
+  const prompts = [];
+  const runSession = async (p) => (prompts.push(p), JSON.stringify([{ ...offer(a), text: "model's copy" }]));
+  await readPasted({ store, runSession, now });
+  assert.equal(prompts.length, 1);
+  assert.ok(prompts[0].includes(a) && prompts[0].includes(b));
+  assert.equal(typeof store.gigs[gigId(a)].score, "number");
+  assert.equal(store.gigs[gigId(a)].text, `pasted ${a}`);
+  assert.equal(store.gigs[gigId(b)].score, null);
+  assert.deepEqual(await store.getGigStatus(), {});
+});
+
+test("a session that throws leaves the gig queued", async () => {
+  const a = "https://a.com/p/C";
+  const store = fakeStore({ gigs: { [gigId(a)]: reading(a) } });
+  const r = await readPasted({ store, runSession: async () => { throw new Error("claude crashed"); }, now });
+  assert.deepEqual(store.gigs[gigId(a)], reading(a));
+  assert.equal(r.errors.length, 1);
 });

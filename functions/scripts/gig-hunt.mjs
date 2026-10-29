@@ -1,4 +1,5 @@
 // Weekly gig hunt on the maintainer's Mac (launchd: see gig-hunt.plist).
+// With --pasted, reads the posts pasted with Add a gig instead (every 15 minutes: see gig-pasted.plist).
 // Needs Application Default Credentials: `gcloud auth application-default login`.
 // Writes to the production Firestore: never run it from an agent.
 import { spawn } from "node:child_process";
@@ -6,16 +7,19 @@ import { readFileSync } from "node:fs";
 import { initializeApp, applicationDefault } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { firestoreStore } from "../store.js";
-import { gigHunt } from "../hunt.js";
+import { gigHunt, readPasted } from "../hunt.js";
 
 const projectId = JSON.parse(readFileSync(new URL("../../.firebaserc", import.meta.url), "utf8")).projects.default;
 initializeApp({ credential: applicationDefault(), projectId });
 
-// One headless Claude Code session that can only search and fetch the web; resolves to its answer.
+const pasted = process.argv.includes("--pasted");
+
+// One headless Claude Code session that can only search and fetch the web (no tools at all with --pasted); resolves to its answer.
 function runSession(prompt) {
   return new Promise((resolve, reject) => {
     const tools = ["WebSearch", "WebFetch"];
-    const child = spawn("claude", ["-p", "--tools", ...tools, "--allowedTools", ...tools], { stdio: ["pipe", "pipe", "pipe"] });
+    const args = pasted ? ["-p", "--tools", ""] : ["-p", "--tools", ...tools, "--allowedTools", ...tools];
+    const child = spawn("claude", args, { stdio: ["pipe", "pipe", "pipe"] });
     let out = "";
     let err = "";
     child.stdout.on("data", (d) => (out += d));
@@ -26,5 +30,6 @@ function runSession(prompt) {
   });
 }
 
-const status = await gigHunt({ store: firestoreStore(getFirestore()), runSession });
+const store = firestoreStore(getFirestore());
+const status = await (pasted ? readPasted : gigHunt)({ store, runSession });
 console.log(JSON.stringify(status, null, 2));

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Reads the posts pasted with Add a gig every 15 minutes, and once at load.
+
+  Set the two paths below to this checkout's functions/ directory and to your
+  node binary (`which node`), then copy and load it:
+
+    cp functions/scripts/gig-pasted.plist ~/Library/LaunchAgents/uk.floodlines.gig-pasted.plist
+    launchctl load ~/Library/LaunchAgents/uk.floodlines.gig-pasted.plist
+
+  Unload with `launchctl unload` on the same path. Output goes to /tmp/gig-pasted.log.
+  `claude` must be on the PATH below and logged in; Firestore access uses
+  Application Default Credentials (`gcloud auth application-default login`).
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>uk.floodlines.gig-pasted</string>
+  <key>WorkingDirectory</key>
+  <string>/Users/YOU/_git/floodlines-radio/functions</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/npm</string>
+    <string>run</string>
+    <string>gig-pasted</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/YOU/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+  <key>StartInterval</key>
+  <integer>900</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/tmp/gig-pasted.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/gig-pasted.log</string>
+</dict>
+</plist>
