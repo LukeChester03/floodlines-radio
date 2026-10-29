@@ -1,0 +1,30 @@
+[
+  {
+    "page": "/#gigs",
+    "width": 375,
+    "image": "-gigs-375.png",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#gigs",
+    "width": 1280,
+    "image": "-gigs-1280.png",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#festivals",
+    "width": 375,
+    "image": "-festivals-375.png",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#festivals",
+    "width": 1280,
+    "image": "-festivals-1280.png",
+    "overflow": false,
+    "console_errors": []
+  }
+]
