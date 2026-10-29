@@ -1,8 +1,10 @@
 import { readFileSync } from "node:fs";
 import { DEFAULT_GIG_AREAS, DEFAULT_GIG_PHRASES, gigId } from "./core/gigs.js";
 import { importGigs } from "./gigs.js";
+import { importFestivals } from "./festivals.js";
 
 const PROMPT = readFileSync(new URL("./scripts/gig-hunt-prompt.md", import.meta.url), "utf8");
+const FESTIVAL_PROMPT = readFileSync(new URL("./scripts/festival-read-prompt.md", import.meta.url), "utf8");
 
 export function huntPrompt({ areas, phrases, similarArtists, today }) {
   const fill = { areas: areas.join(", "), phrases: phrases.join(", "), similarArtists: similarArtists.join(", ") || "(none given)", today };
@@ -90,4 +92,28 @@ export async function readPasted({ store, runSession, now = Date.now }) {
     if (g) posts.push({ ...a, url: g.url, text: g.text, source: "pasted" });
   }
   return importGigs({ store, posts, now });
+}
+
+export function festivalPrompt(festivals, today) {
+  const fill = { today, festivals: festivals.map((f) => `URL: ${f.url}\nNote: ${f.note || "(none)"}`).join("\n\n---\n\n") };
+  return FESTIVAL_PROMPT.replace(/\{\{(\w+)\}\}/g, (_, k) => fill[k]);
+}
+
+// Reads the festivals pasted with Add a festival (tier null) in one session. A festival the answer leaves out stays queued.
+export async function readPastedFestivals({ store, runSession, now = Date.now }) {
+  const queued = await store.listReadingFestivals();
+  if (!queued.length) return { read: 0, saved: 0, errors: [] };
+  let answers;
+  try {
+    answers = parsePosts(await runSession(festivalPrompt(queued, new Date(now()).toISOString().slice(0, 10))));
+  } catch (e) {
+    return { read: 0, saved: 0, errors: [{ where: "pasted festivals", message: e.message }] };
+  }
+  const byId = new Map(queued.map((f) => [f.id, f]));
+  const festivals = [];
+  for (const a of answers) {
+    const f = typeof a?.url === "string" && byId.get(gigId(a.url));
+    if (f) festivals.push({ ...a, url: f.url, note: f.note, source: "pasted" });
+  }
+  return importFestivals({ store, festivals, now });
 }
