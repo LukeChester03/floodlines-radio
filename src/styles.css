@@ -532,6 +532,7 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .gig-seg button:hover { background: color-mix(in srgb, var(--tape) 50%, #fff); }
 .gig-seg button[aria-pressed="true"] { background: var(--ink); color: var(--log); }
 .gig-seg button:focus-visible { outline-offset: -5px; }
+.gig-seg button[aria-pressed="true"]:focus-visible { outline-color: var(--log); }
 .gig-src { font-size: .8125rem; color: var(--ink-2); overflow-wrap: anywhere; }
 .gig-src a { font-weight: 700; color: var(--ink); text-underline-offset: 3px; }
 .gig-ticket :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
