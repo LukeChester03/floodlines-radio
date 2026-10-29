@@ -498,15 +498,63 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 
 /* Gigs */
 .gig-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-.gig-card { background: var(--log); color: var(--ink); border-radius: 14px; padding: 14px 18px; display: grid; gap: 6px; box-shadow: 0 16px 36px -18px rgba(0,0,0,.7); }
-.gig-top { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
-.gig-score { margin-left: auto; font-weight: 800; }
-.gig-line, .gig-reasons { margin: 0; }
-.gig-reasons { padding-left: 1.2em; font-size: .875rem; }
 .gig-skeleton { min-height: 84px; align-content: center; }
 .gig-bar { height: 12px; border-radius: 6px; background: var(--rule); width: 70%; }
 .gig-bar.short { width: 40%; }
-.gig-card :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+/* A gig is a ticket: the torn-off stub holds the date, the body the gig, a marker stamp the score */
+.gig-ticket { display: grid; grid-template-columns: 84px minmax(0, 1fr); color: var(--ink); filter: drop-shadow(0 14px 18px rgba(0,0,0,.45)); }
+.gig-stub, .gig-body { background: var(--log); }
+.gig-stub { border-radius: 12px 0 0 12px; border-right: 2px dashed var(--rule); display: grid; place-items: center; padding: 14px 6px; text-align: center; line-height: 1; -webkit-mask: radial-gradient(circle at 100% 0, transparent 8px, #000 8.5px) top / 100% 51% no-repeat, radial-gradient(circle at 100% 100%, transparent 8px, #000 8.5px) bottom / 100% 51% no-repeat; mask: radial-gradient(circle at 100% 0, transparent 8px, #000 8.5px) top / 100% 51% no-repeat, radial-gradient(circle at 100% 100%, transparent 8px, #000 8.5px) bottom / 100% 51% no-repeat; }
+.gig-stub time { display: grid; justify-items: center; }
+.gig-dow { font-weight: 800; font-size: .8125rem; color: var(--ink-2); }
+.gig-day { font-family: var(--display); font-size: 2.4rem; margin: 4px 0 2px; }
+.gig-mon { font-weight: 800; font-size: .9375rem; color: var(--song); }
+.gig-tbc { font-family: var(--marker); font-size: 1.05rem; color: var(--ink-2); line-height: 1.1; }
+.gig-body { border-radius: 0 12px 12px 0; padding: 14px 18px 14px 20px; display: grid; gap: 8px; font-size: .9375rem; -webkit-mask: radial-gradient(circle at 0 0, transparent 8px, #000 8.5px) top / 100% 51% no-repeat, radial-gradient(circle at 0 100%, transparent 8px, #000 8.5px) bottom / 100% 51% no-repeat; mask: radial-gradient(circle at 0 0, transparent 8px, #000 8.5px) top / 100% 51% no-repeat, radial-gradient(circle at 0 100%, transparent 8px, #000 8.5px) bottom / 100% 51% no-repeat; }
+.gig-body p, .gig-body blockquote { margin: 0; }
+.gig-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: start; }
+.gig-venue { margin: 0; font-family: var(--display); font-weight: 400; font-size: 1.3rem; line-height: 1.15; overflow-wrap: anywhere; }
+.gig-where { color: var(--ink-2); font-weight: 600; }
+.gig-genre { color: var(--song); font-weight: 800; }
+.gig-stamp { grid-row: span 2; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; border: 3px solid currentColor; transform: rotate(-9deg); font-family: var(--marker); font-size: 1.45rem; line-height: 1; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.gig-stamp.hot { color: var(--onair); }
+.gig-stamp.warm { color: color-mix(in srgb, var(--amber) 60%, #000); }
+.gig-muted { color: var(--ink-2); }
+.gig-apply { padding: 8px 10px; border-radius: 8px; background: color-mix(in srgb, var(--tape) 45%, #fff); }
+.gig-apply b { font-weight: 800; }
+.gig-why { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; font-size: .8125rem; color: var(--ink-2); }
+.gig-why li::before { content: "✓ "; color: #1b7a3e; font-weight: 800; }
+.gig-why li.miss::before { content: "? "; color: var(--ink-2); }
+.gig-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding-top: 10px; border-top: 1px solid var(--rule); }
+.gig-seg { display: inline-flex; flex-wrap: wrap; border: 2px solid var(--ink); border-radius: var(--r); overflow: hidden; }
+.gig-seg button { min-height: 40px; padding: 6px 12px; border: 0; border-right: 2px solid var(--ink); background: transparent; color: var(--ink); font-weight: 700; font-size: .8125rem; }
+.gig-seg button:last-child { border-right: 0; }
+.gig-seg button:hover { background: color-mix(in srgb, var(--tape) 50%, #fff); }
+.gig-seg button[aria-pressed="true"] { background: var(--ink); color: var(--log); }
+.gig-seg button:focus-visible { outline-offset: -5px; }
+.gig-seg button[aria-pressed="true"]:focus-visible { outline-color: var(--log); }
+.gig-src { font-size: .8125rem; color: var(--ink-2); overflow-wrap: anywhere; }
+.gig-src a { font-weight: 700; color: var(--ink); text-underline-offset: 3px; }
+.gig-ticket :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+.gig-ticket.reading .gig-stub, .gig-ticket.reading .gig-body { background: color-mix(in srgb, var(--log) 82%, var(--tape)); }
+.gig-reading { font-weight: 800; }
+.gig-quote { border-left: 3px solid var(--amber); padding-left: 10px; color: var(--ink-2); font-size: .9rem; overflow-wrap: anywhere; }
+.gig-hint { font-size: .8125rem; color: var(--ink-2); }
+.gig-vu { display: inline-flex; align-items: flex-end; gap: 3px; height: 26px; }
+.gig-vu i { width: 5px; height: 30%; background: var(--amber); border-radius: 1px; animation: gig-vu 1s ease-in-out infinite; }
+.gig-vu i:nth-child(2) { animation-delay: .15s; }
+.gig-vu i:nth-child(3) { animation-delay: .3s; }
+.gig-vu i:nth-child(4) { animation-delay: .45s; }
+@keyframes gig-vu { 0%, 100% { height: 30%; } 50% { height: 100%; } }
+@media (prefers-reduced-motion: reduce) { .gig-vu i { animation: none; height: 70%; } }
+@media (max-width: 520px) {
+  .gig-ticket { grid-template-columns: 64px minmax(0, 1fr); }
+  .gig-day { font-size: 1.9rem; }
+  .gig-body { padding: 12px 14px 12px 16px; }
+  .gig-stamp { width: 48px; height: 48px; font-size: 1.2rem; }
+  .gig-seg { width: 100%; }
+  .gig-seg button { flex: 1; padding-inline: 4px; }
+}
 
 /* Templates screen */
 .tpl-ph { margin-top: 14px; }
@@ -518,7 +566,5 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .gig-decide { display: flex; flex-wrap: wrap; gap: 8px; }
 .gig-month { display: grid; gap: 4px; font-size: .8125rem; font-weight: 700; color: var(--text-2); }
 .gig-month select { min-height: 42px; padding: 6px 10px; border-radius: 8px; border: 0; background: var(--log); color: var(--ink); }
-.gig-card .view-chip { background: var(--paper, #fff); color: var(--ink); border-color: var(--rule); }
-.gig-card .view-chip.on { background: var(--tape); border-color: var(--tape); }
 .gig-add { margin-bottom: 12px; }
 .gig-add-form { display: grid; gap: 10px; max-width: 560px; margin-top: 10px; }

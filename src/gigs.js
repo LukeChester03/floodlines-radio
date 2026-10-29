@@ -32,10 +32,19 @@ const day = ms => new Date(ms).toISOString().slice(0, 10);
 
 export const gigDecisions = ["interested", "applied", "booked", "passed"];
 
-// The only fields the band may write on a gig (see firestore.rules)
+// The only fields the band may write on a gig (see firestore.rules); null clears the decision
 export function gigDecisionPatch(decision, now) {
-  if (!gigDecisions.includes(decision)) throw new Error(`Unknown gig decision: ${decision}`);
+  if (decision !== null && !gigDecisions.includes(decision)) throw new Error(`Unknown gig decision: ${decision}`);
   return { decision, decidedAt: now.toISOString() };
+}
+
+// What the ticket stub and score stamp show; date parts are null when the date isn't known
+export function gigStub(g) {
+  const tier = g.score >= 50 ? "hot" : g.score >= 30 ? "warm" : "";
+  if (!g.date) return { dow: null, day: null, mon: null, tier };
+  const d = new Date(`${g.date}T00:00:00Z`);
+  const part = opt => d.toLocaleString("en-GB", { ...opt, timeZone: "UTC" });
+  return { dow: part({ weekday: "short" }), day: String(d.getUTCDate()), mon: part({ month: "short" }), tier };
 }
 
 // decision: "new" (undecided), a decision, or "all"; month: "YYYY-MM" or "" for any

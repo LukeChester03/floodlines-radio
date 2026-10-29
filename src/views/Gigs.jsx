@@ -1,7 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { gigDecisions, gigSettings, gigView, parseList, runSummary } from "../gigs.js";
-import { fmtDate } from "../crm.js";
+import { gigDecisions, gigSettings, gigStub, gigView, parseList, runSummary } from "../gigs.js";
 import { Plus, Settings2 } from "lucide-react";
 import { Empty, Modal } from "../ui/bits.jsx";
 
@@ -13,42 +12,59 @@ const label = d => d[0].toUpperCase() + d.slice(1);
 const filters = ["new", ...gigDecisions, "all"];
 const monthName = m => new Date(`${m}-01T00:00:00Z`).toLocaleString("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
 
+function Source({ g }) {
+  return (
+    <span className="gig-src">{g.source === "pasted" ? "Added by you" : "Found by search"}, <a href={g.url} target="_blank" rel="noreferrer">{host(g.url)}<span className="sr-only"> (new tab)</span></a></span>
+  );
+}
+
 function Card({ g, decide }) {
   if (reading(g)) {
     return (
-      <motion.li layout className="gig-card" aria-busy="true" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
-        <div className="gig-top"><b>Reading this post</b></div>
-        {g.excerpt && <blockquote className="gig-line">{g.excerpt}</blockquote>}
-        <p className="hint">Date, venue and line-up fill in by themselves, usually within 15 minutes. If the band's Mac is asleep, it happens when it wakes.</p>
-        <p className="gig-line"><a className="link-btn" href={g.url} target="_blank" rel="noreferrer">Original post · {host(g.url)}<span className="sr-only"> (new tab)</span></a></p>
+      <motion.li layout className="gig-ticket reading" aria-busy="true" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+        <div className="gig-stub"><span className="gig-vu" aria-hidden="true"><i /><i /><i /><i /></span></div>
+        <div className="gig-body">
+          <p className="gig-reading">Reading this post</p>
+          {g.excerpt && <blockquote className="gig-quote">{g.excerpt}</blockquote>}
+          <p className="gig-hint">Date, venue and line-up fill in by themselves, usually within 15 minutes. If the band's Mac is asleep, it happens when it wakes.</p>
+          <div className="gig-foot"><Source g={g} /></div>
+        </div>
       </motion.li>
     );
   }
+  const { dow, day, mon, tier } = gigStub(g);
   const place = [g.town, g.county].filter(Boolean).join(", ");
   return (
-    <motion.li layout className="gig-card" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, x: 24 }} transition={{ duration: 0.2 }}>
-      <div className="gig-top">
-        <b>{g.date ? fmtDate(new Date(g.date)) : "Date to confirm"}</b>
-        <span className="sent-chip">{g.venue || g.title}</span>
-        {place && <span className="muted">{place}</span>}
-        {g.genre && <span className="tag">{g.genre}</span>}
-        <span className="gig-score" title="Score">{g.score}</span>
+    <motion.li layout className="gig-ticket" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, x: 24 }} transition={{ duration: 0.2 }}>
+      <div className="gig-stub">
+        {day ? (
+          <time dateTime={g.date}><span className="gig-dow">{dow}</span> <span className="gig-day">{day}</span> <span className="gig-mon">{mon}</span></time>
+        ) : <span className="gig-tbc">Date<br />TBC</span>}
       </div>
-      {g.bands?.length > 0 && (
-        <p className="gig-line"><span className="muted">On the bill: </span>
-          {g.bands.map((b, i) => (
-            <span key={b.name + i}>{i > 0 && ", "}{b.link ? <a className="link-btn" href={b.link} target="_blank" rel="noreferrer">{b.name}<span className="sr-only"> (new tab)</span></a> : b.name}</span>
-          ))}
-        </p>
-      )}
-      {g.howToApply && <p className="gig-line"><span className="muted">How to apply: </span>{g.howToApply}</p>}
-      {g.reasons?.length > 0 && <ul className="gig-reasons">{g.reasons.map(r => <li key={r}>{r}</li>)}</ul>}
-      <div className="gig-decide" role="group" aria-label={`Your decision on ${g.venue || g.title}`}>
-        {gigDecisions.map(d => (
-          <motion.button key={d} type="button" className={`view-chip${g.decision === d ? " on" : ""}`} aria-pressed={g.decision === d} onClick={() => decide(g.id, d)} whileTap={{ scale: 0.94 }} animate={{ scale: g.decision === d ? [1, 1.12, 1] : 1 }} transition={{ duration: 0.25 }}>{label(d)}</motion.button>
-        ))}
+      <div className="gig-body">
+        <div className="gig-head">
+          <h3 className="gig-venue">{g.venue || g.title}</h3>
+          <span className={`gig-stamp ${tier}`} title={`Score ${g.score} of 100`}><span className="sr-only">Score </span>{g.score}<span className="sr-only"> of 100</span></span>
+          {(place || g.genre) && <p className="gig-where">{place}{place && g.genre && ", "}{g.genre && <span className="gig-genre">{g.genre}</span>}</p>}
+        </div>
+        {g.bands?.length > 0 && (
+          <p><span className="gig-muted">On the bill with </span>
+            {g.bands.map((b, i) => (
+              <span key={b.name + i}>{i > 0 && ", "}{b.link ? <a href={b.link} target="_blank" rel="noreferrer">{b.name}<span className="sr-only"> (new tab)</span></a> : b.name}</span>
+            ))}
+          </p>
+        )}
+        {g.howToApply && <p className="gig-apply"><b>To apply:</b> {g.howToApply}</p>}
+        {g.reasons?.length > 0 && <ul className="gig-why">{g.reasons.map(r => <li key={r} className={r === "Date not given" ? "miss" : undefined}>{r}</li>)}</ul>}
+        <div className="gig-foot">
+          <div className="gig-seg" role="group" aria-label={`Your decision on ${g.venue || g.title}`}>
+            {gigDecisions.map(d => (
+              <motion.button key={d} type="button" aria-pressed={g.decision === d} onClick={() => decide(g.id, g.decision === d ? null : d)} whileTap={{ scale: 0.94 }}>{label(d)}</motion.button>
+            ))}
+          </div>
+          <Source g={g} />
+        </div>
       </div>
-      <p className="gig-line"><a className="link-btn" href={g.url} target="_blank" rel="noreferrer">Original post · {host(g.url)}<span className="sr-only"> (new tab)</span></a></p>
     </motion.li>
   );
 }
