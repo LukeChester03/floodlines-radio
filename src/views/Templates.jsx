@@ -4,7 +4,7 @@ import { FileText, RotateCcw, Upload } from "lucide-react";
 import { band, fill, placeholders, templates as baseTemplates } from "../songs.js";
 import { reachable } from "../../functions/core/stations.js";
 import { useLocal } from "../store.js";
-import { checkEpkFile, withTemplate } from "../crm.js";
+import { checkEpkFile, checkLogoFile, logoRecord, withTemplate } from "../crm.js";
 import { Modal } from "../ui/bits.jsx";
 import { renderSignature, signatureSetting } from "../signature.js";
 
@@ -50,7 +50,43 @@ export default function Templates({ stations, songs, song, cloud }) {
   const sample = stations.find(s => reachable(s) && s.email) || stations.find(reachable) || stations[0];
   const save = (kind, patch) => cloud.saveSettings({ templates: withTemplate(tpls, kind, patch) });
   const [sigSource, setSigSource] = useState(cloud.settings.signature?.source || "");
-  const sigHtml = sigSource.trim() ? renderSignature(sigSource).html : "";
+  const logo = cloud.settings.logo;
+  const logoSrc = logo ? `data:${logo.mimeType};base64,${logo.data}` : null;
+  const [logoError, setLogoError] = useState(null);
+  const [removingLogo, setRemovingLogo] = useState(false);
+  const pickLogo = useRef(null);
+  const saveLogo = async file => {
+    const why = checkLogoFile(file);
+    setLogoError(why);
+    if (why) return;
+    try {
+      const url = await new Promise((resolve, reject) => {
+        const r = new FileReader();
+        r.onload = () => resolve(r.result);
+        r.onerror = () => reject(r.error);
+        r.readAsDataURL(file);
+      });
+      await cloud.saveSettings({ logo: logoRecord(file, url.slice(url.indexOf(",") + 1), new Date()) });
+    } catch (err) { setLogoError(`Couldn't save that (${err.code || err.message}).`); }
+  };
+  const uploadLogo = e => {
+    const file = e.target.files[0];
+    e.target.value = "";
+    if (file) saveLogo(file);
+  };
+  // Only a pasted file counts; pasted text is ignored
+  const pasteLogo = e => {
+    const file = [...e.clipboardData.items].find(i => i.kind === "file")?.getAsFile();
+    if (!file) return;
+    e.preventDefault();
+    saveLogo(file);
+  };
+  const removeLogo = async () => {
+    setRemovingLogo(false);
+    try { await cloud.saveSettings({ logo: null }); setLogoError(null); } catch (err) { setLogoError(`Couldn't remove that (${err.code || err.message}).`); }
+  };
+  const sigHtml = sigSource.trim() ? renderSignature(sigSource, { logoSrc }).html : "";
+  const hasLogoLine = sigSource.split(/\r?\n/).some(l => l.trim() === "{logo}");
   const saveSig = source => { setSigSource(source); cloud.saveSettings({ signature: signatureSetting(source) }); };
 
   return (
@@ -102,6 +138,22 @@ export default function Templates({ stations, songs, song, cloud }) {
           <div>
             <label className="field"><span>Signature</span><textarea rows={12} value={sigSource} placeholder={SIG_EXAMPLE} aria-describedby="sig-syntax" onChange={e => saveSig(e.target.value)} /></label>
             <p className="hint" id="sig-syntax">**Bold heading**, [Link text](https://…) for links (also mailto: and tel:), and {"{logo}"} on its own line for the band logo.</p>
+            <div className="field"><span id="logo-h">Logo</span></div>
+            <input ref={pickLogo} type="file" hidden aria-label="Logo image" accept="image/png,image/jpeg,image/gif" onChange={uploadLogo} />
+            <div className="logo-slot" tabIndex={0} role="group" aria-labelledby="logo-h" aria-describedby="logo-help" onPaste={pasteLogo} style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", padding: 10, border: "1px dashed var(--rule)", borderRadius: 6 }}>
+              {logo ? (
+                <>
+                  <img src={logoSrc} alt="FloodLines" style={{ maxWidth: 120, maxHeight: 60 }} />
+                  <button className="btn" onClick={() => pickLogo.current.click()}><Upload size={14} aria-hidden="true" /> Replace</button>
+                  <button className="link-btn danger" onClick={() => setRemovingLogo(true)}>Remove</button>
+                </>
+              ) : (
+                <button className="btn" onClick={() => pickLogo.current.click()}><Upload size={14} aria-hidden="true" /> Upload logo</button>
+              )}
+              <p className="hint" id="logo-help" style={{ margin: 0 }}>Or click here and paste an image. PNG, JPEG or GIF, up to 200 KB.</p>
+            </div>
+            {logoError && <p role="alert" className="hint" style={{ color: "#c2321f", marginTop: 10 }}>{logoError}</p>}
+            {logo && !hasLogoLine && <p className="hint">Add a line with {"{logo}"} where it should go.</p>}
           </div>
           <div className="tpl-preview" aria-live="polite">
             <p className="hint">Preview</p>
@@ -151,6 +203,15 @@ export default function Templates({ stations, songs, song, cloud }) {
         <div className="dlg-actions">
           <button className="btn btn-primary" onClick={() => { save(resetting, "reset"); setResetting(null); }}>Reset to original</button>
           <button className="btn" onClick={() => setResetting(null)}>Keep my version</button>
+        </div>
+      </Modal>
+
+      <Modal open={removingLogo} onClose={() => setRemovingLogo(false)} label="Remove logo">
+        <h2 className="dlg-title">Remove the logo?</h2>
+        <p className="dlg-sub">The {"{logo}"} line in the signature will show nothing until you add another.</p>
+        <div className="dlg-actions">
+          <button className="btn btn-primary" onClick={removeLogo}>Remove logo</button>
+          <button className="btn" onClick={() => setRemovingLogo(false)}>Keep it</button>
         </div>
       </Modal>
 

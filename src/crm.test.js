@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { canGoLive, checkEpkFile, epkRecord, followupBadge, knownSends, releaseBatch, replyGroups, withSentLog, withTemplate } from "./crm.js";
+import { canGoLive, checkEpkFile, checkLogoFile, epkRecord, logoRecord, followupBadge, knownSends, releaseBatch, replyGroups, withSentLog, withTemplate } from "./crm.js";
 import { templates } from "./songs.js";
 
 const song = { id: "s1", title: "Tidal Lines", link: "https://x.test/s1", released: "2026-01-01", blurb: "" };
@@ -104,4 +104,15 @@ test("epkRecord describes the uploaded file for settings", () => {
   const now = new Date("2026-10-10T12:00:00Z");
   assert.deepEqual(epkRecord({ name: "FloodLines EPK.pdf", size: 2048, type: "application/pdf" }, now),
     { path: "epk/current", name: "FloodLines EPK.pdf", size: 2048, contentType: "application/pdf", uploadedAt: now.toISOString() });
+});
+
+test("checkLogoFile accepts a PNG up to 200 KB and rejects bigger files or other types", () => {
+  assert.equal(checkLogoFile({ size: 150_000, type: "image/png" }), null);
+  assert.equal(checkLogoFile({ size: 250_000, type: "image/png" }), "The logo must be 200 KB or smaller.");
+  assert.equal(checkLogoFile({ size: 1000, type: "image/svg+xml" }), "Use a PNG, JPEG or GIF image.");
+});
+
+test("logoRecord describes the logo for settings, with base64 data and no data: prefix", () => {
+  assert.deepEqual(logoRecord({ name: "fl.png", size: 3, type: "image/png" }, "AAEC", new Date("2026-10-29T12:00:00Z")),
+    { name: "fl.png", mimeType: "image/png", data: "AAEC", size: 3, updatedAt: "2026-10-29T12:00:00.000Z" });
 });
