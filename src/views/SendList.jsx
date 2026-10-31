@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, animate, motion } from "motion/react";
-import { Pause, RotateCcw, Send, Trash2 } from "lucide-react";
+import { Loader2, Pause, RotateCcw, Send, Trash2 } from "lucide-react";
 import { band } from "../songs.js";
 import { approvalSummary } from "../../functions/approve.js";
 import { queueProgress, failureReason } from "../../functions/core/progress.js";
 import { sendPace } from "../../functions/core/pace.js";
 import { Empty, Modal } from "../ui/bits.jsx";
+import { approveError } from "../sendlist.js";
 
 const STATES = {
   review: "Waiting for review",
@@ -29,7 +30,8 @@ function Count({ value }) {
 // Every email waiting to go, for every song. Approve & send hands the reviewed list to the scheduled run.
 export default function SendList({ items, cloud, songs, openMailer, logEvent, setView, gmail, gmailStatus }) {
   const [confirming, setConfirming] = useState(false);
-  const [busy, setBusy] = useState(false);
+  // How many emails the in-flight approve covers; null when nothing is pending
+  const [approving, setApproving] = useState(null);
   const [error, setError] = useState(null);
   const [done, setDone] = useState(null);
   const songTitle = id => songs.find(s => s.id === id)?.title || id;
@@ -47,18 +49,21 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
   const pending = items.filter(q => stateOf(q) === "review");
   const summary = approvalSummary(pending);
 
+  // The box can be closed while this runs; the outcome still lands on the page
   const approve = async () => {
-    setBusy(true);
+    setApproving(pending.length);
     setError(null);
+    setDone(null);
     try {
       const r = await cloud.approveAll(pending.map(key));
       setDone(r.approved);
       setConfirming(false);
-    } catch {
-      setError("Couldn't approve the list. Check your connection and try again.");
+    } catch (err) {
+      setError(approveError(err));
     }
-    setBusy(false);
+    setApproving(null);
   };
+  const approvingText = approving != null && `Approving ${approving} ${approving === 1 ? "email" : "emails"}…`;
 
   return (
     <div className="sendlist">
@@ -78,9 +83,10 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
           <li><b>It sends gradually</b> from {band.email}, one separate personal email at a time, and the status tags below keep up.</li>
         </ol>
         <div className="row-actions">
-          <button className="btn btn-primary" disabled={!pending.length} onClick={() => { setError(null); setConfirming(true); }}>
+          <button className="btn btn-primary" disabled={!pending.length || approving != null} onClick={() => { setError(null); setConfirming(true); }}>
             <Send size={16} aria-hidden="true" /> Approve &amp; send ({pending.length})
           </button>
+          {approvingText && !confirming && <span className="muted approving" role="status"><Loader2 size={16} className="spin" aria-hidden="true" /> {approvingText}</span>}
           {done != null && <span className="muted" role="status">{done} approved. They'll send gradually.</span>}
           {items.length > 0 && <button className="link-btn danger" onClick={() => { if (confirm(`Remove all ${items.length} emails from the send list? This clears it for the whole band.`)) cloud.removeFromQueue(items.map(key)); }}><Trash2 size={14} aria-hidden="true" /> Clear list</button>}
         </div>
@@ -99,15 +105,16 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
         {approved.length > 0 && <div className="row-actions"><button className="btn" onClick={() => move(approved, "review")}><Pause size={16} aria-hidden="true" /> Pause all ({approved.length})</button></div>}
       </section>
 
-      <Modal open={confirming} onClose={() => !busy && setConfirming(false)} label="Approve and send">
+      <Modal open={confirming} onClose={() => setConfirming(false)} label="Approve and send">
         <h3>Approve {summary.emails} {summary.emails === 1 ? "email" : "emails"}?</h3>
         <p>{summary.emails} separate {summary.emails === 1 ? "email" : "emails"} to {summary.stations} {summary.stations === 1 ? "station" : "stations"}, for {summary.songs.map(songTitle).join(" and ")}.</p>
         <p className="muted">Nothing is sent right now. Approved emails go out gradually from {band.email}.</p>
         {error && <p className="error" role="alert">{error}</p>}
         <div className="row-actions">
-          <button className="btn btn-primary" disabled={busy} onClick={approve}>{busy ? "Approving…" : "Approve & send"}</button>
-          <button className="btn" disabled={busy} onClick={() => setConfirming(false)}>Cancel</button>
+          <button className="btn btn-primary" disabled={approving != null} onClick={approve}>{approvingText ? <><Loader2 size={16} className="spin" aria-hidden="true" /> {approvingText}</> : "Approve & send"}</button>
+          <button className="btn" onClick={() => setConfirming(false)}>Cancel</button>
         </div>
+        {approvingText && <p className="muted approving" role="status">{approvingText}</p>}
       </Modal>
 
       {!items.length ? (

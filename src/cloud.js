@@ -139,7 +139,8 @@ export function useCloud(user) {
 
   const addGig = useCallback((url, text) => httpsCallable(functions, "addGig")({ url, text }).then(r => r.data), []);
   const addFestival = useCallback((url, note) => httpsCallable(functions, "addFestival")({ url, note }).then(r => r.data), []);
-  const approveAll =useCallback(keys => httpsCallable(functions, "sendPitch")({ keys }).then(r => r.data), []);
+  // 15 s, not Firebase's 70 s default, so a slow approve fails with a clear message
+  const approveAll = useCallback(keys => httpsCallable(functions, "sendPitch", { timeout: 15000 })({ keys }).then(r => r.data), []);
 
   // Only the band's decision is written; the app never replies by itself
   const decideReply = useCallback((id, decision) => updateDoc(doc(db, "replies", id), { decision, decidedAt: new Date().toISOString() })
