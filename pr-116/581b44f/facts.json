@@ -1,0 +1,18 @@
+[
+  {
+    "page": "/#sendlist",
+    "width": 375,
+    "image": "-sendlist-375.png",
+    "final_url": "http://127.0.0.1:62911/#sendlist",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#sendlist",
+    "width": 1280,
+    "image": "-sendlist-1280.png",
+    "final_url": "http://127.0.0.1:62911/#sendlist",
+    "overflow": false,
+    "console_errors": []
+  }
+]
