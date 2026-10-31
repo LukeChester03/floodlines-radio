@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, animate, motion } from "motion/react";
 import { Loader2, Pause, RotateCcw, Send, Trash2 } from "lucide-react";
 import { band } from "../songs.js";
@@ -105,7 +106,7 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
         {approved.length > 0 && <div className="row-actions"><button className="btn" onClick={() => move(approved, "review")}><Pause size={16} aria-hidden="true" /> Pause all ({approved.length})</button></div>}
       </section>
 
-      <Modal open={confirming} onClose={() => setConfirming(false)} label="Approve and send">
+      {createPortal(<Modal open={confirming} onClose={() => setConfirming(false)} label="Approve and send">
         <h3>Approve {summary.emails} {summary.emails === 1 ? "email" : "emails"}?</h3>
         <p>{summary.emails} separate {summary.emails === 1 ? "email" : "emails"} to {summary.stations} {summary.stations === 1 ? "station" : "stations"}, for {summary.songs.map(songTitle).join(" and ")}.</p>
         <p className="muted">Nothing is sent right now. Approved emails go out gradually from {band.email}.</p>
@@ -115,7 +116,7 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
           <button className="btn" onClick={() => setConfirming(false)}>Cancel</button>
         </div>
         {approvingText && <p className="muted approving" role="status">{approvingText}</p>}
-      </Modal>
+      </Modal>, document.body)}
 
       {!items.length ? (
         <section className="card-panel"><Empty title="Nothing waiting to send." action={<button className="btn" onClick={() => setView("stations")}>Pick stations</button>}>Tick stations in the station log and choose Blanket email.</Empty></section>
