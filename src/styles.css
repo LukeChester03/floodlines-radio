@@ -635,3 +635,10 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
   .fest-seg { width: 100%; }
   .fest-seg button { flex: 1; padding-inline: 4px; }
 }
+
+/* Approve & send in flight */
+.approving { display: inline-flex; align-items: center; gap: 6px; }
+p.approving { display: flex; margin: 10px 0 0; }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
