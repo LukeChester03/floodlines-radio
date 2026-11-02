@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { X } from "lucide-react";
 import { statusLabel } from "../crm.js";
@@ -49,6 +50,8 @@ export function Sleeve({ song, size = 64 }) {
 }
 
 // Dialog shell: scrim, escape to close, focus moved in and trapped, focus returned on close.
+// Portalled to <body> so it sits outside the .app-shell it makes inert; the portal wraps
+// AnimatePresence so exit animations still run.
 // guard(): return false to keep the dialog open (e.g. unsaved edits).
 export function Modal({ open, onClose, label, className = "", children, side = false, guard }) {
   const ref = useRef(null);
@@ -88,7 +91,7 @@ export function Modal({ open, onClose, label, className = "", children, side = f
     };
   }, [open, tryClose]);
 
-  return (
+  return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div className="overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -110,7 +113,8 @@ export function Modal({ open, onClose, label, className = "", children, side = f
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }
 
