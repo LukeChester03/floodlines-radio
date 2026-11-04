@@ -67,20 +67,23 @@ FloodLines`,
 
 export const placeholders = ["{name}", "{station}", "{target}", "{song}", "{songBlurb}", "{songLink}", "{otherSongs}", "{signoff}"];
 
-// Fills a template for one station and one song
+const titles = new Intl.ListFormat("en-GB"); // "A", "A and B", "A, B and C"
+
+// Fills a template for one station and one song, or an array of songs for one email that names them all
 export function fill(template, station, song, songs, { signoff = band.signoff, includeOthers = true } = {}) {
   const first = station.contactName ? station.contactName.split(/[\s(]/)[0] : null;
   const today = new Date().toISOString().slice(0, 10);
   // Only released songs the band has chosen to mention
-  const others = songs.filter(s => s.id !== song.id && s.link && s.mention !== false && s.released && s.released <= today);
+  const listed = [song].flat();
+  const others = songs.filter(s => !listed.some(l => l.id === s.id) && s.link && s.mention !== false && s.released && s.released <= today);
   // A song with no release date counts as unreleased, so it's never mentioned by accident
   const map = {
     name: first || (station.show ? `${station.show} team` : `${station.name} team`),
     station: station.name,
     target: station.show ? `${station.show} on ${station.name}` : station.name,
-    song: song.title,
-    songBlurb: song.blurb || "",
-    songLink: song.link || "",
+    song: titles.format(listed.map(s => s.title)),
+    songBlurb: listed[0].blurb || "",
+    songLink: Array.isArray(song) ? listed.filter(s => s.link).map(s => `\n${s.title}: ${s.link}`).join("") : song.link || "",
     otherSongs: includeOthers && others.length ? `\nAlso from us: ${others.map(s => `"${s.title}" ${s.link}`).join(", ")}\n` : "",
     signoff,
   };

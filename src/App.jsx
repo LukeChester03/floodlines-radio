@@ -59,7 +59,7 @@ export default function App({ user }) {
   const [songId, setSongId] = useLocal("fl2-song", "companion");
   const [selected, setSelected] = useState([]);
   const [sheet, setSheet] = useState(null);
-  const [mailer, setMailer] = useState(null); // { ids, kind, song, prefill }
+  const [mailer, setMailer] = useState(null); // { ids, kind, song, prefill, songsFor }
   const [songForm, setSongForm] = useState(null); // null | "new" | song
   const [local, setLocal] = useState(() => localData());
 
@@ -108,13 +108,13 @@ export default function App({ user }) {
   // Follow-ups due for every song, not just the one on screen
   const followups = useMemo(() => followupsByStation(rows, songs), [rows, songs]);
 
-  const openMailer = (ids, kind = "pitch", songFor, prefill) => {
+  const openMailer = (ids, kind = "pitch", songFor, prefill, songsFor) => {
     const list = ids.filter(id => byId[id]);
-    if (list.length) setMailer({ ids: list, kind, song: songFor || song.id, prefill });
+    if (list.length) setMailer({ ids: list, kind, song: songFor || song.id, prefill, songsFor });
   };
   const approve = items => {
     cloud.addToQueue(items);
-    items.forEach(x => logEvent(x.id, x.song, "queued", `${x.kind === "followup" ? "Follow-up" : "Pitch"} added to the send list`));
+    items.forEach(x => (x.songs || [x.song]).forEach(sid => logEvent(x.id, sid, "queued", `${x.kind === "followup" ? "Follow-up" : "Pitch"} added to the send list`)));
     setSelected([]);
   };
   const saveSong = s => {

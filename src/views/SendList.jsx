@@ -144,7 +144,7 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
                   )}
                 </AnimatePresence>
                 <div className="sl-actions">
-                  {stateOf(q) === "review" && !isBroken(q) && <button className="link-btn" onClick={() => openMailer([q.id], q.kind, q.song, { [q.id]: { subject: q.subject, body: q.body } })}>Edit</button>}
+                  {stateOf(q) === "review" && !isBroken(q) && <button className="link-btn" onClick={() => openMailer([q.id], q.kind, q.song, { [q.id]: { subject: q.subject, body: q.body } }, q.songs && { [q.id]: q.songs })}>Edit</button>}
                   {stateOf(q) === "approved" && <button className="link-btn" onClick={() => move([key(q)], "review")}><Pause size={14} aria-hidden="true" /> Pause</button>}
                   {stateOf(q) === "failed" && <button className="link-btn" onClick={() => move([key(q)], "approved")}><RotateCcw size={14} aria-hidden="true" /> Retry</button>}
                   <button className="link-btn danger" onClick={() => { cloud.removeFromQueue([key(q)]); if (!isBroken(q)) logEvent(q.id, q.song, "note", "Removed from the send list"); }}>Remove</button>

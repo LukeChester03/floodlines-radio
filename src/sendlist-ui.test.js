@@ -78,3 +78,46 @@ test("a broken row with no state shows on neither badge", async () => {
 test("a waiting entry shows on both badges", async () => {
   assert.deepEqual(await badges([whole, { _key: "ghost", state: "sent" }]), { nav: "1", onAir: "1 to send" });
 });
+
+test("Edit on a multi-song follow-up keeps its songs", async () => {
+  const calls = [];
+  const entry = { _key: "a:finalfear:followup", id: "a", song: "finalfear", songs: ["finalfear", "companion"], kind: "followup", subject: "S", body: "B", state: "review" };
+  const host = await render(createElement(SendList, { items: [entry], cloud: { sends: [] }, songs: [], logEvent() {}, openMailer: (...a) => calls.push(a), setView() {} }));
+  await act(async () => button(host, "Edit").click());
+  assert.deepEqual(calls, [[["a"], "followup", "finalfear", { a: { subject: "S", body: "B" } }, { a: ["finalfear", "companion"] }]]);
+});
+
+test("Draft follow-ups queues one email per station, naming each station's due songs", async () => {
+  const pitched = { status: "pitched", log: [{ at: "2026-01-05T09:00:00Z", type: "pitch", text: "Pitched" }] };
+  const [both, one] = ["deal-radio-gb", "demon-fm-gb"];
+  const crm = { [both]: { songs: { finalfear: pitched, companion: pitched } }, [one]: { songs: { companion: pitched } } };
+  const queued = [];
+  const saved = [];
+  globalThis.stubCloud = {
+    ...stubCloud([]), crm,
+    songs: [{ id: "finalfear", title: "Final Fear", color: "red", link: "https://x.test/ff" }, { id: "companion", title: "Companion", color: "red", link: "https://x.test/co" }],
+    addToQueue: items => queued.push(...items),
+    updateStation: (id, patch) => saved.push([id, patch(crm[id])]),
+  };
+  window.history.replaceState(null, "", "#followups");
+  const host = await render(createElement(App, { user: { email: "band@x.com" } }));
+  window.history.replaceState(null, "", "#sendlist");
+  await act(async () => button(host, "Draft follow-ups").click());
+  await act(async () => button(document.body, "to the send list").click());
+
+  const mine = id => queued.filter(q => q.id === id);
+  assert.equal(mine(both).length, 1);
+  const [entry] = mine(both);
+  assert.equal(entry.kind, "followup");
+  assert.equal(entry.song, "finalfear");
+  assert.deepEqual(entry.songs, ["finalfear", "companion"]);
+  assert.match(entry.body, /"Final Fear and Companion"/);
+
+  const [single] = mine(one);
+  assert.equal(single.song, "companion");
+  assert.deepEqual(single.songs, ["companion"]);
+  assert.match(single.body, /Here it is again: https:\/\/x\.test\/co\n/);
+
+  const logged = saved.filter(([id]) => id === both).flatMap(([, p]) => Object.entries(p.songs).filter(([, r]) => r.log.at(-1).text === "Follow-up added to the send list").map(([sid]) => sid));
+  assert.deepEqual(logged.sort(), ["companion", "finalfear"]);
+});

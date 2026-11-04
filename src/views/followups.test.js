@@ -65,13 +65,16 @@ test("Due now is one panel listing a station once, with a chip per due song", ()
   assert.equal(count(panel, "Reply through their form"), 1);
 });
 
-test("Each song's draft button opens the mailer for the stations due for that song", () => {
+test("One draft button opens the mailer with each emailable station's due songs", () => {
   const calls = [];
   const stations = [row("a", bothOn("2026-10-20T09:00:00Z")), row("b", { companion: pitched("2026-10-20T09:00:00Z") }), row("c", { companion: pitched("2026-10-20T09:00:00Z") }, { email: "" })];
   const tree = Followups(props(stations, { openMailer: (...args) => calls.push(args) }));
-  button(tree, "Draft Companion follow-ups (2)").props.onClick();
-  button(tree, "Draft Final Fear follow-ups (1)").props.onClick();
-  assert.deepEqual(calls, [[["a", "b"], "followup", "companion"], [["a"], "followup", "final-fear"]]);
+  button(tree, "Draft follow-ups (2)").props.onClick();
+  assert.deepEqual(calls, [[["a", "b"], "followup", undefined, undefined, { a: ["final-fear", "companion"], b: ["companion"] }]]);
+});
+
+test("No draft button when no due station has an email", () => {
+  assert.doesNotMatch(html([row("a", bothOn("2026-10-20T09:00:00Z"), { email: "" })]), /Draft follow-ups/);
 });
 
 test("They replied marks every song on the row as replied", () => {

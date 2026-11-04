@@ -33,7 +33,15 @@ export default function Mailer({ job, stations, songs, song: currentSong, cloud,
   }, [job]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const tpl = tpls[kind] || baseTemplates[kind];
-  const draftFor = s => edits[s.id] || fill(tpl, s, song, songs, { signoff, includeOthers: kind === "pitch" && others });
+  // The songs this station's email names: its own list when the job has one, otherwise the song picked above
+  const songsOf = s => {
+    const own = (job?.songsFor?.[s.id] || []).map(id => songs.find(x => x.id === id)).filter(Boolean);
+    return own.length ? own : [song];
+  };
+  const draftFor = s => {
+    const named = songsOf(s);
+    return edits[s.id] || fill(tpl, s, named.length > 1 ? named : named[0], songs, { signoff, includeOthers: kind === "pitch" && others });
+  };
   const current = list[cursor];
   const draft = current ? draftFor(current) : null;
   const chosen = list.filter(s => include[s.id]);
@@ -42,7 +50,7 @@ export default function Mailer({ job, stations, songs, song: currentSong, cloud,
     !s.email ? "No email address"
     : s.rec.dnc ? "Marked do not contact"
     : kind === "pitch" && s.per[song.id].status !== "new" ? `Already ${statusLabel[s.per[song.id].status].toLowerCase()} for ${song.title}`
-    : s.per[song.id].queued && !job?.prefill?.[s.id] ? "Already in the send list. Tick to replace it"
+    : s.per[songsOf(s)[0].id].queued && !job?.prefill?.[s.id] ? "Already in the send list. Tick to replace it"
     : s.restricted ? "Says local acts only"
     : null;
 
@@ -57,7 +65,8 @@ export default function Mailer({ job, stations, songs, song: currentSong, cloud,
   const approve = () => {
     onApprove(chosen.map(s => {
       const d = draftFor(s);
-      return { id: s.id, song: song.id, kind, station: s.name, show: s.show, to: s.email, subject: d.subject, body: d.body };
+      const ids = songsOf(s).map(x => x.id);
+      return { id: s.id, song: ids[0], ...(job.songsFor && { songs: ids }), kind, station: s.name, show: s.show, to: s.email, subject: d.subject, body: d.body };
     }));
     onClose();
   };
@@ -70,15 +79,17 @@ export default function Mailer({ job, stations, songs, song: currentSong, cloud,
         <>
           <header className="ml-head" style={{ "--song": song.color }}>
             <span className="promo-stamp small" aria-hidden="true">Promo copy</span>
-            <h2 className="dlg-title">{kind === "followup" ? "Follow-ups" : "Blanket email"}: {song.title}</h2>
+            <h2 className="dlg-title">{kind === "followup" ? "Follow-ups" : "Blanket email"}{job.songsFor ? "" : `: ${song.title}`}</h2>
             <p className="dlg-sub">{chosen.length} of {list.length} stations get their own personal email from {band.email}. Untick anyone you'd rather leave out.</p>
-            <div className="ml-songs" role="group" aria-label="Song to pitch">
-              {songs.map(s => (
-                <button key={s.id} className={`song-chip${s.id === song.id ? " on" : ""}`} aria-pressed={s.id === song.id} style={{ "--song": s.color }} onClick={() => pickSong(s.id)}>
-                  <Sleeve song={s} size={24} /><span>{s.title}</span>
-                </button>
-              ))}
-            </div>
+            {!job.songsFor && (
+              <div className="ml-songs" role="group" aria-label="Song to pitch">
+                {songs.map(s => (
+                  <button key={s.id} className={`song-chip${s.id === song.id ? " on" : ""}`} aria-pressed={s.id === song.id} style={{ "--song": s.color }} onClick={() => pickSong(s.id)}>
+                    <Sleeve song={s} size={24} /><span>{s.title}</span>
+                  </button>
+                ))}
+              </div>
+            )}
           </header>
 
           <div className="ml-body">
@@ -113,7 +124,7 @@ export default function Mailer({ job, stations, songs, song: currentSong, cloud,
                   <dl className="envelope">
                     <div><dt>From</dt><dd>{band.email}</dd></div>
                     <div><dt>To</dt><dd>{current.email || "No email address"}{current.contactName ? ` (${current.contactName})` : ""}</dd></div>
-                    <div><dt>Song</dt><dd>{song.title}</dd></div>
+                    <div><dt>{songsOf(current).length > 1 ? "Songs" : "Song"}</dt><dd>{songsOf(current).map(x => x.title).join(", ")}</dd></div>
                   </dl>
                   {current.instructions && <p className="their-rules"><b>They ask for:</b> {current.instructions}{current.pitchTip ? <><br /><b>Tip:</b> {current.pitchTip}</> : null}</p>}
                   <label className="field"><span>Subject</span>
@@ -135,7 +146,7 @@ export default function Mailer({ job, stations, songs, song: currentSong, cloud,
           </div>
 
           <footer className="ml-foot">
-            <button className="btn btn-primary" disabled={!chosen.length} onClick={approve}>Add {chosen.length} {song.title} {nounFor(chosen.length)} to the send list</button>
+            <button className="btn btn-primary" disabled={!chosen.length} onClick={approve}>Add {chosen.length} {job.songsFor ? "" : `${song.title} `}{nounFor(chosen.length)} to the send list</button>
             <p className="hint">{chosen.length > DAILY_SEND_CAP ? `More than ${DAILY_SEND_CAP}, so the send list splits it into daily batches. ` : ""}Nothing sends until you approve the send list.</p>
           </footer>
         </>
