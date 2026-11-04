@@ -100,23 +100,34 @@ export function festivalPrompt(festivals, today) {
   return FESTIVAL_PROMPT.replace(/\{\{(\w+)\}\}/g, (_, k) => fill[k]);
 }
 
-// Reads the festivals pasted with Add a festival (tier null) in one session. A festival the answer leaves out stays queued.
+const READ_BATCH = 10;
+const oldestFirst = (a, b) => a.foundAt.localeCompare(b.foundAt) || a.url.localeCompare(b.url);
+
+// Reads the oldest festivals pasted with Add a festival (tier null) in one session, and saves what happened as the reading status.
+// A festival the answer leaves out stays queued and is listed as unread.
 export async function readPastedFestivals({ store, runSession, now = Date.now }) {
-  const queued = await store.listReadingFestivals();
-  if (!queued.length) return { read: 0, saved: 0, errors: [] };
-  let answers;
+  let batch = [];
+  let unread = [];
+  let saved = 0;
+  let error;
   try {
-    answers = parsePosts(await runSession(festivalPrompt(queued, new Date(now()).toISOString().slice(0, 10))));
+    batch = (await store.listReadingFestivals()).sort(oldestFirst).slice(0, READ_BATCH);
+    unread = batch.map((f) => f.url);
+    if (batch.length) {
+      const answer = await runSession(festivalPrompt(batch, new Date(now()).toISOString().slice(0, 10)));
+      const answers = new Map(parsePosts(answer).filter((a) => typeof a?.url === "string").map((a) => [gigId(a.url), a]));
+      const festivals = batch.filter((f) => answers.has(f.id)).map((f) => ({ ...answers.get(f.id), url: f.url, note: f.note, source: "pasted" }));
+      ({ saved } = await importFestivals({ store, festivals, now }));
+      unread = batch.filter((f) => !answers.has(f.id)).map((f) => f.url);
+    }
   } catch (e) {
-    return { read: 0, saved: 0, errors: [{ where: "pasted festivals", message: e.message }] };
+    error = e.message;
   }
-  const byId = new Map(queued.map((f) => [f.id, f]));
-  const festivals = [];
-  for (const a of answers) {
-    const f = typeof a?.url === "string" && byId.get(gigId(a.url));
-    if (f) festivals.push({ ...a, url: f.url, note: f.note, source: "pasted" });
-  }
-  return importFestivals({ store, festivals, now });
+  const waiting = (await store.listReadingFestivals()).length;
+  // Firestore refuses undefined, so error is only there when there is one
+  const status = { at: new Date(now()).toISOString(), read: batch.length, saved, unread, waiting, ...(error && { error }) };
+  await store.setReadingStatus(status);
+  return status;
 }
 
 // Weekly search for new UK festivals. Festivals already stored are dropped, so the band's own and their decisions are never touched.

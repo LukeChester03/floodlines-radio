@@ -591,6 +591,8 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .fest-tier { margin-bottom: 28px; }
 .fest-tier-title { margin: 0 0 4px; display: inline-block; font-family: var(--marker); font-weight: 400; font-size: 1.25rem; color: var(--ink); background: var(--tape); padding: 2px 12px; transform: rotate(-1.5deg); box-shadow: 0 2px 4px rgba(0,0,0,.3); }
 .fest-tier-sub { margin: 6px 0 0; color: var(--text-2); font-size: .875rem; }
+.reading-status { margin: 8px 0 0; }
+.reading-status .warn { margin: 8px 0 0; }
 .fest-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 12px; }
 .fest-ticket { display: grid; grid-template-columns: 84px minmax(0, 1fr); color: var(--ink); filter: drop-shadow(0 14px 18px rgba(0,0,0,.45)); }
 .fest-stub, .fest-body { background: var(--log); }

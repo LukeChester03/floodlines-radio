@@ -17,8 +17,8 @@ initializeApp({ credential: applicationDefault(), projectId });
 
 const pasted = process.argv.includes("--pasted");
 
-// One headless Claude Code session that can use only the given tools; resolves to its answer.
-function session(tools, prompt) {
+// One headless Claude Code session that can use only the given tools; resolves to its answer, or is killed and rejects at the time limit.
+function session(tools, prompt, minutes = 10) {
   return new Promise((resolve, reject) => {
     const args = tools.length ? ["-p", "--tools", ...tools, "--allowedTools", ...tools] : ["-p", "--tools", ""];
     const child = spawn("claude", args, { stdio: ["pipe", "pipe", "pipe"] });
@@ -26,8 +26,19 @@ function session(tools, prompt) {
     let err = "";
     child.stdout.on("data", (d) => (out += d));
     child.stderr.on("data", (d) => (err += d));
-    child.on("error", reject);
-    child.on("close", (code) => (code === 0 ? resolve(out) : reject(new Error(`claude exited ${code}: ${err.trim().slice(0, 300)}`))));
+    const timer = setTimeout(() => {
+      reject(new Error(`Timed out after ${minutes} minutes`));
+      child.kill("SIGKILL");
+    }, minutes * 60_000);
+    child.on("error", (e) => {
+      clearTimeout(timer);
+      reject(e);
+    });
+    child.on("close", (code) => {
+      clearTimeout(timer);
+      if (code === 0) resolve(out);
+      else reject(new Error(`claude exited ${code}: ${err.trim().slice(0, 300)}`));
+    });
     child.stdin.end(prompt);
   });
 }
