@@ -42,9 +42,8 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
   const decide = cloud.decideReply;
   const open = [...groups.undecided, ...groups.wantReply];
   const movedOn = stations.flatMap(s => (s.rec.dnc ? [] : songs.filter(sg => s.per[sg.id].movedOn).map(sg => ({ s, sg }))));
-  const drafts = songs
-    .map(sg => ({ sg, ids: due.filter(g => g.station.email && g.songs.some(w => w.song.id === sg.id)).map(g => g.station.id) }))
-    .filter(d => d.ids.length);
+  const drafts = due.filter(g => g.station.email);
+  const songsFor = Object.fromEntries(drafts.map(g => [g.station.id, g.songs.map(w => w.song.id)]));
 
   return (
     <div className="followups">
@@ -90,7 +89,7 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
               <p className="panel-sub">Pitched, no reply, and the wait is up.</p>
             </div>
             <div className="panel-actions">
-              {drafts.map(({ sg, ids }) => <button key={sg.id} className="btn btn-primary" onClick={() => openMailer(ids, "followup", sg.id)}>Draft {sg.title} follow-ups ({ids.length})</button>)}
+              {drafts.length > 0 && <button className="btn btn-primary" onClick={() => openMailer(Object.keys(songsFor), "followup", undefined, undefined, songsFor)}>Draft follow-ups ({drafts.length})</button>}
             </div>
           </div>
           <ul className="fu-list">

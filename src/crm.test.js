@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { canGoLive, checkEpkFile, checkLogoFile, epkRecord, logoRecord, followupBadge, followupsByStation, knownSends, releaseBatch, replyGroups, songInfo, withSentLog, withTemplate } from "./crm.js";
-import { templates } from "./songs.js";
+import { alreadySent, canGoLive, checkEpkFile, checkLogoFile, epkRecord, logoRecord, followupBadge, followupsByStation, knownSends, releaseBatch, replyGroups, songInfo, withSentLog, withTemplate } from "./crm.js";
+import { fill, templates } from "./songs.js";
 
 const song = { id: "s1", title: "Tidal Lines", link: "https://x.test/s1", released: "2026-01-01", blurb: "" };
 const per = (status = "new", queued = false) => ({ s1: { status, queued } });
@@ -53,6 +53,29 @@ test("a send in both the sent-log and Firestore is counted once", () => {
 
 test("the sent-log and a later Firestore send for the same key are both kept", () => {
   assert.equal(knownSends([send], [{ ...send, sentAt: "2026-06-09T10:00:00Z" }]).length, 2);
+});
+
+const nudge = { id: "a", song: "companion", kind: "followup", sentAt: "2026-11-13T10:00:00Z" };
+
+test("a follow-up queued after an earlier nudge on the same key isn't already sent", () => {
+  const merged = { id: "a", song: "companion", songs: ["companion", "finalfear"], kind: "followup", addedAt: "2026-11-27T09:00:00Z" };
+  assert.equal(alreadySent(merged, [nudge]), false);
+});
+
+test("a follow-up sent after it was queued is already sent", () => {
+  assert.equal(alreadySent({ id: "a", song: "companion", kind: "followup", addedAt: "2026-11-12T09:00:00Z" }, [nudge]), true);
+});
+
+test("a follow-up with no queue date falls back to the key alone", () => {
+  assert.equal(alreadySent({ id: "a", song: "companion", kind: "followup" }, [nudge]), true);
+});
+
+test("a pitch is sent once, however late it was queued", () => {
+  assert.equal(alreadySent({ ...send, addedAt: "2026-07-01T09:00:00Z" }, [send]), true);
+});
+
+test("a send on another key doesn't count", () => {
+  assert.equal(alreadySent({ id: "a", song: "finalfear", kind: "followup" }, [nudge]), false);
 });
 
 const rep = (id, o = {}) => ({ id, stationId: "s1", song: "s1", outcome: "replied", decision: "undecided", date: "2026-10-02T09:00:00Z", ...o });
@@ -170,4 +193,48 @@ test("followupsByStation sorts groups by earliest due and carries each song's co
 test("the Follow-ups badge counts one station due for two songs once", () => {
   const row = stationRow("a", { companion: pitchedOn("2026-10-20T09:00:00Z"), "final-fear": pitchedOn("2026-10-20T09:00:00Z") }, NOV_4);
   assert.equal(followupBadge(followupsByStation([row], bothSongs).due.length, []), 1);
+});
+
+const ff = { id: "finalfear", title: "Final Fear", link: "https://x.test/ff", blurb: "Debut." };
+const co = { id: "companion", title: "Companion", link: "https://x.test/co", blurb: "Second." };
+const station = { name: "Radio A" };
+
+test("fill names two songs, and lists each link on its own line", () => {
+  const { subject, body } = fill(templates.followup, station, [ff, co], [ff, co]);
+  assert.match(subject, /Final Fear and Companion$/);
+  assert.match(body, /"Final Fear and Companion"/);
+  assert.match(body, /\nFinal Fear: https:\/\/x\.test\/ff\nCompanion: https:\/\/x\.test\/co\n/);
+});
+
+test("fill reads three songs as A, B and C, skips a missing link and uses the first blurb", () => {
+  const list = [ff, { id: "c", title: "Cold", blurb: "Third." }, co];
+  const { body } = fill({ subject: "", body: "{song}|{songBlurb}|{songLink}" }, station, list, list);
+  assert.equal(body, "Final Fear, Cold and Companion|Debut.|\nFinal Fear: https://x.test/ff\nCompanion: https://x.test/co");
+});
+
+test("fill leaves out every listed song from the other songs line", () => {
+  const other = { id: "o", title: "Other", link: "https://x.test/o", released: "2026-01-01" };
+  const list = [ff, co].map(s => ({ ...s, released: "2026-01-01" }));
+  const { body } = fill({ subject: "", body: "{otherSongs}" }, station, list, [...list, other]);
+  assert.equal(body, '\nAlso from us: "Other" https://x.test/o\n');
+});
+
+test("fill with one song object reads as it always has", () => {
+  assert.deepEqual(fill(templates.followup, station, ff, [ff, co]), {
+    subject: "Re: Music submission: FloodLines – Final Fear",
+    body: `Hi Radio A team,\n\nJust following up on "Final Fear" by FloodLines, which I sent over recently, in case it got buried. Here it is again: https://x.test/ff\n\nHope you enjoy it, and thanks for your time.\n\nLuke\nFloodLines`,
+  });
+});
+
+test("a follow-up record with songs logs a follow-up on each song", () => {
+  const sentAt = "2026-11-01T09:00:00Z";
+  const pitch = { status: "pitched", log: [{ at: "2026-10-01T09:00:00Z", type: "pitch" }] };
+  const crm = { a: { songs: { finalfear: pitch, companion: pitch } } };
+  const out = withSentLog(crm, [{ id: "a", song: "finalfear", songs: ["finalfear", "companion"], kind: "followup", subject: "Re", sentAt }]);
+  for (const id of ["finalfear", "companion"]) {
+    const rec = out.a.songs[id];
+    assert.equal(rec.status, "followed");
+    assert.ok(rec.log.some(l => l.type === "followup" && l.at === sentAt));
+    assert.equal(songInfo(rec).followUps, 1);
+  }
 });

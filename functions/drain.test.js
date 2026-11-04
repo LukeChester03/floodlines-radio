@@ -204,3 +204,16 @@ test("an empty approved queue never reads settings", async () => {
   const { calls } = await sigRun(logoSettings(), []);
   assert.equal(calls, 0);
 });
+
+test("a follow-up naming several songs keeps them on the send record, and a one-song entry adds none", async () => {
+  const songs = ["finalfear", "companion"];
+  const store = fakeStore({ stations: stations(2), sendlist: [
+    entry(0, { key: "s0:finalfear:followup", song: "finalfear", songs, kind: "followup" }),
+    entry(1, { key: "s1:companion:followup", kind: "followup" }),
+  ] });
+  await drain({ store, transport: fakeTransport(), now });
+  const [many, one] = await store.listSends({ since: 0 });
+  assert.equal(many.song, "finalfear");
+  assert.deepEqual(many.songs, songs);
+  assert.ok(!("songs" in one));
+});

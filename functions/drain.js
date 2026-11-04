@@ -44,7 +44,7 @@ export async function drain({ store, transport, epk = { read: async () => null }
     try {
       const prior = sends.find((s) => s.id === entry.id && s.song === entry.song && s.kind === "pitch");
       const { messageId, threadId } = await transport.send(buildMessage(entry, BAND_EMAIL, prior, attachments, sig));
-      const record = { id: entry.id, song: entry.song, kind: entry.kind, to: entry.to, subject: entry.subject, sentAt: new Date(now()).toISOString(), messageId, threadId };
+      const record = { id: entry.id, song: entry.song, ...(entry.songs && { songs: entry.songs }), kind: entry.kind, to: entry.to, subject: entry.subject, sentAt: new Date(now()).toISOString(), messageId, threadId };
       await store.addSend(record);
       sends.push(record);
       await store.updateEntry(entry.key, { state: "sent" });

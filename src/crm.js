@@ -40,10 +40,13 @@ export function migrate(raw) {
   return out;
 }
 
+// A follow-up that named several songs counts as a follow-up on each one
+const perSong = s => (s.kind === "followup" && s.songs?.length ? s.songs.map(song => ({ ...s, song })) : [s]);
+
 // Known history (plays from before the site existed) and the send log Claude writes after each send
 export function withSentLog(crm, sentLog) {
   const next = { ...crm };
-  for (const s of sentLog) {
+  for (const s of sentLog.flatMap(perSong)) {
     const songId = s.song || "companion";
     const st = next[s.id] ? { ...next[s.id], songs: { ...next[s.id].songs } } : blankStation();
     const r = st.songs[songId] ? { ...st.songs[songId] } : blankSong();
@@ -106,6 +109,8 @@ export function followupsByStation(rows, songs) {
 }
 
 export const sentKey = q => `${q.id}:${q.song || "companion"}:${q.kind === "followup" ? "followup" : "pitch"}`;
+// Has this entry gone out? The key has no date, so a follow-up only counts sends made after it was queued; an earlier nudge on the same key is a different email
+export const alreadySent = (q, sends) => sends.some(s => sentKey(s) === sentKey(q) && (q.kind !== "followup" || new Date(s.sentAt) >= new Date(q.addedAt || 0)));
 // The frozen sent-log plus the server's send records, each send counted once
 export function knownSends(sentLog, sends) {
   const seen = new Set();
