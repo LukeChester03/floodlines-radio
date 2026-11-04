@@ -33,6 +33,22 @@ test("a multi-song send matches every song it named", () => {
   assert.deepEqual(matchReply(msg({ from: "jo@station.com" }), multi, stations).songs, ["finalfear", "companion"]);
 });
 
+const thread = [
+  { id: "p", song: "finalfear", kind: "pitch", to: "jo@station.com", sentAt: "2026-05-01T10:00:00Z", messageId: "<pitch>", threadId: "t1" },
+  { id: "f", song: "finalfear", songs: ["finalfear", "companion"], kind: "followup", to: "jo@station.com", sentAt: "2026-06-01T10:00:00Z", messageId: "<fu>", threadId: "t1" },
+];
+
+test("a thread holding a pitch and a follow-up matches the newest send", () => {
+  assert.deepEqual(matchReply(msg({ threadId: "t1" }), thread, stations).songs, ["finalfear", "companion"]);
+  const chain = msg({ threadId: "t1", headers: { "in-reply-to": "<fu>", references: "<pitch> <fu>" } });
+  assert.deepEqual(matchReply(chain, thread, stations).songs, ["finalfear", "companion"]);
+});
+
+test("a reply naming the older pitch matches that pitch, not the newer follow-up", () => {
+  const m = msg({ threadId: "t1", headers: { "in-reply-to": "<pitch>", references: "<pitch>" } });
+  assert.deepEqual(matchReply(m, thread, stations).songs, ["finalfear"]);
+});
+
 test("classify", () => {
   assert.equal(classify(msg({ from: band }), band), "own");
   assert.equal(classify(msg({ from: "MAILER-DAEMON@googlemail.com" }), band), "bounced");

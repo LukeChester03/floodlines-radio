@@ -54,10 +54,10 @@ test("syncing the same inbox twice stores each reply once", async () => {
   assert.equal((await song(store)).log.length, 1);
 });
 
-const multiSetup = (message) => ({
+const multiSetup = (message, earlier = []) => ({
   store: fakeStore({
     stations: { s1: { email: "jo@station.com", rec: { songs: { finalfear: { status: "pitched", log: [] }, companion: { status: "pitched", log: [] } } } } },
-    sends: [{ id: "crags", song: "finalfear", songs: ["finalfear", "companion"], kind: "followup", to: "jo@station.com", sentAt: "2026-06-01T10:00:00Z", messageId: "<a>", threadId: "t1" }],
+    sends: [...earlier, { id: "crags", song: "finalfear", songs: ["finalfear", "companion"], kind: "followup", to: "jo@station.com", sentAt: "2026-06-01T10:00:00Z", messageId: "<a>", threadId: "t1" }],
   }),
   transport: fakeTransport({ inbox: [message] }),
 });
@@ -76,6 +76,13 @@ test("a reply to a multi-song follow-up updates each song and is stored once", a
   const replies = await store.listReplies();
   assert.equal(replies.length, 1);
   assert.equal(replies[0].song, "finalfear");
+});
+
+test("a reply on a thread shared with the earlier pitch updates each song", async () => {
+  const pitch = { id: "pitch", song: "finalfear", kind: "pitch", to: "jo@station.com", sentAt: "2026-05-01T10:00:00Z", messageId: "<p>", threadId: "t1" };
+  const { store, transport } = multiSetup(m(), [pitch]);
+  await syncReplies({ store, transport, bandEmail });
+  for (const s of await bothSongs(store)) assert.equal(s.status, "replied");
 });
 
 test("an auto-reply to a multi-song follow-up logs on each song and keeps their status", async () => {
