@@ -1,0 +1,34 @@
+[
+  {
+    "page": "/#followups",
+    "width": 375,
+    "image": "-followups-375.png",
+    "final_url": "http://127.0.0.1:65264/#followups",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#followups",
+    "width": 1280,
+    "image": "-followups-1280.png",
+    "final_url": "http://127.0.0.1:65264/#followups",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#sendlist",
+    "width": 375,
+    "image": "-sendlist-375.png",
+    "final_url": "http://127.0.0.1:65264/#sendlist",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#sendlist",
+    "width": 1280,
+    "image": "-sendlist-1280.png",
+    "final_url": "http://127.0.0.1:65264/#sendlist",
+    "overflow": false,
+    "console_errors": []
+  }
+]
