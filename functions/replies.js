@@ -1,6 +1,6 @@
 import { classify, matchReply } from "./core/replies.js";
 
-// Ingest new mail: store each matched reply once and apply its effect to the station's song.
+// Ingest new mail: store each matched reply once and apply its effect to each song it named.
 export async function syncReplies({ store, transport, bandEmail }) {
   const status = await store.getStatus();
   const { messages, nextCursor } = await transport.listNewMessages(status.replyCursor);
@@ -12,18 +12,21 @@ export async function syncReplies({ store, transport, bandEmail }) {
     if (outcome === "own") continue;
     const hit = matchReply(msg, sends, stations);
     if (!hit) continue;
-    const { stationId, song } = hit;
+    const { stationId, songs } = hit;
     const fresh = await store.addReply({
-      id: msg.id, stationId, song, threadId: msg.threadId, from: msg.from,
+      id: msg.id, stationId, song: songs[0] ?? null, threadId: msg.threadId, from: msg.from,
       date: msg.date, snippet: msg.snippet, outcome, decision: "undecided",
     });
-    if (!fresh || !song) continue;
+    if (!fresh || !songs.length) continue;
 
     const { email, rec } = await store.getStation(stationId);
-    const cur = rec.songs?.[song] ?? { status: "new", log: [] };
-    const next = { ...cur, log: [...cur.log, { type: outcome === "bounced" ? "bounce" : "reply", at: msg.date, text: msg.snippet }] };
-    const patch = { songs: { ...rec.songs, [song]: next } };
-    if (outcome !== "auto") next.status = outcome;
+    const patch = { songs: { ...rec.songs } };
+    for (const song of songs) {
+      const cur = patch.songs[song] ?? { status: "new", log: [] };
+      const next = { ...cur, log: [...cur.log, { type: outcome === "bounced" ? "bounce" : "reply", at: msg.date, text: msg.snippet }] };
+      if (outcome !== "auto") next.status = outcome;
+      patch.songs[song] = next;
+    }
     if (outcome === "bounced") patch.bounced = email;
     await store.updateStation(stationId, patch);
   }

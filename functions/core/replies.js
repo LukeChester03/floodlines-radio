@@ -16,12 +16,14 @@ export function classify(msg, bandEmail) {
   return "replied";
 }
 
+const songsOf = (send) => send?.songs ?? (send?.song ? [send.song] : []);
+
 export function matchReply(msg, sends, stations) {
   const h = msg.headers ?? {};
   const byTo = (send) => stations.find((s) => s.email && addr(s.email) === addr(send.to));
   const hit = (send) => {
     const st = byTo(send);
-    return st && { stationId: st.id, song: send.song, kind: send.kind };
+    return st && { stationId: st.id, song: send.song, songs: songsOf(send), kind: send.kind };
   };
 
   const thread = sends.find((s) => s.threadId && s.threadId === msg.threadId);
@@ -36,5 +38,5 @@ export function matchReply(msg, sends, stations) {
   const last = sends
     .filter((s) => addr(s.to) === addr(station.email))
     .sort((a, b) => String(b.sentAt).localeCompare(String(a.sentAt)))[0];
-  return { stationId: station.id, song: last?.song ?? null, kind: last?.kind ?? null };
+  return { stationId: station.id, song: last?.song ?? null, songs: songsOf(last), kind: last?.kind ?? null };
 }

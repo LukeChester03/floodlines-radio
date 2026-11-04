@@ -53,3 +53,44 @@ test("syncing the same inbox twice stores each reply once", async () => {
   assert.equal((await store.listReplies()).length, 1);
   assert.equal((await song(store)).log.length, 1);
 });
+
+const multiSetup = (message) => ({
+  store: fakeStore({
+    stations: { s1: { email: "jo@station.com", rec: { songs: { finalfear: { status: "pitched", log: [] }, companion: { status: "pitched", log: [] } } } } },
+    sends: [{ id: "crags", song: "finalfear", songs: ["finalfear", "companion"], kind: "followup", to: "jo@station.com", sentAt: "2026-06-01T10:00:00Z", messageId: "<a>", threadId: "t1" }],
+  }),
+  transport: fakeTransport({ inbox: [message] }),
+});
+const bothSongs = async (store) => {
+  const { finalfear, companion } = (await store.getStation("s1")).rec.songs;
+  return [finalfear, companion];
+};
+
+test("a reply to a multi-song follow-up updates each song and is stored once", async () => {
+  const { store, transport } = multiSetup(m());
+  await syncReplies({ store, transport, bandEmail });
+  for (const s of await bothSongs(store)) {
+    assert.equal(s.status, "replied");
+    assert.deepEqual(s.log, [{ type: "reply", at: "2026-06-02T09:00:00Z", text: "Love it" }]);
+  }
+  const replies = await store.listReplies();
+  assert.equal(replies.length, 1);
+  assert.equal(replies[0].song, "finalfear");
+});
+
+test("an auto-reply to a multi-song follow-up logs on each song and keeps their status", async () => {
+  const { store, transport } = multiSetup(m({ headers: { "auto-submitted": "auto-replied" } }));
+  await syncReplies({ store, transport, bandEmail });
+  for (const s of await bothSongs(store)) {
+    assert.equal(s.status, "pitched");
+    assert.equal(s.log.length, 1);
+    assert.equal(s.log[0].type, "reply");
+  }
+});
+
+test("a bounce on a multi-song follow-up bounces each song and flags the address", async () => {
+  const { store, transport } = multiSetup(m({ from: "MAILER-DAEMON@googlemail.com", snippet: "Address not found" }));
+  await syncReplies({ store, transport, bandEmail });
+  for (const s of await bothSongs(store)) assert.equal(s.status, "bounced");
+  assert.equal((await store.getStation("s1")).rec.bounced, "jo@station.com");
+});
