@@ -94,7 +94,7 @@ test("with no festivals being read, no session runs", async () => {
   let calls = 0;
   const r = await readPastedFestivals({ store: fakeStore(), runSession: async () => (calls++, "[]"), now });
   assert.equal(calls, 0);
-  assert.deepEqual(r, { read: 0, saved: 0, errors: [] });
+  assert.deepEqual(r, { at: "2026-10-10T12:00:00.000Z", read: 0, saved: 0, unread: [], waiting: 0 });
 });
 
 test("one session reads every queued festival; only queued URLs are saved", async () => {
@@ -116,6 +116,57 @@ test("a session that throws leaves the festival queued", async () => {
   const store = fakeStore({ festivals: { [gigId(a)]: readingFest(a) } });
   await readPastedFestivals({ store, runSession: async () => { throw new Error("claude crashed"); }, now });
   assert.deepEqual(store.festivals[gigId(a)], readingFest(a));
+});
+
+const queuedFests = (urls, foundAt = (i) => `2026-10-${String(i + 1).padStart(2, "0")}T00:00:00.000Z`) =>
+  Object.fromEntries(urls.map((u, i) => [gigId(u), { ...readingFest(u), foundAt: foundAt(i) }]));
+
+test("a run reads the 10 oldest festivals, the URL breaking ties", async () => {
+  const urls = Array.from({ length: 12 }, (_, i) => `https://f${String(i).padStart(2, "0")}.fest/`).reverse();
+  const added = (i) => (i < 2 ? "2026-10-20T00:00:00.000Z" : "2026-10-01T00:00:00.000Z"); // f11 and f10 are the newest
+  const store = fakeStore({ festivals: queuedFests(urls, added) });
+  let prompt;
+  await readPastedFestivals({ store, runSession: async (p) => ((prompt = p), "[]"), now });
+  assert.deepEqual([...prompt.matchAll(/^URL: (\S+)/gm)].map((m) => m[1]), urls.slice(2).reverse());
+  const s = await store.getReadingStatus();
+  assert.equal(s.read, 10);
+  assert.ok(s.waiting >= 2);
+});
+
+test("a festival the answer leaves out stays waiting and is listed as unread", async () => {
+  const [a, b, c] = ["https://a.fest/", "https://b.fest/", "https://c.fest/"];
+  const store = fakeStore({ festivals: queuedFests([a, b, c]) });
+  const answer = JSON.stringify([{ url: a, tier: "good" }, { url: b, tier: "long" }]);
+  await readPastedFestivals({ store, runSession: async () => answer, now });
+  assert.deepEqual([a, b, c].map((u) => store.festivals[gigId(u)].tier), ["good", "long", null]);
+  assert.deepEqual(await store.getReadingStatus(), { at: "2026-10-10T12:00:00.000Z", read: 3, saved: 2, unread: [c], waiting: 1 });
+});
+
+test("a session that throws is saved as the status error and changes no festival", async () => {
+  const a = "https://a.fest/";
+  const festivals = queuedFests([a]);
+  const store = fakeStore({ festivals });
+  await readPastedFestivals({ store, runSession: async () => { throw new Error("boom"); }, now });
+  assert.deepEqual(store.festivals, festivals);
+  assert.deepEqual(await store.getReadingStatus(), { at: "2026-10-10T12:00:00.000Z", read: 1, saved: 0, unread: [a], waiting: 1, error: "boom" });
+});
+
+test("an answer that can't be parsed is saved as the status error", async () => {
+  const store = fakeStore({ festivals: queuedFests(["https://a.fest/"]) });
+  await readPastedFestivals({ store, runSession: async () => "not json", now });
+  const s = await store.getReadingStatus();
+  assert.equal(s.saved, 0);
+  assert.equal(s.error, "no JSON array in the answer");
+});
+
+test("reading festivals leaves the weekly search status alone", async () => {
+  const a = "https://a.fest/";
+  const store = fakeStore({ festivals: queuedFests([a]) });
+  const weekly = { ranAt: "2026-10-05T07:00:00.000Z", found: 3 };
+  await store.setFestivalStatus(weekly);
+  await readPastedFestivals({ store, runSession: async () => JSON.stringify([{ url: a, tier: "good" }]), now });
+  await readPastedFestivals({ store, runSession: async () => "not json", now });
+  assert.deepEqual(await store.getFestivalStatus(), weekly);
 });
 
 const scoutNow = () => Date.parse("2026-11-02T09:00:00Z");
