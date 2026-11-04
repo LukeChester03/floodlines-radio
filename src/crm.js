@@ -86,6 +86,25 @@ export function songInfo(rec, now = Date.now()) {
   };
 }
 
+// One group per station for each list, so a station with two songs waiting shows once. A station can be in both lists.
+export function followupsByStation(rows, songs) {
+  const out = { due: [], upcoming: [] };
+  for (const station of rows) {
+    if (station.rec.dnc) continue;
+    const waiting = songs.filter(song => station.per[song.id].due);
+    for (const [list, isDue] of [[out.due, true], [out.upcoming, false]]) {
+      const group = waiting.filter(song => station.per[song.id].isDue === isDue).map(song => {
+        const { due, lastAt, followUps, status } = station.per[song.id];
+        return { song, due, lastAt, followUps, status };
+      });
+      if (group.length) list.push({ station, songs: group, due: new Date(Math.min(...group.map(g => g.due))) });
+    }
+  }
+  out.due.sort((a, b) => a.due - b.due);
+  out.upcoming.sort((a, b) => a.due - b.due);
+  return out;
+}
+
 export const sentKey = q => `${q.id}:${q.song || "companion"}:${q.kind === "followup" ? "followup" : "pitch"}`;
 // The frozen sent-log plus the server's send records, each send counted once
 export function knownSends(sentLog, sends) {
