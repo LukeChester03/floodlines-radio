@@ -10,7 +10,7 @@ import pastPlays from "./data/history.json";
 import { useLocal } from "./store.js";
 import { gmailBanner } from "./gmail.js";
 import { defaultSongs } from "./songs.js";
-import { blankSong, blankStation, followupBadge, knownSends, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
+import { blankSong, blankStation, followupBadge, followupsByStation, knownSends, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
 import { OnAir } from "./ui/bits.jsx";
 import NowPitching from "./views/NowPitching.jsx";
 import Booth from "./views/Booth.jsx";
@@ -104,7 +104,7 @@ export default function App({ user }) {
     });
   }, [crm, songs, song.id, queuedKeys]);
   // Follow-ups due for every song, not just the one on screen
-  const dueAll = useMemo(() => rows.flatMap(s => (s.rec.dnc ? [] : songs.filter(sg => s.per[sg.id].isDue).map(sg => ({ ...s, dueSong: sg })))), [rows, songs]);
+  const followups = useMemo(() => followupsByStation(rows, songs), [rows, songs]);
 
   const openMailer = (ids, kind = "pitch", songFor, prefill) => {
     const list = ids.filter(id => byId[id]);
@@ -133,8 +133,8 @@ export default function App({ user }) {
   if (!cloud.ready) return <main className="gate" aria-busy="true"><p className="gate-loading">Loading the band's campaign…</p></main>;
 
   const gmail = cloud.gmail === undefined ? null : gmailBanner(cloud.gmail);
-  const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, approve, queue, dueAll, setView, openSongForm: setSongForm, cloud, user, gmail, gmailStatus: cloud.gmail };
-  const badges = { stations: stations.length, followups: followupBadge(dueAll.length, cloud.replies) || null, sendlist: queue.length || null };
+  const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, approve, queue, followups, setView, openSongForm: setSongForm, cloud, user, gmail, gmailStatus: cloud.gmail };
+  const badges = { stations: stations.length, followups: followupBadge(followups.due.length, cloud.replies) || null, sendlist: queue.length || null };
 
   return (
     <MotionConfig reducedMotion="user">

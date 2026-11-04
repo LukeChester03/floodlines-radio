@@ -12,7 +12,7 @@ const fmtDay = d => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day
 
 const songs_untouched = s => Object.values(s.per).every(p => p.status === "new" || p.status === "played") && !s.rec.notes && !s.rec.tags.length;
 
-export default function Booth({ stations, songs, song, dueAll, queue, openMailer, openSheet, setView, cloud, user }) {
+export default function Booth({ stations, songs, song, followups, queue, openMailer, openSheet, setView, cloud, user }) {
   const reach = stations.filter(reachable);
   const count = k => reach.filter(s => s.cur.status === k).length;
   const contacted = reach.filter(s => s.cur.status !== "new").length;
@@ -27,7 +27,7 @@ export default function Booth({ stations, songs, song, dueAll, queue, openMailer
   const queuedForSong = queue.filter(q => q.song === song.id).length;
 
   const cues = [
-    { icon: BellRing, label: "Follow-ups due", n: dueAll.length, hot: dueAll.length > 0, go: "followups", text: dueAll.length ? "No reply yet and the wait is up, across all your songs." : "Nothing due right now." },
+    { icon: BellRing, label: "Follow-ups due", n: followups.due.length, hot: followups.due.length > 0, go: "followups", text: followups.due.length ? "No reply yet and the wait is up, across all your songs." : "Nothing due right now." },
     { icon: Send, label: "In the send list", n: queuedForSong, hot: false, go: "sendlist", text: queuedForSong ? `Waiting to go out for ${song.title}.` : "Approve pitches to fill it." },
     { icon: Inbox, label: "Waiting on replies", n: count("pitched") + count("followed"), hot: false, go: "pipeline", text: "Pitched and not heard back yet." },
   ];

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { canGoLive, checkEpkFile, checkLogoFile, epkRecord, logoRecord, followupBadge, knownSends, releaseBatch, replyGroups, withSentLog, withTemplate } from "./crm.js";
+import { canGoLive, checkEpkFile, checkLogoFile, epkRecord, logoRecord, followupBadge, followupsByStation, knownSends, releaseBatch, replyGroups, songInfo, withSentLog, withTemplate } from "./crm.js";
 import { templates } from "./songs.js";
 
 const song = { id: "s1", title: "Tidal Lines", link: "https://x.test/s1", released: "2026-01-01", blurb: "" };
@@ -115,4 +115,59 @@ test("checkLogoFile accepts a PNG up to 200 KB and rejects bigger files or other
 test("logoRecord describes the logo for settings, with base64 data and no data: prefix", () => {
   assert.deepEqual(logoRecord({ name: "fl.png", size: 3, type: "image/png" }, "AAEC", new Date("2026-10-29T12:00:00Z")),
     { name: "fl.png", mimeType: "image/png", data: "AAEC", size: 3, updatedAt: "2026-10-29T12:00:00.000Z" });
+});
+
+const finalFear = { id: "final-fear", title: "Final Fear" };
+const companion = { id: "companion", title: "Companion" };
+const bothSongs = [finalFear, companion];
+const pitchedOn = (at, status = "pitched") => ({ status, log: [{ at, type: "pitch", text: "Pitched" }] });
+const stationRow = (id, songRecs, now, rec = {}) => ({
+  id, name: `Radio ${id}`, rec,
+  per: Object.fromEntries(bothSongs.map(sg => [sg.id, songInfo(songRecs[sg.id], now)])),
+});
+const NOV_4 = new Date("2026-11-04T12:00:00Z").getTime();
+
+test("followupsByStation puts two songs pitched the same day on one upcoming row", () => {
+  const row = stationRow("a", { "final-fear": pitchedOn("2026-11-03T09:00:00Z"), companion: pitchedOn("2026-11-03T09:00:00Z") }, NOV_4);
+  const { due, upcoming } = followupsByStation([row], bothSongs);
+  assert.deepEqual(due, []);
+  assert.equal(upcoming.length, 1);
+  assert.equal(upcoming[0].station, row);
+  assert.deepEqual(upcoming[0].songs.map(x => x.song.id), ["final-fear", "companion"]);
+  assert.equal(upcoming[0].due.toISOString(), "2026-11-13T09:00:00.000Z");
+});
+
+test("followupsByStation splits a station between due and upcoming by song", () => {
+  const row = stationRow("a", { companion: pitchedOn("2026-10-20T09:00:00Z"), "final-fear": pitchedOn("2026-10-28T09:00:00Z") }, NOV_4);
+  const { due, upcoming } = followupsByStation([row], bothSongs);
+  assert.deepEqual(due.map(g => [g.station.id, g.songs.map(x => x.song.id)]), [["a", ["companion"]]]);
+  assert.deepEqual(upcoming.map(g => [g.station.id, g.songs.map(x => x.song.id)]), [["a", ["final-fear"]]]);
+  assert.equal(upcoming[0].due.toISOString(), "2026-11-07T09:00:00.000Z");
+});
+
+test("followupsByStation leaves out do-not-contact stations", () => {
+  const recs = { companion: pitchedOn("2026-10-20T09:00:00Z"), "final-fear": pitchedOn("2026-11-03T09:00:00Z") };
+  assert.deepEqual(followupsByStation([stationRow("a", recs, NOV_4, { dnc: true })], bothSongs), { due: [], upcoming: [] });
+});
+
+test("followupsByStation leaves out replied and played songs", () => {
+  const recs = { companion: pitchedOn("2026-10-20T09:00:00Z", "replied"), "final-fear": pitchedOn("2026-11-03T09:00:00Z", "played") };
+  assert.deepEqual(followupsByStation([stationRow("a", recs, NOV_4)], bothSongs), { due: [], upcoming: [] });
+});
+
+test("followupsByStation sorts groups by earliest due and carries each song's contact details", () => {
+  const later = stationRow("later", { companion: pitchedOn("2026-10-22T09:00:00Z") }, NOV_4);
+  const sooner = stationRow("sooner", { companion: pitchedOn("2026-10-20T09:00:00Z"), "final-fear": pitchedOn("2026-10-21T09:00:00Z") }, NOV_4);
+  const { due } = followupsByStation([later, sooner], bothSongs);
+  assert.deepEqual(due.map(g => g.station.id), ["sooner", "later"]);
+  assert.equal(due[0].due.toISOString(), "2026-10-30T09:00:00.000Z");
+  const c = due[0].songs.find(x => x.song.id === "companion");
+  assert.equal(c.lastAt.toISOString(), "2026-10-20T09:00:00.000Z");
+  assert.equal(c.followUps, 0);
+  assert.equal(c.status, "pitched");
+});
+
+test("the Follow-ups badge counts one station due for two songs once", () => {
+  const row = stationRow("a", { companion: pitchedOn("2026-10-20T09:00:00Z"), "final-fear": pitchedOn("2026-10-20T09:00:00Z") }, NOV_4);
+  assert.equal(followupBadge(followupsByStation([row], bothSongs).due.length, []), 1);
 });
