@@ -16,25 +16,27 @@ export function classify(msg, bandEmail) {
   return "replied";
 }
 
+const songsOf = (send) => send?.songs ?? (send?.song ? [send.song] : []);
+
+const newest = (sends) => sends.sort((a, b) => String(b.sentAt).localeCompare(String(a.sentAt)))[0];
+
 export function matchReply(msg, sends, stations) {
   const h = msg.headers ?? {};
   const byTo = (send) => stations.find((s) => s.email && addr(s.email) === addr(send.to));
   const hit = (send) => {
     const st = byTo(send);
-    return st && { stationId: st.id, song: send.song, kind: send.kind };
+    return st && { stationId: st.id, song: send.song, songs: songsOf(send), kind: send.kind };
   };
 
-  const thread = sends.find((s) => s.threadId && s.threadId === msg.threadId);
-  if (thread && hit(thread)) return hit(thread);
-
   const refs = `${h["in-reply-to"] ?? ""} ${h.references ?? ""}`.split(/\s+/).filter(Boolean);
-  const ref = sends.find((s) => s.messageId && refs.includes(s.messageId));
+  const ref = newest(sends.filter((s) => s.messageId && refs.includes(s.messageId)));
   if (ref && hit(ref)) return hit(ref);
+
+  const thread = newest(sends.filter((s) => s.threadId && s.threadId === msg.threadId));
+  if (thread && hit(thread)) return hit(thread);
 
   const station = stations.find((s) => s.email && addr(s.email) === addr(msg.from));
   if (!station) return null;
-  const last = sends
-    .filter((s) => addr(s.to) === addr(station.email))
-    .sort((a, b) => String(b.sentAt).localeCompare(String(a.sentAt)))[0];
-  return { stationId: station.id, song: last?.song ?? null, kind: last?.kind ?? null };
+  const last = newest(sends.filter((s) => addr(s.to) === addr(station.email)));
+  return { stationId: station.id, song: last?.song ?? null, songs: songsOf(last), kind: last?.kind ?? null };
 }
