@@ -6,7 +6,7 @@ import { approvalSummary } from "../../functions/approve.js";
 import { queueProgress, failureReason } from "../../functions/core/progress.js";
 import { sendPace } from "../../functions/core/pace.js";
 import { Empty, Modal } from "../ui/bits.jsx";
-import { approveError } from "../sendlist.js";
+import { approveError, isBroken } from "../sendlist.js";
 
 const STATES = {
   review: "Waiting for review",
@@ -36,17 +36,18 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
   const [done, setDone] = useState(null);
   const songTitle = id => songs.find(s => s.id === id)?.title || id;
   const songColor = id => songs.find(s => s.id === id)?.color;
-  const key = q => `${q.id}:${q.song}:${q.kind}`;
+  const key = q => q._key;
   const [now, setNow] = useState(() => Date.now());
   useEffect(() => { const t = setInterval(() => setNow(Date.now()), 30000); return () => clearInterval(t); }, []);
-  const progress = queueProgress(items, cloud.sends || [], sendPace, now);
-  const approved = items.filter(q => stateOf(q) === "approved").map(key);
+  const waiting = items.filter(q => !isBroken(q));
+  const progress = queueProgress(waiting, cloud.sends || [], sendPace, now);
+  const approved = waiting.filter(q => stateOf(q) === "approved").map(key);
   const move = async (keys, state) => {
     setError(null);
     try { await cloud.setEntryState(keys, state); } catch { setError("Couldn't update the list. Check your connection and try again."); }
   };
   const nextRun = new Date(progress.nextRunAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-  const pending = items.filter(q => stateOf(q) === "review");
+  const pending = waiting.filter(q => stateOf(q) === "review");
   const summary = approvalSummary(pending);
 
   // The box can be closed while this runs; the outcome still lands on the page
@@ -143,10 +144,10 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
                   )}
                 </AnimatePresence>
                 <div className="sl-actions">
-                  {stateOf(q) === "review" && <button className="link-btn" onClick={() => openMailer([q.id], q.kind, q.song, { [q.id]: { subject: q.subject, body: q.body } })}>Edit</button>}
+                  {stateOf(q) === "review" && !isBroken(q) && <button className="link-btn" onClick={() => openMailer([q.id], q.kind, q.song, { [q.id]: { subject: q.subject, body: q.body } })}>Edit</button>}
                   {stateOf(q) === "approved" && <button className="link-btn" onClick={() => move([key(q)], "review")}><Pause size={14} aria-hidden="true" /> Pause</button>}
                   {stateOf(q) === "failed" && <button className="link-btn" onClick={() => move([key(q)], "approved")}><RotateCcw size={14} aria-hidden="true" /> Retry</button>}
-                  <button className="link-btn danger" onClick={() => { cloud.removeFromQueue([key(q)]); logEvent(q.id, q.song, "note", "Removed from the send list"); }}>Remove</button>
+                  <button className="link-btn danger" onClick={() => { cloud.removeFromQueue([key(q)]); if (!isBroken(q)) logEvent(q.id, q.song, "note", "Removed from the send list"); }}>Remove</button>
                 </div>
               </motion.li>
             ))}

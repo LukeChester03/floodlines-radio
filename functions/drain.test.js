@@ -27,6 +27,19 @@ test("sends one run's budget, one recipient each, and records every send", async
   assert.equal((await store.listSendlist({ state: "approved" })).length, 3);
 });
 
+test("an entry removed while it's being sent stays removed, and the send is recorded once", async () => {
+  const store = fakeStore({ stations: stations(1), sendlist: [entry(0)] });
+  const transport = fakeTransport();
+  const send = transport.send;
+  transport.send = async (msg) => {
+    store.sendlist.length = 0;
+    return send(msg);
+  };
+  await drain({ store, transport, now });
+  assert.deepEqual(await store.listSendlist(), []);
+  assert.equal((await store.listSends({ since: 0 })).length, 1);
+});
+
 test("one daily run sends everything approved, up to the daily cap", async () => {
   const sendlist = Array.from({ length: 60 }, (_, i) => entry(i, { approvedAt: new Date(NOW - (60 - i) * 60e3).toISOString() }));
   const store = fakeStore({ stations: stations(60), sendlist });

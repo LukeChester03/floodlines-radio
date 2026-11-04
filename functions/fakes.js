@@ -42,6 +42,7 @@ export function fakeStore({ sendlist = [], stations = {}, sends = [], status = {
   return {
     gigs: gigDocs,
     festivals: festivalDocs,
+    sendlist: list,
     async listFestivalIds() {
       return Object.keys(festivalDocs);
     },

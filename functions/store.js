@@ -12,7 +12,10 @@ export function firestoreStore(db, stations = stationEmails) {
       return data(await (state ? col.where("state", "==", state) : col).get());
     },
     async updateEntry(key, patch) {
-      await db.doc(`sendlist/${key}`).set(patch, { merge: true });
+      // update, not a merge: a merge would bring back an entry the band removed mid-send
+      await db.doc(`sendlist/${key}`).update(patch).catch((e) => {
+        if (e.code !== 5) throw e; // NOT_FOUND
+      });
     },
     async getStation(id) {
       const s = await db.doc(`stations/${id}`).get();

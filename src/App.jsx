@@ -10,6 +10,8 @@ import pastPlays from "./data/history.json";
 import { useLocal } from "./store.js";
 import { gmailBanner } from "./gmail.js";
 import { defaultSongs } from "./songs.js";
+import { waitingCount } from "../functions/core/progress.js";
+import { isBroken } from "./sendlist.js";
 import { blankSong, blankStation, followupBadge, followupsByStation, knownSends, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
 import { OnAir } from "./ui/bits.jsx";
 import NowPitching from "./views/NowPitching.jsx";
@@ -69,7 +71,7 @@ export default function App({ user }) {
 
   // Anything Claude has already sent drops out of the send list, so it can't be sent twice
   const queue = useMemo(() => cloud.queue.filter(q => !sentKeys.has(sentKey(q))), [cloud.queue, sentKeys]);
-  const sentStillQueued = useMemo(() => cloud.queue.filter(q => sentKeys.has(sentKey(q))).map(sentKey), [cloud.queue, sentKeys]);
+  const sentStillQueued = useMemo(() => cloud.queue.filter(q => sentKeys.has(sentKey(q))).map(q => q._key), [cloud.queue, sentKeys]);
   const { removeFromQueue } = cloud;
   useEffect(() => { if (sentStillQueued.length) removeFromQueue(sentStillQueued); }, [sentStillQueued, removeFromQueue]);
   const queuedKeys = useMemo(() => new Set(queue.map(sentKey)), [queue]);
@@ -134,7 +136,8 @@ export default function App({ user }) {
 
   const gmail = cloud.gmail === undefined ? null : gmailBanner(cloud.gmail);
   const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, approve, queue, followups, setView, openSongForm: setSongForm, cloud, user, gmail, gmailStatus: cloud.gmail };
-  const badges = { stations: stations.length, followups: followupBadge(followups.due.length, cloud.replies) || null, sendlist: queue.length || null };
+  const waiting = waitingCount(queue.filter(q => !isBroken(q)));
+  const badges = { stations: stations.length, followups: followupBadge(followups.due.length, cloud.replies) || null, sendlist: waiting || null };
 
   return (
     <MotionConfig reducedMotion="user">
@@ -157,7 +160,7 @@ export default function App({ user }) {
               ))}
             </nav>
           </LayoutGroup>
-          <OnAir count={queue.length} onClick={() => setView("sendlist")} />
+          <OnAir count={waiting} onClick={() => setView("sendlist")} />
           <button className="icon-btn signout" onClick={() => signOut(auth)} aria-label={`Sign out ${user.email}`} title={`Signed in as ${user.email}`}><LogOut size={16} aria-hidden="true" /></button>
         </header>
         {local && (

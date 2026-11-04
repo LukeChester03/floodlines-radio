@@ -66,6 +66,30 @@ test("firestoreStore.getStation joins the static email onto the CRM record", asy
   assert.equal(await s.getStation("zzz"), undefined);
 });
 
+test("updateEntry on a missing entry does nothing and doesn't throw", async () => {
+  const s = fakeStore({ sendlist: [{ key: "a", state: "approved" }] });
+  await s.updateEntry("gone", { state: "sent" });
+  assert.deepEqual(await s.listSendlist(), [{ key: "a", state: "approved" }]);
+
+  const updates = [];
+  const db = { doc: (p) => ({
+    update: async (patch) => {
+      if (p === "sendlist/gone") throw Object.assign(new Error("No document to update"), { code: 5 });
+      updates.push({ p, patch });
+    },
+    set: async () => assert.fail("set would recreate a removed entry"),
+  }) };
+  const real = firestoreStore(db, []);
+  await real.updateEntry("gone", { state: "sent" });
+  await real.updateEntry("a", { state: "sent" });
+  assert.deepEqual(updates, [{ p: "sendlist/a", patch: { state: "sent" } }]);
+});
+
+test("firestoreStore.updateEntry still throws on any other failure", async () => {
+  const db = { doc: () => ({ update: async () => { throw Object.assign(new Error("unavailable"), { code: 14 }); } }) };
+  await assert.rejects(firestoreStore(db, []).updateEntry("a", { state: "sent" }), { code: 14 });
+});
+
 test("firestoreStore.setStatus merges into gmail/status, not settings/", async () => {
   const writes = [];
   const db = { doc: (p) => ({ set: async (data, opts) => writes.push({ p, data, opts }) }) };
