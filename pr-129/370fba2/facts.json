@@ -1,0 +1,34 @@
+[
+  {
+    "page": "/#followups",
+    "width": 375,
+    "image": "-followups-375.png",
+    "final_url": "http://127.0.0.1:55065/#followups",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#followups",
+    "width": 1280,
+    "image": "-followups-1280.png",
+    "final_url": "http://127.0.0.1:55065/#followups",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#booth",
+    "width": 375,
+    "image": "-booth-375.png",
+    "final_url": "http://127.0.0.1:55065/#booth",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#booth",
+    "width": 1280,
+    "image": "-booth-1280.png",
+    "final_url": "http://127.0.0.1:55065/#booth",
+    "overflow": false,
+    "console_errors": []
+  }
+]
