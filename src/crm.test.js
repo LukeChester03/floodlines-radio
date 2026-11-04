@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { canGoLive, checkEpkFile, checkLogoFile, epkRecord, logoRecord, followupBadge, followupsByStation, knownSends, releaseBatch, replyGroups, songInfo, withSentLog, withTemplate } from "./crm.js";
+import { alreadySent, canGoLive, checkEpkFile, checkLogoFile, epkRecord, logoRecord, followupBadge, followupsByStation, knownSends, releaseBatch, replyGroups, songInfo, withSentLog, withTemplate } from "./crm.js";
 import { fill, templates } from "./songs.js";
 
 const song = { id: "s1", title: "Tidal Lines", link: "https://x.test/s1", released: "2026-01-01", blurb: "" };
@@ -53,6 +53,29 @@ test("a send in both the sent-log and Firestore is counted once", () => {
 
 test("the sent-log and a later Firestore send for the same key are both kept", () => {
   assert.equal(knownSends([send], [{ ...send, sentAt: "2026-06-09T10:00:00Z" }]).length, 2);
+});
+
+const nudge = { id: "a", song: "companion", kind: "followup", sentAt: "2026-11-13T10:00:00Z" };
+
+test("a follow-up queued after an earlier nudge on the same key isn't already sent", () => {
+  const merged = { id: "a", song: "companion", songs: ["companion", "finalfear"], kind: "followup", addedAt: "2026-11-27T09:00:00Z" };
+  assert.equal(alreadySent(merged, [nudge]), false);
+});
+
+test("a follow-up sent after it was queued is already sent", () => {
+  assert.equal(alreadySent({ id: "a", song: "companion", kind: "followup", addedAt: "2026-11-12T09:00:00Z" }, [nudge]), true);
+});
+
+test("a follow-up with no queue date falls back to the key alone", () => {
+  assert.equal(alreadySent({ id: "a", song: "companion", kind: "followup" }, [nudge]), true);
+});
+
+test("a pitch is sent once, however late it was queued", () => {
+  assert.equal(alreadySent({ ...send, addedAt: "2026-07-01T09:00:00Z" }, [send]), true);
+});
+
+test("a send on another key doesn't count", () => {
+  assert.equal(alreadySent({ id: "a", song: "finalfear", kind: "followup" }, [nudge]), false);
 });
 
 const rep = (id, o = {}) => ({ id, stationId: "s1", song: "s1", outcome: "replied", decision: "undecided", date: "2026-10-02T09:00:00Z", ...o });

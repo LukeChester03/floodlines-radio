@@ -109,6 +109,8 @@ export function followupsByStation(rows, songs) {
 }
 
 export const sentKey = q => `${q.id}:${q.song || "companion"}:${q.kind === "followup" ? "followup" : "pitch"}`;
+// Has this entry gone out? The key has no date, so a follow-up only counts sends made after it was queued; an earlier nudge on the same key is a different email
+export const alreadySent = (q, sends) => sends.some(s => sentKey(s) === sentKey(q) && (q.kind !== "followup" || new Date(s.sentAt) >= new Date(q.addedAt || 0)));
 // The frozen sent-log plus the server's send records, each send counted once
 export function knownSends(sentLog, sends) {
   const seen = new Set();

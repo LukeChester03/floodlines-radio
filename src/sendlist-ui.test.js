@@ -121,3 +121,20 @@ test("Draft follow-ups queues one email per station, naming each station's due s
   const logged = saved.filter(([id]) => id === both).flatMap(([, p]) => Object.entries(p.songs).filter(([, r]) => r.log.at(-1).text === "Follow-up added to the send list").map(([sid]) => sid));
   assert.deepEqual(logged.sort(), ["companion", "finalfear"]);
 });
+
+test("a merged follow-up stays queued when its first song had an earlier nudge, and goes once it's sent", async () => {
+  const removed = [];
+  const entry = { _key: "demon-fm-gb:companion:followup", id: "demon-fm-gb", song: "companion", songs: ["companion", "finalfear"], kind: "followup", state: "review", addedAt: "2026-11-27T09:00:00Z" };
+  const nudge = { id: "demon-fm-gb", song: "companion", kind: "followup", subject: "Re", sentAt: "2026-11-13T10:00:00Z" };
+  const mount = async sends => {
+    globalThis.stubCloud = { ...stubCloud([entry]), sends, removeFromQueue: keys => removed.push(keys) };
+    const host = await render(createElement(App, { user: { email: "band@x.com" } }));
+    return button(host, "Send list").querySelector(".nav-badge")?.textContent;
+  };
+
+  assert.equal(await mount([nudge]), "1");
+  assert.deepEqual(removed, []);
+
+  assert.equal(await mount([nudge, { ...nudge, songs: entry.songs, sentAt: "2026-11-27T10:00:00Z" }]), undefined);
+  assert.deepEqual(removed, [[entry._key]]);
+});

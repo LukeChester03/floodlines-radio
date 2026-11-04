@@ -12,7 +12,7 @@ import { gmailBanner } from "./gmail.js";
 import { defaultSongs } from "./songs.js";
 import { waitingCount } from "../functions/core/progress.js";
 import { isBroken } from "./sendlist.js";
-import { blankSong, blankStation, followupBadge, followupsByStation, knownSends, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
+import { alreadySent, blankSong, blankStation, followupBadge, followupsByStation, knownSends, sentKey, songInfo, statusLabel, withSentLog } from "./crm.js";
 import { OnAir } from "./ui/bits.jsx";
 import NowPitching from "./views/NowPitching.jsx";
 import Booth from "./views/Booth.jsx";
@@ -67,11 +67,10 @@ export default function App({ user }) {
   const sends = useMemo(() => knownSends(sentLog, cloud.sends), [cloud.sends]);
   const knownLog = useMemo(() => [...pastPlays, ...sends], [sends]);
   const crm = useMemo(() => withSentLog(cloud.crm, knownLog), [cloud.crm, knownLog]);
-  const sentKeys = useMemo(() => new Set(sends.map(sentKey)), [sends]);
 
   // Anything Claude has already sent drops out of the send list, so it can't be sent twice
-  const queue = useMemo(() => cloud.queue.filter(q => !sentKeys.has(sentKey(q))), [cloud.queue, sentKeys]);
-  const sentStillQueued = useMemo(() => cloud.queue.filter(q => sentKeys.has(sentKey(q))).map(q => q._key), [cloud.queue, sentKeys]);
+  const queue = useMemo(() => cloud.queue.filter(q => !alreadySent(q, sends)), [cloud.queue, sends]);
+  const sentStillQueued = useMemo(() => cloud.queue.filter(q => alreadySent(q, sends)).map(q => q._key), [cloud.queue, sends]);
   const { removeFromQueue } = cloud;
   useEffect(() => { if (sentStillQueued.length) removeFromQueue(sentStillQueued); }, [sentStillQueued, removeFromQueue]);
   const queuedKeys = useMemo(() => new Set(queue.map(sentKey)), [queue]);
