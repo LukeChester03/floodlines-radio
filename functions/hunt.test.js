@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { festivalHunt, gigHunt, readPasted, readPastedFestivals } from "./hunt.js";
+import { festivalHunt, gigHunt, readPasted, readPastedFestivals, runLine } from "./hunt.js";
 import { gigId } from "./core/gigs.js";
 import { fakeStore } from "./fakes.js";
 
@@ -215,4 +215,13 @@ test("the scout's run status is written for the Festivals screen", async () => {
   assert.equal(s.ranAt, "2026-11-02T09:00:00.000Z");
   assert.deepEqual(s.queries, ["UK festivals"]);
   assert.deepEqual([s.found, s.read, s.saved], [2, 2, 1]);
+});
+
+test("a run's result line starts with the run's name", () => {
+  assert.equal(runLine("readPastedFestivals", { read: 3, saved: 3 }), 'readPastedFestivals: {"read":3,"saved":3}');
+});
+
+test("a result holding nested arrays stays on one line", () => {
+  const line = runLine("readPasted", { read: 1, errors: [{ url: "https://a.com/1", reasons: ["timed out", "no text"] }] });
+  assert.ok(!line.includes("\n"));
 });

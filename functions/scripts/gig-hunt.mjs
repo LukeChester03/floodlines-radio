@@ -8,7 +8,7 @@ import { readFileSync } from "node:fs";
 import { initializeApp, applicationDefault } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { firestoreStore } from "../store.js";
-import { festivalHunt, gigHunt, readPasted, readPastedFestivals } from "../hunt.js";
+import { festivalHunt, gigHunt, readPasted, readPastedFestivals, runLine } from "../hunt.js";
 import { importFestivals } from "../festivals.js";
 import seed from "../data/festivals.json" with { type: "json" };
 
@@ -53,7 +53,7 @@ if (process.argv.includes("--seed-festivals")) {
     : [[gigHunt, (p) => session(["WebSearch", "WebFetch"], p)], [festivalHunt, (p) => session(["WebSearch", "WebFetch"], p)]];
   for (const [run, runSession] of runs) {
     try {
-      console.log(JSON.stringify(await run({ store, runSession }), null, 2));
+      console.log(runLine(run.name, await run({ store, runSession })));
     } catch (e) {
       console.error(`${run.name} failed: ${e.message}`);
       process.exitCode = 1;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Reads the posts pasted with Add a gig every 15 minutes, and once at load.
+  Reads the posts pasted with Add a gig and the festivals pasted with Add a
+  festival every 15 minutes, and once at load.
 
   Set the two paths below to this checkout's functions/ directory and to your
   node binary (`which node`), then copy and load it:

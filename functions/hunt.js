@@ -147,3 +147,8 @@ export async function festivalHunt({ store, runSession, now = Date.now }) {
   await store.setFestivalStatus(status);
   return status;
 }
+
+// One log line for a run's result, named so one reader's `read: 0` can't be taken for another's.
+export function runLine(name, result) {
+  return `${name}: ${JSON.stringify(result)}`;
+}
