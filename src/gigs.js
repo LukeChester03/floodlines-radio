@@ -63,6 +63,7 @@ const GRACE_MS = 6 * 36e5;
 const tz = "Europe/London";
 const ukParts = new Intl.DateTimeFormat("en-GB", { timeZone: tz, year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric", hourCycle: "h23" });
 const ukDay = ms => new Date(ms).toLocaleString("en-GB", { timeZone: tz, weekday: "short", day: "numeric", month: "short" });
+export const ukTime = ms => new Date(ms).toLocaleString("en-GB", { timeZone: tz, weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
 
 // UK wall clock as if it were UTC
 function ukWall(ms) {

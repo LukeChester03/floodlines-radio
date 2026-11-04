@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { festivalView } from "../festivals.js";
-import { gigDecisions } from "../gigs.js";
+import { gigDecisions, ukTime } from "../gigs.js";
 import { SearchStatus } from "./Gigs.jsx";
 import { Plus } from "lucide-react";
 import { Empty } from "../ui/bits.jsx";
@@ -10,6 +10,23 @@ const label = d => d[0].toUpperCase() + d.slice(1);
 const filters = ["new", ...gigDecisions, "all"];
 const subtitles = { long: "Bigger festivals. Free to try, don't count on them." };
 const part = (date, opt) => new Date(`${date}T00:00:00Z`).toLocaleString("en-GB", { ...opt, timeZone: "UTC" });
+
+// What the last reading run did, above the Being read cards
+function ReadingStatus({ status }) {
+  if (!status) return <p className="warn reading-status">Not read yet. The reading job may not be running on the band's Mac.</p>;
+  return (
+    <div className="reading-status">
+      <p className="view-sub">Last read {ukTime(status.at)}: {status.saved} of {status.read} filled in</p>
+      {status.error && <p className="warn">{status.error}</p>}
+      {status.unread.length > 0 && (
+        <div className="search-problems">
+          <p className="view-sub"><b>Couldn't read these, check them by hand</b></p>
+          <ul>{status.unread.map(u => <li key={u}><a href={u} target="_blank" rel="noreferrer">{u}<span className="sr-only"> (new tab)</span></a></li>)}</ul>
+        </div>
+      )}
+    </div>
+  );
+}
 
 // A festival is a ticket: the stub holds the apply-by date, the body the festival
 function Card({ f, decide }) {
@@ -132,6 +149,7 @@ export default function Festivals({ cloud }) {
         <section key={t.tier} className="fest-tier" aria-labelledby={`fest-${t.tier}`}>
           <h3 id={`fest-${t.tier}`} className="fest-tier-title">{t.title}</h3>
           {subtitles[t.tier] && <p className="fest-tier-sub">{subtitles[t.tier]}</p>}
+          {t.tier === null && <ReadingStatus status={cloud.readingStatus} />}
           <ul className="fest-list">
             <AnimatePresence initial={false}>{t.festivals.map(f => <Card key={f.id} f={f} decide={cloud.decideFestival} />)}</AnimatePresence>
           </ul>

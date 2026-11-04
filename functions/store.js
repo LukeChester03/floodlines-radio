@@ -74,6 +74,9 @@ export function firestoreStore(db, stations = stationEmails) {
     async setFestivalStatus(s) {
       await db.doc("gigstatus/festivals").set(s);
     },
+    async setReadingStatus(s) {
+      await db.doc("gigstatus/reading").set(s);
+    },
     async getStatus() {
       return (await status.get()).data() ?? {};
     },
