@@ -62,7 +62,7 @@ export function useCloud(user) {
       }, fail),
       onSnapshot(collection(db, "sendlist"), snap => {
         const list = [];
-        snap.forEach(d => list.push(strip(d.data())));
+        snap.forEach(d => list.push({ ...strip(d.data()), _key: d.id }));
         list.sort((a, b) => (a.addedAt || a.approvedAt || "").localeCompare(b.addedAt || b.approvedAt || ""));
         setQueue(list);
         done("sendlist");

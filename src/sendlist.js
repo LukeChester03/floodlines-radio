@@ -1,3 +1,6 @@
+// A Send list entry with no station or song: it can be removed, but it's not an email waiting to go.
+export const isBroken = q => !q.id || !q.song;
+
 // Turns a failed approve call into the message the band sees.
 export function approveError(err) {
   const code = err?.code;

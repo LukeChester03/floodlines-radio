@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { queueProgress, failureReason } from "./progress.js";
+import { queueProgress, waitingCount, failureReason } from "./progress.js";
 
 const at = (h, m, s = 0) => new Date(Date.UTC(2026, 0, 5, h, m, s));
 const pace = { perRun: 5, perDay: 50 };
@@ -38,4 +38,19 @@ test("failureReason falls back when a failed entry has no reason", () => {
 
 test("failureReason is null for an entry that isn't failed", () => {
   assert.equal(failureReason({ state: "approved", reason: "old" }), null);
+});
+
+test("waitingCount skips a shell left in the sent state", () => {
+  assert.equal(waitingCount([{ state: "sent" }]), 0);
+});
+
+test("waitingCount counts review, approved, sending and failed, with no state as review", () => {
+  assert.equal(waitingCount([{ state: "review" }, {}, { state: "approved" }, { state: "sending" }, { state: "failed" }, { state: "sent" }]), 5);
+});
+
+test("waitingCount matches the Send list's counters", () => {
+  const entries = [{}, {}, { state: "review" }, { state: "approved" }, { state: "sending" }, { state: "failed" }, { state: "failed" }, { state: "sent" }, { state: "odd" }];
+  const { review, approved, sending, failed } = queueProgress(entries, [], pace, at(1, 0));
+  assert.equal(review + approved + sending + failed, 7);
+  assert.equal(waitingCount(entries), 7);
 });
