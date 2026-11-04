@@ -1,0 +1,18 @@
+[
+  {
+    "page": "/#sendlist (the nav and ON AIR badges show on every page)",
+    "width": 375,
+    "image": "-sendlist-the-nav-and-ON-AIR-badges-show-on-every-page--375.png",
+    "final_url": "http://127.0.0.1:56085/#sendlist%20(the%20nav%20and%20ON%20AIR%20badges%20show%20on%20every%20page)",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#sendlist (the nav and ON AIR badges show on every page)",
+    "width": 1280,
+    "image": "-sendlist-the-nav-and-ON-AIR-badges-show-on-every-page--1280.png",
+    "final_url": "http://127.0.0.1:56085/#sendlist%20(the%20nav%20and%20ON%20AIR%20badges%20show%20on%20every%20page)",
+    "overflow": false,
+    "console_errors": []
+  }
+]
