@@ -36,7 +36,7 @@ const song = { id: "tide", title: "Tide" };
 
 const station = (status, songs = {}) => ({
   id: "demon", name: "Demon FM", route: "email", rank: 1, country: "GB", region: "Leicester", reasons: [],
-  cur: { status, queued: false }, per: { tide: { status } }, rec: { songs, notes: "", tags: [], dnc: false },
+  cur: { status, queued: false }, per: { tide: { status }, "final-fear": { status }, companion: { status } }, rec: { songs, notes: "", tags: [], dnc: false },
 });
 const pitched13DaysAgo = { tide: { status: "pitched", log: [{ at: new Date(Date.now() - 13 * DAY).toISOString(), type: "pitch" }] } };
 
@@ -54,7 +54,7 @@ const inOrder = (text, parts) => {
   assert.ok(at.every(i => i >= 0), `missing one of ${parts} in ${text}`);
   assert.deepEqual(at, [...at].sort((a, b) => a - b));
 };
-const sectionHeads = host => [...host.querySelectorAll("h3")].map(h => h.textContent);
+const sectionHeads = host => [...host.querySelectorAll(".pursuit-section h3")].map(h => h.textContent);
 
 test("a new account sees the stats, then the intro, then On the go, then Pitch", async () => {
   const host = await booth();
@@ -157,4 +157,49 @@ test("See all opens each section's page", async () => {
   const host = await booth({ gigs: gigsDue(6), festivals: festivalsApplied(6), stations: stationsDue(6), songs: [finalFear, companion], setView: v => views.push(v) });
   for (const title of ["Gigs", "Festivals", "Stations"]) await act(async () => seeAll(section(host, title)).click());
   assert.deepEqual(views, ["gigs", "festivals", "followups"]);
+});
+
+const going = host => [...host.querySelectorAll("h2")].find(h => h.textContent === "How it's going").closest("section");
+const levelsIn = el => Object.fromEntries([...el.querySelectorAll(".level")].map(r => [r.querySelector(".level-label").textContent, Number(r.querySelector(".level-n").textContent)]));
+const songRow = (el, title) => [...el.querySelectorAll("h4")].find(h => h.textContent === title).closest("li");
+const tideAndCompanion = (id, tide, comp) => ({ ...station(tide), id, per: { tide: { status: tide }, companion: { status: comp } } });
+const twoSongs = {
+  songs: [song, companion],
+  stations: [tideAndCompanion("a", "played", "new"), tideAndCompanion("b", "replied", "pitched"), tideAndCompanion("c", "new", "new")],
+};
+
+test("How it's going sits between On the go and Pitch", async () => {
+  inOrder((await booth()).textContent, ["On the go", "How it's going", "Pitch Tide here next"]);
+});
+
+test("Campaign levels sits inside How it's going, once, with its four rows", async () => {
+  const host = await booth(twoSongs);
+  const heading = [...host.querySelectorAll("h2, h3")].filter(h => h.textContent === "Tide: campaign levels");
+  assert.equal(heading.length, 1);
+  assert.ok(going(host).contains(heading[0]));
+  assert.deepEqual(levelsIn(heading[0].parentElement), { "Can apply": 3, Contacted: 2, Replied: 2, Played: 1 });
+});
+
+test("How it's going still shows with nothing on the go", async () => {
+  const host = await booth();
+  assert.match(host.textContent, /Nothing on the go/);
+  assert.ok(going(host));
+});
+
+test("each song shows its title with its contacted, replied and played numbers", async () => {
+  const section = going(await booth(twoSongs));
+  assert.deepEqual(levelsIn(songRow(section, "Tide")), { Contacted: 2, Replied: 2, Played: 1 });
+  assert.deepEqual(levelsIn(songRow(section, "Companion")), { Contacted: 1, Replied: 0, Played: 0 });
+});
+
+test("songs show in the order they're given", async () => {
+  const section = going(await booth({ ...twoSongs, songs: [companion, song] }));
+  assert.deepEqual([...section.querySelectorAll("h4")].map(h => h.textContent), ["Companion", "Tide"]);
+});
+
+test("the current song's numbers match between the two charts", async () => {
+  const host = await booth(twoSongs);
+  const heading = [...going(host).querySelectorAll("h3")].find(h => h.textContent === "Tide: campaign levels");
+  const { "Can apply": _, ...levels } = levelsIn(heading.parentElement);
+  assert.deepEqual(levelsIn(songRow(going(host), "Tide")), levels);
 });

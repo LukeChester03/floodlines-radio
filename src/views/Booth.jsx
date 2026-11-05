@@ -1,10 +1,10 @@
 import { useMemo } from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, BellRing, DatabaseBackup, Inbox, Send } from "lucide-react";
 import { download } from "../store.js";
 import { exportAll } from "../cloud.js";
 import { reachable } from "../../functions/core/stations.js";
-import { activePursuits, pursuitSections, timingWords } from "../pursuits.js";
+import { activePursuits, pursuitSections, songLevels, timingWords } from "../pursuits.js";
 import { titles } from "../songs.js";
 import { flag, tierLabel } from "../ui/bits.jsx";
 
@@ -12,16 +12,35 @@ import { flag, tierLabel } from "../ui/bits.jsx";
 const CARDS_PER_SECTION = 5;
 const songs_untouched = s => Object.values(s.per).every(p => p.status === "new" || p.status === "played") && !s.rec.notes && !s.rec.tags.length;
 
+// Bars scaled to how many stations the song can go to, each with its number beside it
+function Levels({ rows, total }) {
+  const still = useReducedMotion();
+  return (
+    <div className="levels">
+      {rows.map(([label, n], i) => (
+        <div className="level" key={label}>
+          <span className="level-label">{label}</span>
+          <span className="level-track">
+            <motion.span
+              className={`level-fill${label === "Can apply" ? " base" : ""}`}
+              initial={still ? false : { width: 0 }}
+              animate={{ width: `${total ? Math.max(n ? 2 : 0, (n / total) * 100) : 0}%` }}
+              transition={{ type: "spring", stiffness: 60, damping: 16, delay: 0.15 + i * 0.1 }}
+            />
+          </span>
+          <span className="level-n">{n}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+const stageRows = ({ contacted, replied, played }) => [["Contacted", contacted], ["Replied", replied], ["Played", played]];
+
 export default function Booth({ stations, songs, song, followups, queue, openMailer, openSheet, setView, cloud, user }) {
   const reach = stations.filter(reachable);
   const count = k => reach.filter(s => s.cur.status === k).length;
-  const contacted = reach.filter(s => s.cur.status !== "new").length;
-  const funnel = [
-    ["Can apply", reach.length],
-    ["Contacted", contacted],
-    ["Replied", count("replied") + count("played")],
-    ["Played", count("played")],
-  ];
+  const levels = songLevels(stations, song.id);
   const top = reach.filter(s => s.cur.status === "new" && !s.cur.queued).sort((a, b) => a.rank - b.rank).slice(0, 9);
   const topEmail = top.filter(s => s.route === "email").map(s => s.id);
   const queuedForSong = queue.filter(q => q.song === song.id).length;
@@ -105,23 +124,28 @@ export default function Booth({ stations, songs, song, followups, queue, openMai
         )}
       </section>
 
-      <section className="card-panel" aria-labelledby="levels-h">
-        <h2 id="levels-h" className="panel-title">{song.title}: campaign levels</h2>
-        <div className="levels">
-          {funnel.map(([label, n], i) => (
-            <div className="level" key={label}>
-              <span className="level-label">{label}</span>
-              <span className="level-track">
-                <motion.span
-                  className={`level-fill${i === 0 ? " base" : ""}`}
-                  initial={{ width: 0 }}
-                  animate={{ width: `${reach.length ? Math.max(n ? 2 : 0, (n / reach.length) * 100) : 0}%` }}
-                  transition={{ type: "spring", stiffness: 60, damping: 16, delay: 0.15 + i * 0.1 }}
-                />
-              </span>
-              <span className="level-n">{n}</span>
-            </div>
-          ))}
+      <section className="card-panel" aria-labelledby="going-h">
+        <h2 id="going-h" className="panel-title">How it's going</h2>
+        <p className="panel-sub">Every bar is out of the stations you can apply to.</p>
+        <div className="going">
+          <div>
+            <h3 className="pursuit-head">{song.title}: campaign levels</h3>
+            <Levels rows={[["Can apply", levels.canApply], ...stageRows(levels)]} total={levels.canApply} />
+          </div>
+          <div>
+            <h3 className="pursuit-head">Song by song</h3>
+            <ul className="song-levels">
+              {songs.map(sg => {
+                const each = songLevels(stations, sg.id);
+                return (
+                  <li key={sg.id}>
+                    <h4 className="song-levels-title">{sg.title}</h4>
+                    <Levels rows={stageRows(each)} total={each.canApply} />
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </section>
 
