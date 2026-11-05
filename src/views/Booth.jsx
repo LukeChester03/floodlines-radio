@@ -4,12 +4,10 @@ import { ArrowRight, BellRing, DatabaseBackup, Inbox, Send } from "lucide-react"
 import { download } from "../store.js";
 import { exportAll } from "../cloud.js";
 import { reachable } from "../../functions/core/stations.js";
-import { activePursuits } from "../pursuits.js";
+import { activePursuits, pursuitSections, timingWords } from "../pursuits.js";
 import { flag, tierLabel } from "../ui/bits.jsx";
 
 // Overview for the song you're pitching: what to do next, and how far the campaign has got
-const fmtDay = d => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
-
 const songs_untouched = s => Object.values(s.per).every(p => p.status === "new" || p.status === "played") && !s.rec.notes && !s.rec.tags.length;
 
 export default function Booth({ stations, songs, song, followups, queue, openMailer, openSheet, setView, cloud, user }) {
@@ -39,19 +37,9 @@ export default function Booth({ stations, songs, song, followups, queue, openMai
   const songTitle = id => songs.find(sg => sg.id === id)?.title || id;
 
   const fresh = stations.every(s => songs_untouched(s));
+  const now = Date.now();
   return (
     <div className="booth">
-      {fresh && (
-        <section className="intro-strip" aria-label="How this works">
-          <p className="intro-lead">Your one place for every radio station FloodLines can send music to. Here's how a campaign runs:</p>
-          <ol>
-            <li><b>Pick stations</b> in Stations. Filter by region, genre or how they take music.</li>
-            <li><b>Check the emails.</b> Blanket email writes one personal email per station for the song you're pitching. Read and edit each one.</li>
-            <li><b>Approve &amp; send.</b> One tap approves the checked list. It then sends gradually from the band's Gmail, one personal email at a time.</li>
-            <li><b>Track replies</b> in the pipeline. Follow-ups come up automatically 10 days after each pitch.</li>
-          </ol>
-        </section>
-      )}
       <div className="cues">
         {cues.map(({ icon: Icon, label, n, hot, go, text }, i) => (
           <motion.button
@@ -72,23 +60,43 @@ export default function Booth({ stations, songs, song, followups, queue, openMai
         ))}
       </div>
 
+      {fresh && (
+        <section className="intro-strip" aria-label="How this works">
+          <p className="intro-lead">Your one place for every radio station FloodLines can send music to. Here's how a campaign runs:</p>
+          <ol>
+            <li><b>Pick stations</b> in Stations. Filter by region, genre or how they take music.</li>
+            <li><b>Check the emails.</b> Blanket email writes one personal email per station for the song you're pitching. Read and edit each one.</li>
+            <li><b>Approve &amp; send.</b> One tap approves the checked list. It then sends gradually from the band's Gmail, one personal email at a time.</li>
+            <li><b>Track replies</b> in the pipeline. Follow-ups come up automatically 10 days after each pitch.</li>
+          </ol>
+        </section>
+      )}
+
       <section className="card-panel" aria-labelledby="chasing-h">
         <h2 id="chasing-h" className="panel-title">On the go</h2>
         <p className="panel-sub">Every gig, festival and station you're chasing, with what to do next. Soonest first.</p>
         {pursuits.length === 0 ? (
           <p className="pursuits-empty">Nothing on the go. Mark a gig or festival interested, or pitch a station.</p>
         ) : (
-          <ol className="pursuits">
-            {pursuits.map(p => (
-              <li key={`${p.kind}:${p.id}:${p.song || ""}`}>
-                <button className={`pursuit${p.overdue ? " overdue" : ""}`} onClick={() => setView(p.view)}>
-                  <span className="pursuit-action">{p.action}</span>
-                  <span className="pursuit-title">{p.title}{p.song && <span className="pursuit-song"> for {songTitle(p.song)}</span>}</span>
-                  <span className="pursuit-date">{p.overdue && <b>Overdue</b>}{p.date ? <time dateTime={p.date}>{fmtDay(p.date)}</time> : "No date"}</span>
-                </button>
-              </li>
-            ))}
-          </ol>
+          pursuitSections(pursuits).map(({ kind, title, count, cards }) => (
+            <div className="pursuit-section" key={kind}>
+              <h3 className="pursuit-head">{title} <span className="pursuit-count">{count}</span></h3>
+              <ol className="next-grid">
+                {cards.map(p => {
+                  const when = timingWords(p, now);
+                  return (
+                    <li key={`${p.kind}:${p.id}:${p.song || ""}`}>
+                      <button className={`next-card pursuit${p.overdue ? " overdue" : ""}`} onClick={() => setView(p.view)}>
+                        <span className="next-name pursuit-action">{p.action}</span>
+                        <span className="pursuit-title">{p.title}{p.song && <span className="pursuit-song"> for {songTitle(p.song)}</span>}</span>
+                        <span className="next-meta pursuit-when">{p.date ? <time dateTime={p.date}>{when}</time> : when}</span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          ))
         )}
       </section>
 

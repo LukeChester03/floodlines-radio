@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { activePursuits } from "./pursuits.js";
+import { activePursuits, pursuitSections, timingWords } from "./pursuits.js";
 
 const now = new Date("2026-11-02T12:00:00Z").getTime();
 const run = (data) => activePursuits({ gigs: [], festivals: [], stations: [], ...data }, now);
@@ -75,4 +75,53 @@ test("activePursuits gives no follow-up for a form station, only for the Email o
 test("activePursuits still asks to answer a reply from a form station", () => {
   const replied = { companion: { status: "replied", log: [{ at: "2026-10-28T18:00:00Z", type: "status" }] } };
   assert.deepEqual(run({ stations: [{ ...station("form", replied), route: "form" }] }).map(x => x.action), ["Answer their reply"]);
+});
+
+const nov4 = new Date("2026-11-04T12:00:00Z").getTime();
+const words = (date, overdue = false, at = nov4) => timingWords({ date, overdue }, at);
+
+test("timingWords counts down to a future date", () => {
+  assert.equal(words("2026-11-09"), "In 5 days");
+  assert.equal(words("2026-11-05"), "In 1 day");
+});
+
+test("timingWords says Today on the day", () => {
+  assert.equal(words("2026-11-04"), "Today");
+});
+
+test("timingWords says how overdue a past date is", () => {
+  assert.equal(words("2026-11-01", true), "3 days overdue");
+  assert.equal(words("2026-11-03", true), "1 day overdue");
+});
+
+test("timingWords says how long ago a past date that isn't overdue was", () => {
+  assert.equal(words("2026-11-01"), "3 days ago");
+  assert.equal(words("2026-11-03"), "1 day ago");
+});
+
+test("timingWords says No date without a date", () => {
+  assert.equal(words(null), "No date");
+});
+
+test("timingWords compares UTC calendar days", () => {
+  assert.equal(words("2026-11-05", false, new Date("2026-11-04T23:59:00Z").getTime()), "In 1 day");
+  assert.equal(words("2026-11-05", false, new Date("2026-11-05T00:01:00Z").getTime()), "Today");
+});
+
+const gigCard = { kind: "gig", id: "g" };
+const festivalCard = { kind: "festival", id: "f" };
+const stationCard = { kind: "station", id: "s" };
+
+test("pursuitSections puts Gigs, Festivals, then Stations, whatever order the list came in", () => {
+  assert.deepEqual(pursuitSections([stationCard, festivalCard, gigCard]), [
+    { kind: "gig", title: "Gigs", view: "gigs", count: 1, cards: [gigCard] },
+    { kind: "festival", title: "Festivals", view: "festivals", count: 1, cards: [festivalCard] },
+    { kind: "station", title: "Stations", view: "followups", count: 1, cards: [stationCard] },
+  ]);
+});
+
+test("pursuitSections leaves out empty sections and keeps cards in their order", () => {
+  const second = { kind: "gig", id: "second" };
+  assert.deepEqual(pursuitSections([second, gigCard]).map(s => [s.title, s.count, s.cards]), [["Gigs", 2, [second, gigCard]]]);
+  assert.deepEqual(pursuitSections([]), []);
 });

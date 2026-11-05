@@ -27,3 +27,28 @@ export function activePursuits({ gigs, festivals, stations }, now) {
     })),
   ].sort((a, b) => (a.date || "9999").localeCompare(b.date || "9999") || (a.title || "").localeCompare(b.title || ""));
 }
+
+const sections = [
+  { kind: "gig", title: "Gigs", view: "gigs" },
+  { kind: "festival", title: "Festivals", view: "festivals" },
+  { kind: "station", title: "Stations", view: "followups" },
+];
+
+export function pursuitSections(pursuits) {
+  return sections
+    .map(section => {
+      const cards = pursuits.filter(p => p.kind === section.kind);
+      return { ...section, count: cards.length, cards };
+    })
+    .filter(section => section.count > 0);
+}
+
+// How far off a date is, in UTC calendar days like activePursuits
+export function timingWords({ date, overdue }, now) {
+  if (!date) return "No date";
+  const days = (Date.parse(date) - Date.parse(day(now))) / 864e5;
+  if (days === 0) return "Today";
+  const span = `${Math.abs(days)} ${Math.abs(days) === 1 ? "day" : "days"}`;
+  if (days > 0) return `In ${span}`;
+  return overdue ? `${span} overdue` : `${span} ago`;
+}
