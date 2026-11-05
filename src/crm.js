@@ -110,6 +110,20 @@ export function followupsByStation(rows, songs) {
   return out;
 }
 
+// Stations applied to by hand get no email, so they never come due. One group per station, newest application first; no date goes last.
+export function appliedByHand(rows, songs) {
+  const out = [];
+  for (const station of rows) {
+    if (station.route === "email" || station.rec.dnc) continue;
+    const group = songs.filter(song => station.per[song.id].status !== "new").map(song => {
+      const { status, lastAt } = station.per[song.id];
+      return { song, status, lastAt };
+    });
+    if (group.length) out.push({ station, songs: group, lastAt: group.map(g => g.lastAt).sort((a, b) => b - a)[0] });
+  }
+  return out.sort((a, b) => b.lastAt - a.lastAt);
+}
+
 export const sentKey = q => `${q.id}:${q.song || "companion"}:${q.kind === "followup" ? "followup" : "pitch"}`;
 // Has this entry gone out? The key has no date, so a follow-up only counts sends made after it was queued; an earlier nudge on the same key is a different email
 export const alreadySent = (q, sends) => sends.some(s => sentKey(s) === sentKey(q) && (q.kind !== "followup" || new Date(s.sentAt) >= new Date(q.addedAt || 0)));

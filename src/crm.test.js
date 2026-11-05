@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { alreadySent, canGoLive, checkEpkFile, checkLogoFile, epkRecord, logoRecord, followupBadge, followupsByStation, knownSends, releaseBatch, replyGroups, songInfo, withSentLog, withTemplate } from "./crm.js";
+import { alreadySent, appliedByHand, canGoLive, checkEpkFile, checkLogoFile, epkRecord, logoRecord, followupBadge, followupsByStation, knownSends, releaseBatch, replyGroups, songInfo, withSentLog, withTemplate } from "./crm.js";
 import { fill, templates } from "./songs.js";
 
 const song = { id: "s1", title: "Tidal Lines", link: "https://x.test/s1", released: "2026-01-01", blurb: "" };
@@ -149,6 +149,39 @@ const stationRow = (id, songRecs, now, rec = {}) => ({
   per: Object.fromEntries(bothSongs.map(sg => [sg.id, songInfo(songRecs[sg.id], now)])),
 });
 const NOV_4 = new Date("2026-11-04T12:00:00Z").getTime();
+const handRow = (id, route, songRecs, rec) => ({ ...stationRow(id, songRecs, NOV_4, rec), route });
+
+test("appliedByHand holds a station's two pitched songs in one group", () => {
+  const recs = { "final-fear": pitchedOn("2026-10-01T09:00:00Z"), companion: pitchedOn("2026-10-02T09:00:00Z") };
+  const groups = appliedByHand([handRow("a", "form", recs)], bothSongs);
+  assert.equal(groups.length, 1);
+  assert.deepEqual(groups[0].songs.map(g => [g.song.id, g.status, g.lastAt.toISOString().slice(0, 10)]), [["final-fear", "pitched", "2026-10-01"], ["companion", "pitched", "2026-10-02"]]);
+});
+
+test("appliedByHand returns uploader, form and post stations but not Email ones", () => {
+  const recs = { companion: pitchedOn("2026-10-01T09:00:00Z") };
+  const rows = [handRow("up", "platform", recs), handRow("form", "form", recs), handRow("post", "post", recs), handRow("mail", "email", recs)];
+  assert.deepEqual(appliedByHand(rows, bothSongs).map(g => g.station.id).sort(), ["form", "post", "up"]);
+});
+
+test("appliedByHand keeps a station after an answer, with that status, and leaves out its new songs", () => {
+  const [group] = appliedByHand([handRow("a", "form", { companion: pitchedOn("2026-10-01T09:00:00Z", "played") })], bothSongs);
+  assert.deepEqual(group.songs.map(g => [g.song.id, g.status]), [["companion", "played"]]);
+});
+
+test("appliedByHand puts the newest application first and stations with no date last", () => {
+  const rows = [
+    handRow("undated", "form", { companion: { status: "played", log: [] } }),
+    handRow("first", "form", { companion: pitchedOn("2026-10-01T09:00:00Z") }),
+    handRow("third", "form", { companion: pitchedOn("2026-10-03T09:00:00Z") }),
+  ];
+  assert.deepEqual(appliedByHand(rows, bothSongs).map(g => g.station.id), ["third", "first", "undated"]);
+});
+
+test("appliedByHand leaves out stations with every song new, and do-not-contact stations", () => {
+  const rows = [handRow("fresh", "form", {}), handRow("dnc", "form", { companion: pitchedOn("2026-10-01T09:00:00Z") }, { dnc: true })];
+  assert.deepEqual(appliedByHand(rows, bothSongs), []);
+});
 
 test("followupsByStation puts two songs pitched the same day on one upcoming row", () => {
   const row = stationRow("a", { "final-fear": pitchedOn("2026-11-03T09:00:00Z"), companion: pitchedOn("2026-11-03T09:00:00Z") }, NOV_4);

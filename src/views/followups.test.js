@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createServer } from "vite";
-import { followupsByStation, songInfo } from "../crm.js";
+import { followupBadge, followupsByStation, songInfo } from "../crm.js";
 
 const finalFear = { id: "final-fear", title: "Final Fear", color: "#123456" };
 const companion = { id: "companion", title: "Companion", color: "#654321" };
@@ -11,8 +11,8 @@ const songs = [finalFear, companion];
 const NOV_4 = new Date("2026-11-04T12:00:00Z").getTime();
 const pitched = at => ({ status: "pitched", log: [{ at, type: "pitch", text: "Pitched" }] });
 const row = (id, recs, o = {}) => ({
-  id, name: `Radio ${id}`, show: "", country: "GB", region: "Leeds", email: `${id}@r.test`, rec: { songs: {}, tags: [], notes: "" },
-  per: Object.fromEntries(songs.map(sg => [sg.id, songInfo(recs[sg.id], NOV_4)])), ...o,
+  id, name: `Radio ${id}`, show: "", country: "GB", region: "Leeds", email: `${id}@r.test`, route: "email", rec: { songs: {}, tags: [], notes: "" },
+  per: Object.fromEntries(songs.map(sg => [sg.id, songInfo(recs[sg.id], NOV_4, o.route || "email")])), ...o,
 });
 const bothOn = at => ({ "final-fear": pitched(at), companion: pitched(at) });
 const count = (html, text) => html.split(text).length - 1;
@@ -82,6 +82,53 @@ test("They replied marks every song on the row as replied", () => {
 test("Time to move on stays per song", () => {
   const nudged = { status: "followed", log: [{ at: "2026-09-01T09:00:00Z", type: "pitch" }, { at: "2026-09-11T09:00:00Z", type: "followup" }, { at: "2026-09-25T09:00:00Z", type: "followup" }] };
   assert.match(html([row("a", { companion: nudged, "final-fear": nudged })]), /Mark all 2 as passed/);
+});
+
+const TRACKED = "Applied by hand";
+const emailPart = out => out.slice(0, out.indexOf(TRACKED));
+const trackedPart = out => out.slice(out.indexOf(TRACKED));
+const uploader = (id = "up") => row(id, { companion: pitched("2026-10-01T09:00:00Z") }, { route: "platform" });
+
+test("A pitched uploader past the wait shows in the tracking section, not in Due now or Coming up", () => {
+  const out = html([uploader()]);
+  assert.equal(count(emailPart(out), "Radio up"), 0);
+  assert.equal(count(trackedPart(out), "Radio up"), 1);
+  assert.match(trackedPart(out), /Uploader/);
+  assert.match(trackedPart(out), /Companion/);
+  assert.match(trackedPart(out), /Pitched/);
+  assert.match(trackedPart(out), /Applied 1 Oct/);
+});
+
+test("A tracked station with no date shows no applied date", () => {
+  const out = html([row("a", { companion: { status: "played", log: [] } }, { route: "form" })]);
+  assert.match(trackedPart(out), /Radio a/);
+  assert.doesNotMatch(trackedPart(out), /Applied \d/);
+});
+
+test("The tracking section says no email goes to these stations", () => {
+  assert.match(trackedPart(html([uploader()])), /No email goes to these stations/);
+});
+
+test("The email part says these stations get an email, sent once approved", () => {
+  const part = emailPart(html([row("a", bothOn("2026-10-20T09:00:00Z"))]));
+  assert.match(part, /These stations get an email/);
+  assert.match(part, /once you approve it on the Send list/);
+});
+
+test("Pressing a tracked station's name opens its sheet", () => {
+  const calls = [];
+  const tree = Followups(props([uploader()], { openSheet: id => calls.push(id) }));
+  button(tree, "Radio up").props.onClick();
+  assert.deepEqual(calls, ["up"]);
+});
+
+test("The tracking section still shows, with its empty message, when nothing was applied by hand", () => {
+  assert.match(trackedPart(html([row("a", {})])), /Nothing applied by hand yet/);
+});
+
+test("Tracked stations don't feed the Follow-ups badge", () => {
+  const { followups } = props([uploader("a"), uploader("b")]);
+  assert.equal(followupBadge(followups.due.length, []), 0);
 });
 
 test("The Booth counts stations due, not songs", () => {

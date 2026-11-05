@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
-import { FIRST_FOLLOW_UP_DAYS, MAX_FOLLOW_UPS, SECOND_FOLLOW_UP_DAYS, fmtDate, gmailThreadUrl, replyGroups } from "../crm.js";
-import { Empty, flag } from "../ui/bits.jsx";
+import { FIRST_FOLLOW_UP_DAYS, MAX_FOLLOW_UPS, SECOND_FOLLOW_UP_DAYS, appliedByHand, fmtDate, gmailThreadUrl, replyGroups } from "../crm.js";
+import { Empty, StatusTag, flag, routeLabel } from "../ui/bits.jsx";
 
 const outcomeLabel = { replied: "Replied", bounced: "Bounced", auto: "Auto-reply" };
 
@@ -43,6 +43,7 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
   const open = [...groups.undecided, ...groups.wantReply];
   const movedOn = stations.flatMap(s => (s.rec.dnc ? [] : songs.filter(sg => s.per[sg.id].movedOn).map(sg => ({ s, sg }))));
   const songsFor = Object.fromEntries(due.map(g => [g.station.id, g.songs.map(w => w.song.id)]));
+  const tracked = appliedByHand(stations, songs);
 
   return (
     <div className="followups">
@@ -74,6 +75,9 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
         </section>
       )}
 
+      <h3 className="panel-title fu-part">Email stations</h3>
+      <p className="view-sub">These stations get an email. It's drafted for you and goes out once you approve it on the Send list.</p>
+
       {due.length === 0 ? (
         <section className="card-panel">
           {upcoming.length > 0
@@ -84,7 +88,7 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
         <section className="card-panel">
           <div className="panel-head">
             <div>
-              <h3 className="panel-title">Due now <span className="pill-n hot">{due.length}</span></h3>
+              <h4 className="panel-title">Due now <span className="pill-n hot">{due.length}</span></h4>
               <p className="panel-sub">Pitched, no reply, and the wait is up.</p>
             </div>
             <div className="panel-actions">
@@ -107,7 +111,7 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
       )}
 
       <section className="card-panel">
-        <h3 className="panel-title">Coming up</h3>
+        <h4 className="panel-title">Coming up</h4>
         {upcoming.length === 0 ? <Empty title="Nothing scheduled yet." /> : (
           <ul className="fu-list quiet">
             {upcoming.slice(0, 40).map(({ station: s, songs: waiting, due: next }) => (
@@ -124,11 +128,28 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
 
       {movedOn.length > 0 && (
         <section className="card-panel">
-          <h3 className="panel-title">Time to move on <span className="pill-n">{movedOn.length}</span></h3>
+          <h4 className="panel-title">Time to move on <span className="pill-n">{movedOn.length}</span></h4>
           <p className="panel-sub">Pitched and nudged twice with no reply. Mark them as passed for that song, and try them again with your next single.</p>
           <button className="btn" onClick={() => movedOn.forEach(({ s, sg }) => setStatus([s.id], "declined", sg.id))}>Mark all {movedOn.length} as passed</button>
         </section>
       )}
+
+      <section className="hand-log" aria-labelledby="hand-title">
+        <h3 id="hand-title" className="panel-title">Applied by hand {tracked.length > 0 && <span className="pill-n">{tracked.length}</span>}</h3>
+        <p className="panel-sub">No email goes to these stations. You applied yourself, so this just tracks where each song stands.</p>
+        {tracked.length === 0 ? <Empty dark title="Nothing applied by hand yet.">Mark a song as sent on a station's sheet and it shows here.</Empty> : (
+          <ul className="fu-list">
+            {tracked.map(({ station: s, songs: applied, lastAt }) => (
+              <li key={s.id}>
+                <button className="fu-name" onClick={() => openSheet(s.id)}>{s.name}</button>
+                <span className={`route r-${s.route}`}>{routeLabel[s.route]}</span>
+                {applied.map(({ song, status }) => <span key={song.id} className="hand-song">{chip({ song })}<StatusTag status={status} small /></span>)}
+                {lastAt && <span>Applied {fmtDate(lastAt)}</span>}
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
     </div>
   );
 }
