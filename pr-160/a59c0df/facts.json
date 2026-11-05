@@ -1,0 +1,18 @@
+[
+  {
+    "page": "/",
+    "width": 375,
+    "image": "root-375.png",
+    "final_url": "http://127.0.0.1:62172/",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/",
+    "width": 1280,
+    "image": "root-1280.png",
+    "final_url": "http://127.0.0.1:62172/",
+    "overflow": false,
+    "console_errors": []
+  }
+]
