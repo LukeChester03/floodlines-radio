@@ -3,6 +3,7 @@ import { songInfo } from "./crm.js";
 
 // Everything the band is chasing (gigs, festivals, station follow-ups), each with its next action, soonest first
 const day = ms => new Date(ms).toISOString().slice(0, 10);
+const WEEK = 7 * 864e5;
 const gigAction = { interested: "Apply", applied: "Hear back" };
 const REPLY_ACTION = "Answer their reply";
 const soonest = (a, b) => (a.date || "9999").localeCompare(b.date || "9999") || (a.title || "").localeCompare(b.title || "");
@@ -69,6 +70,18 @@ export function songLevels(rows, songId) {
     replied: count(s => s === "replied" || s === "played"),
     played: count(s => s === "played"),
   };
+}
+
+// The last 8 Monday-to-Sunday UTC weeks, oldest first, with how many emails went out in each
+export function weeklySends(sends, now) {
+  const today = Date.parse(day(now));
+  const thisWeek = today - ((new Date(today).getUTCDay() + 6) % 7) * 864e5;
+  const times = sends.map(s => Date.parse(s.sentAt)).filter(at => at <= now);
+  return Array.from({ length: 8 }, (_, i) => {
+    const start = thisWeek - (7 - i) * WEEK;
+    const count = times.filter(at => at >= start && at < start + WEEK).length;
+    return { week: day(start), label: new Date(start).toLocaleString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" }), count };
+  });
 }
 
 // How far off a date is, in UTC calendar days like activePursuits

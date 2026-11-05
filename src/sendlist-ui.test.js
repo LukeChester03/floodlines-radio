@@ -175,3 +175,10 @@ test("the Booth counts and lists a follow-up for the Email station only", async 
   assert.equal(chasing.length, 1);
   assert.match(chasing[0].textContent, /Demon/i);
 });
+
+test("the Booth's Emails sent chart counts a send from this week", async () => {
+  const thisWeek = async sends => Number([...(await openApp("#booth", { sends })).querySelectorAll(".week-n")].at(-1)?.textContent ?? 0);
+  const before = await thisWeek([]);
+  const send = { id: email, song: "finalfear", kind: "pitch", subject: "Hi", sentAt: new Date().toISOString() };
+  assert.equal(await thisWeek([send]), before + 1);
+});

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { activePursuits, pursuitSections, songLevels, timingWords } from "./pursuits.js";
+import { activePursuits, pursuitSections, songLevels, timingWords, weeklySends } from "./pursuits.js";
 
 const now = new Date("2026-11-02T12:00:00Z").getTime();
 const run = (data) => activePursuits({ gigs: [], festivals: [], stations: [], ...data }, now);
@@ -179,4 +179,44 @@ test("songLevels reads the status for the song it's asked about", () => {
   const rows = [levelRow({ finalfear: { status: "played" }, companion: { status: "new" } })];
   assert.deepEqual(songLevels(rows, "finalfear"), { canApply: 1, contacted: 1, replied: 1, played: 1 });
   assert.deepEqual(songLevels(rows, "companion"), { canApply: 1, contacted: 0, replied: 0, played: 0 });
+});
+
+const wed = Date.parse("2026-11-04T12:00:00Z");
+const weekOf = (sends, week, now = wed) => weeklySends(sends, now).find(w => w.week === week)?.count;
+const sentAt = at => ({ id: "a", song: "companion", kind: "pitch", sentAt: at });
+
+test("weeklySends gives the last 8 weeks, oldest first, all empty when nothing was sent", () => {
+  const weeks = weeklySends([], wed);
+  assert.deepEqual(weeks.map(w => w.week), ["2026-09-14", "2026-09-21", "2026-09-28", "2026-10-05", "2026-10-12", "2026-10-19", "2026-10-26", "2026-11-02"]);
+  assert.ok(weeks.every(w => w.count === 0));
+  assert.equal(weeks.at(-1).label, "2 Nov");
+});
+
+test("weeklySends keeps Sunday in the week that began on the Monday before", () => {
+  assert.equal(weeklySends([], Date.parse("2026-11-08T12:00:00Z")).at(-1).week, "2026-11-02");
+});
+
+test("weeklySends counts a Monday's first second in that week and Sunday's last in the week before", () => {
+  const sends = [sentAt("2026-11-02T00:00:00Z"), sentAt("2026-11-01T23:59:59Z")];
+  assert.equal(weekOf(sends, "2026-11-02"), 1);
+  assert.equal(weekOf(sends, "2026-10-26"), 1);
+});
+
+test("weeklySends counts the oldest week from its Monday and nothing before it", () => {
+  const weeks = weeklySends([sentAt("2026-09-14T00:00:00Z"), sentAt("2026-09-13T23:59:59Z")], wed);
+  assert.deepEqual(weeks.map(w => w.count), [1, 0, 0, 0, 0, 0, 0, 0]);
+});
+
+test("weeklySends leaves out a send after now", () => {
+  assert.equal(weekOf([sentAt("2026-11-04T12:00:01Z")], "2026-11-02"), 0);
+});
+
+test("weeklySends counts pitches and follow-ups for different songs alike", () => {
+  const sends = [sentAt("2026-11-03T09:00:00Z"), { id: "b", song: "final-fear", kind: "followup", sentAt: "2026-11-03T10:00:00Z" }];
+  assert.equal(weekOf(sends, "2026-11-02"), 2);
+});
+
+test("weeklySends counts a multi-song follow-up as one email", () => {
+  const sends = [{ id: "a", song: "final-fear", songs: ["final-fear", "companion"], kind: "followup", sentAt: "2026-11-03T09:00:00Z" }];
+  assert.equal(weekOf(sends, "2026-11-02"), 1);
 });

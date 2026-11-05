@@ -22,6 +22,7 @@ const vite = await createServer({
 const { createElement, act } = await import("react");
 const { createRoot } = await import("react-dom/client");
 const { default: Booth } = await vite.ssrLoadModule("/src/views/Booth.jsx");
+const { weeklySends } = await vite.ssrLoadModule("/src/pursuits.js");
 
 const roots = [];
 after(async () => {
@@ -40,12 +41,12 @@ const station = (status, songs = {}) => ({
 });
 const pitched13DaysAgo = { tide: { status: "pitched", log: [{ at: new Date(Date.now() - 13 * DAY).toISOString(), type: "pitch" }] } };
 
-const booth = async ({ stations = [station("new")], songs = [song], gigs = [], festivals = [], setView = () => {} } = {}) => {
+const booth = async ({ stations = [station("new")], songs = [song], gigs = [], festivals = [], sends = [], setView = () => {} } = {}) => {
   const host = document.body.appendChild(document.createElement("div"));
   const root = createRoot(host);
   roots.push(root);
   await act(async () => root.render(createElement(Booth, {
-    stations, songs, song, followups: { due: [] }, queue: [], openMailer() {}, openSheet() {}, setView, cloud: { gigs, festivals }, user: { email: "band@x.com" },
+    stations, songs, song, sends, followups: { due: [] }, queue: [], openMailer() {}, openSheet() {}, setView, cloud: { gigs, festivals }, user: { email: "band@x.com" },
   })));
   return host;
 };
@@ -202,4 +203,21 @@ test("the current song's numbers match between the two charts", async () => {
   const heading = [...going(host).querySelectorAll("h3")].find(h => h.textContent === "Tide: campaign levels");
   const { "Can apply": _, ...levels } = levelsIn(heading.parentElement);
   assert.deepEqual(levelsIn(songRow(going(host), "Tide")), levels);
+});
+
+const sendsAgo = (days, n = 1) => Array.from({ length: n }, (_, i) => ({ id: `s${days}-${i}`, song: "tide", kind: "pitch", sentAt: new Date(Date.now() - days * DAY).toISOString() }));
+const textsOf = (el, selector) => [...el.querySelectorAll(selector)].map(x => x.textContent);
+
+test("the Emails sent chart shows all 8 week labels and each week's count", async () => {
+  const sends = [...sendsAgo(0, 3), ...sendsAgo(7)];
+  const section = going(await booth({ sends }));
+  assert.ok(textsOf(section, "h3").includes("Emails sent"));
+  assert.deepEqual(textsOf(section, ".week-label"), weeklySends(sends, Date.now()).map(w => w.label));
+  assert.deepEqual(textsOf(section, ".week-n"), ["0", "0", "0", "0", "0", "0", "1", "3"]);
+});
+
+test("with nothing sent in the 8 weeks, a message shows instead of the chart", async () => {
+  const section = going(await booth({ sends: sendsAgo(70) }));
+  assert.match(section.textContent, /No emails sent in the last 8 weeks\./);
+  assert.deepEqual(textsOf(section, ".week-label"), []);
 });

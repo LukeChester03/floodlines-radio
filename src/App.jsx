@@ -134,7 +134,7 @@ export default function App({ user }) {
   if (!cloud.ready) return <main className="gate" aria-busy="true"><p className="gate-loading">Loading the band's campaign…</p></main>;
 
   const gmail = cloud.gmail === undefined ? null : gmailBanner(cloud.gmail);
-  const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, approve, queue, followups, setView, openSongForm: setSongForm, cloud, user, gmail, gmailStatus: cloud.gmail };
+  const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, approve, queue, sends, followups, setView, openSongForm: setSongForm, cloud, user, gmail, gmailStatus: cloud.gmail };
   const waiting = waitingCount(queue.filter(q => !isBroken(q)));
   const badges = { stations: stations.length, followups: followupBadge(followups.due.length, cloud.replies) || null, sendlist: waiting || null };
 
