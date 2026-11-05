@@ -13,16 +13,17 @@ const vite = await createServer({ appType: "custom", logLevel: "silent", server:
 const { createElement, act } = await import("react");
 const { createRoot } = await import("react-dom/client");
 const { default: Festivals } = await vite.ssrLoadModule("/src/views/Festivals.jsx");
+const { default: Gigs } = await vite.ssrLoadModule("/src/views/Gigs.jsx");
 
 let unmount = () => {};
 afterEach(async () => { await act(async () => unmount()); document.body.innerHTML = ""; });
 after(async () => { window.close(); await vite.close(); });
 
-const mount = async cloud => {
+const mount = async (cloud, View = Festivals) => {
   const host = document.body.appendChild(document.createElement("div"));
   const root = createRoot(host);
   unmount = () => root.unmount();
-  const rerender = next => act(async () => root.render(createElement(Festivals, { cloud: next })));
+  const rerender = next => act(async () => root.render(createElement(View, { cloud: next })));
   await rerender(cloud);
   return { host, rerender };
 };
@@ -139,6 +140,109 @@ test("Escape closes the dialog and returns focus to the card's open button", asy
   await closed();
   await settle();
   assert.equal(document.activeElement, button);
+});
+
+// Add a festival / Add a gig
+const addButton = (host, name) => [...host.querySelectorAll("button")].find(b => b.textContent.trim() === name);
+const linkField = () => dialog().querySelector('input[type="url"]');
+const setValue = (el, value) => act(async () => {
+  Object.getOwnPropertyDescriptor(Object.getPrototypeOf(el), "value").set.call(el, value);
+  el.dispatchEvent(new window.Event("input", { bubbles: true }));
+});
+const typeAdd = async (link, text) => {
+  await setValue(linkField(), link);
+  await setValue(dialog().querySelector("textarea"), text);
+};
+const submitAdd = () => click(dialog().querySelector('button[type="submit"]'));
+const escape = () => act(async () => window.dispatchEvent(new window.KeyboardEvent("keydown", { key: "Escape" })));
+const openAdd = async (more, name = "Add a festival", View = Festivals) => {
+  const { host } = await mount({ festivals: [], gigs: [], ...more }, View);
+  await click(addButton(host, name));
+  return host;
+};
+
+test("Add a festival stays closed until its button is clicked, then a dialog holds the link field", async () => {
+  const { host } = await mount({ festivals: [] });
+  assert.equal(host.querySelector('input[type="url"]'), null);
+  assert.equal(dialog(), null);
+  await click(addButton(host, "Add a festival"));
+  assert.ok(linkField());
+});
+
+test("Opening Add a festival puts focus on the link field", async () => {
+  await openAdd();
+  await settle();
+  assert.ok(document.activeElement === linkField(), `focus is on ${document.activeElement.tagName}`);
+});
+
+test("Adding a festival sends the trimmed link and the note, then closes", async () => {
+  const calls = [];
+  await openAdd({ addFestival: async (...args) => calls.push(args) });
+  await typeAdd(" https://fest.example/ ", "saw on insta");
+  await submitAdd();
+  assert.deepEqual(calls, [["https://fest.example/", "saw on insta"]]);
+  await closed();
+});
+
+test("Adding a gig on the Gigs page sends the link and the post's text, then closes", async () => {
+  const calls = [];
+  await openAdd({ addGig: async (...args) => calls.push(args) }, "Add a gig", Gigs);
+  await typeAdd("https://www.instagram.com/p/abc/", "Support slot, Friday");
+  await submitAdd();
+  assert.deepEqual(calls, [["https://www.instagram.com/p/abc/", "Support slot, Friday"]]);
+  await closed();
+});
+
+test("Reopening after a successful add shows empty fields", async () => {
+  const host = await openAdd({ addFestival: async () => {} });
+  await typeAdd("https://fest.example/", "saw on insta");
+  await submitAdd();
+  await closed();
+  await click(addButton(host, "Add a festival"));
+  assert.equal(linkField().value, "");
+  assert.equal(dialog().querySelector("textarea").value, "");
+});
+
+test("A failed add shows the message, stays open and keeps the typed values", async () => {
+  await openAdd({ addFestival: async () => { throw new Error("Paste the festival's link"); } });
+  await typeAdd("https://fest.example/", "saw on insta");
+  await submitAdd();
+  await settle();
+  assert.equal(dialog().querySelector('[role="alert"]')?.textContent, "Paste the festival's link");
+  assert.equal(linkField().value, "https://fest.example/");
+  assert.equal(dialog().querySelector("textarea").value, "saw on insta");
+});
+
+test("While saving the submit button reads Adding… and Escape leaves the dialog open", async () => {
+  let finish;
+  await openAdd({ addFestival: () => new Promise(r => { finish = r; }) });
+  await typeAdd("https://fest.example/", "");
+  await submitAdd();
+  assert.equal(dialog().querySelector('button[type="submit"]').textContent, "Adding…");
+  await escape();
+  await settle();
+  assert.ok(dialog());
+  await act(async () => finish());
+  await closed();
+});
+
+test("Escape keeps a draft: reopening shows the typed values", async () => {
+  const host = await openAdd();
+  await typeAdd("https://fest.example/", "saw on insta");
+  await escape();
+  await closed();
+  await click(addButton(host, "Add a festival"));
+  assert.equal(linkField().value, "https://fest.example/");
+  assert.equal(dialog().querySelector("textarea").value, "saw on insta");
+});
+
+test("Closing returns focus to the Add button", async () => {
+  const host = await openAdd();
+  await settle();
+  await escape();
+  await closed();
+  await settle();
+  assert.ok(document.activeElement === addButton(host, "Add a festival"), `focus is on ${document.activeElement.tagName}`);
 });
 
 const picked = { ...fest, topPick: true, topReasons: ["Open form"] };

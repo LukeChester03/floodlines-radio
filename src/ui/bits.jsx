@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
-import { X } from "lucide-react";
+import { Loader2, Plus, X } from "lucide-react";
 import { statusLabel } from "../crm.js";
 
 export const typeLabel = { national: "National", regional: "Regional", community: "Community", student: "Student", college: "College", public: "Public", online: "Online", commercial: "Commercial", show: "Show" };
@@ -53,7 +53,8 @@ export function Sleeve({ song, size = 64 }) {
 // Portalled to <body> so it sits outside the .app-shell it makes inert; the portal wraps
 // AnimatePresence so exit animations still run.
 // guard(): return false to keep the dialog open (e.g. unsaved edits).
-export function Modal({ open, onClose, label, className = "", children, side = false, guard }) {
+// focusOn: a ref to take focus on open, in place of the dialog itself.
+export function Modal({ open, onClose, label, className = "", children, side = false, guard, focusOn }) {
   const ref = useRef(null);
   const opener = useRef(null);
   // Latest handlers kept in refs so the focus effect runs once per open, not on every keystroke
@@ -67,7 +68,7 @@ export function Modal({ open, onClose, label, className = "", children, side = f
   useEffect(() => {
     if (!open) return;
     opener.current = document.activeElement;
-    const t = setTimeout(() => ref.current?.focus(), 30);
+    const t = setTimeout(() => (focusOn?.current ?? ref.current)?.focus(), 30);
     const onKey = e => {
       if (e.key === "Escape") { e.preventDefault(); tryClose(); return; }
       if (e.key !== "Tab" || !ref.current) return;
@@ -89,7 +90,7 @@ export function Modal({ open, onClose, label, className = "", children, side = f
       const back = opener.current;
       setTimeout(() => (back && back.isConnected && !back.closest(".bulkbar") ? back : document.getElementById("main"))?.focus?.(), 60);
     };
-  }, [open, tryClose]);
+  }, [open, tryClose, focusOn]);
 
   return createPortal(
     <AnimatePresence>
@@ -119,9 +120,9 @@ export function Modal({ open, onClose, label, className = "", children, side = f
 }
 
 // Side panel on Modal: a heading, a body that scrolls and a footer that stays pinned
-export function Overlay({ open, onClose, label, eyebrow, title, footer, guard, children }) {
+export function Overlay({ open, onClose, label, eyebrow, title, footer, guard, focusOn, className = "", children }) {
   return (
-    <Modal open={open} onClose={onClose} label={label} guard={guard} className="ov" side>
+    <Modal open={open} onClose={onClose} label={label} guard={guard} focusOn={focusOn} className={`ov ${className}`} side>
       <header className="ov-head">
         {eyebrow && <p className="ov-eyebrow">{eyebrow}</p>}
         <h2 className="sheet-title">{title}</h2>
@@ -129,6 +130,69 @@ export function Overlay({ open, onClose, label, eyebrow, title, footer, guard, c
       <div className="ov-body" tabIndex={0}>{children}</div>
       {footer && <footer className="ov-foot">{footer}</footer>}
     </Modal>
+  );
+}
+
+// An Add button and the form it opens in an Overlay. A field with rows is a textarea, any other is the link.
+export function AddOverlay({ button, title, hint, fields, submit, fallback, add }) {
+  const blank = () => Object.fromEntries(fields.map(f => [f.name, ""]));
+  const [open, setOpen] = useState(false);
+  const [values, setValues] = useState(blank);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  const formId = useId();
+  const link = useRef(null);
+  const close = () => { setOpen(false); setError(""); };
+  const set = name => e => setValues(v => ({ ...v, [name]: e.target.value }));
+  const save = async e => {
+    e.preventDefault();
+    setBusy(true);
+    setError("");
+    try {
+      await add(...fields.map(f => (f.rows ? values[f.name] : values[f.name].trim())));
+      setValues(blank());
+      close();
+    } catch (err) {
+      setError(err.message || fallback);
+      link.current?.focus();
+    } finally {
+      setBusy(false);
+    }
+  };
+  return (
+    <div className="gig-add">
+      {/* Safari doesn't focus a clicked button, and Modal returns focus to whatever had it */}
+      <button type="button" className="btn" aria-haspopup="dialog" onClick={e => { e.currentTarget.focus(); setOpen(true); }}><Plus size={14} aria-hidden="true" /> {button}</button>
+      <Overlay
+        open={open}
+        onClose={close}
+        guard={() => !busy}
+        label={title}
+        title={title}
+        focusOn={link}
+        className="ov-add"
+        footer={(
+          <>
+            {error && <p className="form-err" role="alert">{error}</p>}
+            <div className="ov-actions">
+              <button type="submit" form={formId} className="btn btn-primary" disabled={busy}>{busy ? <><Loader2 size={16} className="spin" aria-hidden="true" />Adding…</> : submit}</button>
+              <button type="button" className="btn" disabled={busy} onClick={close}>Cancel</button>
+            </div>
+          </>
+        )}
+      >
+        <form id={formId} className="ov-form" onSubmit={save}>
+          <p className="ov-hint">{hint}</p>
+          {fields.map(({ name, label, rows, ...input }) => (
+            <label key={name} className="field"><span>{label}</span>
+              {rows
+                ? <textarea name={name} rows={rows} value={values[name]} onChange={set(name)} {...input} />
+                : <input ref={link} type="url" inputMode="url" name={name} autoComplete="off" spellCheck={false} value={values[name]} onChange={set(name)} required {...input} />}
+            </label>
+          ))}
+        </form>
+      </Overlay>
+    </div>
   );
 }
 
