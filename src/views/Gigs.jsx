@@ -207,7 +207,7 @@ export default function Gigs({ cloud }) {
         </div>
       )}
       {gigs.length === 0 ? (
-        <Empty title={cloud.gigs.length ? "No gigs match these filters." : "No gigs yet."} />
+        <Empty dark title={cloud.gigs.length ? "No gigs match these filters." : "No gigs yet."} />
       ) : (
         <ul className="gig-list" aria-label="Upcoming gigs, best first">
           <AnimatePresence initial={false}>{gigs.map(g => <Card key={g.id} g={g} decide={cloud.decideGig} />)}</AnimatePresence>
