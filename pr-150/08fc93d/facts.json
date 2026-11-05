@@ -1,0 +1,18 @@
+[
+  {
+    "page": "/#festivals",
+    "width": 375,
+    "image": "-festivals-375.png",
+    "final_url": "http://127.0.0.1:57055/#festivals",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#festivals",
+    "width": 1280,
+    "image": "-festivals-1280.png",
+    "final_url": "http://127.0.0.1:57055/#festivals",
+    "overflow": false,
+    "console_errors": []
+  }
+]
