@@ -110,18 +110,56 @@ test("timingWords compares UTC calendar days", () => {
 
 const gigCard = { kind: "gig", id: "g" };
 const festivalCard = { kind: "festival", id: "f" };
-const stationCard = { kind: "station", id: "s" };
+const stationCard = { kind: "station", id: "s", song: "tide" };
 
 test("pursuitSections puts Gigs, Festivals, then Stations, whatever order the list came in", () => {
   assert.deepEqual(pursuitSections([stationCard, festivalCard, gigCard]), [
-    { kind: "gig", title: "Gigs", view: "gigs", count: 1, cards: [gigCard] },
-    { kind: "festival", title: "Festivals", view: "festivals", count: 1, cards: [festivalCard] },
-    { kind: "station", title: "Stations", view: "followups", count: 1, cards: [stationCard] },
+    { kind: "gig", title: "Gigs", view: "gigs", count: 1, cards: [{ ...gigCard, songs: [] }] },
+    { kind: "festival", title: "Festivals", view: "festivals", count: 1, cards: [{ ...festivalCard, songs: [] }] },
+    { kind: "station", title: "Stations", view: "followups", count: 1, cards: [{ ...stationCard, songs: ["tide"] }] },
   ]);
 });
 
 test("pursuitSections leaves out empty sections and keeps cards in their order", () => {
   const second = { kind: "gig", id: "second" };
-  assert.deepEqual(pursuitSections([second, gigCard]).map(s => [s.title, s.count, s.cards]), [["Gigs", 2, [second, gigCard]]]);
+  assert.deepEqual(pursuitSections([second, gigCard]).map(s => [s.title, s.count, s.cards.map(c => c.id)]), [["Gigs", 2, ["second", "g"]]]);
   assert.deepEqual(pursuitSections([]), []);
+});
+
+const followUp = (id, song, date, overdue = false) => ({ kind: "station", id, song, title: `Radio ${id}`, action: "Follow up", date, overdue, view: "followups" });
+const stationSection = items => pursuitSections(items).find(s => s.kind === "station");
+
+test("pursuitSections gives a station one card holding all its songs, and counts it once", () => {
+  const { count, cards } = stationSection([followUp("a", "final-fear", "2026-11-01"), followUp("a", "companion", "2026-11-02")]);
+  assert.equal(count, 1);
+  assert.deepEqual(cards.map(c => [c.id, c.songs]), [["a", ["final-fear", "companion"]]]);
+});
+
+test("pursuitSections leads a station card with its soonest item", () => {
+  const { cards: [card] } = stationSection([followUp("a", "tide", "2026-11-10"), followUp("a", "companion", "2026-11-01", true)]);
+  assert.deepEqual([card.date, card.overdue], ["2026-11-01", true]);
+});
+
+test("pursuitSections doesn't merge gigs or festivals that share nothing but a kind", () => {
+  const [gigs] = pursuitSections([{ kind: "gig", id: "x" }, { kind: "gig", id: "y" }]);
+  assert.deepEqual(gigs.cards.map(c => [c.id, c.songs]), [["x", []], ["y", []]]);
+});
+
+test("pursuitSections leads a station card with its reply, even when a follow-up is sooner and overdue", () => {
+  const reply = { ...followUp("a", "tide", "2026-11-03"), action: "Answer their reply" };
+  const { cards: [card] } = stationSection([followUp("a", "companion", "2026-11-01", true), reply]);
+  assert.deepEqual([card.action, card.date, card.overdue], ["Answer their reply", "2026-11-03", false]);
+  assert.deepEqual([...card.songs].sort(), ["companion", "tide"]);
+});
+
+test("pursuitSections picks the soonest of several replies", () => {
+  const reply = (song, date) => ({ ...followUp("a", song, date), action: "Answer their reply" });
+  const { cards: [card] } = stationSection([reply("tide", "2026-11-09"), followUp("a", "x", "2026-11-01"), reply("companion", "2026-11-03")]);
+  assert.equal(card.date, "2026-11-03");
+});
+
+test("pursuitSections sorts station cards by their lead date, after merging", () => {
+  const reply = { ...followUp("a", "tide", "2026-11-08"), action: "Answer their reply" };
+  const { cards } = stationSection([followUp("a", "companion", "2026-11-01"), followUp("b", "tide", "2026-11-05"), reply]);
+  assert.deepEqual(cards.map(c => c.id), ["b", "a"]);
 });

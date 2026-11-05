@@ -155,6 +155,7 @@ button { cursor: pointer; }
 .pursuit-count { color: var(--ink-2); font-weight: 600; font-variant-numeric: tabular-nums; }
 .pursuit-title { overflow-wrap: anywhere; }
 .pursuit-song { color: var(--ink-2); }
+.pursuit-all { margin-top: 10px; }
 .pursuit.overdue { border-color: var(--onair); border-left-width: 6px; background: color-mix(in srgb, var(--onair) 8%, #fff); }
 .pursuit.overdue:hover { border-color: var(--ink); }
 .pursuit.overdue .pursuit-when { color: #b3261e; font-weight: 800; }

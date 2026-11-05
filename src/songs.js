@@ -67,7 +67,7 @@ FloodLines`,
 
 export const placeholders = ["{name}", "{station}", "{target}", "{song}", "{songBlurb}", "{songLink}", "{otherSongs}", "{signoff}"];
 
-const titles = new Intl.ListFormat("en-GB"); // "A", "A and B", "A, B and C"
+export const titles = new Intl.ListFormat("en-GB"); // "A", "A and B", "A, B and C"
 
 // Fills a template for one station and one song, or an array of songs for one email that names them all
 export function fill(template, station, song, songs, { signoff = band.signoff, includeOthers = true } = {}) {

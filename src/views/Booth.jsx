@@ -5,9 +5,11 @@ import { download } from "../store.js";
 import { exportAll } from "../cloud.js";
 import { reachable } from "../../functions/core/stations.js";
 import { activePursuits, pursuitSections, timingWords } from "../pursuits.js";
+import { titles } from "../songs.js";
 import { flag, tierLabel } from "../ui/bits.jsx";
 
 // Overview for the song you're pitching: what to do next, and how far the campaign has got
+const CARDS_PER_SECTION = 5;
 const songs_untouched = s => Object.values(s.per).every(p => p.status === "new" || p.status === "played") && !s.rec.notes && !s.rec.tags.length;
 
 export default function Booth({ stations, songs, song, followups, queue, openMailer, openSheet, setView, cloud, user }) {
@@ -78,23 +80,26 @@ export default function Booth({ stations, songs, song, followups, queue, openMai
         {pursuits.length === 0 ? (
           <p className="pursuits-empty">Nothing on the go. Mark a gig or festival interested, or pitch a station.</p>
         ) : (
-          pursuitSections(pursuits).map(({ kind, title, count, cards }) => (
+          pursuitSections(pursuits).map(({ kind, title, view, count, cards }) => (
             <div className="pursuit-section" key={kind}>
               <h3 className="pursuit-head">{title} <span className="pursuit-count">{count}</span></h3>
               <ol className="next-grid">
-                {cards.map(p => {
+                {cards.slice(0, CARDS_PER_SECTION).map(p => {
                   const when = timingWords(p, now);
                   return (
-                    <li key={`${p.kind}:${p.id}:${p.song || ""}`}>
+                    <li key={`${p.kind}:${p.id}`}>
                       <button className={`next-card pursuit${p.overdue ? " overdue" : ""}`} onClick={() => setView(p.view)}>
                         <span className="next-name pursuit-action">{p.action}</span>
-                        <span className="pursuit-title">{p.title}{p.song && <span className="pursuit-song"> for {songTitle(p.song)}</span>}</span>
+                        <span className="pursuit-title">{p.title}{p.songs.length > 0 && <span className="pursuit-song"> for {titles.format(p.songs.map(songTitle))}</span>}</span>
                         <span className="next-meta pursuit-when">{p.date ? <time dateTime={p.date}>{when}</time> : when}</span>
                       </button>
                     </li>
                   );
                 })}
               </ol>
+              {count > CARDS_PER_SECTION && (
+                <button className="btn pursuit-all" aria-label={`See all ${count} ${title.toLowerCase()}`} onClick={() => setView(view)}>See all {count}<ArrowRight size={16} aria-hidden="true" /></button>
+              )}
             </div>
           ))
         )}
