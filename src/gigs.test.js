@@ -15,7 +15,7 @@ const at = s => new Date(s).getTime();
 const ran = s => ({ ranAt: new Date(s).toISOString(), errors: [] });
 
 test("runSummary with no status: never searched, nothing missed, next Monday", () => {
-  assert.deepEqual(runSummary(null, at("2026-10-29T12:00:00Z")), { last: null, next: "Next search Mon 2 Nov, 7am", missed: false, found: null, problems: [] });
+  assert.deepEqual(runSummary(null, at("2026-10-29T12:00:00Z")), { last: null, next: "Next search Mon 2 Nov, 7am", missed: false, found: null, why: null, problems: [] });
 });
 
 test("runSummary after Monday's run says when it last ran and when it runs next", () => {
@@ -93,6 +93,39 @@ test("gigStub gives the stub's date parts in UTC and the stamp tier", () => {
 test("gigDecisionPatch(null) clears the decision", () => {
   const at = new Date("2026-10-10T12:00:00Z");
   assert.deepEqual(gigDecisionPatch(null, at), { decision: null, decidedAt: at.toISOString() });
+});
+
+const why = status => runSummary({ ...ran("2026-10-26T07:05:00Z"), ...status }, at("2026-10-29T12:00:00Z")).why;
+
+test("runSummary says a failed search doesn't mean nothing's out there", () => {
+  assert.equal(why({ found: 0, saved: 0, errors: [{ where: "x", message: "boom" }] }), "The search failed, so this doesn't mean nothing's out there");
+});
+
+test("runSummary says a clean search found nothing, and where it looked", () => {
+  assert.equal(why({ found: 0, saved: 0, errors: [], queries: ["Hampshire + Dorset"] }), "The search worked but found nothing for Hampshire + Dorset");
+  assert.equal(why({ found: 0, saved: 0, queries: ["Bristol + Bath", "Hampshire + Dorset"] }), "The search worked but found nothing for Bristol + Bath and Hampshire + Dorset");
+});
+
+test("runSummary leaves the places off when the status has no queries", () => {
+  assert.equal(why({ found: 0, saved: 0 }), "The search worked but found nothing");
+  assert.equal(why({ found: 0, saved: 0, queries: [] }), "The search worked but found nothing");
+});
+
+test("runSummary counts why a run with finds saved none, leaving out zeros", () => {
+  assert.equal(why({ found: 14, saved: 0, skipped: { known: 9, notSlot: 3, outOfArea: 2 } }), "Found 14, none new: 9 already on your list, 3 not offering a slot, 2 outside your areas");
+  assert.equal(why({ found: 6, saved: 0, skipped: { unreadable: 1, duplicate: 1, badDate: 1, outOfArea: 1, notSlot: 1, known: 1 } }), "Found 6, none new: 1 already on your list, 1 not offering a slot, 1 outside your areas, 1 dated too far off or already past, 1 repeated, 1 couldn't be read");
+  assert.equal(why({ found: 2, saved: 0, skipped: { known: 2, notSlot: 0 } }), "Found 2, none new: 2 already on your list");
+});
+
+test("runSummary has no reasons to give for a status saved before they were counted", () => {
+  assert.equal(why({ found: 3, saved: 0 }), "Found 3, none new");
+  assert.equal(why({ found: 3, saved: 0, skipped: { known: 0 } }), "Found 3, none new");
+});
+
+test("runSummary explains nothing when the run saved something or never counted", () => {
+  assert.equal(why({ found: 5, saved: 2 }), null);
+  assert.equal(why({}), null);
+  assert.equal(runSummary(null, at("2026-10-29T12:00:00Z")).why, null);
 });
 
 test("runSummary lists no problems when the search had no errors", () => {

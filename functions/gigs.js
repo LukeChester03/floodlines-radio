@@ -1,4 +1,4 @@
-import { DEFAULT_GIG_AREAS, gigId, matchGigs, scoreGig } from "./core/gigs.js";
+import { DEFAULT_GIG_AREAS, gigId, scoreGig, triageGigs } from "./core/gigs.js";
 import { cleanPost } from "./read-post.js";
 import { isHttp } from "./add-gig.js";
 
@@ -25,7 +25,8 @@ export async function importGigs({ store, posts, now = Date.now }) {
       pasted.push({ ...post, id: gigId(post.url), ...scoreGig(post, similarArtists, days) });
     }
   }
-  const gigs = [...matchGigs(search, { areas, similarArtists }, d), ...pasted];
+  const triaged = triageGigs(search, { areas, similarArtists }, d);
+  const gigs = [...triaged.gigs, ...pasted];
   for (const g of gigs) await store.upsertGig(g);
-  return { read: posts.length, saved: gigs.length, errors };
+  return { read: posts.length, saved: gigs.length, errors, skipped: { ...triaged.skipped, unreadable: errors.length } };
 }

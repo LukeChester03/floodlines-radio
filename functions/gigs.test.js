@@ -40,5 +40,6 @@ test("importGigs records posts it can't read and saves the rest", async () => {
   assert.deepEqual(res, {
     read: 3, saved: 1,
     errors: [{ where: "(no url)", message: "could not read post" }, { where: "(no url)", message: "could not read post" }],
+    skipped: { notSlot: 0, badDate: 0, outOfArea: 0, duplicate: 0, unreadable: 2 },
   });
 });

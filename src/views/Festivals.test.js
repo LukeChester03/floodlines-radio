@@ -58,6 +58,13 @@ test("Being read shows the error of a failed run", async () => {
   assert.doesNotMatch(html, /check them by hand/);
 });
 
+test("a search that saved nothing says why under the last-search line", async () => {
+  const { host } = await mount({ festivals: [waiting], festivalStatus: { ranAt: "2026-11-02T09:00:00Z", found: 2, saved: 0, skipped: { known: 1, unreadable: 1 } } });
+  const lines = [...host.querySelectorAll("p")].map(p => p.textContent);
+  const last = lines.findIndex(l => l.startsWith("Last search"));
+  assert.equal(lines[last + 1], "Found 2, none new: 1 already on your list, 1 couldn't be read");
+});
+
 test("before any run, Being read says the job may not be running", async () => {
   assert.match(await page({ readingStatus: null }), /Not read yet\. The reading job may not be running on the band's Mac\./);
 });

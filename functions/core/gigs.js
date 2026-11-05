@@ -61,21 +61,27 @@ export function scoreGig(c, similarArtists, days) {
   return { score: points, reasons };
 }
 
-export function matchGigs(candidates, { areas = DEFAULT_GIG_AREAS, similarArtists = [] } = {}, now = new Date()) {
+// The gigs worth keeping, plus how many were dropped at each check
+export function triageGigs(candidates, { areas = DEFAULT_GIG_AREAS, similarArtists = [] } = {}, now = new Date()) {
   const today = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
   const wanted = areas.map(lc).filter(Boolean);
   const byId = new Map();
+  const skipped = { notSlot: 0, badDate: 0, outOfArea: 0, duplicate: 0 };
   for (const c of candidates) {
-    if (!c.isSlotOffer) continue;
+    if (!c.isSlotOffer) { skipped.notSlot += 1; continue; }
     let days = null;
     if (c.date) {
       days = Math.round((Date.parse(c.date) - today) / DAY);
-      if (!(days >= 0 && days <= MAX_DAYS_AHEAD)) continue;
+      if (!(days >= 0 && days <= MAX_DAYS_AHEAD)) { skipped.badDate += 1; continue; }
     }
-    if (!wanted.some(a => [c.town, c.county, c.venue].some(f => lc(f).includes(a)))) continue;
+    if (!wanted.some(a => [c.town, c.county, c.venue].some(f => lc(f).includes(a)))) { skipped.outOfArea += 1; continue; }
     const id = gigId(c.url);
-    if (byId.has(id)) continue;
+    if (byId.has(id)) { skipped.duplicate += 1; continue; }
     byId.set(id, { ...c, id, ...scoreGig(c, similarArtists, days) });
   }
-  return [...byId.values()].sort((a, b) => b.score - a.score);
+  return { gigs: [...byId.values()].sort((a, b) => b.score - a.score), skipped };
+}
+
+export function matchGigs(candidates, options, now) {
+  return triageGigs(candidates, options, now).gigs;
 }

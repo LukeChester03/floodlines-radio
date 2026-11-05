@@ -78,17 +78,37 @@ function scheduledRun(now, weeks) {
   return wall - (ukWall(wall) - wall);
 }
 
+const SKIP_REASONS = [
+  ["known", "already on your list"],
+  ["notSlot", "not offering a slot"],
+  ["outOfArea", "outside your areas"],
+  ["badDate", "dated too far off or already past"],
+  ["duplicate", "repeated"],
+  ["unreadable", "couldn't be read"],
+];
+
+// Why a search saved nothing, or null when there's nothing to explain
+function whyNoneSaved(found, problems, queries, skipped) {
+  if (!found || found.new > 0) return null;
+  if (found.total === 0 && problems.length) return "The search failed, so this doesn't mean nothing's out there";
+  if (found.total === 0) return `The search worked but found nothing${queries?.length ? ` for ${queries.join(" and ")}` : ""}`;
+  const reasons = SKIP_REASONS.filter(([key]) => skipped?.[key] > 0).map(([key, reason]) => `${skipped[key]} ${reason}`);
+  return `Found ${found.total}, none new${reasons.length ? `: ${reasons.join(", ")}` : ""}`;
+}
+
 export function runSummary(status, now) {
   const ranAt = status?.ranAt ? new Date(status.ranAt).getTime() : null;
   const thisWeek = scheduledRun(now, 0);
   const next = thisWeek > now ? thisWeek : scheduledRun(now, 1);
   const recent = next === thisWeek ? [scheduledRun(now, -1), scheduledRun(now, -2)] : [thisWeek, scheduledRun(now, -1)];
   const found = ranAt !== null && typeof status.found === "number" ? { total: status.found, new: status.saved ?? 0 } : null;
+  const problems = (status?.errors ?? []).map(e => ({ where: e?.where ?? "", message: e?.message ?? "" }));
   return {
     last: ranAt === null ? null : `Last search ${ukDay(ranAt)}${found ? ` · found ${found.total}, ${found.new} new` : ""}`,
     next: `Next search ${ukDay(next)}, ${WEEKLY_SEARCH.hour}am`,
     missed: ranAt !== null && recent.some(t => t > ranAt && t + GRACE_MS < now),
     found,
-    problems: (status?.errors ?? []).map(e => ({ where: e?.where ?? "", message: e?.message ?? "" })),
+    why: whyNoneSaved(found, problems, status?.queries, status?.skipped),
+    problems,
   };
 }

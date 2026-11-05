@@ -27,6 +27,26 @@ test("a stored gig keeps its decision; only the new post is added", async () => 
   assert.equal(store.gigs[id].decision, "applied");
 });
 
+test("the gig status counts why each find wasn't saved", async () => {
+  const [known, kept] = ["https://a.com/known", "https://a.com/kept"];
+  const id = gigId(known);
+  const store = fakeStore({ gigs: { [id]: { id, url: known } } });
+  const answer = [
+    offer(known),
+    { ...offer("https://a.com/no-slot"), isSlotOffer: false },
+    { ...offer("https://a.com/away"), town: "Leeds", county: "West Yorkshire" },
+    { ...offer("https://a.com/past"), date: "2026-01-01" },
+    offer(kept),
+    offer(kept),
+    { text: "no url" },
+  ];
+  let n = 0;
+  await gigHunt({ store, runSession: async () => (n++ === 0 ? JSON.stringify(answer) : "[]"), now });
+  const s = await store.getGigStatus();
+  assert.deepEqual(s.skipped, { known: 1, notSlot: 1, outOfArea: 1, badDate: 1, duplicate: 1, unreadable: 1 });
+  assert.deepEqual([s.found, s.saved], [7, 1]);
+});
+
 test("a failed session is recorded and the other one's fenced answer still saves", async () => {
   const store = fakeStore();
   let n = 0;
@@ -215,6 +235,16 @@ test("the scout's run status is written for the Festivals screen", async () => {
   assert.equal(s.ranAt, "2026-11-02T09:00:00.000Z");
   assert.deepEqual(s.queries, ["UK festivals"]);
   assert.deepEqual([s.found, s.read, s.saved], [2, 2, 1]);
+});
+
+test("the scout status counts finds already stored and ones it couldn't read", async () => {
+  const known = "https://fest.com/known";
+  const id = gigId(known);
+  const store = fakeStore({ festivals: { [id]: { id, url: known } } });
+  await festivalHunt({ store, runSession: async () => JSON.stringify([fest(known), { name: "no url" }]), now: scoutNow });
+  const s = await store.getFestivalStatus();
+  assert.deepEqual(s.skipped, { known: 1, unreadable: 1 });
+  assert.equal(s.saved, 0);
 });
 
 test("a run's result line starts with the run's name", () => {
