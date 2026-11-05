@@ -622,6 +622,7 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .fest-asks b { font-weight: 800; }
 .fest-muted { color: var(--ink-2); }
 .fest-read { border-left: 3px solid var(--song); padding-left: 10px; color: var(--ink-2); font-size: .9rem; overflow-wrap: anywhere; }
+.fest-foot-end { display: flex; align-items: center; gap: 14px; }
 .fest-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding-top: 10px; border-top: 1px solid var(--rule); }
 .fest-seg { display: inline-flex; flex-wrap: wrap; border: 2px solid var(--ink); border-radius: var(--r); overflow: hidden; }
 .fest-seg button { min-height: 40px; padding: 6px 12px; border: 0; border-right: 2px solid var(--ink); background: transparent; color: var(--ink); font-weight: 700; font-size: .8125rem; }
@@ -641,6 +642,20 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
   .fest-seg { width: 100%; }
   .fest-seg button { flex: 1; padding-inline: 4px; }
 }
+
+/* Overlay: a tall ticket. The footer is its tear-off stub, notched at the perforation, in thumb reach on a phone */
+.sheet.ov { display: flex; flex-direction: column; width: min(560px, calc(100% - 20px)); padding: 0; overflow: hidden; background: none; box-shadow: none; filter: drop-shadow(0 20px 40px rgba(0,0,0,.6)); }
+.sheet.ov:focus-visible { box-shadow: none; }
+.ov-head, .ov-body { background: var(--log); }
+.ov-head { padding: 22px clamp(16px, 3vw, 28px) 12px; border-bottom: 1px solid var(--rule); }
+.ov-head .sheet-title { overflow-wrap: anywhere; }
+.ov-eyebrow { margin: 0 50px 4px 0; font-family: var(--marker); color: var(--song); }
+.ov-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: grid; gap: 14px; align-content: start; padding: 18px clamp(16px, 3vw, 28px) 24px; }
+.ov-body:focus-visible { outline-offset: -5px; box-shadow: none; }
+.ov-body p, .ov-body blockquote, .ov-body dl { margin: 0; }
+.ov-foot { flex: none; display: grid; gap: 10px; padding: 16px clamp(16px, 3vw, 28px) max(16px, env(safe-area-inset-bottom)); background: var(--log-2); border-top: 2px dashed var(--rule); -webkit-mask: radial-gradient(circle at 0 0, transparent 8px, #000 8.5px) left / 51% 100% no-repeat, radial-gradient(circle at 100% 0, transparent 8px, #000 8.5px) right / 51% 100% no-repeat; mask: radial-gradient(circle at 0 0, transparent 8px, #000 8.5px) left / 51% 100% no-repeat, radial-gradient(circle at 100% 0, transparent 8px, #000 8.5px) right / 51% 100% no-repeat; }
+.ov-foot .fest-seg { display: flex; }
+.ov-foot .fest-seg button { flex: 1; min-height: 44px; padding-inline: 4px; }
 
 /* Approve & send in flight */
 .approving { display: inline-flex; align-items: center; gap: 6px; }

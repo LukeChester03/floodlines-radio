@@ -118,6 +118,20 @@ export function Modal({ open, onClose, label, className = "", children, side = f
   );
 }
 
+// Side panel on Modal: a heading, a body that scrolls and a footer that stays pinned
+export function Overlay({ open, onClose, label, eyebrow, title, footer, guard, children }) {
+  return (
+    <Modal open={open} onClose={onClose} label={label} guard={guard} className="ov" side>
+      <header className="ov-head">
+        {eyebrow && <p className="ov-eyebrow">{eyebrow}</p>}
+        <h2 className="sheet-title">{title}</h2>
+      </header>
+      <div className="ov-body" tabIndex={0}>{children}</div>
+      {footer && <footer className="ov-foot">{footer}</footer>}
+    </Modal>
+  );
+}
+
 export function Empty({ title, children, action, dark }) {
   return (
     <div className={`empty${dark ? " on-dark" : ""}`}>

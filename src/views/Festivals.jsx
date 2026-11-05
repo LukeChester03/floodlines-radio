@@ -4,7 +4,7 @@ import { festivalView } from "../festivals.js";
 import { gigDecisions, ukTime } from "../gigs.js";
 import { SearchStatus } from "./Gigs.jsx";
 import { Plus } from "lucide-react";
-import { Empty } from "../ui/bits.jsx";
+import { Empty, Overlay } from "../ui/bits.jsx";
 
 const label = d => d[0].toUpperCase() + d.slice(1);
 const filters = ["new", ...gigDecisions, "all"];
@@ -28,8 +28,59 @@ function ReadingStatus({ status }) {
   );
 }
 
+// What's known about a festival, leaving out anything empty
+function Details({ f }) {
+  const facts = [["Where", f.where], ["When", f.when], ["Size", f.size], ["Pay", f.pay]].filter(([, v]) => v);
+  return (
+    <>
+      {f.topPick && (
+        <div className="fest-pick">
+          <span className="fest-pick-tag">Top pick</span>
+          {f.topReasons?.length > 0 && <ul className="fest-why">{f.topReasons.map(r => <li key={r}>{r}</li>)}</ul>}
+        </div>
+      )}
+      {facts.length > 0 && <dl className="fest-facts">{facts.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>}
+      {f.asks && <p className="fest-asks"><b>They ask for:</b> {f.asks}</p>}
+      {f.deadline && <p><span className="fest-muted">Deadline: </span>{f.deadline}</p>}
+      {f.read && <blockquote className="fest-read">{f.read}</blockquote>}
+    </>
+  );
+}
+
+function Decisions({ f, decide }) {
+  return (
+    <div className="fest-seg" role="group" aria-label={`Your decision on ${f.name || "this festival"}`}>
+      {gigDecisions.map(d => (
+        <motion.button key={d} type="button" aria-pressed={f.decision === d} onClick={() => decide(f.id, f.decision === d ? null : d)} whileTap={{ scale: 0.94 }}>{label(d)}</motion.button>
+      ))}
+    </div>
+  );
+}
+
+// f goes undefined when the festival is gone; the closing panel keeps its last render
+function FestivalOverlay({ f, onClose, decide }) {
+  const name = f?.name || f?.url;
+  return (
+    <Overlay
+      open={!!f}
+      onClose={onClose}
+      label={name}
+      eyebrow={f?.applyBy ? `Apply by ${part(f.applyBy, { day: "numeric", month: "short" })}` : "No set date"}
+      title={name}
+      footer={f && (
+        <>
+          <Decisions f={f} decide={decide} />
+          <a className="btn" href={f.url} target="_blank" rel="noreferrer">Festival page<span className="sr-only"> (new tab)</span></a>
+        </>
+      )}
+    >
+      {f && <Details f={f} />}
+    </Overlay>
+  );
+}
+
 // A festival is a ticket: the stub holds the apply-by date, the body the festival
-function Card({ f, decide }) {
+function Card({ f, decide, open }) {
   // Still being read until the Mac gives it a tier: no decision yet
   if (f.tier === null) {
     return (
@@ -44,7 +95,6 @@ function Card({ f, decide }) {
       </motion.li>
     );
   }
-  const facts = [["Where", f.where], ["When", f.when], ["Size", f.size], ["Pay", f.pay]].filter(([, v]) => v);
   return (
     <motion.li layout className="fest-ticket" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, x: 24 }} transition={{ duration: 0.2 }}>
       <div className="fest-stub">
@@ -57,23 +107,13 @@ function Card({ f, decide }) {
           <h4 className="fest-name">{f.name || f.url}</h4>
           {f.closingSoon && <span className="fest-soon">Closing soon</span>}
         </div>
-        {f.topPick && (
-          <div className="fest-pick">
-            <span className="fest-pick-tag">Top pick</span>
-            {f.topReasons?.length > 0 && <ul className="fest-why">{f.topReasons.map(r => <li key={r}>{r}</li>)}</ul>}
-          </div>
-        )}
-        {facts.length > 0 && <dl className="fest-facts">{facts.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>}
-        {f.asks && <p className="fest-asks"><b>They ask for:</b> {f.asks}</p>}
-        {f.deadline && <p><span className="fest-muted">Deadline: </span>{f.deadline}</p>}
-        {f.read && <blockquote className="fest-read">{f.read}</blockquote>}
+        <Details f={f} />
         <div className="fest-foot">
-          <div className="fest-seg" role="group" aria-label={`Your decision on ${f.name || "this festival"}`}>
-            {gigDecisions.map(d => (
-              <motion.button key={d} type="button" aria-pressed={f.decision === d} onClick={() => decide(f.id, f.decision === d ? null : d)} whileTap={{ scale: 0.94 }}>{label(d)}</motion.button>
-            ))}
+          <Decisions f={f} decide={decide} />
+          <div className="fest-foot-end">
+            <button type="button" className="btn" onClick={() => open(f.id)}>Details<span className="sr-only"> of {f.name || f.url}</span></button>
+            <a className="fest-link" href={f.url} target="_blank" rel="noreferrer">Festival page<span className="sr-only"> (new tab)</span></a>
           </div>
-          <a className="fest-link" href={f.url} target="_blank" rel="noreferrer">Festival page<span className="sr-only"> (new tab)</span></a>
         </div>
       </div>
     </motion.li>
@@ -125,7 +165,11 @@ function AddFestival({ add }) {
 
 export default function Festivals({ cloud }) {
   const [decision, setDecision] = useState("all");
+  const [openId, setOpenId] = useState(null);
   const tiers = useMemo(() => festivalView(cloud.festivals, { now: Date.now(), decision }), [cloud.festivals, decision]);
+  // Looked up unfiltered, so the open festival stays live and survives a filter that hides it
+  const opened = cloud.festivals.find(f => f.id === openId);
+  if (openId && !opened) setOpenId(null);
   return (
     <div className="festivals">
       <div className="view-head">
@@ -151,10 +195,11 @@ export default function Festivals({ cloud }) {
           {subtitles[t.tier] && <p className="fest-tier-sub">{subtitles[t.tier]}</p>}
           {t.tier === null && <ReadingStatus status={cloud.readingStatus} />}
           <ul className="fest-list">
-            <AnimatePresence initial={false}>{t.festivals.map(f => <Card key={f.id} f={f} decide={cloud.decideFestival} />)}</AnimatePresence>
+            <AnimatePresence initial={false}>{t.festivals.map(f => <Card key={f.id} f={f} decide={cloud.decideFestival} open={setOpenId} />)}</AnimatePresence>
           </ul>
         </section>
       ))}
+      <FestivalOverlay f={opened} onClose={() => setOpenId(null)} decide={cloud.decideFestival} />
     </div>
   );
 }
