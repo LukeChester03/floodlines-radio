@@ -4,7 +4,7 @@ import { ArrowRight, BellRing, DatabaseBackup, Inbox, Send } from "lucide-react"
 import { download } from "../store.js";
 import { exportAll } from "../cloud.js";
 import { reachable } from "../../functions/core/stations.js";
-import { activePursuits, pursuitSections, songLevels, timingWords } from "../pursuits.js";
+import { activePursuits, pursuitSections, songLevels, timingWords, weeklySends } from "../pursuits.js";
 import { titles } from "../songs.js";
 import { flag, tierLabel } from "../ui/bits.jsx";
 
@@ -35,9 +35,34 @@ function Levels({ rows, total }) {
   );
 }
 
+// One column per week, oldest first, scaled to the busiest week, each with its count above and its Monday below
+function Weeks({ weeks }) {
+  const still = useReducedMotion();
+  const busiest = Math.max(...weeks.map(w => w.count));
+  return (
+    <ol className="weeks">
+      {weeks.map(({ week, label, count }, i) => (
+        <li className="week" key={week}>
+          <span className="week-n">{count}</span>
+          <span className="sr-only"> sent, week of </span>
+          <span className="level-track week-track" aria-hidden="true">
+            <motion.span
+              className="level-fill week-fill"
+              initial={still ? false : { height: 0 }}
+              animate={{ height: `${count ? Math.max(2, (count / busiest) * 100) : 0}%` }}
+              transition={{ type: "spring", stiffness: 60, damping: 16, delay: 0.15 + i * 0.05 }}
+            />
+          </span>
+          <time className="week-label" dateTime={week}>{label}</time>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 const stageRows = ({ contacted, replied, played }) => [["Contacted", contacted], ["Replied", replied], ["Played", played]];
 
-export default function Booth({ stations, songs, song, followups, queue, openMailer, openSheet, setView, cloud, user }) {
+export default function Booth({ stations, songs, song, sends, followups, queue, openMailer, openSheet, setView, cloud, user }) {
   const reach = stations.filter(reachable);
   const count = k => reach.filter(s => s.cur.status === k).length;
   const levels = songLevels(stations, song.id);
@@ -59,6 +84,7 @@ export default function Booth({ stations, songs, song, followups, queue, openMai
 
   const fresh = stations.every(s => songs_untouched(s));
   const now = Date.now();
+  const weeks = weeklySends(sends, now);
   return (
     <div className="booth">
       <div className="cues">
@@ -126,7 +152,7 @@ export default function Booth({ stations, songs, song, followups, queue, openMai
 
       <section className="card-panel" aria-labelledby="going-h">
         <h2 id="going-h" className="panel-title">How it's going</h2>
-        <p className="panel-sub">Every bar is out of the stations you can apply to.</p>
+        <p className="panel-sub">Campaign bars are out of the stations you can apply to.</p>
         <div className="going">
           <div>
             <h3 className="pursuit-head">{song.title}: campaign levels</h3>
@@ -145,6 +171,10 @@ export default function Booth({ stations, songs, song, followups, queue, openMai
                 );
               })}
             </ul>
+          </div>
+          <div className="going-wide">
+            <h3 className="pursuit-head">Emails sent</h3>
+            {weeks.some(w => w.count) ? <Weeks weeks={weeks} /> : <p className="pursuits-empty">No emails sent in the last 8 weeks.</p>}
           </div>
         </div>
       </section>

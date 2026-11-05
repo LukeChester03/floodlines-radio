@@ -134,7 +134,7 @@ test("Tracked stations don't feed the Follow-ups badge", () => {
 test("The Booth counts stations due, not songs", () => {
   const stations = [row("a", bothOn("2026-10-20T09:00:00Z"), { rank: 1, reasons: [], route: "email", cur: { status: "pitched" } })];
   const out = renderToStaticMarkup(createElement(Booth, {
-    stations, songs, song: companion, followups: followupsByStation(stations, songs), queue: [], cloud: { gigs: [], festivals: [] }, user: { email: "x@y.test" },
+    stations, songs, song: companion, followups: followupsByStation(stations, songs), queue: [], sends: [], cloud: { gigs: [], festivals: [] }, user: { email: "x@y.test" },
     openMailer() {}, openSheet() {}, setView() {},
   }));
   assert.match(out, /<span class="cue-n">1<\/span><span class="cue-label">Follow-ups due<\/span>/);
