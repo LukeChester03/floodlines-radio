@@ -657,6 +657,21 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .ov-foot .fest-seg { display: flex; }
 .ov-foot .fest-seg button { flex: 1; min-height: 44px; padding-inline: 4px; }
 
+/* Add overlay: a studio log sheet. Labels are marker on tape, the last field is ruled paper down to the perforation */
+.ov-add .ov-body { display: flex; flex-direction: column; }
+.ov-form { flex: 1 0 auto; display: flex; flex-direction: column; gap: 18px; }
+.ov-hint { max-width: 60ch; font-size: .9375rem; color: var(--ink-2); }
+.ov-form .field { margin: 0; gap: 8px; justify-items: start; }
+.ov-form .field > span { padding: 1px 12px; font-family: var(--marker); font-size: 1.0625rem; font-weight: 400; color: var(--ink); background: var(--tape); transform: rotate(-1deg); box-shadow: 0 1px 3px rgba(0,0,0,.25); }
+.ov-form .field:last-child > span { transform: rotate(.7deg); }
+.ov-form .field input { min-height: 50px; }
+.ov-form .field:last-child { flex: 1; grid-template-rows: auto minmax(0, 1fr); }
+.ov-form .field textarea { height: 100%; min-height: 168px; padding: 0 4px; border: 0; border-radius: 0; resize: none; line-height: 28px; background: repeating-linear-gradient(transparent 0 26px, var(--rule) 26px 28px) local; }
+.ov-foot .form-err { font-size: .9375rem; }
+.ov-actions { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; }
+.ov-actions .btn { min-height: 52px; }
+.ov-actions .btn-primary:disabled { opacity: .75; }
+
 /* Approve & send in flight */
 .approving { display: inline-flex; align-items: center; gap: 6px; }
 p.approving { display: flex; margin: 10px 0 0; }
