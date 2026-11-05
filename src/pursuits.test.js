@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { activePursuits, pursuitSections, timingWords } from "./pursuits.js";
+import { activePursuits, pursuitSections, songLevels, timingWords } from "./pursuits.js";
 
 const now = new Date("2026-11-02T12:00:00Z").getTime();
 const run = (data) => activePursuits({ gigs: [], festivals: [], stations: [], ...data }, now);
@@ -162,4 +162,21 @@ test("pursuitSections sorts station cards by their lead date, after merging", ()
   const reply = { ...followUp("a", "tide", "2026-11-08"), action: "Answer their reply" };
   const { cards } = stationSection([followUp("a", "companion", "2026-11-01"), followUp("b", "tide", "2026-11-05"), reply]);
   assert.deepEqual(cards.map(c => c.id), ["b", "a"]);
+});
+
+const levelRow = (per, rec = {}) => ({ route: "email", genreFit: "indie", rec: { dnc: false, ...rec }, per });
+const withStatus = (...statuses) => statuses.map(status => levelRow({ tide: { status } }));
+
+test("songLevels counts every reachable station, then each stage it has got to", () => {
+  assert.deepEqual(songLevels(withStatus("pitched", "replied", "played", "declined", "new"), "tide"), { canApply: 5, contacted: 4, replied: 2, played: 1 });
+});
+
+test("songLevels leaves a do-not-contact station out of every number", () => {
+  assert.deepEqual(songLevels([levelRow({ tide: { status: "played" } }, { dnc: true })], "tide"), { canApply: 0, contacted: 0, replied: 0, played: 0 });
+});
+
+test("songLevels reads the status for the song it's asked about", () => {
+  const rows = [levelRow({ finalfear: { status: "played" }, companion: { status: "new" } })];
+  assert.deepEqual(songLevels(rows, "finalfear"), { canApply: 1, contacted: 1, replied: 1, played: 1 });
+  assert.deepEqual(songLevels(rows, "companion"), { canApply: 1, contacted: 0, replied: 0, played: 0 });
 });

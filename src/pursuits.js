@@ -1,3 +1,4 @@
+import { reachable } from "../functions/core/stations.js";
 import { songInfo } from "./crm.js";
 
 // Everything the band is chasing (gigs, festivals, station follow-ups), each with its next action, soonest first
@@ -56,6 +57,18 @@ export function pursuitSections(pursuits) {
       return { ...section, count: cards.length, cards };
     })
     .filter(section => section.count > 0);
+}
+
+// How far one song's campaign has got across the stations the band can apply to
+export function songLevels(rows, songId) {
+  const statuses = rows.filter(reachable).map(s => s.per[songId].status);
+  const count = test => statuses.filter(test).length;
+  return {
+    canApply: statuses.length,
+    contacted: count(s => s !== "new"),
+    replied: count(s => s === "replied" || s === "played"),
+    played: count(s => s === "played"),
+  };
 }
 
 // How far off a date is, in UTC calendar days like activePursuits
