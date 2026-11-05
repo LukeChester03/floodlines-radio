@@ -40,12 +40,12 @@ const station = (status, songs = {}) => ({
 });
 const pitched13DaysAgo = { tide: { status: "pitched", log: [{ at: new Date(Date.now() - 13 * DAY).toISOString(), type: "pitch" }] } };
 
-const booth = async ({ stations = [station("new")], gigs = [], festivals = [], setView = () => {} } = {}) => {
+const booth = async ({ stations = [station("new")], songs = [song], gigs = [], festivals = [], setView = () => {} } = {}) => {
   const host = document.body.appendChild(document.createElement("div"));
   const root = createRoot(host);
   roots.push(root);
   await act(async () => root.render(createElement(Booth, {
-    stations, songs: [song], song, followups: { due: [] }, queue: [], openMailer() {}, openSheet() {}, setView, cloud: { gigs, festivals }, user: { email: "band@x.com" },
+    stations, songs, song, followups: { due: [] }, queue: [], openMailer() {}, openSheet() {}, setView, cloud: { gigs, festivals }, user: { email: "band@x.com" },
   })));
   return host;
 };
@@ -105,4 +105,56 @@ test("pressing a station card opens Follow-ups", async () => {
   const host = await booth({ stations: [station("pitched", pitched13DaysAgo)], setView: v => views.push(v) });
   await act(async () => host.querySelector(".pursuit").click());
   assert.deepEqual(views, ["followups"]);
+});
+
+const finalFear = { id: "final-fear", title: "Final Fear" };
+const companion = { id: "companion", title: "Companion" };
+const pitchedBoth = { "final-fear": pitched13DaysAgo.tide, companion: pitched13DaysAgo.tide };
+
+test("a station with two songs waiting gets one card naming both", async () => {
+  const host = await booth({ stations: [station("pitched", pitchedBoth)], songs: [finalFear, companion] });
+  const cards = host.querySelectorAll(".pursuit");
+  assert.equal(cards.length, 1);
+  assert.match(cards[0].textContent, /Demon FM for Final Fear and Companion/);
+});
+
+const gigsDue = n => Array.from({ length: n }, (_, i) => ({ id: `g${i}`, venue: `Venue ${i + 1}`, date: daysAhead(i + 1), decision: "interested" }));
+const festivalsApplied = n => Array.from({ length: n }, (_, i) => ({ id: `f${i}`, name: `Fest ${i + 1}`, decision: "applied" }));
+const stationsDue = n => Array.from({ length: n }, (_, i) => ({ ...station("pitched", pitchedBoth), id: `s${i}`, name: `Radio ${i + 1}` }));
+const section = (host, title) => [...host.querySelectorAll(".pursuit-section")].find(s => s.querySelector("h3").textContent.startsWith(title));
+const cardsIn = el => [...el.querySelectorAll(".pursuit")];
+const seeAll = el => [...el.querySelectorAll("button")].find(b => b.textContent.startsWith("See all"));
+
+test("five gigs show five cards and no See all", async () => {
+  const gigs = section(await booth({ gigs: gigsDue(5) }), "Gigs");
+  assert.equal(cardsIn(gigs).length, 5);
+  assert.equal(seeAll(gigs), undefined);
+});
+
+test("six gigs show the soonest five, See all 6, and a count of 6", async () => {
+  const host = await booth({ gigs: gigsDue(6) });
+  const gigs = section(host, "Gigs");
+  assert.deepEqual(cardsIn(gigs).map(c => c.textContent.match(/Venue \d/)[0]), ["Venue 1", "Venue 2", "Venue 3", "Venue 4", "Venue 5"]);
+  assert.equal(seeAll(gigs).textContent, "See all 6");
+  assert.deepEqual(sectionHeads(host), ["Gigs 6"]);
+});
+
+test("the limit is per section", async () => {
+  const host = await booth({ gigs: gigsDue(6), festivals: festivalsApplied(2) });
+  assert.equal(cardsIn(section(host, "Gigs")).length, 5);
+  assert.equal(seeAll(section(host, "Gigs")).textContent, "See all 6");
+  assert.equal(cardsIn(section(host, "Festivals")).length, 2);
+  assert.equal(seeAll(section(host, "Festivals")), undefined);
+});
+
+test("See all counts stations, not songs", async () => {
+  const host = await booth({ stations: stationsDue(6), songs: [finalFear, companion] });
+  assert.equal(seeAll(section(host, "Stations")).textContent, "See all 6");
+});
+
+test("See all opens each section's page", async () => {
+  const views = [];
+  const host = await booth({ gigs: gigsDue(6), festivals: festivalsApplied(6), stations: stationsDue(6), songs: [finalFear, companion], setView: v => views.push(v) });
+  for (const title of ["Gigs", "Festivals", "Stations"]) await act(async () => seeAll(section(host, title)).click());
+  assert.deepEqual(views, ["gigs", "festivals", "followups"]);
 });
