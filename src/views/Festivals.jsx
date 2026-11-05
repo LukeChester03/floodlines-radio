@@ -78,8 +78,8 @@ function FestivalOverlay({ f, onClose, decide }) {
   );
 }
 
-// A festival is a ticket: the stub holds the apply-by date, the body the festival
-function Card({ f, decide, open }) {
+// A festival is a compact ticket: the stub holds the apply-by date, the rest waits in the overlay
+function Card({ f, open }) {
   // Still being read until the Mac gives it a tier: no decision yet
   if (f.tier === null) {
     return (
@@ -94,26 +94,26 @@ function Card({ f, decide, open }) {
       </motion.li>
     );
   }
+  const name = f.name || f.url;
+  const whereWhen = [f.where, f.when].filter(Boolean).join(", ");
   return (
     <motion.li layout className="fest-ticket" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, x: 24 }} transition={{ duration: 0.2 }}>
+      <button type="button" className="fest-open" onClick={() => open(f.id)}><span className="sr-only">Details of {name}</span></button>
       <div className="fest-stub">
         {f.applyBy ? (
           <time dateTime={f.applyBy}><span className="fest-by">Apply by</span> <span className="fest-day">{part(f.applyBy, { day: "numeric" })}</span> <span className="fest-mon">{part(f.applyBy, { month: "short" })}</span></time>
         ) : <span className="fest-tbc">No set date</span>}
       </div>
       <div className="fest-body">
-        <div className="fest-head">
-          <h4 className="fest-name">{f.name || f.url}</h4>
-          {f.closingSoon && <span className="fest-soon">Closing soon</span>}
-        </div>
-        <Details f={f} />
-        <div className="fest-foot">
-          <Decisions f={f} decide={decide} />
-          <div className="fest-foot-end">
-            <button type="button" className="btn" onClick={() => open(f.id)}>Details<span className="sr-only"> of {f.name || f.url}</span></button>
-            <a className="fest-link" href={f.url} target="_blank" rel="noreferrer">Festival page<span className="sr-only"> (new tab)</span></a>
+        <h4 className="fest-name">{name}</h4>
+        {whereWhen && <p className="fest-line">{whereWhen}</p>}
+        {(f.topPick || f.closingSoon || f.decision) && (
+          <div className="fest-tags">
+            {f.topPick && <span className="fest-pick-tag">Top pick</span>}
+            {f.closingSoon && <span className="fest-soon">Closing soon</span>}
+            {f.decision && <span className="fest-decision">{label(f.decision)}</span>}
           </div>
-        </div>
+        )}
       </div>
     </motion.li>
   );
@@ -170,7 +170,7 @@ export default function Festivals({ cloud }) {
           {subtitles[t.tier] && <p className="fest-tier-sub">{subtitles[t.tier]}</p>}
           {t.tier === null && <ReadingStatus status={cloud.readingStatus} />}
           <ul className="fest-list">
-            <AnimatePresence initial={false}>{t.festivals.map(f => <Card key={f.id} f={f} decide={cloud.decideFestival} open={setOpenId} />)}</AnimatePresence>
+            <AnimatePresence initial={false}>{t.festivals.map(f => <Card key={f.id} f={f} open={setOpenId} />)}</AnimatePresence>
           </ul>
         </section>
       ))}

@@ -232,3 +232,54 @@ test("Closing returns focus to the Add button", async () => {
   await settle();
   assert.ok(document.activeElement === addButton(host, "Add a festival"), `focus is on ${document.activeElement.tagName}`);
 });
+
+const picked = { ...fest, topPick: true, topReasons: ["Open form"] };
+const inDays = n => new Date(Date.now() + n * 864e5).toISOString().slice(0, 10);
+
+test("a closed card shows the name, where and when, and leaves the rest to the dialog", async () => {
+  await mount(stub([{ ...fest, where: "Leeds", when: "June 2027" }]));
+  const text = document.body.textContent;
+  assert.match(text, /Riverside Fest/);
+  assert.match(text, /Leeds/);
+  assert.match(text, /June 2027/);
+  assert.doesNotMatch(text, /£200/);
+});
+
+test("a card has no decision buttons and the filter chips stay", async () => {
+  const { host } = await mount(stub([fest]));
+  assert.equal(host.querySelectorAll("li [aria-pressed]").length, 0);
+  assert.equal(host.querySelectorAll("li a").length, 0);
+  assert.ok(host.querySelectorAll('[aria-label="Filter by decision"] button').length > 0);
+});
+
+test("a card shows the decision made", async () => {
+  const { host } = await mount(stub([{ ...fest, decision: "applied" }]));
+  assert.match(host.querySelector("li").textContent, /Applied/);
+});
+
+test("an undecided card shows no decision", async () => {
+  const { host } = await mount(stub([fest]));
+  assert.doesNotMatch(host.querySelector("li").textContent, /Interested|Applied|Booked|Passed/);
+});
+
+test("a top pick closing within 14 days shows both tags on its card", async () => {
+  const { host } = await mount(stub([{ ...picked, applyBy: inDays(5) }]));
+  const card = host.querySelector("li").textContent;
+  assert.match(card, /Top pick/);
+  assert.match(card, /Closing soon/);
+});
+
+test("top-pick reasons show only once the dialog is open", async () => {
+  const { host } = await mount(stub([picked]));
+  assert.doesNotMatch(document.body.textContent, /Open form/);
+  await click(openButton(host));
+  assert.match(dialog().textContent, /Open form/);
+});
+
+test("a festival still being read keeps its link, note and hint", async () => {
+  const { host } = await mount(stub([{ ...waiting, note: "Saw this on a poster" }]));
+  const card = host.querySelector("li").textContent;
+  assert.match(card, /https:\/\/waiting\.example\//);
+  assert.match(card, /Saw this on a poster/);
+  assert.match(card, /Details fill in by themselves/);
+});
