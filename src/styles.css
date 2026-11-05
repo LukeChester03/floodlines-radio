@@ -306,6 +306,12 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .fu-list li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; padding: 10px 12px; border-radius: 10px; background: #fff; border: 2px solid var(--rule); font-size: .9375rem; }
 .fu-list.quiet li { border-style: dashed; }
 .fu-name { border: 0; background: none; padding: 0; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; color: var(--ink); }
+.fu-part { margin-top: 28px; }
+.hand-log { margin-top: 36px; padding: clamp(16px, 2.6vw, 26px); border: 1px solid var(--line); border-radius: 14px; background: var(--desk); }
+.hand-log .panel-sub { margin-bottom: 14px; color: var(--text-2); }
+.hand-log .fu-list li { border: 1px solid var(--line); background: var(--desk-2); }
+.hand-log .fu-name { color: var(--text); text-align: left; }
+.hand-song { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px; }
 .stamp-panel { overflow: hidden; }
 .promo-stamp { position: absolute; right: 18px; top: 16px; transform: rotate(6deg); border: 3px solid #c2321f; color: #c2321f; padding: 4px 12px; font-family: var(--display); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; border-radius: 4px; opacity: .8; mix-blend-mode: multiply; }
 .promo-stamp.small { right: 60px; top: 18px; font-size: .7rem; }
