@@ -55,26 +55,21 @@ test("Empty state keeps its text when nothing is scheduled", () => {
 });
 
 test("Due now is one panel listing a station once, with a chip per due song", () => {
-  const out = html([row("a", bothOn("2026-10-20T09:00:00Z")), row("b", { companion: pitched("2026-10-20T09:00:00Z") }, { email: "" })]);
+  const out = html([row("a", bothOn("2026-10-20T09:00:00Z")), row("b", { companion: pitched("2026-10-20T09:00:00Z") })]);
   const panel = out.slice(0, out.indexOf("Coming up"));
   assert.equal(count(panel, "Due now"), 1);
   assert.equal(count(panel, "<li"), 2);
   assert.equal(count(panel, 'class="sent-chip"'), 3);
   assert.equal(count(panel, "Last contact 20 Oct"), 2);
   assert.equal(count(panel, "Nudge 1 of 2"), 2);
-  assert.equal(count(panel, "Reply through their form"), 1);
 });
 
-test("One draft button opens the mailer with each emailable station's due songs", () => {
+test("One draft button opens the mailer with each due station's songs", () => {
   const calls = [];
-  const stations = [row("a", bothOn("2026-10-20T09:00:00Z")), row("b", { companion: pitched("2026-10-20T09:00:00Z") }), row("c", { companion: pitched("2026-10-20T09:00:00Z") }, { email: "" })];
+  const stations = [row("a", bothOn("2026-10-20T09:00:00Z")), row("b", { companion: pitched("2026-10-20T09:00:00Z") })];
   const tree = Followups(props(stations, { openMailer: (...args) => calls.push(args) }));
   button(tree, "Draft follow-ups (2)").props.onClick();
   assert.deepEqual(calls, [[["a", "b"], "followup", undefined, undefined, { a: ["final-fear", "companion"], b: ["companion"] }]]);
-});
-
-test("No draft button when no due station has an email", () => {
-  assert.doesNotMatch(html([row("a", bothOn("2026-10-20T09:00:00Z"), { email: "" })]), /Draft follow-ups/);
 });
 
 test("They replied marks every song on the row as replied", () => {

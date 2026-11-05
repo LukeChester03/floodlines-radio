@@ -42,8 +42,7 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
   const decide = cloud.decideReply;
   const open = [...groups.undecided, ...groups.wantReply];
   const movedOn = stations.flatMap(s => (s.rec.dnc ? [] : songs.filter(sg => s.per[sg.id].movedOn).map(sg => ({ s, sg }))));
-  const drafts = due.filter(g => g.station.email);
-  const songsFor = Object.fromEntries(drafts.map(g => [g.station.id, g.songs.map(w => w.song.id)]));
+  const songsFor = Object.fromEntries(due.map(g => [g.station.id, g.songs.map(w => w.song.id)]));
 
   return (
     <div className="followups">
@@ -89,7 +88,7 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
               <p className="panel-sub">Pitched, no reply, and the wait is up.</p>
             </div>
             <div className="panel-actions">
-              {drafts.length > 0 && <button className="btn btn-primary" onClick={() => openMailer(Object.keys(songsFor), "followup", undefined, undefined, songsFor)}>Draft follow-ups ({drafts.length})</button>}
+              <button className="btn btn-primary" onClick={() => openMailer(Object.keys(songsFor), "followup", undefined, undefined, songsFor)}>Draft follow-ups ({due.length})</button>
             </div>
           </div>
           <ul className="fu-list">
@@ -100,7 +99,6 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
                 {waiting.map(chip)}
                 <span>Last contact {fmtDate(new Date(Math.max(...waiting.map(w => w.lastAt))))}</span>
                 <span>Nudge {Math.max(...waiting.map(w => w.followUps)) + 1} of {MAX_FOLLOW_UPS}</span>
-                {!s.email && <span className="muted">Reply through their form</span>}
                 <button className="link-btn" onClick={() => waiting.forEach(w => setStatus([s.id], "replied", w.song.id))}>They replied</button>
               </motion.li>
             ))}

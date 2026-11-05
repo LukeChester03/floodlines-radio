@@ -238,3 +238,34 @@ test("a follow-up record with songs logs a follow-up on each song", () => {
     assert.equal(songInfo(rec).followUps, 1);
   }
 });
+
+const pitchedLongAgo = pitchedOn("2026-10-05T09:00:00Z");
+const nudgedTwice = { status: "followed", log: [{ at: "2026-09-01T09:00:00Z", type: "pitch" }, { at: "2026-09-11T09:00:00Z", type: "followup" }, { at: "2026-09-25T09:00:00Z", type: "followup" }] };
+
+test("songInfo stops the clock on a station that isn't Email, keeping what happened", () => {
+  const info = songInfo(pitchedLongAgo, NOV_4, "form");
+  assert.equal(info.due, null);
+  assert.equal(info.isDue, false);
+  assert.equal(info.status, "pitched");
+  assert.deepEqual(info.lastAt, new Date("2026-10-05T09:00:00Z"));
+});
+
+test("songInfo never says move on for a station that isn't Email, and still counts its follow-ups", () => {
+  const info = songInfo(nudgedTwice, NOV_4, "platform");
+  assert.equal(info.movedOn, false);
+  assert.equal(info.followUps, 2);
+});
+
+test("songInfo keeps the clock on an Email station, and when no route is given", () => {
+  for (const route of ["email", undefined]) {
+    const info = songInfo(pitchedLongAgo, NOV_4, route);
+    assert.deepEqual(info.due, new Date("2026-10-15T09:00:00Z"));
+    assert.equal(info.isDue, true);
+    assert.equal(songInfo(nudgedTwice, NOV_4, route).movedOn, true);
+  }
+});
+
+test("releaseBatch leaves out a form station that has an address", () => {
+  const out = releaseBatch(song, [st("mail"), st("form", { route: "form" })], [song], opts);
+  assert.deepEqual(out.map(x => x.id), ["mail"]);
+});

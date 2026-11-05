@@ -85,7 +85,7 @@ export default function App({ user }) {
     const cur = st.songs[sid] || blankSong();
     return { songs: { ...st.songs, [sid]: { ...cur, ...(typeof patch === "function" ? patch(cur) : patch) } } };
   }), [updateStation]);
-  // Marking a song as pitched or followed up by hand (e.g. sent through a form) starts the follow-up clock too
+  // Marking a song as pitched or followed up by hand logs the send; on an Email station that starts the follow-up clock too
   const setStatus = useCallback((ids, status, sid = song.id) => ids.forEach(id => updateSong(id, sid, r => {
     const at = new Date().toISOString();
     const entries = [{ at, type: "status", text: `Moved to ${statusLabel[status] || status}` }];
@@ -100,7 +100,7 @@ export default function App({ user }) {
     const now = Date.now();
     return stations.map(s => {
       const rec = crm[s.id] || blankStation();
-      const per = Object.fromEntries(songs.map(sg => [sg.id, { ...songInfo(rec.songs[sg.id], now), queued: queuedKeys.has(`${s.id}:${sg.id}:pitch`) }]));
+      const per = Object.fromEntries(songs.map(sg => [sg.id, { ...songInfo(rec.songs[sg.id], now, s.route), queued: queuedKeys.has(`${s.id}:${sg.id}:pitch`) }]));
       return { ...s, rec, per, cur: per[song.id] };
     });
   }, [crm, songs, song.id, queuedKeys]);

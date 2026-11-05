@@ -138,3 +138,40 @@ test("a merged follow-up stays queued when its first song had an earlier nudge, 
   assert.equal(await mount([nudge, { ...nudge, songs: entry.songs, sentAt: "2026-11-27T10:00:00Z" }]), undefined);
   assert.deepEqual(removed, [[entry._key]]);
 });
+
+// Real stations from the list: one Email, one form with an address, one uploader
+const [email, form, uploader] = ["demon-fm-gb", "idobi-radio-us", "bbc-introducing-gb"];
+const overdue = { songs: { finalfear: { status: "pitched", log: [{ at: "2026-01-05T09:00:00Z", type: "pitch", text: "Pitched" }] } } };
+const openApp = async (hash, cloud) => {
+  globalThis.stubCloud = { ...stubCloud([]), ...cloud };
+  window.history.replaceState(null, "", hash);
+  const host = await render(createElement(App, { user: { email: "band@x.com" } }));
+  window.history.replaceState(null, "", "#sendlist");
+  return host;
+};
+
+test("Draft follow-ups only queues the Email station", async () => {
+  const queued = [];
+  const crm = { [email]: overdue, [form]: overdue, [uploader]: overdue };
+  const host = await openApp("#followups", { crm, addToQueue: items => queued.push(...items) });
+  await act(async () => button(host, "Draft follow-ups").click());
+  // An earlier test's dialog can still be animating out, so take the newest
+  const add = [...document.body.querySelectorAll("button")].filter(b => b.textContent.includes("to the send list")).at(-1);
+  assert.match(add.textContent, /Add 1 follow-up/);
+  await act(async () => add.click());
+  assert.deepEqual(queued.map(q => q.id), [email]);
+});
+
+test("a form station past the wait puts no badge on Follow-ups", async () => {
+  const host = await openApp("#sendlist", { crm: { [form]: overdue } });
+  assert.equal(button(host, "Follow-ups").querySelector(".nav-badge")?.textContent, undefined);
+});
+
+test("the Booth counts and lists a follow-up for the Email station only", async () => {
+  const host = await openApp("#booth", { crm: { [email]: overdue, [form]: overdue } });
+  const cue = [...host.querySelectorAll("button")].find(b => b.textContent.includes("Follow-ups due"));
+  assert.equal(cue.querySelector(".cue-n").textContent, "1");
+  const chasing = [...host.querySelectorAll(".pursuit")].filter(p => p.querySelector(".pursuit-action").textContent === "Follow up");
+  assert.equal(chasing.length, 1);
+  assert.match(chasing[0].textContent, /Demon/i);
+});

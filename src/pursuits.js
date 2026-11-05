@@ -20,7 +20,7 @@ export function activePursuits({ gigs, festivals, stations }, now) {
         const latest = rec.log.map(l => l.at).sort().at(-1);
         return [item({ ...base, action: "Answer their reply", date: latest ? day(latest) : null })];
       }
-      const { due } = songInfo(rec, now);
+      const { due } = songInfo(rec, now, s.route);
       if (!due) return [];
       const date = day(due);
       return [item({ ...base, action: "Follow up", date, overdue: date < today })];
