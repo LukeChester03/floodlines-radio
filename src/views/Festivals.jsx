@@ -188,7 +188,7 @@ export default function Festivals({ cloud }) {
         </div>
       )}
       {tiers.length === 0 ? (
-        <Empty title={cloud.festivals.length ? "No festivals match this filter." : "No festivals yet: the list hasn't been loaded."} />
+        <Empty dark title={cloud.festivals.length ? "No festivals match this filter." : "No festivals yet: the list hasn't been loaded."} />
       ) : tiers.map(t => (
         <section key={t.tier} className="fest-tier" aria-labelledby={`fest-${t.tier}`}>
           <h3 id={`fest-${t.tier}`} className="fest-tier-title">{t.title}</h3>

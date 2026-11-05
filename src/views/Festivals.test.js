@@ -65,6 +65,11 @@ test("a search that saved nothing says why under the last-search line", async ()
   assert.equal(lines[last + 1], "Found 2, none new: 1 already on your list, 1 couldn't be read");
 });
 
+test("with no festivals, the empty state is styled for the dark page", async () => {
+  const { host } = await mount({ festivals: [] });
+  assert.ok(host.querySelector(".empty.on-dark .empty-title").textContent.startsWith("No festivals yet"));
+});
+
 test("before any run, Being read says the job may not be running", async () => {
   assert.match(await page({ readingStatus: null }), /Not read yet\. The reading job may not be running on the band's Mac\./);
 });
