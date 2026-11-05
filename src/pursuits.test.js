@@ -64,3 +64,15 @@ test("activePursuits sorts by date, soonest first, undated last, then by title",
     ["Zed Fest", null],
   ]);
 });
+
+const overdue = { companion: { status: "pitched", log: [{ at: "2026-10-05T09:00:00Z", type: "pitch" }] } };
+
+test("activePursuits gives no follow-up for a form station, only for the Email one", () => {
+  const out = run({ stations: [{ ...station("form", overdue), route: "form" }, { ...station("mail", overdue), route: "email" }] });
+  assert.deepEqual(out.map(x => [x.id, x.action]), [["mail", "Follow up"]]);
+});
+
+test("activePursuits still asks to answer a reply from a form station", () => {
+  const replied = { companion: { status: "replied", log: [{ at: "2026-10-28T18:00:00Z", type: "status" }] } };
+  assert.deepEqual(run({ stations: [{ ...station("form", replied), route: "form" }] }).map(x => x.action), ["Answer their reply"]);
+});

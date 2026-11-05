@@ -70,13 +70,15 @@ export function withSentLog(crm, sentLog) {
   return next;
 }
 
-export function songInfo(rec, now = Date.now()) {
+// The site only drafts email, so a station applied to any other way never comes due. Leave route out to skip that check.
+export function songInfo(rec, now = Date.now(), route = "email") {
   const r = rec || blankSong();
+  const chasing = route === "email" && ACTIVE.includes(r.status);
   const sends = r.log.filter(l => l.type === "pitch" || l.type === "followup").sort((a, b) => a.at.localeCompare(b.at));
   const last = sends.at(-1);
   const followUps = sends.filter(l => l.type === "followup").length;
   let due = null;
-  if (last && ACTIVE.includes(r.status) && followUps < MAX_FOLLOW_UPS) {
+  if (last && chasing && followUps < MAX_FOLLOW_UPS) {
     due = new Date(new Date(last.at).getTime() + (followUps === 0 ? FIRST_FOLLOW_UP_DAYS : SECOND_FOLLOW_UP_DAYS) * DAY);
   }
   return {
@@ -85,7 +87,7 @@ export function songInfo(rec, now = Date.now()) {
     followUps,
     due,
     isDue: due ? due.getTime() <= now : false,
-    movedOn: ACTIVE.includes(r.status) && followUps >= MAX_FOLLOW_UPS,
+    movedOn: chasing && followUps >= MAX_FOLLOW_UPS,
   };
 }
 
@@ -123,10 +125,10 @@ export const fmtDate = d => (d ? d.toLocaleDateString("en-GB", { day: "numeric",
 
 export const canGoLive = song => !!(song.link && song.released);
 
-// One review-state pitch per station that fits and hasn't heard this song; never sends anything
+// One review-state pitch per Email station that fits and hasn't heard this song; never sends anything
 export const releaseBatch = (song, stations, songs, { template, signoff, includeOthers }) =>
   stations
-    .filter(s => reachable(s) && s.email && !s.rec.bounced && s.per[song.id].status === "new" && !s.per[song.id].queued)
+    .filter(s => reachable(s) && s.route === "email" && s.email && !s.rec.bounced && s.per[song.id].status === "new" && !s.per[song.id].queued)
     .map(s => {
       const d = fill(template, s, song, songs, { signoff, includeOthers });
       return { id: s.id, song: song.id, kind: "pitch", station: s.name, show: s.show, to: s.email, subject: d.subject, body: d.body, state: "review" };
