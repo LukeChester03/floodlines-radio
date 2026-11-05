@@ -50,7 +50,7 @@ export async function gigHunt({ store, runSession, now = Date.now }) {
   const stored = new Set(await store.listGigIds());
   const fresh = posts.filter((p) => !(typeof p?.url === "string" && stored.has(gigId(p.url))));
   const res = await importGigs({ store, posts: fresh.map((p) => ({ ...p, source: "search" })), now });
-  const status = { ranAt: new Date(now()).toISOString(), queries, found: posts.length, read: res.read, saved: res.saved, errors: [...errors, ...res.errors] };
+  const status = { ranAt: new Date(now()).toISOString(), queries, found: posts.length, read: res.read, saved: res.saved, skipped: { known: posts.length - fresh.length, ...res.skipped }, errors: [...errors, ...res.errors] };
   await store.setGigStatus(status);
   return status;
 }
@@ -143,7 +143,7 @@ export async function festivalHunt({ store, runSession, now = Date.now }) {
   const stored = new Set(await store.listFestivalIds());
   const fresh = found.filter((f) => !(typeof f?.url === "string" && stored.has(gigId(f.url))));
   const res = await importFestivals({ store, festivals: fresh.map((f) => ({ ...f, source: "scout" })), now });
-  const status = { ranAt: new Date(now()).toISOString(), queries: ["UK festivals"], found: found.length, read: res.read, saved: res.saved, errors: [...errors, ...res.errors] };
+  const status = { ranAt: new Date(now()).toISOString(), queries: ["UK festivals"], found: found.length, read: res.read, saved: res.saved, skipped: { known: found.length - fresh.length, unreadable: res.errors.length }, errors: [...errors, ...res.errors] };
   await store.setFestivalStatus(status);
   return status;
 }

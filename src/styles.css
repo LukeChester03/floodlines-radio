@@ -370,6 +370,7 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .warn { padding: 10px 14px; border-radius: 10px; background: #ffd9cc; color: #7a2410; margin: 0 0 12px; }
 .view-sub + .hint { margin-top: 4px; color: var(--text-2); }
 .view-sub + .search-missed { margin: 8px 0 0; }
+.search-why { margin-top: 4px; }
 .search-problems { margin-top: 6px; color: var(--text-2); }
 .search-problems summary { cursor: pointer; font-weight: 700; padding: 4px 0; }
 .search-problems ul { margin: 4px 0 0; padding-left: 18px; }
