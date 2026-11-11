@@ -1,0 +1,34 @@
+[
+  {
+    "page": "/#playlists",
+    "width": 375,
+    "image": "-playlists-375.png",
+    "final_url": "http://127.0.0.1:49894/#playlists",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#playlists",
+    "width": 1280,
+    "image": "-playlists-1280.png",
+    "final_url": "http://127.0.0.1:49894/#playlists",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#followups",
+    "width": 375,
+    "image": "-followups-375.png",
+    "final_url": "http://127.0.0.1:49894/#followups",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#followups",
+    "width": 1280,
+    "image": "-followups-1280.png",
+    "final_url": "http://127.0.0.1:49894/#followups",
+    "overflow": false,
+    "console_errors": []
+  }
+]
