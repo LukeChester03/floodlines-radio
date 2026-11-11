@@ -143,7 +143,7 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
               <li key={s.id}>
                 <button className="fu-name" onClick={() => openSheet(s.id)}>{s.name}</button>
                 <span className={`route r-${s.route}`}>{routeLabel[s.route]}</span>
-                {applied.map(({ song, status }) => <span key={song.id} className="hand-song">{chip({ song })}<StatusTag status={status} small /></span>)}
+                {applied.map(({ song, status }) => <span key={song.id} className="hand-song">{chip({ song })}<StatusTag status={status} type={s.type} small /></span>)}
                 {lastAt && <span>Applied {fmtDate(lastAt)}</span>}
               </li>
             ))}

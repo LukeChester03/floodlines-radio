@@ -300,7 +300,7 @@ export default function StationsTable({ stations: everyRow, kind = "radio", song
                     {songs.every(sg => s.per[sg.id].status === "new") && <span className="muted">None yet</span>}
                   </td>
                   <td data-label={song.title}>
-                    {s.cur.queued && s.cur.status === "new" ? <span className="stag st-queued">In send list</span> : <StatusTag status={s.cur.status} />}
+                    {s.cur.queued && s.cur.status === "new" ? <span className="stag st-queued">In send list</span> : <StatusTag status={s.cur.status} type={s.type} />}
                     {s.cur.isDue && <small className="due-tag">Follow-up due</small>}
                   </td>
                   <td data-label="Last contact" className="c-last">{fmtDate(s.cur.lastAt)}</td>

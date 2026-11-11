@@ -80,7 +80,7 @@ export function fill(template, station, song, songs, { signoff = band.signoff, i
   const map = {
     name: first || (station.show ? `${station.show} team` : `${station.name} team`),
     station: station.name,
-    target: station.show ? `${station.show} on ${station.name}` : station.name,
+    target: station.show ? `${station.show} on ${station.name}` : station.type === "playlist" && !/playlist$/i.test(station.name) ? `${station.name} playlist` : station.name,
     song: titles.format(listed.map(s => s.title)),
     songBlurb: listed[0].blurb || "",
     songLink: Array.isArray(song) ? listed.filter(s => s.link).map(s => `\n${s.title}: ${s.link}`).join("") : song.link || "",
