@@ -75,3 +75,10 @@ test("radio rows alone get no playlist fields", () => {
   assert.ok(!("platform" in r) && !("followers" in r));
   assert.equal(r.category, "uk-local");
 });
+
+test("playlists are ranked on their own, so radio ranks don't move", () => {
+  const { stations } = merge(radio, [row({ name: "Top List", platform: "spotify", followers: 900000, fit: "high" })]);
+  const ranks = t => stations.filter(t).map(s => s.rank);
+  assert.deepEqual(ranks(s => s.type !== "playlist"), [1, 2]);
+  assert.deepEqual(ranks(s => s.type === "playlist"), [1]);
+});

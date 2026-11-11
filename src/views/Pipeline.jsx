@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { GripVertical, Search } from "lucide-react";
 import { fmtDate, statuses } from "../crm.js";
-import { reachable } from "../../functions/core/stations.js";
+import { byPriority, reachable } from "../../functions/core/stations.js";
 import { PlaylistTag, flag } from "../ui/bits.jsx";
 
 // Board for the current song. Drag a card to another column, or use its menu.
@@ -49,7 +49,7 @@ export default function Pipeline({ stations, song, setStatus, openSheet }) {
   const reach = stations
     .filter(reachable)
     .filter(s => !needle || `${s.name} ${s.show || ""} ${s.region} ${s.rec.tags.join(" ")}`.toLowerCase().includes(needle))
-    .sort((a, b) => a.rank - b.rank);
+    .sort(byPriority);
   const onMove = (id, status) => setStatus([id], status, song.id);
 
   return (

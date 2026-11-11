@@ -41,3 +41,10 @@ test("A pitched playlist's card shows the Playlist label; a radio station's card
   assert.equal(card(host, "Indie Gems").querySelector(".kind-tag")?.textContent, "Playlist");
   assert.equal(card(host, "Demon FM").querySelector(".kind-tag"), null);
 });
+
+test("Not pitched orders radio and playlists together by score", async () => {
+  const fresh = (id, name, type, rank, score) => ({ ...row(id, name, type), rank, score, cur: { status: "new", queued: false, isDue: false } });
+  const host = await pipeline([fresh("p", "MontageRock", "playlist", 1, 68), fresh("r", "Amazing Radio", "community", 2, 80)]);
+  const names = [...host.querySelector('[data-col="new"]').querySelectorAll(".kcard b")].map(b => b.textContent);
+  assert.deepEqual(names, ["Amazing Radio", "MontageRockPlaylist"]);
+});
