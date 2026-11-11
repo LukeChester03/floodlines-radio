@@ -6,7 +6,7 @@ import { exportAll } from "../cloud.js";
 import { reachable } from "../../functions/core/stations.js";
 import { activePursuits, pursuitSections, songLevels, timingWords, weeklySends } from "../pursuits.js";
 import { titles } from "../songs.js";
-import { flag, tierLabel } from "../ui/bits.jsx";
+import { PlaylistTag, flag, tierLabel } from "../ui/bits.jsx";
 
 // Overview for the song you're pitching: what to do next, and how far the campaign has got
 const CARDS_PER_SECTION = 5;
@@ -135,7 +135,7 @@ export default function Booth({ stations, songs, song, sends, followups, queue, 
                     <li key={`${p.kind}:${p.id}`}>
                       <button className={`next-card pursuit${p.overdue ? " overdue" : ""}`} onClick={() => setView(p.view)}>
                         <span className="next-name pursuit-action">{p.action}</span>
-                        <span className="pursuit-title">{p.title}{p.songs.length > 0 && <span className="pursuit-song"> for {titles.format(p.songs.map(songTitle))}</span>}</span>
+                        <span className="pursuit-title">{p.title}{p.kind === "station" && <PlaylistTag type={stations.find(s => s.id === p.id)?.type} />}{p.songs.length > 0 && <span className="pursuit-song"> for {titles.format(p.songs.map(songTitle))}</span>}</span>
                         <span className="next-meta pursuit-when">{p.date ? <time dateTime={p.date}>{when}</time> : when}</span>
                       </button>
                     </li>
@@ -195,7 +195,7 @@ export default function Booth({ stations, songs, song, sends, followups, queue, 
             <motion.li key={s.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.04 * i }}>
               <button className="next-card" onClick={() => openSheet(s.id)}>
                 <span className="next-top"><span className="next-rank">#{s.rank}</span><span className={`route r-${s.route}`}>{s.route === "email" ? "Email" : s.route === "platform" ? "Uploader" : s.route === "form" ? "Form" : "Post"}</span></span>
-                <span className="next-name">{s.name}</span>
+                <span className="next-name">{s.name}<PlaylistTag type={s.type} /></span>
                 {s.show && <span className="next-show">{s.show}</span>}
                 <span className="next-meta">{flag(s.country)} {s.region}{s.tier ? ` · ${tierLabel[s.tier]}` : ""}</span>
                 {s.reasons[0] && <span className="next-why">{s.reasons[0]}</span>}

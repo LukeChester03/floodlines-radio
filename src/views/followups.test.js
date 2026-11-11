@@ -139,3 +139,26 @@ test("The Booth counts stations due, not songs", () => {
   }));
   assert.match(out, /<span class="cue-n">1<\/span><span class="cue-label">Follow-ups due<\/span>/);
 });
+
+// A playlist and a radio station side by side; only the playlist carries the label
+const LABEL = ">Playlist</span>";
+const linePart = (out, name) => out.slice(out.indexOf(name), out.indexOf("</li>", out.indexOf(name)));
+
+test("An Email playlist pitched 11 days ago is Due now with the Playlist label; a radio station in the same state has none", () => {
+  const recs = { companion: pitched("2026-10-24T09:00:00Z") };
+  const out = html([row("p", recs, { type: "playlist" }), row("r", recs, { type: "community" })]);
+  const panel = out.slice(0, out.indexOf("Coming up"));
+  assert.match(linePart(panel, "Radio p"), new RegExp(LABEL));
+  assert.doesNotMatch(linePart(panel, "Radio r"), new RegExp(LABEL));
+});
+
+test("A playlist coming up carries the Playlist label", () => {
+  const out = html([row("p", { companion: pitched("2026-11-03T09:00:00Z") }, { type: "playlist" })]);
+  assert.match(linePart(out.slice(out.indexOf("Coming up")), "Radio p"), new RegExp(LABEL));
+});
+
+test("A form playlist marked Pitched is applied by hand with the Playlist label, and not Due now", () => {
+  const out = html([row("p", { companion: pitched("2026-10-24T09:00:00Z") }, { type: "playlist", route: "form" })]);
+  assert.equal(count(emailPart(out), "Radio p"), 0);
+  assert.match(linePart(trackedPart(out), "Radio p"), new RegExp(LABEL));
+});

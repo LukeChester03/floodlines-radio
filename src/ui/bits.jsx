@@ -18,6 +18,11 @@ export function StatusTag({ status, type, small }) {
   return <span className={`stag st-${status}${small ? " small" : ""}`}>{label}</span>;
 }
 
+// Marks a playlist next to its name wherever playlists and stations share a screen; radio rows get nothing
+export function PlaylistTag({ type }) {
+  return type === "playlist" ? <span className="stag small kind-tag">Playlist</span> : null;
+}
+
 export function Meter({ value, label }) {
   if (value == null) return <span className="meter-none" aria-label={`${label}: not ranked`}>—</span>;
   return (

@@ -177,6 +177,7 @@ button { cursor: pointer; }
 /* ---------- Tags ---------- */
 .stag { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: .8125rem; font-weight: 700; white-space: nowrap; }
 .stag.small { font-size: .75rem; padding: 1px 7px; }
+.kind-tag { margin-left: 6px; vertical-align: middle; border: 1px solid currentColor; font-weight: 600; }
 .st-new { background: #ece6da; color: #5b544a; }
 .st-pitched { background: #dbe8ff; color: #1d4aa8; }
 .st-followed { background: #e8defa; color: #5531a0; }
