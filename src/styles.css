@@ -259,6 +259,7 @@ table.log { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .meters { display: flex; gap: 8px; margin-top: 6px; }
 .c-songs { min-width: 140px; }
 .c-last { white-space: nowrap; color: var(--ink-2); }
+.c-num { white-space: nowrap; font-variant-numeric: tabular-nums; }
 .bulkbar {
   position: fixed; left: 50%; bottom: 16px; z-index: 50; translate: -50% 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
   padding: 10px 14px; border-radius: 16px; background: var(--ink); color: var(--log); max-width: calc(100vw - 20px);
