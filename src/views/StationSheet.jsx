@@ -119,7 +119,7 @@ export default function StationSheet({ id, stations, songs, song, updateStation,
               </ol>
             )}
           </section>
-          <p className="muted small">Current {song.title} status: <StatusTag status={s.cur.status} small /></p>
+          <p className="muted small">Current {song.title} status: <StatusTag status={s.cur.status} type={s.type} small /></p>
         </div>
       )}
     </Modal>

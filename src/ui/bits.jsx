@@ -12,8 +12,10 @@ export const platformLabel = { spotify: "Spotify", "apple-music": "Apple Music",
 export const groupLabel = { uk: "UK", ireland: "Ireland", us: "USA", canada: "Canada", europe: "Europe", ausnz: "Aus & NZ", world: "Elsewhere" };
 export const flag = cc => (cc && cc.length === 2 ? String.fromCodePoint(...[...cc].map(c => 127397 + c.charCodeAt(0))) : "");
 
-export function StatusTag({ status, small }) {
-  return <span className={`stag st-${status}${small ? " small" : ""}`}>{statusLabel[status] || status}</span>;
+// On a playlist, being added is the playlist version of played; the stored status stays "played"
+export function StatusTag({ status, type, small }) {
+  const label = status === "played" && type === "playlist" ? "Added" : statusLabel[status] || status;
+  return <span className={`stag st-${status}${small ? " small" : ""}`}>{label}</span>;
 }
 
 export function Meter({ value, label }) {
