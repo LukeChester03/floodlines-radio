@@ -1,0 +1,18 @@
+[
+  {
+    "page": "/#playlists",
+    "width": 375,
+    "image": "-playlists-375.png",
+    "final_url": "http://127.0.0.1:62708/#playlists",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#playlists",
+    "width": 1280,
+    "image": "-playlists-1280.png",
+    "final_url": "http://127.0.0.1:62708/#playlists",
+    "overflow": false,
+    "console_errors": []
+  }
+]
