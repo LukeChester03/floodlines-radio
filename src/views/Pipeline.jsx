@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { GripVertical, Search } from "lucide-react";
 import { fmtDate, statuses } from "../crm.js";
 import { reachable } from "../../functions/core/stations.js";
-import { flag } from "../ui/bits.jsx";
+import { PlaylistTag, flag } from "../ui/bits.jsx";
 
 // Board for the current song. Drag a card to another column, or use its menu.
 function Card({ s, song, onMove, openSheet }) {
@@ -26,7 +26,7 @@ function Card({ s, song, onMove, openSheet }) {
     >
       <GripVertical size={16} className="kgrip" aria-hidden="true" />
       <button className="kcard-btn" onClick={() => !dragging && openSheet(s.id)}>
-        <b>{s.name}</b>
+        <b>{s.name}<PlaylistTag type={s.type} /></b>
         {s.show && <span>{s.show}</span>}
         <span className="kmeta">{flag(s.country)} {s.region}{s.cur.lastAt ? ` · ${fmtDate(s.cur.lastAt)}` : ""}</span>
         {s.cur.isDue && <span className="due-tag">Follow-up due</span>}

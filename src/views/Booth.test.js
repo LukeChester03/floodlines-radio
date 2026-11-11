@@ -221,3 +221,20 @@ test("with nothing sent in the 8 weeks, a message shows instead of the chart", a
   assert.match(section.textContent, /No emails sent in the last 8 weeks\./);
   assert.deepEqual(textsOf(section, ".week-label"), []);
 });
+
+const cardFor = (host, sel, name) => [...host.querySelectorAll(`.next-card${sel}`)].find(c => c.textContent.includes(name));
+
+test("a playlist due a follow-up shows the Playlist label in On the go; a radio station due one doesn't", async () => {
+  const host = await booth({ stations: [
+    { ...station("pitched", pitched13DaysAgo), id: "gems", name: "Indie Gems", type: "playlist" },
+    { ...station("pitched", pitched13DaysAgo), type: "community" },
+  ] });
+  assert.equal(cardFor(host, ".pursuit", "Indie Gems").querySelector(".kind-tag")?.textContent, "Playlist");
+  assert.equal(cardFor(host, ".pursuit", "Demon FM").querySelector(".kind-tag"), null);
+});
+
+test("a playlist in Pitch here next shows the Playlist label; a radio station doesn't", async () => {
+  const host = await booth({ stations: [{ ...station("new"), id: "gems", name: "Indie Gems", type: "playlist" }, { ...station("new"), type: "community" }] });
+  assert.equal(cardFor(host, ":not(.pursuit)", "Indie Gems").querySelector(".kind-tag")?.textContent, "Playlist");
+  assert.equal(cardFor(host, ":not(.pursuit)", "Demon FM").querySelector(".kind-tag"), null);
+});

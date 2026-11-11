@@ -5,7 +5,7 @@ import { band } from "../songs.js";
 import { approvalSummary } from "../../functions/approve.js";
 import { queueProgress, failureReason } from "../../functions/core/progress.js";
 import { sendPace } from "../../functions/core/pace.js";
-import { Empty, Modal } from "../ui/bits.jsx";
+import { Empty, Modal, PlaylistTag } from "../ui/bits.jsx";
 import { approveError, isBroken } from "../sendlist.js";
 
 const STATES = {
@@ -28,7 +28,7 @@ function Count({ value }) {
 }
 
 // Every email waiting to go, for every song. Approve & send hands the reviewed list to the scheduled run.
-export default function SendList({ items, cloud, songs, openMailer, logEvent, setView, gmail, gmailStatus }) {
+export default function SendList({ items, byId = {}, cloud, songs, openMailer, logEvent, setView, gmail, gmailStatus }) {
   const [confirming, setConfirming] = useState(false);
   // How many emails the in-flight approve covers; null when nothing is pending
   const [approving, setApproving] = useState(null);
@@ -130,7 +130,7 @@ export default function SendList({ items, cloud, songs, openMailer, logEvent, se
                     <span className="sl-song" style={{ "--song": songColor(q.song) }}>{songTitle(q.song)}</span>
                     <span className={`sl-state sl-${stateOf(q)}`}>{STATES[stateOf(q)] || stateOf(q)}</span>
                     <span className="sl-kind">{q.kind === "followup" ? "Follow-up" : "Pitch"}</span>
-                    <span className="sl-station">{q.station}{q.show ? ` · ${q.show}` : ""}</span>
+                    <span className="sl-station">{q.station}{q.show ? ` · ${q.show}` : ""}<PlaylistTag type={byId[q.id]?.type} /></span>
                     <span className="sl-to">{q.to}</span>
                     <span className="sl-subject">{q.subject}</span>
                   </summary>

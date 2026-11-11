@@ -182,3 +182,15 @@ test("the Booth's Emails sent chart counts a send from this week", async () => {
   const send = { id: email, song: "finalfear", kind: "pitch", subject: "Hi", sentAt: new Date().toISOString() };
   assert.equal(await thisWeek([send]), before + 1);
 });
+
+test("A queued pitch for a playlist shows the Playlist label; one for a station doesn't", async () => {
+  const items = [
+    { ...whole, _key: "p:finalfear:pitch", id: "indie-gems", station: "Indie Gems" },
+    { ...whole, _key: "r:finalfear:pitch", id: "demon-fm-gb", station: "Demon FM" },
+  ];
+  const byId = { "indie-gems": { id: "indie-gems", type: "playlist" }, "demon-fm-gb": { id: "demon-fm-gb", type: "community" } };
+  const host = await render(createElement(SendList, { items, byId, cloud: stubCloud(items), songs: [], logEvent() {}, openMailer() {}, setView() {} }));
+  const station = name => [...host.querySelectorAll(".sl-station")].find(e => e.textContent.startsWith(name));
+  assert.equal(station("Indie Gems").querySelector(".kind-tag")?.textContent, "Playlist");
+  assert.equal(station("Demon FM").querySelector(".kind-tag"), null);
+});

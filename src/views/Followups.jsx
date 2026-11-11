@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import { FIRST_FOLLOW_UP_DAYS, MAX_FOLLOW_UPS, SECOND_FOLLOW_UP_DAYS, appliedByHand, fmtDate, gmailThreadUrl, replyGroups } from "../crm.js";
-import { Empty, StatusTag, flag, routeLabel } from "../ui/bits.jsx";
+import { Empty, PlaylistTag, StatusTag, flag, routeLabel } from "../ui/bits.jsx";
 
 const outcomeLabel = { replied: "Replied", bounced: "Bounced", auto: "Auto-reply" };
 
@@ -98,7 +98,7 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
           <ul className="fu-list">
             {due.map(({ station: s, songs: waiting }, i) => (
               <motion.li key={s.id} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.03 }}>
-                <button className="fu-name" onClick={() => openSheet(s.id)}>{s.name}{s.show ? ` · ${s.show}` : ""}</button>
+                <button className="fu-name" onClick={() => openSheet(s.id)}>{s.name}{s.show ? ` · ${s.show}` : ""}<PlaylistTag type={s.type} /></button>
                 <span>{flag(s.country)} {s.region}</span>
                 {waiting.map(chip)}
                 <span>Last contact {fmtDate(new Date(Math.max(...waiting.map(w => w.lastAt))))}</span>
@@ -116,7 +116,7 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
           <ul className="fu-list quiet">
             {upcoming.slice(0, 40).map(({ station: s, songs: waiting, due: next }) => (
               <li key={s.id}>
-                <button className="fu-name" onClick={() => openSheet(s.id)}>{s.name}</button>
+                <button className="fu-name" onClick={() => openSheet(s.id)}>{s.name}<PlaylistTag type={s.type} /></button>
                 {waiting.map(chip)}
                 <span>Due {fmtDate(next)}</span>
                 <span>Pitched {fmtDate(new Date(Math.min(...waiting.map(w => w.lastAt))))}</span>
@@ -141,7 +141,7 @@ export default function Followups({ stations, songs, followups: { due, upcoming 
           <ul className="fu-list">
             {tracked.map(({ station: s, songs: applied, lastAt }) => (
               <li key={s.id}>
-                <button className="fu-name" onClick={() => openSheet(s.id)}>{s.name}</button>
+                <button className="fu-name" onClick={() => openSheet(s.id)}>{s.name}<PlaylistTag type={s.type} /></button>
                 <span className={`route r-${s.route}`}>{routeLabel[s.route]}</span>
                 {applied.map(({ song, status }) => <span key={song.id} className="hand-song">{chip({ song })}<StatusTag status={status} type={s.type} small /></span>)}
                 {lastAt && <span>Applied {fmtDate(lastAt)}</span>}
