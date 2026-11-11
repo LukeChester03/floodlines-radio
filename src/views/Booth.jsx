@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, BellRing, DatabaseBackup, Inbox, Send } from "lucide-react";
 import { download } from "../store.js";
 import { exportAll } from "../cloud.js";
-import { reachable } from "../../functions/core/stations.js";
+import { byPriority, reachable } from "../../functions/core/stations.js";
 import { activePursuits, pursuitSections, songLevels, timingWords, weeklySends } from "../pursuits.js";
 import { titles } from "../songs.js";
 import { PlaylistTag, flag, tierLabel } from "../ui/bits.jsx";
@@ -66,7 +66,7 @@ export default function Booth({ stations, songs, song, sends, followups, queue, 
   const reach = stations.filter(reachable);
   const count = k => reach.filter(s => s.cur.status === k).length;
   const levels = songLevels(stations, song.id);
-  const top = reach.filter(s => s.cur.status === "new" && !s.cur.queued).sort((a, b) => a.rank - b.rank).slice(0, 9);
+  const top = reach.filter(s => s.cur.status === "new" && !s.cur.queued).sort(byPriority).slice(0, 9);
   const topEmail = top.filter(s => s.route === "email").map(s => s.id);
   const queuedForSong = queue.filter(q => q.song === song.id).length;
 
@@ -194,7 +194,7 @@ export default function Booth({ stations, songs, song, sends, followups, queue, 
           {top.map((s, i) => (
             <motion.li key={s.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.04 * i }}>
               <button className="next-card" onClick={() => openSheet(s.id)}>
-                <span className="next-top"><span className="next-rank">#{s.rank}</span><span className={`route r-${s.route}`}>{s.route === "email" ? "Email" : s.route === "platform" ? "Uploader" : s.route === "form" ? "Form" : "Post"}</span></span>
+                <span className="next-top"><span className="next-rank">#{i + 1}</span><span className={`route r-${s.route}`}>{s.route === "email" ? "Email" : s.route === "platform" ? "Uploader" : s.route === "form" ? "Form" : "Post"}</span></span>
                 <span className="next-name">{s.name}<PlaylistTag type={s.type} /></span>
                 {s.show && <span className="next-show">{s.show}</span>}
                 <span className="next-meta">{flag(s.country)} {s.region}{s.tier ? ` · ${tierLabel[s.tier]}` : ""}</span>

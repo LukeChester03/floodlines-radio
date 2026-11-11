@@ -238,3 +238,13 @@ test("a playlist in Pitch here next shows the Playlist label; a radio station do
   assert.equal(cardFor(host, ":not(.pursuit)", "Indie Gems").querySelector(".kind-tag")?.textContent, "Playlist");
   assert.equal(cardFor(host, ":not(.pursuit)", "Demon FM").querySelector(".kind-tag"), null);
 });
+
+test("Pitch here next orders radio and playlists together by score and numbers them in that order", async () => {
+  const host = await booth({ stations: [
+    { ...station("new"), id: "list", name: "MontageRock", type: "playlist", rank: 1, score: 68 },
+    { ...station("new"), id: "amazing", name: "Amazing Radio", type: "community", rank: 2, score: 80 },
+  ] });
+  const cards = [...host.querySelectorAll(".next-card")];
+  assert.deepEqual(cards.map(c => c.querySelector(".next-name").textContent), ["Amazing Radio", "MontageRockPlaylist"]);
+  assert.deepEqual(cards.map(c => c.querySelector(".next-rank").textContent), ["#1", "#2"]);
+});
