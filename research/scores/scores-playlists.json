@@ -1,0 +1,2258 @@
+[
+ {
+  "id": "alexrainbirdmusic-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 5,
+  "reasons": [
+   "Huge indie channel, 1.4M subs",
+   "Free portal, very competitive",
+   "Leans pop and folk"
+  ],
+  "pitchTip": "Use the district.biz portal; the Gmail is not for music."
+ },
+ {
+  "id": "indie-playlists-birp-fm-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 4,
+  "reasons": [
+   "Big YouTube indie channel",
+   "Paid Groover or SubmitHub only",
+   "Lists garage and shoegaze"
+  ],
+  "pitchTip": "Pitch via Groover with the alt rock tag."
+ },
+ {
+  "id": "indieair-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 5,
+  "reasons": [
+   "1.4M-sub indie channel",
+   "Free portal, heavy competition",
+   "Leans indie pop"
+  ],
+  "pitchTip": "Submit through the district.biz portal on the channel."
+ },
+ {
+  "id": "montagerock",
+  "eligible": true,
+  "chance": 3,
+  "value": 4,
+  "reasons": [
+   "Underground alt rock channel",
+   "Free Google Form route",
+   "Big audience, 791k subs"
+  ],
+  "pitchTip": "Use the free track form linked on the channel."
+ },
+ {
+  "id": "alternative-weekly-2026-best-new-indie-music-2026-indiemono-",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "Free form, big Madrid network",
+   "Updated every New Music Friday",
+   "One form reaches 150+ lists"
+  ],
+  "pitchTip": "Paste a released Spotify link with 1-3 tags; submit once."
+ },
+ {
+  "id": "indiemono-alternative-weekly-2026-es",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "Free form, big Madrid network",
+   "Updated every New Music Friday",
+   "One form reaches 150+ lists"
+  ],
+  "pitchTip": "Same Indiemono form as the other rows; submit once."
+ },
+ {
+  "id": "sounds-new-sounds-good-pt",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "Wants Arctic Monkeys, Oasis sounds",
+   "Free email route",
+   "Mid-size YouTube audience"
+  ],
+  "pitchTip": "Email the track; Groover is the paid alternative."
+ },
+ {
+  "id": "fancy-melancholic",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Good indie rock fit",
+   "Activity unverified since 2018",
+   "Free email route"
+  ],
+  "pitchTip": "Email for a feature, but expect it may be dormant."
+ },
+ {
+  "id": "alt-rock-2026-today-s-alternative-rock-indie-rock-indiemono-",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Alt rock list in Indiemono",
+   "Free form, no reply unless added",
+   "Small, about 1k followers"
+  ],
+  "pitchTip": "Covered by the one Indiemono submission; don't resend."
+ },
+ {
+  "id": "best-indie-and-alt-rock-wigwam-kevin-graham-radio-wigwam-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "UK indie and alt rock curator",
+   "Direct email in description",
+   "Small, about 2k followers"
+  ],
+  "pitchTip": "Email Kevin a Spotify link to the track."
+ },
+ {
+  "id": "birp-indie-pop-rock-playlist-monthly-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Long-running US indie tastemaker",
+   "Free email route exists",
+   "Many submissions, few adds"
+  ],
+  "pitchTip": "Email submit@birp.fm; the $5 review only buys a reply."
+ },
+ {
+  "id": "common-sense",
+  "eligible": true,
+  "chance": 2,
+  "value": 4,
+  "reasons": [
+   "Big anthem-rock YouTube channel",
+   "Paid Groover only",
+   "Leans Imagine Dragons style"
+  ],
+  "pitchTip": "Pitch through Groover with a big-chorus track."
+ },
+ {
+  "id": "diy-the-neu-playlist-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 4,
+  "reasons": [
+   "Major UK new-band magazine",
+   "Pitches discussed weekly",
+   "Highly competitive"
+  ],
+  "pitchTip": "Email sarah@, emma@ and daisy@ together, as the page asks."
+ },
+ {
+  "id": "for-the-love-of-bands-new-indie-music-indie-radar-nl",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Free regular submission route",
+   "Wants tracks under 3 months",
+   "Small Dutch indie curator"
+  ],
+  "pitchTip": "Use the form and tick Indie Radar; track under 3 months old."
+ },
+ {
+  "id": "for-the-love-of-bands-new-rock-2026-nl",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Free regular submission route",
+   "Wants tracks under 3 months",
+   "Small Dutch indie curator"
+  ],
+  "pitchTip": "Fill in the form with for-fans-of; skip the paid queue."
+ },
+ {
+  "id": "fresh-on-the-net-alt-picks-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Free, volunteer-run UK inbox",
+   "Same inbox as Fresh Faves",
+   "Weekly alt-leaning set"
+  ],
+  "pitchTip": "Covered by the Fresh Faves submission; don't resend."
+ },
+ {
+  "id": "fresh-on-the-net-fresh-faves-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "Free and respected UK inbox",
+   "Opens Monday, caps at 200",
+   "Weekly sets get real ears"
+  ],
+  "pitchTip": "Submit one public SoundCloud track on Monday, before it fills."
+ },
+ {
+  "id": "indie-roadtrip-blinding-talent-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Free UK form, reviewed weekly",
+   "No paid placements",
+   "About 1.7k saves"
+  ],
+  "pitchTip": "Use the free Blinding Talent form and pick Indie Roadtrip."
+ },
+ {
+  "id": "indie-rock-best-of-2026-all-new-rock-the-wild-is-calling-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Philly indie rock blog",
+   "Free email in description",
+   "About 1.6k followers"
+  ],
+  "pitchTip": "Email twicsubmissions@ and say which playlist it fits."
+ },
+ {
+  "id": "indie-rock-playlist-the-indie-rock-playlist-september-2026",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "Monthly indie rock playlist",
+   "Free email, simple ask",
+   "Tiny following"
+  ],
+  "pitchTip": "Email a streaming link, band name, song title and year."
+ },
+ {
+  "id": "indiemono-alt-rock-2026-es",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Alt rock list in Indiemono",
+   "Free form, no reply unless added",
+   "Small, about 1k followers"
+  ],
+  "pitchTip": "Covered by the one Indiemono submission; don't resend."
+ },
+ {
+  "id": "kexp-new-this-week-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 4,
+  "reasons": [
+   "Iconic Seattle indie station",
+   "Draws from airplay rotation",
+   "Very hard for unsigned acts"
+  ],
+  "pitchTip": "Email md@kexp.org with streaming and WAV links, no attachments."
+ },
+ {
+  "id": "kexp-rotation-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 4,
+  "reasons": [
+   "Iconic Seattle indie station",
+   "Mirrors airplay rotation",
+   "Very hard for unsigned acts"
+  ],
+  "pitchTip": "Same md@kexp.org pitch as New This Week; send once."
+ },
+ {
+  "id": "leftlion-notts-what-i-call-music-2026-gb",
+  "eligible": false,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Nottingham acts only",
+   "Annual local playlist",
+   "Free email route"
+  ],
+  "pitchTip": "Only pitch if the band has a real Nottingham connection."
+ },
+ {
+  "id": "mystic-sons-singles-club-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "UK indie label collective",
+   "Free email, nudges fine",
+   "Label singles club"
+  ],
+  "pitchTip": "Email info@ and follow up once."
+ },
+ {
+  "id": "new-indie-alternative-indiemono",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Indiemono's Apple Music list",
+   "Free Spotify-link form",
+   "Refreshed monthly"
+  ],
+  "pitchTip": "Covered by the one Indiemono submission; don't resend."
+ },
+ {
+  "id": "obscure-sound-emerging-indie-rock-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "Emerging indie rock focus",
+   "Free email route",
+   "Respected US blog"
+  ],
+  "pitchTip": "Subject 'Obscure Sound Submission'; stream link, photo, short bio."
+ },
+ {
+  "id": "pinguin-radio-radar-nl",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "Dutch station loves guitar bands",
+   "Free Musisum route",
+   "Feeds public Spotify lists"
+  ],
+  "pitchTip": "Submit via Musisum, as Pinguin's about page names."
+ },
+ {
+  "id": "post-trash-weekly-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Weekly indie and alt rock picks",
+   "Free email to the editor",
+   "US scene focus"
+  ],
+  "pitchTip": "Email Dan Goldin at dgoldin2012@gmail.com."
+ },
+ {
+  "id": "radio-wigwam-spin-of-the-month-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "UK unsigned indie radio",
+   "Free monthly submission",
+   "Small monthly playlists"
+  ],
+  "pitchTip": "Upload once a month on a free Radio Wigwam artist account."
+ },
+ {
+  "id": "rock-your-gut-all-rage-into-one-list-imusician-ch",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Invites independent rock acts",
+   "Free form via distributor",
+   "About 2.9k followers"
+  ],
+  "pitchTip": "Click 'Submit your track' on the iMusician page."
+ },
+ {
+  "id": "spaceuntravel-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 4,
+  "reasons": [
+   "Big heavy-rock channel",
+   "Leans alt metal",
+   "Free email route"
+  ],
+  "pitchTip": "Email only your heaviest track."
+ },
+ {
+  "id": "spotify-editorial-playlists-spotify-for-artists-pitch-se",
+  "eligible": true,
+  "chance": 1,
+  "value": 5,
+  "reasons": [
+   "Spotify's own editorial lists",
+   "Free pitch, no guarantee",
+   "Pitch also feeds Release Radar"
+  ],
+  "pitchTip": "Pitch an unreleased song 7+ days ahead in Spotify for Artists."
+ },
+ {
+  "id": "the-indie-list-uk-dean-thacker-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "British indie and alt focus",
+   "Invites email submissions",
+   "Small, about 2k subs"
+  ],
+  "pitchTip": "Email the track with a one-line intro."
+ },
+ {
+  "id": "the-line-of-best-fit-new-music-discovery-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Major UK new-music site",
+   "Welcomes unsigned artists",
+   "Very competitive"
+  ],
+  "pitchTip": "Use the music submission form, not news@."
+ },
+ {
+  "id": "undiscovered-indie-anya-skatova-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "UK-only undiscovered indie",
+   "Free Soundplate route",
+   "About 1.3k followers"
+  ],
+  "pitchTip": "Submit free on the playlist's Soundplate page."
+ },
+ {
+  "id": "sad-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Toronto indie blog and label",
+   "Free email route",
+   "Mid-size channel, 24k subs"
+  ],
+  "pitchTip": "Email the address on the channel."
+ },
+ {
+  "id": "alternative-rock-richer-unsigned-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "Unsigned UK rock focus",
+   "Free, not-for-profit",
+   "Tiny playlist"
+  ],
+  "pitchTip": "Submit free via the Richer Unsigned form."
+ },
+ {
+  "id": "ear-indie-elton-audio-records-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Laid-back indie rock",
+   "Free, follow-gated form",
+   "Tiny playlist"
+  ],
+  "pitchTip": "Follow the playlist, then paste your Spotify link on the form."
+ },
+ {
+  "id": "ear-salt-elton-audio-records-us",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "Modern alt rock, guitar-led",
+   "Free, follow-gated form",
+   "Tiny playlist"
+  ],
+  "pitchTip": "Follow the playlist, then paste your Spotify link on the form."
+ },
+ {
+  "id": "fresh-finds-from-east-of-8th-east-of-8th-music-blog-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Nashville indie rock blog",
+   "Free email route",
+   "Tiny playlist"
+  ],
+  "pitchTip": "Email George working links; upcoming releases preferred."
+ },
+ {
+  "id": "indie-rock-blinding-talent-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Free UK form, reviewed weekly",
+   "No paid placements",
+   "Under 1k saves"
+  ],
+  "pitchTip": "Use the free Blinding Talent form and pick Indie Rock."
+ },
+ {
+  "id": "new-indie-music-indie-radar-for-the-love-of-bands-nl",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Deezer mirror of Indie Radar",
+   "Free form, active Oct 2026",
+   "Tiny Deezer following"
+  ],
+  "pitchTip": "Covered by the For the Love of Bands form; don't resend."
+ },
+ {
+  "id": "right-chord-music-explorer-right-chord-music-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "UK blog since 2010",
+   "One free submission",
+   "Small playlist"
+  ],
+  "pitchTip": "Use the free form and include a press release or bio."
+ },
+ {
+  "id": "spin-of-the-month-november-2026-radio-wigwam-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "Fed by Radio Wigwam plays",
+   "Free Submit Music form",
+   "Tiny monthly saves"
+  ],
+  "pitchTip": "Use the Submit Music form on the Contact Us page."
+ },
+ {
+  "id": "the-indie-scene-2026-the-indie-scene-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Northern UK indie scenes",
+   "Free email to the editor",
+   "Tiny playlist"
+  ],
+  "pitchTip": "Email Kamala a press release and EPK after checking the playlist."
+ },
+ {
+  "id": "ttv-new-music-radar-tenement-tv-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Takes UK and global new music",
+   "Updated every Friday",
+   "Small playlist, bigger site"
+  ],
+  "pitchTip": "Email Nadine a private stream link and short bio."
+ },
+ {
+  "id": "alt-rock-all-the-time-joey-collins-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "UK alt and indie rock curator",
+   "Paid Groover pitch",
+   "About 8.6k followers"
+  ],
+  "pitchTip": "Send a Groover pitch from Joey's profile."
+ },
+ {
+  "id": "alternative-rockers-indie-music-monthly-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Alt and indie, updated weekly",
+   "Paid Groover pitch",
+   "About 3k followers"
+  ],
+  "pitchTip": "Send a Groover pitch from the curator's profile."
+ },
+ {
+  "id": "atwood-magazine-weekly-roundup-2026-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "No pitches for roundups",
+   "Playlist follows coverage",
+   "Big US music magazine"
+  ],
+  "pitchTip": "Pitch for coverage; the roundup follows what they write up."
+ },
+ {
+  "id": "audiotree-new-releases-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Features session releases only",
+   "Form is for live sessions",
+   "Chicago tastemaker"
+  ],
+  "pitchTip": "Apply for an Audiotree Live session instead."
+ },
+ {
+  "id": "best-new-indie-alternative-songs-of-the-month-grimy-goods-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "LA outlet leaning indie and alt",
+   "Free two-step submission",
+   "Current-month releases only"
+  ],
+  "pitchTip": "Add the song to their submission playlist, then email hello@."
+ },
+ {
+  "id": "birp-monthly-indie-pop-rock-playlist-nov-2026-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Long-running monthly playlist",
+   "$5 buys a reply, not a spot",
+   "New list each month"
+  ],
+  "pitchTip": "Submit at birp.fm/submit; pay only if you want a reply."
+ },
+ {
+  "id": "control-alt-repeat-avondale-records-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "UK indie label playlist",
+   "Paid consideration only",
+   "Adds stay 28+ days"
+  ],
+  "pitchTip": "Buy one submission via the PayPal form on the submit page."
+ },
+ {
+  "id": "cool-stuff-indie-alternative-pop-and-rock-discoveries-h-musi",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Emerging indie and post-punk",
+   "Open to international acts",
+   "Paid Groover or SubmitHub"
+  ],
+  "pitchTip": "Pick SubmitHub on the H-Music page to try free credits."
+ },
+ {
+  "id": "daily-playlists",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Marketplace of 18k+ playlists",
+   "Free tier, 10 sends a week",
+   "No guaranteed adds"
+  ],
+  "pitchTip": "Use the free Standard tier and filter to indie rock."
+ },
+ {
+  "id": "everything-indie-alternative-gems-from-across-the-world-imus",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Indie list from a distributor",
+   "Unclear if non-clients get in",
+   "About 3.4k followers"
+  ],
+  "pitchTip": "Click 'Submit your track' on the iMusician page."
+ },
+ {
+  "id": "gorilla-vs-bear-best-songs-of-2026-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 4,
+  "reasons": [
+   "Influential US indie blog",
+   "Leans dream pop",
+   "Year-end list, few new adds"
+  ],
+  "pitchTip": "Email chris@gorillavsbear.net with a stream link."
+ },
+ {
+  "id": "groover-fr",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "Reaches many curators at once",
+   "Pay per curator, about EUR 2",
+   "Reply in 7 days or refund"
+  ],
+  "pitchTip": "Pick indie/alt rock curators who name similar bands."
+ },
+ {
+  "id": "indie-folk-central-nl",
+  "eligible": true,
+  "chance": 1,
+  "value": 4,
+  "reasons": [
+   "Folk-focused channel",
+   "Only fits softer tracks",
+   "Big audience, 255k subs"
+  ],
+  "pitchTip": "Only send an acoustic track via SubmitHub Direct."
+ },
+ {
+  "id": "indie-is-not-a-genre-best-of-indie-2026-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "New indie bands, UK and beyond",
+   "SubmitHub only",
+   "Free credits possible"
+  ],
+  "pitchTip": "Submit through the SubmitHub widget on the submit page."
+ },
+ {
+  "id": "indie-remedy-seed-stone-records-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Backs small growing artists",
+   "SubmitHub direct route",
+   "About 3k followers"
+  ],
+  "pitchTip": "Use the 'Submit' link in the playlist description."
+ },
+ {
+  "id": "indie-rock-peanut-butter-shake-indieshake-se",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Swedish indie tastemaker",
+   "Takes UK acts",
+   "About 5.6k followers"
+  ],
+  "pitchTip": "Submit via their SubmitHub link."
+ },
+ {
+  "id": "indie-uk-hot-list-egmplaylists-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "UK bands only",
+   "Free Soundplate route",
+   "About 3.4k followers"
+  ],
+  "pitchTip": "Submit free on the playlist's Soundplate page."
+ },
+ {
+  "id": "it-s-indie-rock-and-roll-for-me-avondale-records-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "UK indie label playlist",
+   "Paid consideration only",
+   "Adds stay 28+ days"
+  ],
+  "pitchTip": "Buy one submission via the PayPal form on the submit page."
+ },
+ {
+  "id": "kutx-song-of-the-day-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Austin artists come first",
+   "Free email route",
+   "Public radio reach"
+  ],
+  "pitchTip": "Subject 'KUTX Song of the Day'; WAV and photos 2+ weeks ahead."
+ },
+ {
+  "id": "litm-indie-rock-picks-lost-in-the-manor-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "London indie webzine",
+   "Free contact form",
+   "About 5.9k followers"
+  ],
+  "pitchTip": "Drop Chris a line via the contact form."
+ },
+ {
+  "id": "louder-than-war-john-robb-ltw-playlist-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Big UK punk and alt site",
+   "Free email to New Releases",
+   "Needs a month's notice"
+  ],
+  "pitchTip": "Email a stream link and one-line description a month ahead."
+ },
+ {
+  "id": "musosoup-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "UK curator marketplace",
+   "GBP 42, only if accepted",
+   "Spotify playlisting included"
+  ],
+  "pitchTip": "Submit free; pay the fee only once accepted."
+ },
+ {
+  "id": "must-listen-international-rock-pop-electro-folk-indietapes-d",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "German blog, daily indie reviews",
+   "Musosoup or SubmitHub",
+   "About 1.2k followers"
+  ],
+  "pitchTip": "Submit via SubmitHub to try free credits; no email."
+ },
+ {
+  "id": "new-music-discovery-mystic-sons-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Leans electronic and psych",
+   "Free email route",
+   "About 1k followers"
+  ],
+  "pitchTip": "Email info@mysticsons.com; one nudge is fine."
+ },
+ {
+  "id": "new-music-discovery-the-line-of-best-fit-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Major UK new-music site",
+   "Editorial, coverage first",
+   "Very competitive"
+  ],
+  "pitchTip": "Email a short press release with a private stream link."
+ },
+ {
+  "id": "new-music-sunday-indie-top-39-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Weekly new indie picks",
+   "Paid Groover pitch",
+   "About 2k followers"
+  ],
+  "pitchTip": "Send a Groover pitch from the curator's profile."
+ },
+ {
+  "id": "new-punk-curated-by-talkin-chaos-imusician-ch",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Punk and skate punk only",
+   "Free form via distributor",
+   "About 2.2k followers"
+  ],
+  "pitchTip": "Only send the band's punkiest track."
+ },
+ {
+  "id": "new-rock-metal-playlist-primordial-radio-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "UK rock and metal radio",
+   "Free submission form",
+   "Leans heavier than indie"
+  ],
+  "pitchTip": "Fill out the form on primordialradio.com/submit."
+ },
+ {
+  "id": "nialler9-weekly-nialler9-niall-byrne-ie",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Irish and international picks",
+   "Free email, 250 a day",
+   "About 3.4k followers"
+  ],
+  "pitchTip": "Email newmusic@ well before release, and don't chase."
+ },
+ {
+  "id": "primordial-radio-primordial-presents-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Rock and metal new-bands show",
+   "Free form",
+   "Heavier than indie"
+  ],
+  "pitchTip": "Send band info and a download link via the form."
+ },
+ {
+  "id": "punktastic-new-music-friday-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Punk, emo and alt-rock lean",
+   "Form site was unreadable",
+   "Unknown following"
+  ],
+  "pitchTip": "Send music via The Pickup or the news desk."
+ },
+ {
+  "id": "punktastic-the-punktastic-podcast-the-pickup-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Only podcast-featured bands",
+   "Form site was unreadable",
+   "Small reach"
+  ],
+  "pitchTip": "Get on the podcast via The Pickup first."
+ },
+ {
+  "id": "rock-workout-power-anthems-blinding-talent-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Free UK form, reviewed weekly",
+   "Workout-themed rock",
+   "About 6k saves"
+  ],
+  "pitchTip": "Use the free form and pick Rock Workout; send an upbeat track."
+ },
+ {
+  "id": "scruff-of-the-neck-singles-best-new-music-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Label singles, not open pitches",
+   "Form has no music link",
+   "Manchester label"
+  ],
+  "pitchTip": "Fill in the artist form; it's a label intro, not a pitch."
+ },
+ {
+  "id": "skate-rock-blinding-talent-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Free UK form, reviewed weekly",
+   "Punk and skate lean",
+   "About 2.6k saves"
+  ],
+  "pitchTip": "Use the free form and tick Skate Rock."
+ },
+ {
+  "id": "soundplate-playlist-submissions-play-soundplate-com-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Free UK curator directory",
+   "Many indie lists use it",
+   "Pick only lists that fit"
+  ],
+  "pitchTip": "Submit to matching indie curators only; don't spam."
+ },
+ {
+  "id": "submithub-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "Huge curator marketplace",
+   "Premium credits from $1",
+   "Free credits, fewer curators"
+  ],
+  "pitchTip": "Filter to indie/alt rock curators and use premium credits."
+ },
+ {
+  "id": "the-current-indie-new-unknown-artists-j-scalco-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Indie and unknown artists",
+   "Free, follow-gated form",
+   "Small curator"
+  ],
+  "pitchTip": "Follow the playlist and J.Scalco, then submit the form."
+ },
+ {
+  "id": "unheard-indie-rich-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Breaking UK indie bands",
+   "Paid Groover pitch",
+   "About 2.2k followers"
+  ],
+  "pitchTip": "Send a Groover pitch from the curator's profile."
+ },
+ {
+  "id": "when-the-horn-blows-weekly-top-tracks-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Playlist may be inactive",
+   "SubmitHub only",
+   "Posts date from 2020"
+  ],
+  "pitchTip": "Skip unless the playlist shows recent adds."
+ },
+ {
+  "id": "wnxp-new-music-experience-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Nashville public radio",
+   "Free email route",
+   "US focus"
+  ],
+  "pitchTip": "Email a download link to 44.1k/16-bit WAV, no MP3s."
+ },
+ {
+  "id": "xpn-best-new-music-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Philadelphia public radio",
+   "AAA format",
+   "Free form, US focus"
+  ],
+  "pitchTip": "Use WXPN's music submission form."
+ },
+ {
+  "id": "alt-alt-pop-alt-rock-alt-electronic-alt-jazz-h-music-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Broad alternative mix",
+   "Paid Groover or SubmitHub",
+   "About 12.8k followers"
+  ],
+  "pitchTip": "Same H-Music route as Cool Stuff; pitch once."
+ },
+ {
+  "id": "indie-music-dimension-br",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Lists indie and alt rock",
+   "SubmitHub only",
+   "About 27k followers"
+  ],
+  "pitchTip": "Submit via SubmitHub."
+ },
+ {
+  "id": "the-alternative-night-time-driving-collection-j-nice-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Grunge and alt rock focus",
+   "Mixes old and new",
+   "About 29k followers"
+  ],
+  "pitchTip": "Submit via the curator's SubmitHub page."
+ },
+ {
+  "id": "these-songs-live-in-my-head-ryan-cassata-rock-the-pigeon-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Broad genre mix",
+   "Premium SubmitHub only",
+   "About 13.6k followers"
+  ],
+  "pitchTip": "Use SubmitHub premium; don't email staff."
+ },
+ {
+  "id": "best-of-the-uk-groover-obsessions-fr",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "UK artists only",
+   "Paid Groover pitch",
+   "Tiny Deezer following"
+  ],
+  "pitchTip": "Pitch via a Groover campaign; tracks stay about a month."
+ },
+ {
+  "id": "discovery-the-best-new-music-the-au-review-au",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Australian and global new music",
+   "Free email route",
+   "Small playlist"
+  ],
+  "pitchTip": "Offer a premiere with 7+ days' notice to guarantee a spot."
+ },
+ {
+  "id": "emergentes-mzk-muzikalia-es",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Spanish webzine, weekly picks",
+   "Takes non-Spanish acts",
+   "Small rotating playlist"
+  ],
+  "pitchTip": "Email 7minutos@muzikalia.com for #EmergentesMZK."
+ },
+ {
+  "id": "garden-indie-richer-unsigned-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Unsigned UK indie focus",
+   "Free, not-for-profit",
+   "Tiny playlist"
+  ],
+  "pitchTip": "Submit free via the Richer Unsigned form."
+ },
+ {
+  "id": "indie-aisle-earmilk-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Big outlet, small playlist",
+   "SubmitHub or Pillargram only",
+   "Link to playlist is inferred"
+  ],
+  "pitchTip": "Pitch the track on SubmitHub to EARMILK."
+ },
+ {
+  "id": "indie-therapy-groover-obsessions-fr",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Groover's in-house indie list",
+   "Paid Groover pitch",
+   "Tiny Deezer following"
+  ],
+  "pitchTip": "Pitch via a Groover campaign; tracks stay about a month."
+ },
+ {
+  "id": "indieforbunnies-brand-new-indieforbunnies-it",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Italian international indie zine",
+   "Fed by the Brand New column",
+   "Replies only if covered"
+  ],
+  "pitchTip": "Email for the Brand New column."
+ },
+ {
+  "id": "jungle-indie-rock-2026-vol-1-raw-critters-formerly-jungle-in",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "International indie blog",
+   "Free Tumblr form",
+   "Tiny playlist"
+  ],
+  "pitchTip": "One track under 3 months old, captioned 'Band - Track'."
+ },
+ {
+  "id": "mad-indie-media-monthly-playlist-mad-indie-media-us",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "All submissions welcome",
+   "Free form, monthly update",
+   "Tiny playlist"
+  ],
+  "pitchTip": "Fill out the form and follow their playlists."
+ },
+ {
+  "id": "music-leeds-latest-releases-music-leeds-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Leeds and region artists only",
+   "Free email route",
+   "Small monthly playlist"
+  ],
+  "pitchTip": "Only if the band has a Leeds or Yorkshire connection."
+ },
+ {
+  "id": "new-rock-2024-new-rock-hits-indie-rock-for-the-love-of-bands",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Deezer mirror, still active",
+   "Free form",
+   "Tiny Deezer following"
+  ],
+  "pitchTip": "Covered by the For the Love of Bands form; don't resend."
+ },
+ {
+  "id": "new-rock-drive-indie-alt-rock-2026-unique-playlists-ch",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Indie and alt rock focus",
+   "$20 SubmitHub, reply or refund",
+   "Small multi-platform lists"
+  ],
+  "pitchTip": "One $20 SubmitHub pitch is checked against all their lists."
+ },
+ {
+  "id": "newindieradar-nowplaying-newindieradar-de",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Broad German blog",
+   "Free TrackReviewr route",
+   "Small playlist"
+  ],
+  "pitchTip": "Submit via TrackReviewr; email is ignored."
+ },
+ {
+  "id": "noise-to-the-people-groover-obsessions-fr",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "Wants Arctic Monkeys-style rock",
+   "Paid Groover pitch",
+   "Tiny Deezer following"
+  ],
+  "pitchTip": "Pitch via Groover naming Arctic Monkeys-type comparisons."
+ },
+ {
+  "id": "northern-transmissions-top-indie-songs-of-2025-ca",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Closed 2025 year-end list",
+   "Free email route",
+   "Tiny playlist"
+  ],
+  "pitchTip": "Pitch for the monthly playlist instead."
+ },
+ {
+  "id": "not-your-dad-s-rock-groover-obsessions-fr",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Fresh garage and indie rock",
+   "Paid Groover pitch",
+   "Tiny Deezer following"
+  ],
+  "pitchTip": "Pitch via a Groover campaign; tracks stay about a month."
+ },
+ {
+  "id": "on-repeat-mix-it-all-up-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Weekly indie rock and post-punk",
+   "Paid Groover pitch",
+   "Small playlist"
+  ],
+  "pitchTip": "Send a Groover pitch from the curator's profile."
+ },
+ {
+  "id": "punktastic-s-new-music-friday-punktastic-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Punk and alt-rock lean",
+   "Free email to news desk",
+   "Activity unclear"
+  ],
+  "pitchTip": "Email the news desk with a stream link."
+ },
+ {
+  "id": "rcm-breezy-right-chord-music-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Indie-pop leaning",
+   "One free blog submission",
+   "Tiny playlist"
+  ],
+  "pitchTip": "Covered by the one free RCM submission."
+ },
+ {
+  "id": "swim-into-the-sound-2026-swim-into-the-sound-georgetaylorg-u",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Emo and indie rock lean",
+   "Free email route",
+   "Tiny playlist"
+  ],
+  "pitchTip": "Email swimintothesound@gmail.com; downloads preferred."
+ },
+ {
+  "id": "the-daily-dose-fr",
+  "eligible": true,
+  "chance": 1,
+  "value": 4,
+  "reasons": [
+   "Dream pop and surf channel",
+   "Groover share rate about 3%",
+   "Big audience, 243k subs"
+  ],
+  "pitchTip": "Only pitch a dreamy track via Groover."
+ },
+ {
+  "id": "turn-down-for-alt-groover-obsessions-fr",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "Alt and indie rock focus",
+   "Paid Groover pitch",
+   "Tiny Deezer following"
+  ],
+  "pitchTip": "Pitch via a Groover campaign; tracks stay about a month."
+ },
+ {
+  "id": "weekly-fresh-by-nine-32-nl",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Dutch alternative webzine",
+   "Free email for reviews",
+   "Small weekly playlist"
+  ],
+  "pitchTip": "Email info@nine32.nl a review or premiere offer."
+ },
+ {
+  "id": "alexrainbirdmusic-youtube-channel-and-playlists-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 5,
+  "reasons": [
+   "UK curators since 2011",
+   "Paid SubmitHub, $3-5",
+   "1.4M YouTube subs"
+  ],
+  "pitchTip": "Pay the $5 SubmitHub option for feedback."
+ },
+ {
+  "id": "alternative-rock-repost",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "SoundCloud repost channel",
+   "Looks inactive",
+   "Follow-and-DM route"
+  ],
+  "pitchTip": "Skip unless it shows recent reposts."
+ },
+ {
+  "id": "backseat-mafia-new-music-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "No current playlist found",
+   "Free contact form",
+   "Only a 2021 playlist"
+  ],
+  "pitchTip": "Pitch upcoming releases briefly; offer a premiere."
+ },
+ {
+  "id": "best-of-indie-2026-indie-is-not-a-genre-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "New indie, UK and beyond",
+   "SubmitHub only",
+   "About 9.4k followers"
+  ],
+  "pitchTip": "Submit through the SubmitHub widget; one pitch covers both rows."
+ },
+ {
+  "id": "cami-s-playlist-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Likes Fontaines D.C., Arctic Monkeys",
+   "Paid Groover pitch",
+   "Small YouTube channel"
+  ],
+  "pitchTip": "Pitch via Groover naming Fontaines-style comparisons."
+ },
+ {
+  "id": "chordblossom-fresh-music-from-northern-ireland-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Irish and NI acts only",
+   "Free email route",
+   "Band doesn't qualify"
+  ],
+  "pitchTip": "Not for English bands; use their SubmitHub for No Fixed Abode."
+ },
+ {
+  "id": "cupchairs-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Reviews and reactions channel",
+   "Paid Groover pitch",
+   "Small YouTube channel"
+  ],
+  "pitchTip": "Pitch via Groover."
+ },
+ {
+  "id": "fbi-radio-au",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "50% Australian quota",
+   "Only an old playlist",
+   "Mainly an airplay route"
+  ],
+  "pitchTip": "Email music@fbiradio.com for airplay, not the playlist."
+ },
+ {
+  "id": "first-music-contact-made-in-ireland-ie",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Irish artists only",
+   "Free email route",
+   "Band doesn't qualify"
+  ],
+  "pitchTip": "Not for English bands."
+ },
+ {
+  "id": "for-the-love-of-bands-nl",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Indie folk and rock channel",
+   "SubmitHub route",
+   "Small YouTube channel"
+  ],
+  "pitchTip": "Submit via the SubmitHub widget on their /submit page."
+ },
+ {
+  "id": "fresh-music-from-northern-ireland-chordblossom-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Irish and NI acts only",
+   "Monthly NI playlist",
+   "Band doesn't qualify"
+  ],
+  "pitchTip": "Not for English bands; use SubmitHub for No Fixed Abode."
+ },
+ {
+  "id": "garage-band-stand-avondale-records-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "UK label garage rock list",
+   "Paid consideration only",
+   "Tiny Deezer following"
+  ],
+  "pitchTip": "One Avondale PayPal submission can name this list."
+ },
+ {
+  "id": "glide-magazine-monthly-caustic-commentary-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Post-only submissions",
+   "US magazine",
+   "Monthly playlist URL changes"
+  ],
+  "pitchTip": "Mail a CD to the Scottsdale PO box only if worth the postage."
+ },
+ {
+  "id": "goldenplec-fresh-fridays-new-irish-music-ie",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Irish acts get priority",
+   "Free form route",
+   "Irish-focused playlist"
+  ],
+  "pitchTip": "Submit via the form; expect Irish acts first."
+ },
+ {
+  "id": "happy-mag-new-indie-music-happy-s-mixtape-au",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "New Australian music focus",
+   "Free submit page",
+   "UK acts a long shot"
+  ],
+  "pitchTip": "Use Happy Mag's submit-music page."
+ },
+ {
+  "id": "indie-alternative-undiscovered-unsigned-mattias",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Undiscovered unsigned indie",
+   "Free Soundplate route",
+   "Not UK-specific"
+  ],
+  "pitchTip": "Submit free on the playlist's Soundplate page."
+ },
+ {
+  "id": "indie-anthems-indie-music-monthly-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Mixes old and new anthems",
+   "Paid Groover pitch",
+   "About 2.3k followers"
+  ],
+  "pitchTip": "Send a Groover pitch with your biggest chorus."
+ },
+ {
+  "id": "indie-commute-lazygecko-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Upbeat indie and alt",
+   "Paid Groover pitch",
+   "About 3.9k followers"
+  ],
+  "pitchTip": "Send an upbeat track via the curator's Groover profile."
+ },
+ {
+  "id": "indie-dock-recommended-indie-dock-music-blog-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "London indie blog",
+   "Paid Groover pitch",
+   "About 2.7k followers"
+  ],
+  "pitchTip": "Send a Groover pitch from the curator's profile."
+ },
+ {
+  "id": "indie-repost-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "London repost channel",
+   "Wants a repost exchange",
+   "Likely stale"
+  ],
+  "pitchTip": "Skip unless it shows recent reposts."
+ },
+ {
+  "id": "indie-rock-repost",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Small repost channel",
+   "DM-only route",
+   "Likely stale"
+  ],
+  "pitchTip": "Skip unless it shows recent reposts."
+ },
+ {
+  "id": "lefuturewave-new-finds-nl",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Pop-leaning indie blog",
+   "Free contact form",
+   "Unknown following"
+  ],
+  "pitchTip": "Use the free form; SubmitHub is the paid fallback."
+ },
+ {
+  "id": "mixtape-acid-stag-radio-au",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Eclectic, not rock-only",
+   "About A$15 via Gumroad",
+   "Release 2 weeks old max"
+  ],
+  "pitchTip": "Pay via Gumroad with a SoundCloud link within 2 weeks of release."
+ },
+ {
+  "id": "morning-explorations-loop-solitaire-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Chill seasonal indie",
+   "Paid Groover pitch",
+   "About 4k followers"
+  ],
+  "pitchTip": "Only pitch a softer track via Groover."
+ },
+ {
+  "id": "neon-music-indie-vibes-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "UK indie vibes playlist",
+   "Paid SubmitHub, from $4",
+   "Under 1k followers"
+  ],
+  "pitchTip": "Pitch via SubmitHub Direct; same list as the other Neon row."
+ },
+ {
+  "id": "shoegaze-haze-avondale-records-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Shoegaze niche",
+   "Paid consideration only",
+   "No Deezer fans yet"
+  ],
+  "pitchTip": "Only for the band's hazier tracks."
+ },
+ {
+  "id": "soho-radio-show-playlists-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Show archives, not new music",
+   "Email route is for airplay",
+   "2018 playlist"
+  ],
+  "pitchTip": "Email music@sohoradiolondon.com for radio play."
+ },
+ {
+  "id": "submitlink",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Spotify-only curator marketplace",
+   "$2-5 per playlist, some free",
+   "Screens fake playlists"
+  ],
+  "pitchTip": "Use the free daily send to two matching indie lists."
+ },
+ {
+  "id": "the-aaa-backstage-weekly-catch-freshest-tunes-au",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Soft spot for indie rock",
+   "$10 Gumroad pitch",
+   "About 1.1k followers"
+  ],
+  "pitchTip": "Pitch via Gumroad; feedback within 72h."
+ },
+ {
+  "id": "cozy-indie-folk-2026-unique-playlists-ch",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Cozy acoustic folk",
+   "Same Unique Playlists pitch",
+   "About 30k followers"
+  ],
+  "pitchTip": "Covered by the Unique Playlists pitch; don't double-pitch."
+ },
+ {
+  "id": "anthems-for-anarchy-groover-obsessions-fr",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Punk and energetic rock",
+   "Paid Groover pitch",
+   "Tiny Deezer following"
+  ],
+  "pitchTip": "Pitch your fastest track via Groover."
+ },
+ {
+  "id": "berlinonair-indie-folk-rock-radio-berlin-on-air-de",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Likes folk, soul and jazz",
+   "Free TrackReviewr route",
+   "Weak fit for indie rock"
+  ],
+  "pitchTip": "Skip unless you have an acoustic track."
+ },
+ {
+  "id": "bristol-music-weekly-bristol-music-weekly-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Bristol connection required",
+   "Free form",
+   "Tiny playlist"
+  ],
+  "pitchTip": "Only if the band has a Bristol connection."
+ },
+ {
+  "id": "indie-at-the-frontiers-montanusmusic",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Indie curator, not UK-specific",
+   "Free Soundplate route",
+   "Under 1k followers"
+  ],
+  "pitchTip": "Submit free on the playlist's Soundplate page."
+ },
+ {
+  "id": "indie-australian-rock-sad-alpaca-music",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Australian rock focus",
+   "Free email in description",
+   "Tiny playlist"
+  ],
+  "pitchTip": "Email sadalpaca@hotmail.com only if nothing better is left."
+ },
+ {
+  "id": "indie-twang-beyond-happy-medium-co-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Twangy indie lean",
+   "Free email in description",
+   "Tiny playlist"
+  ],
+  "pitchTip": "Email hmcosubmissions@gmail.com."
+ },
+ {
+  "id": "neon-music-indie-vibes-neon-music-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "UK indie vibes playlist",
+   "Paid SubmitHub or Musosoup",
+   "Under 1k followers"
+  ],
+  "pitchTip": "Pitch via SubmitHub Direct; same list as the other Neon row."
+ },
+ {
+  "id": "new-from-scotland-wide-days-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Scottish artists only",
+   "Free Google Form",
+   "Band doesn't qualify"
+  ],
+  "pitchTip": "Not for English bands."
+ },
+ {
+  "id": "new-indie-music-happy-s-mixtape-happy-mag-au",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "New Australian indie focus",
+   "Form is for coverage",
+   "Small playlist"
+  ],
+  "pitchTip": "Use the Happy Mag submit form."
+ },
+ {
+  "id": "new-rock-revolution-groover-obsessions-fr",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Raw new rock, leans heavier",
+   "Paid Groover pitch",
+   "Tiny Deezer following"
+  ],
+  "pitchTip": "Pitch a heavier track via Groover."
+ },
+ {
+  "id": "pillar-playlist-pillar-artists-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Newcastle label, general mix",
+   "Paid Groover pitch",
+   "Under 1k followers"
+  ],
+  "pitchTip": "Send a Groover pitch from the curator's profile."
+ },
+ {
+  "id": "punk-will-never-die-groover-obsessions-fr",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Punk only",
+   "Paid Groover pitch",
+   "Tiny Deezer following"
+  ],
+  "pitchTip": "Only for the band's punkiest track."
+ },
+ {
+  "id": "pure-indie-2-0-j-wade-music",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Indie curator, not UK-specific",
+   "Free Soundplate route",
+   "Small playlist"
+  ],
+  "pitchTip": "Submit free on the playlist's Soundplate page."
+ },
+ {
+  "id": "rock-indie-punk",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Very small repost channel",
+   "DM-only route",
+   "Likely stale"
+  ],
+  "pitchTip": "Skip unless it shows recent activity."
+ },
+ {
+  "id": "skate-jams-garage-rock-surf-rock-neo-psych-groover-obsession",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "Garage and surf lean",
+   "Paid Groover pitch",
+   "Tiny Deezer following"
+  ],
+  "pitchTip": "Pitch a garage-leaning track via Groover."
+ },
+ {
+  "id": "songs-of-the-week-2026-le-village-pop-fr",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "French indie blog, weekly picks",
+   "Paid Groover pitch",
+   "No Deezer fans yet"
+  ],
+  "pitchTip": "Pitch via a Groover campaign."
+ },
+ {
+  "id": "spincoaster-best-new-music-jp",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Tokyo media, broad mix",
+   "Free press email",
+   "Picks from a weekly column"
+  ],
+  "pitchTip": "Email the press address on the About page."
+ },
+ {
+  "id": "spotlight-soundsol-ca",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "All-genre playlist",
+   "Free email in description",
+   "Under 1k followers"
+  ],
+  "pitchTip": "Email the address in the playlist description."
+ },
+ {
+  "id": "playlist-push-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Paid curator campaigns",
+   "$280 minimum spend",
+   "No guaranteed adds"
+  ],
+  "pitchTip": "Only if there's budget; set Playlist DNA to indie rock."
+ },
+ {
+  "id": "uk-rock-2026-view-music-distribution-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Distributor-run keyword list",
+   "Paid Groover pitch",
+   "About 7.6k followers"
+  ],
+  "pitchTip": "Send a Groover pitch from the curator's profile."
+ },
+ {
+  "id": "contresens-pop-rock-alternatif-groover-obsessions-fr",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Mainly French-language pop",
+   "Paid Groover pitch",
+   "Tiny following"
+  ],
+  "pitchTip": "Skip; it favours French-language acts."
+ },
+ {
+  "id": "enter-the-shoegaze-void-motel-void-music-blog-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Shoegaze niche",
+   "Paid Groover pitch",
+   "Under 1k followers"
+  ],
+  "pitchTip": "Only for the band's hazier tracks."
+ },
+ {
+  "id": "late-night-drives-groover-obsessions-fr",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Dream pop and electropop",
+   "Indie rock only a side",
+   "Tiny following"
+  ],
+  "pitchTip": "Skip unless a track is dreamy."
+ },
+ {
+  "id": "staring-at-the-ceiling-at-2am-groover-obsessions-fr",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Mellow mood list",
+   "Paid Groover pitch",
+   "Only fits slow tracks"
+  ],
+  "pitchTip": "Only for the band's slowest track."
+ },
+ {
+  "id": "clash-word-of-mouth-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Skews hip-hop and R&B",
+   "No music route found",
+   "Big UK magazine"
+  ],
+  "pitchTip": "No route; skip for now."
+ },
+ {
+  "id": "dork-hype-the-best-new-artists-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "New-artist list from Dork",
+   "No submission route found",
+   "Big UK magazine"
+  ],
+  "pitchTip": "No route; try again once a submission page appears."
+ },
+ {
+  "id": "god-is-in-the-tv-tracks-of-the-week-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Weekly tracks column continues",
+   "Editor email, no invite",
+   "Latest playlist is 2024"
+  ],
+  "pitchTip": "Write to Bill, the New Music Editor, with a short note."
+ },
+ {
+  "id": "hot-press-new-irish-songs-to-hear-this-week-ie",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Irish-focused",
+   "No submission route found",
+   "Big Irish magazine"
+  ],
+  "pitchTip": "No route; skip for now."
+ },
+ {
+  "id": "indie-nation-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 5,
+  "reasons": [
+   "Huge indie channel, 647k subs",
+   "Says it answers all emails",
+   "Address behind a captcha"
+  ],
+  "pitchTip": "Solve the About-page captcha to get the email."
+ },
+ {
+  "id": "indiecurrent-ca",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Website unreachable",
+   "No working route",
+   "Large YouTube channel"
+  ],
+  "pitchTip": "No route; check later if the site returns."
+ },
+ {
+  "id": "live4ever-the-new-music-guide-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Mixes established and new",
+   "No submission route found",
+   "Contact page 404s"
+  ],
+  "pitchTip": "No route; skip for now."
+ },
+ {
+  "id": "morindie-at",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Site is parked",
+   "Bio email, no invite",
+   "Likely inactive"
+  ],
+  "pitchTip": "No route; skip for now."
+ },
+ {
+  "id": "music-now-new-scottish-music-the-skinny-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Scottish artists only",
+   "Editor contact only",
+   "Recently dormant"
+  ],
+  "pitchTip": "Not for English bands."
+ },
+ {
+  "id": "new-british-rock-rising-bands-from-uk-blackmarket-de",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "UK-focused rock list",
+   "Submission site under construction",
+   "About 5k followers"
+  ],
+  "pitchTip": "Check blackmarketplaylists.de later for a working form."
+ },
+ {
+  "id": "new-britpop-indie-rock-2025-uk-slazarus-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Britpop and indie rock fit",
+   "Email in description",
+   "About 4.4k followers"
+  ],
+  "pitchTip": "Email politely; submissions aren't explicitly invited."
+ },
+ {
+  "id": "new-indie-rock-from-scotland-blackmarket-de",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Scotland-focused list",
+   "Submission site under construction",
+   "Band doesn't qualify"
+  ],
+  "pitchTip": "Not for English bands."
+ },
+ {
+  "id": "new-welsh-indie-phwoar-peace-gb",
+  "eligible": false,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Welsh releases only",
+   "No submission route",
+   "Band doesn't qualify"
+  ],
+  "pitchTip": "Not for English bands."
+ },
+ {
+  "id": "nialler9-best-new-music-ie",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Contact page blocked",
+   "Route unknown",
+   "Irish and international"
+  ],
+  "pitchTip": "Use the Nialler9 Weekly email route instead."
+ },
+ {
+  "id": "northern-transmissions-monthly-playlist-ca",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Editor email, no invite",
+   "Linked list is from 2025",
+   "Monthly playlist"
+  ],
+  "pitchTip": "No clear route; skip for now."
+ },
+ {
+  "id": "overblown-ob-picks-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "General contact only",
+   "No submission guidance",
+   "Unknown following"
+  ],
+  "pitchTip": "Send a short, polite note via the general contact."
+ },
+ {
+  "id": "so-young-magazine-the-so-young-list-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "Strong UK guitar-music fit",
+   "Only a general contact",
+   "Music emails not invited"
+  ],
+  "pitchTip": "Send a short, polite note via the About-page contact."
+ },
+ {
+  "id": "upset-upset-disrupt-the-noise-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Rock and punk magazine",
+   "No submission route found",
+   "Owned by the Dork account"
+  ],
+  "pitchTip": "No route; skip for now."
+ }
+]

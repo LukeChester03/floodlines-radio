@@ -141,6 +141,8 @@ const all = [...[...seen.values()].filter(s => !isBbc(s)), ...(bbcRows.length ? 
   used.add(id);
   return { id, ...s };
 });
+// Playlists have their own tab, so they are ranked on their own and never move a radio rank
+const ranks = { radio: 0, playlist: 0 };
 const out = all
   .map(s => {
     const route = routeOf(s);
@@ -165,7 +167,7 @@ const out = all
     };
   })
   .sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || a.name.localeCompare(b.name))
-  .map((s, i) => ({ ...s, rank: i + 1 }));
+  .map(s => ({ ...s, rank: ++ranks[s.type === "playlist" ? "playlist" : "radio"] }));
 writeFileSync("src/data/stations.json", JSON.stringify(out, null, 1));
 // The server only needs each station's email, so it gets just those
 writeFileSync("functions/data/station-emails.json", JSON.stringify(out.filter(s => s.email).map(({ id, email }) => ({ id, email })), null, 1));
