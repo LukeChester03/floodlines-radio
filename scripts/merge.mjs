@@ -1,4 +1,4 @@
-// Merges the research files in research/*.json into src/data/stations.json.
+// Merges the research files in research/*.json (stations) and research/playlists/*.json (playlists) into src/data/stations.json.
 // Normalises fields, drops bad emails, de-duplicates and groups stations by region.
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 
@@ -20,12 +20,14 @@ const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g
 // Manual corrections found during spot-checks, keyed by station name
 const overrides = JSON.parse(readFileSync("scripts/overrides.json", "utf8"));
 
-const files = readdirSync("research").filter(f => f.endsWith(".json"));
+const PLATFORMS = ["spotify", "apple-music", "youtube", "deezer", "soundcloud", "multi"];
+const jsonFiles = dir => { try { return readdirSync(dir).filter(f => f.endsWith(".json")).map(f => `${dir}/${f}`); } catch { return []; } };
+const files = [...jsonFiles("research").map(path => ({ path })), ...jsonFiles("research/playlists").map(path => ({ path, playlist: true }))];
 const seen = new Map();
 let dropped = 0;
 
-for (const f of files) {
-  for (const r of JSON.parse(readFileSync(`research/${f}`, "utf8"))) {
+for (const { path, playlist } of files) {
+  for (const r of JSON.parse(readFileSync(path, "utf8"))) {
     if (!r || !r.name || !r.url) { dropped++; continue; }
     const country = String(r.country || "").toUpperCase().slice(0, 2);
     let email = r.email ? String(r.email).trim().replace(/^mailto:/i, "").split("?")[0] : null;
@@ -37,7 +39,11 @@ for (const f of files) {
       country,
       group: group(country),
       region: r.region || "",
-      type: r.type || "community",
+      type: playlist ? "playlist" : r.type || "community",
+      ...(playlist && {
+        platform: PLATFORMS.includes(r.platform) ? r.platform : "multi",
+        followers: typeof r.followers === "number" && Number.isFinite(r.followers) ? r.followers : null,
+      }),
       url: r.url,
       method: method === "email" && !email ? (r.formUrl ? "form" : "none-found") : method,
       email,
@@ -65,6 +71,7 @@ try {
 
 const EAST_MIDS = /(east midlands|leicester|loughborough|nottingham|derby|lincoln|northampton|rutland|mansfield|coalville|melton|hinckley)/i;
 function category(s) {
+  if (s.type === "playlist") return `playlist-${s.platform}`;
   if (s.group === "uk" && (/\bBBC\b/.test(s.name) || EAST_MIDS.test(s.region || ""))) return "bbc-em";
   if (s.group === "uk" && s.type === "student") return "uk-student";
   if (s.group === "uk" && ["community", "regional"].includes(s.type)) return "uk-local";
@@ -78,7 +85,9 @@ function category(s) {
 // Provisional score for stations the judgement pass hasn't reached yet
 function provisional(s) {
   const chance = { high: 4, medium: 3, low: 2 }[s.fit] - (s.paid ? 1 : 0);
-  const value = { national: 4, public: 4, regional: 3, show: 3, online: 2, commercial: 3, college: 2, student: 2, community: 2 }[s.type] || 2;
+  const f = s.followers;
+  const value = s.type === "playlist" ? (f == null ? 2 : f < 1000 ? 1 : f < 10000 ? 2 : f < 50000 ? 3 : f < 250000 ? 4 : 5)
+    : { national: 4, public: 4, regional: 3, show: 3, online: 2, commercial: 3, college: 2, student: 2, community: 2 }[s.type] || 2;
   return { eligible: true, chance, value, reasons: ["Not ranked by hand yet"], pitchTip: null, provisional: true };
 }
 // Start here: good odds and worth having. Strong: good odds, smaller prize.
@@ -104,7 +113,8 @@ const routeOf = s =>
   : s.method;
 
 // Every BBC station and Introducing show is reached through one BBC Introducing upload, so they become one entry
-const bbcRows = [...seen.values()].filter(s => /\bBBC\b/.test(s.name));
+const isBbc = s => s.type !== "playlist" && /\bBBC\b/.test(s.name);
+const bbcRows = [...seen.values()].filter(isBbc);
 const bbc = {
   name: "BBC Introducing",
   show: null,
@@ -125,7 +135,7 @@ const bbc = {
 };
 
 const used = new Set();
-const all = [...[...seen.values()].filter(s => !/\bBBC\b/.test(s.name)), ...(bbcRows.length ? [bbc] : [])].map(s => {
+const all = [...[...seen.values()].filter(s => !isBbc(s)), ...(bbcRows.length ? [bbc] : [])].map(s => {
   let id = slug(`${s.name}-${s.show || ""}-${s.country}`);
   while (used.has(id)) id += "-x";
   used.add(id);
