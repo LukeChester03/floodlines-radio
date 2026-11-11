@@ -1,0 +1,66 @@
+[
+  {
+    "page": "/#followups",
+    "width": 375,
+    "image": "-followups-375.png",
+    "final_url": "http://127.0.0.1:50254/#followups",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#followups",
+    "width": 1280,
+    "image": "-followups-1280.png",
+    "final_url": "http://127.0.0.1:50254/#followups",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#sendlist",
+    "width": 375,
+    "image": "-sendlist-375.png",
+    "final_url": "http://127.0.0.1:50254/#sendlist",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#sendlist",
+    "width": 1280,
+    "image": "-sendlist-1280.png",
+    "final_url": "http://127.0.0.1:50254/#sendlist",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#pipeline",
+    "width": 375,
+    "image": "-pipeline-375.png",
+    "final_url": "http://127.0.0.1:50254/#pipeline",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/#pipeline",
+    "width": 1280,
+    "image": "-pipeline-1280.png",
+    "final_url": "http://127.0.0.1:50254/#pipeline",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/",
+    "width": 375,
+    "image": "root-375.png",
+    "final_url": "http://127.0.0.1:50254/",
+    "overflow": false,
+    "console_errors": []
+  },
+  {
+    "page": "/",
+    "width": 1280,
+    "image": "root-1280.png",
+    "final_url": "http://127.0.0.1:50254/",
+    "overflow": false,
+    "console_errors": []
+  }
+]
