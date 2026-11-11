@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, LayoutGroup, MotionConfig, motion } from "motion/react";
-import { CalendarClock, Tent, KanbanSquare, Ticket, FileText, LayoutDashboard, LogOut, Mail, Table2 } from "lucide-react";
+import { CalendarClock, Tent, KanbanSquare, Ticket, FileText, LayoutDashboard, ListMusic, LogOut, Mail, Table2 } from "lucide-react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase.js";
 import { connectGmailUrl, importLocal, localData, useCloud } from "./cloud.js";
@@ -28,9 +28,11 @@ import Mailer from "./views/Mailer.jsx";
 import SongForm from "./views/SongForm.jsx";
 
 const byId = Object.fromEntries(stations.map(s => [s.id, s]));
+const playlistCount = stations.filter(s => s.type === "playlist").length;
 const nav = [
   ["booth", "The booth", LayoutDashboard],
   ["stations", "Stations", Table2],
+  ["playlists", "Playlists", ListMusic],
   ["pipeline", "Pipeline", KanbanSquare],
   ["followups", "Follow-ups", CalendarClock],
   ["sendlist", "Send list", Mail],
@@ -136,7 +138,7 @@ export default function App({ user }) {
   const gmail = cloud.gmail === undefined ? null : gmailBanner(cloud.gmail);
   const ctx = { stations: rows, byId, songs, song, setSongId, crm, updateStation, updateSong, setStatus, logEvent, selected, setSelected, openSheet: setSheet, openMailer, approve, queue, sends, followups, setView, openSongForm: setSongForm, cloud, user, gmail, gmailStatus: cloud.gmail };
   const waiting = waitingCount(queue.filter(q => !isBroken(q)));
-  const badges = { stations: stations.length, followups: followupBadge(followups.due.length, cloud.replies) || null, sendlist: waiting || null };
+  const badges = { stations: stations.length - playlistCount, playlists: playlistCount || null, followups: followupBadge(followups.due.length, cloud.replies) || null, sendlist: waiting || null };
 
   return (
     <MotionConfig reducedMotion="user">
@@ -186,6 +188,7 @@ export default function App({ user }) {
             <motion.div key={view} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.22, ease: [0.2, 0.8, 0.3, 1] }}>
               {view === "booth" && <Booth {...ctx} />}
               {view === "stations" && <StationsTable {...ctx} />}
+              {view === "playlists" && <StationsTable {...ctx} kind="playlist" />}
               {view === "pipeline" && <Pipeline {...ctx} />}
               {view === "followups" && <Followups {...ctx} />}
               {view === "gigs" && <Gigs {...ctx} />}

@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { ArrowDown, Ban, Download, Mail, Search, SlidersHorizontal, Star, X } from "lucide-react";
 import { useLocal } from "../store.js";
 import { fmtDate, statuses } from "../crm.js";
-import { Empty, Meter, StatusTag, flag, genreLabel, groupLabel, routeLabel, tierLabel, typeLabel } from "../ui/bits.jsx";
+import { Empty, Meter, StatusTag, flag, genreLabel, groupLabel, platformLabel, routeLabel, tierLabel, typeLabel } from "../ui/bits.jsx";
 
 const defaults = { q: "", group: "all", route: "reachable", genre: "fits", tier: "all", type: "all", status: "all", heard: "all", tag: "all", starred: false };
 
@@ -25,10 +25,11 @@ const sorters = {
   last: (a, b) => (b.cur.lastAt?.getTime() || 0) - (a.cur.lastAt?.getTime() || 0),
 };
 
-function csv(rows, songs) {
-  const cols = ["rank", "name", "show", "contactName", "country", "region", "type", "genres", "route", "email", "formUrl", "tier", "score", ...songs.map(s => s.title), "tags", "notes", "sourceUrl"];
+function csv(rows, songs, playlists) {
+  const extra = playlists ? ["platform", "followers"] : [];
+  const cols = ["rank", "name", "show", "contactName", "country", "region", "type", ...extra, "genres", "route", "email", "formUrl", "tier", "score", ...songs.map(s => s.title), "tags", "notes", "sourceUrl"];
   const esc = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
-  return [cols.map(esc).join(","), ...rows.map(r => [r.rank, r.name, r.show, r.contactName, r.country, r.region, r.type, r.genres, r.route, r.email, r.formUrl, r.tier, r.score, ...songs.map(s => r.per[s.id].status), r.rec.tags.join("; "), r.rec.notes, r.sourceUrl].map(esc).join(","))].join("\n");
+  return [cols.map(esc).join(","), ...rows.map(r => [r.rank, r.name, r.show, r.contactName, r.country, r.region, r.type, ...extra.map(k => r[k]), r.genres, r.route, r.email, r.formUrl, r.tier, r.score, ...songs.map(s => r.per[s.id].status), r.rec.tags.join("; "), r.rec.notes, r.sourceUrl].map(esc).join(","))].join("\n");
 }
 
 // Sortable column header (defined outside the table so focus survives a re-sort)
@@ -44,8 +45,12 @@ function Th({ k, sort, setSort, children, className }) {
 
 const PAGE_PHONE = 40;
 
-export default function StationsTable({ stations, songs, song, selected, setSelected, openSheet, openMailer, setStatus, updateStation }) {
-  const [f, setF] = useLocal("fl3-filters", defaults);
+// kind "playlist" shows only playlist rows, with platform and followers; "radio" shows every other row
+export default function StationsTable({ stations: everyRow, kind = "radio", songs, song, selected, setSelected, openSheet, openMailer, setStatus, updateStation }) {
+  const playlists = kind === "playlist";
+  const stations = useMemo(() => everyRow.filter(s => (s.type === "playlist") === playlists), [everyRow, playlists]);
+  const [one, many, One] = playlists ? ["playlist", "playlists", "Playlist"] : ["station", "stations", "Station"];
+  const [f, setF] = useLocal(playlists ? "fl3-playlist-filters" : "fl3-filters", defaults);
   const [sort, setSort] = useLocal("fl2-sort", "rank");
   const [panel, setPanel] = useState(false);
   const [phone, setPhone] = useState(() => window.matchMedia("(max-width: 760px)").matches);
@@ -56,6 +61,12 @@ export default function StationsTable({ stations, songs, song, selected, setSele
     mq.addEventListener("change", on);
     return () => mq.removeEventListener("change", on);
   }, []);
+
+  // Opening the tab drops anything selected on the other kind's tab
+  useEffect(() => {
+    const mine = new Set(stations.map(s => s.id));
+    setSelected(sel => (sel.every(id => mine.has(id)) ? sel : sel.filter(id => mine.has(id))));
+  }, [stations, setSelected]);
 
   // Changing filters clears the selection, so bulk actions never hit stations you can't see
   const set = patch => { setF(x => ({ ...x, ...patch })); setSelected([]); setShown(PAGE_PHONE); };
@@ -111,7 +122,7 @@ export default function StationsTable({ stations, songs, song, selected, setSele
 
   const bulkDnc = on => {
     const n = selected.length;
-    if (on && !confirm(`Mark ${n} ${n === 1 ? "station" : "stations"} as do not contact? They'll be left out of every blanket email until you allow contact again.`)) return;
+    if (on && !confirm(`Mark ${n} ${n === 1 ? one : many} as do not contact? They'll be left out of every blanket email until you allow contact again.`)) return;
     selected.forEach(id => updateStation(id, { dnc: on }));
   };
 
@@ -119,10 +130,10 @@ export default function StationsTable({ stations, songs, song, selected, setSele
     <div className="tableview">
       <div className="view-head">
         <div>
-          <h2 className="view-title">Station log</h2>
-          <p className="view-sub">Every station, with its status for <b>{song.title}</b>. Tick stations to blanket email them, or click a name for rules, notes and history.</p>
+          <h2 className="view-title">{One} log</h2>
+          <p className="view-sub">Every {one}, with its status for <b>{song.title}</b>. Tick {many} to blanket email them, or click a name for rules, notes and history.</p>
         </div>
-        <button className="btn" onClick={() => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv(rows, songs)], { type: "text/csv" })); a.download = "floodlines-stations.csv"; a.click(); }}>
+        <button className="btn" onClick={() => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv(rows, songs, playlists)], { type: "text/csv" })); a.download = `floodlines-${many}.csv`; a.click(); }}>
           <Download size={16} aria-hidden="true" /> Export CSV
         </button>
       </div>
@@ -136,7 +147,7 @@ export default function StationsTable({ stations, songs, song, selected, setSele
       <div className="toolbar">
         <label className="search">
           <Search size={18} aria-hidden="true" />
-          <span className="sr-only">Search stations</span>
+          <span className="sr-only">Search {many}</span>
           <input type="search" name="search" autoComplete="off" spellCheck={false} placeholder="Search name, city, genre, contact, tag or note…" value={f.q} onChange={e => set({ q: e.target.value })} />
         </label>
         <button className={`btn${panel ? " btn-on" : ""}`} aria-expanded={panel} aria-controls="filter-panel" onClick={() => setPanel(p => !p)}>
@@ -213,7 +224,7 @@ export default function StationsTable({ stations, songs, song, selected, setSele
       </AnimatePresence>
 
       <div className="showing" aria-live="polite">
-        <span><b>{rows.length}</b> of {stations.length} stations</span>
+        <span><b>{rows.length}</b> of {stations.length} {many}</span>
         {active.map(a => (
           <button key={a.k} className="fchip" onClick={() => set({ [a.k]: defaults[a.k] })} aria-label={`Remove filter ${a.label}`}>
             {a.label} <X size={14} aria-hidden="true" />
@@ -231,18 +242,19 @@ export default function StationsTable({ stations, songs, song, selected, setSele
       </div>
 
       {rows.length === 0 ? (
-        <Empty dark title="No stations match these filters." action={<button className="btn" onClick={reset}>Clear all filters</button>}>Remove a filter above to see more.</Empty>
+        <Empty dark title={`No ${many} match these filters.`} action={<button className="btn" onClick={reset}>Clear all filters</button>}>Remove a filter above to see more.</Empty>
       ) : (
         <div className="log-wrap">
-          <table className="log" aria-label={`Stations, with status for ${song.title}`}>
+          <table className="log" aria-label={`${One}s, with status for ${song.title}`}>
             <thead>
               <tr>
                 <th scope="col" className="c-sel">
                   <input type="checkbox" aria-label={`Select all ${allIds.length} on screen`} checked={allOn} onChange={e => setSelected(e.target.checked ? [...new Set([...selected, ...allIds])] : selected.filter(id => !allIds.includes(id)))} />
                 </th>
                 <Th k="rank" sort={sort} setSort={setSort} className="c-rank">#</Th>
-                <Th k="name" sort={sort} setSort={setSort} className="c-name">Station</Th>
+                <Th k="name" sort={sort} setSort={setSort} className="c-name">{One}</Th>
                 <Th k="where" sort={sort} setSort={setSort}>Where</Th>
+                {playlists && <><th scope="col">Platform</th><th scope="col" className="c-num">Followers</th></>}
                 <th scope="col">Genre</th>
                 <th scope="col">Apply by</th>
                 <th scope="col">Priority <span className="th-note">chance · value</span></th>
@@ -271,6 +283,10 @@ export default function StationsTable({ stations, songs, song, selected, setSele
                     {s.rec.dnc && <span className="note-tag dark">Do not contact</span>}
                   </td>
                   <td data-label="Where">{flag(s.country)} {s.region || s.country}<small>{typeLabel[s.type] || s.type}</small></td>
+                  {playlists && <>
+                    <td data-label="Platform">{platformLabel[s.platform] || s.platform}</td>
+                    <td data-label="Followers" className="c-num">{s.followers == null ? "—" : s.followers.toLocaleString("en-GB")}</td>
+                  </>}
                   <td data-label="Genre"><span className={`gtag g-${s.genreFit}`}>{genreLabel[s.genreFit]}</span>{s.genres && <small>{s.genres}</small>}</td>
                   <td data-label="Apply by"><span className={`route r-${s.route}`}>{routeLabel[s.route]}</span></td>
                   <td data-label="Priority">
@@ -298,7 +314,7 @@ export default function StationsTable({ stations, songs, song, selected, setSele
 
       <AnimatePresence>
         {selected.length > 0 && (
-          <motion.div className="bulkbar" role="region" aria-label="Selected stations" initial={{ y: 160 }} animate={{ y: 0 }} exit={{ y: 160 }} transition={{ type: "spring", stiffness: 320, damping: 30 }}>
+          <motion.div className="bulkbar" role="region" aria-label={`Selected ${many}`} initial={{ y: 160 }} animate={{ y: 0 }} exit={{ y: 160 }} transition={{ type: "spring", stiffness: 320, damping: 30 }}>
             <span className="bulk-n" aria-live="polite"><b>{selected.length}</b> selected{emailable.length !== selected.length ? ` · ${emailable.length} take email` : ""}</span>
             <button className="btn btn-primary" disabled={!emailable.length} onClick={() => openMailer(emailable, "pitch")}>
               <Mail size={16} aria-hidden="true" /> Blanket email {song.title} to {emailable.length}

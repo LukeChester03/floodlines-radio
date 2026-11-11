@@ -8,6 +8,7 @@ export const typeLabel = { national: "National", regional: "Regional", community
 export const routeLabel = { email: "Email", form: "Form", platform: "Uploader", post: "Post", contact: "General contact", none: "No route" };
 export const genreLabel = { indie: "Indie/alt/rock", any: "All genres", mixed: "Some shows fit", other: "Other genres", unknown: "Not checked" };
 export const tierLabel = { start: "Start here", strong: "Strong", worth: "Worth a go", long: "Long shot" };
+export const platformLabel = { spotify: "Spotify", "apple-music": "Apple Music", youtube: "YouTube", deezer: "Deezer", soundcloud: "SoundCloud", multi: "Several platforms" };
 export const groupLabel = { uk: "UK", ireland: "Ireland", us: "USA", canada: "Canada", europe: "Europe", ausnz: "Aus & NZ", world: "Elsewhere" };
 export const flag = cc => (cc && cc.length === 2 ? String.fromCodePoint(...[...cc].map(c => 127397 + c.charCodeAt(0))) : "");
 
