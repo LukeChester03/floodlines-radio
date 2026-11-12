@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Mail, Star } from "lucide-react";
 import { fmtDate, statuses } from "../crm.js";
-import { Meter, Modal, StatusTag, flag, genreLabel, routeLabel, tierLabel, typeLabel } from "../ui/bits.jsx";
+import { Meter, Modal, PriorityHelp, StatusTag, flag, genreLabel, routeLabel, tierLabel, typeLabel } from "../ui/bits.jsx";
 
 // One station: their rules, where it ranks, its status for every song, notes and history
 export default function StationSheet({ id, stations, songs, song, updateStation, setStatus, openMailer, onClose }) {
@@ -32,7 +32,7 @@ export default function StationSheet({ id, stations, songs, song, updateStation,
           <dl className="facts">
             <div><dt>Apply by</dt><dd>{routeLabel[s.route]}</dd></div>
             <div><dt>Genre</dt><dd>{genreLabel[s.genreFit]}{s.genres && <small>{s.genres}</small>}</dd></div>
-            <div><dt>Priority</dt><dd>{s.tier ? `${tierLabel[s.tier]} · ${s.score}/100` : "Not ranked"}</dd></div>
+            <div><dt>Priority <PriorityHelp /></dt><dd>{s.tier ? `${tierLabel[s.tier]} · ${s.score}/100` : "Not ranked"}</dd></div>
             <div><dt>Chance of a play</dt><dd><Meter value={s.chance} label="Chance" /></dd></div>
             <div><dt>Value of a play</dt><dd><Meter value={s.value} label="Value" /></dd></div>
             <div><dt>Contact</dt><dd>{s.contactName || "Not published"}{s.email && <small>{s.email}</small>}</dd></div>

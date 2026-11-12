@@ -32,6 +32,36 @@ export function Meter({ value, label }) {
   );
 }
 
+// "?" next to Priority. The numbers match tierOf and the score line in scripts/merge.mjs; change them together.
+export function PriorityHelp() {
+  const [open, setOpen] = useState(false);
+  const btn = useRef(null);
+  const id = useId();
+  const onKeyDown = e => {
+    if (e.key !== "Escape" || !open) return;
+    e.stopPropagation(); // keep the station sheet open
+    setOpen(false);
+    btn.current.focus();
+  };
+  return (
+    <span className="phelp" onKeyDown={onKeyDown}>
+      <button ref={btn} type="button" className="phelp-btn" aria-label="How Priority works" aria-expanded={open} aria-controls={open ? id : undefined} onClick={() => setOpen(o => !o)}>?</button>
+      {open && (
+        <span id={id} role="region" aria-label="How Priority works" className="phelp-panel">
+          <span><b>Chance</b> (first bar, 1–5): how likely they are to play or add an unsigned UK indie/alt band. Judged by hand from what they play and what they say they take.</span>
+          <span><b>Value</b> (second bar, 1–5): what a play is worth, based on audience size. On playlists it's mostly followers.</span>
+          <span><b>Score</b> out of 100 = chance × 12 + value × 8.</span>
+          <span><b>Start here:</b> chance 3+ and score 60+.</span>
+          <span><b>Strong:</b> chance 3+ and score 52+.</span>
+          <span><b>Long shot:</b> chance 1, or chance 2 with value 4+.</span>
+          <span><b>Worth a go:</b> everything else.</span>
+          <span>Rows marked "Not ranked by hand yet" use a guess from the research until they're ranked by hand.</span>
+        </span>
+      )}
+    </span>
+  );
+}
+
 // The studio's ON AIR lamp. Lit when there are emails waiting in the send list.
 export function OnAir({ count, onClick }) {
   const lit = count > 0;
