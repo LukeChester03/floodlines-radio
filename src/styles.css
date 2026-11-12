@@ -710,3 +710,5 @@ p.approving { display: flex; margin: 10px 0 0; }
 .phelp-btn[aria-expanded="true"] { background: var(--tape); border-color: var(--tape); color: var(--ink); }
 .phelp-panel { position: absolute; top: calc(100% + 8px); left: -8px; z-index: 6; display: grid; gap: 6px; width: min(300px, calc(100vw - 48px)); padding: 12px 14px; border-radius: var(--r); background: var(--log); color: var(--ink); border: 1px solid var(--rule); box-shadow: 0 12px 30px rgba(0,0,0,.35); font: 400 .8125rem/1.45 var(--body); white-space: normal; text-align: left; }
 .phelp-panel b { font-weight: 700; }
+/* In the sheet's 3-column facts grid Priority is the right-hand column, so open the panel leftwards to stay inside the sheet */
+@media (min-width: 561px) { .facts .phelp-panel { left: auto; right: -8px; } }
