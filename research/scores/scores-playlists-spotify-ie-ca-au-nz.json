@@ -1,0 +1,434 @@
+[
+  {
+    "id": "screaming-every-chorus-will-baker-au",
+    "eligible": true,
+    "chance": 4,
+    "value": 2,
+    "reasons": [
+      "strong fit: indie rock, anthemic",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Big-hearted indie rock built for screaming every chorus. Real vocals, real bands. Not looking for EDM, trap, lo-fi, ambient or instrumentals."
+  },
+  {
+    "id": "shoegaze-dream-punk-alt-rock-dinoto-productions-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "strong fit: shoegaze, alt rock",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Songs that suit the Shoegaze/Alt-rock genre, listen to songs that are already added to the playlist... Good production required."
+  },
+  {
+    "id": "alt-rock-summit-sounds-of-riley-ie",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "strong fit: alt rock, indie rock",
+      "Ireland-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Looking for authentic sounds that are made for the love of music rather than fit for the general public"
+  },
+  {
+    "id": "ultimate-indie-ah-tarzannovamusic-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "strong fit: indie rock, indie pop",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: (no free-text brief captured; genres listed: alt rock, indie rock, indie pop, indie folk, dream pop)"
+  },
+  {
+    "id": "everything-alt-rock-ah-tarzannovamusic-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "strong fit: alt rock",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: (no free-text brief captured; genres listed: alt rock, indie rock, indie pop, indie folk, dream pop)"
+  },
+  {
+    "id": "radio-friendly-indie-rock-alt-pop-my-music-mixtape-ca",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "strong fit: indie rock, alt rock",
+      "Canada-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Preference for energetic, guitar-forward indie rock tracks with big choruses. No autotune, no screamo. English lyrics only and must have vocals."
+  },
+  {
+    "id": "fresh-indie-mp3hugger-ie",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "strong fit: indie, alternative",
+      "Ireland-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: All about indie/alt. Blogging since '05... curating fresh indie playlists. 50 words minimum. Submit Direct for fast replies."
+  },
+  {
+    "id": "best-new-alt-alt-discover-au",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "strong fit: alt rock, indie rock",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Please listen to the playlist before submitting... High-quality production is essential. Live recordings not accepted"
+  },
+  {
+    "id": "psychedelic-rock-brit-rock-post-punk-noise-rock-essentials-j",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "strong fit: psych rock, brit rock",
+      "Canada-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: ...when I get back home and drop the needle on my turntable, it has to be Rock & noisier!"
+  },
+  {
+    "id": "alt-rock-pop-punk-post-grunge-nu-metal-neural-beats-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "partial fit: alt rock, post grunge",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Looking for emotional depth, unique phrasing, and atmospheric tension, open to most genre providing quality is high."
+  },
+  {
+    "id": "rock-roadtrip-playlist-picasso-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "partial fit: rock, alt rock",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: I prefer tracks such as indie pop, rock, alt rock, singer songwriter, folk, country, r&b and soul to have vocals."
+  },
+  {
+    "id": "alternative-pop-rock-playlist-picasso-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "partial fit: alt rock, alt pop",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: I prefer tracks such as indie pop, rock, alt rock, singer songwriter, folk, country, r&b and soul to have vocals."
+  },
+  {
+    "id": "rockaholic-playlist-picasso-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "partial fit: rock, alt rock",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: I prefer tracks such as indie pop, rock, alt rock, singer songwriter, folk, country, r&b and soul to have vocals."
+  },
+  {
+    "id": "happy-indie-vibes-playlist-picasso-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "partial fit: indie pop, indie rock",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: I prefer tracks such as indie pop, rock, alt rock, singer songwriter, folk, country, r&b and soul to have vocals."
+  },
+  {
+    "id": "indie-daydream-sounds-of-riley-ie",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "partial fit: indie, dream pop",
+      "Ireland-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Looking for authentic sounds that are made for the love of music rather than fit for the general public"
+  },
+  {
+    "id": "grunge-forever-expanded-stonerguy-ie",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "partial fit: grunge, alt rock",
+      "Ireland-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Best streaming rock playlist on the platform, if you are after a playlist that isnt my biggest one, please name it in the message"
+  },
+  {
+    "id": "indie-dreams-adj-cuts-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "partial fit: indie, indie pop",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Open to most genres (no screamo)"
+  },
+  {
+    "id": "indie-sounds-thebestsounds-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "partial fit: indie, indie pop",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: I am open to most genres of music, however generally don't accept heavy styles such as metal and super hard rock."
+  },
+  {
+    "id": "upbeat-indie-selection-rhythm-revolution-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "partial fit: indie, upbeat indie rock",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: We have around 120k followers, and we advertise trough social media. We cover a variation of genre's with some exceptions"
+  },
+  {
+    "id": "indie-overload-rhythm-revolution-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "partial fit: indie, indie rock",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: We have around 120k followers, and we advertise trough social media. We cover a variation of genre's with some exceptions"
+  },
+  {
+    "id": "indie-adventures-the-universal-playlists-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "partial fit: indie, indie rock",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: We advertise via social media ads, and we cover a wide variation of genre's with some exceptions"
+  },
+  {
+    "id": "rockin-all-day-the-universal-playlists-au",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "partial fit: rock, alt rock",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: We advertise via social media ads, and we cover a wide variation of genre's with some exceptions"
+  },
+  {
+    "id": "the-post-punk-darkwave-playlist-cold-signal-ca",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "partial fit: post-punk, darkwave",
+      "Canada-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: I'm looking for dark wave, cold wave and post-punk submissions with a strong, cohesive identity (atmosphere, production, intent)."
+  },
+  {
+    "id": "more-energy-alt-discover-au",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "partial fit: alt rock, high energy",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Please listen to the playlist before submitting... High-quality production is essential. Live recordings not accepted"
+  },
+  {
+    "id": "grunge-beyond-pete-ashton-au",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "partial fit: grunge, alt rock",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: I value depth, atmosphere and intention over instant hooks. Prefer heavier music with emotional/intellectual weight but open to anything with depth"
+  },
+  {
+    "id": "indie-chill-fmd-playlists-ie",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "partial fit: indie, chill indie",
+      "Ireland-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: We love authentic indie music... full band indie anthems. Not into heavier rock sounds."
+  },
+  {
+    "id": "alternative-indie-rock-jams-sugarcoat-ca",
+    "eligible": true,
+    "chance": 2,
+    "value": 4,
+    "reasons": [
+      "partial fit: alt rock, indie rock",
+      "Canada-based curator, open to UK acts",
+      "paid Groover route"
+    ],
+    "pitchTip": "Follow their brief: Please try to listen to our Spotify Playlists before sending submissions"
+  },
+  {
+    "id": "hard-rock-for-workouts-rhythm-revolution-au",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "loose fit: hard rock, workout rock",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: We have around 120k followers, and we advertise trough social media. We cover a variation of genre's with some exceptions"
+  },
+  {
+    "id": "super-chill-indie-wonder-wave-sounds-au",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "loose fit: chill indie rock, indie folk",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Looking for Indie-Soul, Indie-Psych, smooth Indie/Alt-Rock, Psychedelic Soul, Ambient, Felt Piano. Not looking for Hip-Hop, EDM or Heavy rock."
+  },
+  {
+    "id": "velvet-indie-wonder-wave-sounds-au",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "loose fit: smooth indie, indie psych",
+      "Australia-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Looking for Indie-Soul, Indie-Psych, smooth Indie/Alt-Rock, Psychedelic Soul, Ambient, Felt Piano. Not looking for Hip-Hop, EDM or Heavy rock."
+  },
+  {
+    "id": "stoner-rock-stonerguy-ie",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "loose fit: stoner rock, heavy rock",
+      "Ireland-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Best streaming rock playlist on the platform, if you are after a playlist that isnt my biggest one, please name it in the message"
+  },
+  {
+    "id": "sad-girl-gloom-shoegaze-dreampop-tundra-house-records-ca",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "loose fit: shoegaze, dream pop",
+      "Canada-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Strong preference for femme-led vocals. Guitar-based ethereal and dreamy songs from shoegaze and shoegaze subgenres."
+  },
+  {
+    "id": "underrated-pop-punk-gems-always-found-ca",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "loose fit: pop punk, emo",
+      "Canada-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Really into Pop Punk / Emo / Midwest Emo/ Alt tracks with catchy hooks..."
+  },
+  {
+    "id": "emo-songs-to-cry-to-on-the-floor-at-2am-always-found-ca",
+    "eligible": true,
+    "chance": 2,
+    "value": 1,
+    "reasons": [
+      "loose fit: emo, alt rock",
+      "Canada-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Really into Pop Punk / Emo / Midwest Emo/ Alt tracks with catchy hooks..."
+  },
+  {
+    "id": "happy-alternative-mood-hardkoreva-ca",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "loose fit: alternative, indie",
+      "Canada-based curator, open to UK acts",
+      "paid Groover route"
+    ],
+    "pitchTip": "Follow their brief: Would love to hear some interesting alternative / indie / pop / rock / hip-hop music that fits the overall mood of my playlists"
+  },
+  {
+    "id": "indie-chill-singarim-studios-ca",
+    "eligible": true,
+    "chance": 1,
+    "value": 2,
+    "reasons": [
+      "loose fit: indie pop, alt pop",
+      "Canada-based curator, open to UK acts",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Follow their brief: Looking for edgy Alt-pop with catchy hooks, unique lyrics, space & groove. Listen to first few tracks on my playlist for the vibe I'm after."
+  }
+]
