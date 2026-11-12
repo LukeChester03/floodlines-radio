@@ -1,0 +1,206 @@
+[
+  {
+    "id": "tony-s-playlists-best-indie-rock-us",
+    "eligible": true,
+    "chance": 3,
+    "value": 4,
+    "reasons": [
+      "17k-save indie rock list",
+      "Paid SubmitHub direct only",
+      "Indie rock, pop, indietronica"
+    ],
+    "pitchTip": "Pitch via the SubmitHub direct link; tag it indie rock."
+  },
+  {
+    "id": "tony-s-playlists-best-alternative-rock-us",
+    "eligible": true,
+    "chance": 3,
+    "value": 4,
+    "reasons": [
+      "15k-save alt rock list",
+      "Paid SubmitHub direct only",
+      "Alt, indie and psych rock"
+    ],
+    "pitchTip": "Use the same SubmitHub direct link and name this alt rock list."
+  },
+  {
+    "id": "before-arcadia-top-indie-rock-us",
+    "eligible": true,
+    "chance": 4,
+    "value": 1,
+    "reasons": [
+      "Worldwide indie rock, free email",
+      "Tiny list, 17 saves",
+      "Run by a Tampa indie band"
+    ],
+    "pitchTip": "Email beforearcadia@gmail.com with the song; they ask for indie rock from around the world."
+  },
+  {
+    "id": "best-indie-alternative-undiscovered-neverenoughmusic-com-us",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "Undiscovered indie alt rock",
+      "DropTrack form, fee unclear",
+      "Updated weekly"
+    ],
+    "pitchTip": "Submit through the DropTrack link in the playlist description."
+  },
+  {
+    "id": "jann-klose-indie-rising-us",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "Free email submissions",
+      "Artist-curator mixed favourites",
+      "2.4k saves"
+    ],
+    "pitchTip": "Email info@3framesmusic.com for submissions, as the description asks."
+  },
+  {
+    "id": "the-wild-honey-pie-buzzing-us",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "Known NYC indie brand",
+      "Free submit-an-artist form",
+      "Leans indie pop"
+    ],
+    "pitchTip": "Use the Submit an Artist form with name, email and song link."
+  },
+  {
+    "id": "kxsc-new-adds-us",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "USC college radio adds",
+      "Free email submissions",
+      "Weekly music dept picks"
+    ],
+    "pitchTip": "Email submissions@kxsc.org; adds come from the music department."
+  },
+  {
+    "id": "fresh-finds-kcsu-fm-us",
+    "eligible": true,
+    "chance": 2,
+    "value": 1,
+    "reasons": [
+      "CSU college radio picks",
+      "Free form, mainly airplay",
+      "All genres, 102 saves"
+    ],
+    "pitchTip": "Use the music submissions form on the KCSU Submit Music page."
+  },
+  {
+    "id": "punk-rock-museum-new-music-friday-punkrockradar-us",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "Punk-only New Music Friday",
+      "Free singles form",
+      "Submit before release"
+    ],
+    "pitchTip": "Use the singles form before release day; it is for punk releases only."
+  },
+  {
+    "id": "new-indie-pop-laurelanne-laurelanne-media-us",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "Indie pop and rock list",
+      "Free form, save-gated",
+      "338 saves"
+    ],
+    "pitchTip": "Save one of their playlists first, then use the form; one submission per week."
+  },
+  {
+    "id": "chicago-rising-indie-rock-alt-and-punk-matthew-luna-us",
+    "eligible": false,
+    "chance": 1,
+    "value": 1,
+    "reasons": [
+      "Chicago local bands only",
+      "Free email route",
+      "Indie rock, alt, punk"
+    ],
+    "pitchTip": "Email only if you have a Chicago link; it lists local bands."
+  },
+  {
+    "id": "wsum-adds-roundup-us",
+    "eligible": true,
+    "chance": 1,
+    "value": 1,
+    "reasons": [
+      "Madison college radio adds",
+      "No email invite",
+      "Weekly music director picks"
+    ],
+    "pitchTip": "Contact music@wsum.wisc.edu only if they invite submissions; the page does not."
+  },
+  {
+    "id": "a-cold-glow-an-indie-shoegaze-dream-pop-christmas-us",
+    "eligible": true,
+    "chance": 2,
+    "value": 1,
+    "reasons": [
+      "Seasonal Christmas list",
+      "Pitch via Instagram or Twitter",
+      "Shoegaze and dream pop"
+    ],
+    "pitchTip": "Only pitch a winter or Christmas track, to @looplinemusic on Instagram or Twitter."
+  },
+  {
+    "id": "new-core-nu-punk-metalcore-pop-punk-emo-2024-heat-on-the-str",
+    "eligible": true,
+    "chance": 1,
+    "value": 1,
+    "reasons": [
+      "Metalcore and pop punk",
+      "2024 list, may be stale",
+      "Form needs mailing list"
+    ],
+    "pitchTip": "Use the form and confirm the mailing-list email, or it will not arrive."
+  },
+  {
+    "id": "new-hardcore-punk-ska-and-metal-dcxpc-live-vinyl-more-us",
+    "eligible": true,
+    "chance": 1,
+    "value": 1,
+    "reasons": [
+      "Hardcore, punk, ska, metal",
+      "Free email, submissions welcome",
+      "Small label list"
+    ],
+    "pitchTip": "Email dcpcbooking@gmail.com, and only with a punky track."
+  },
+  {
+    "id": "hot-girl-pop-punk-2026-laurelanne-laurelanne-media-us",
+    "eligible": true,
+    "chance": 1,
+    "value": 1,
+    "reasons": [
+      "Female-fronted pop punk",
+      "Free form, save-gated",
+      "96 saves"
+    ],
+    "pitchTip": "Tick Hot Girl Pop Punk on the Laurelanne form, only for a pop-punk track."
+  },
+  {
+    "id": "chicago-rock-bands-kevin-us",
+    "eligible": false,
+    "chance": 1,
+    "value": 1,
+    "reasons": [
+      "Chicago local bands only",
+      "Free email route",
+      "Indie, psych, garage"
+    ],
+    "pitchTip": "Only for a Chicago band; subject line CRB Submission - Band - Song."
+  }
+]

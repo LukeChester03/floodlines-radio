@@ -1,0 +1,104 @@
+[
+  {
+    "id": "tony-s-playlists-best-indie-rock-us",
+    "genreFit": "indie",
+    "genres": "indie rock, indie pop, electronic",
+    "contactName": null
+  },
+  {
+    "id": "tony-s-playlists-best-alternative-rock-us",
+    "genreFit": "indie",
+    "genres": "alt rock, indie rock, psych",
+    "contactName": null
+  },
+  {
+    "id": "before-arcadia-top-indie-rock-us",
+    "genreFit": "indie",
+    "genres": "indie rock",
+    "contactName": null
+  },
+  {
+    "id": "best-indie-alternative-undiscovered-neverenoughmusic-com-us",
+    "genreFit": "indie",
+    "genres": "indie, alt rock",
+    "contactName": null
+  },
+  {
+    "id": "jann-klose-indie-rising-us",
+    "genreFit": "indie",
+    "genres": "indie, alt",
+    "contactName": "Jann"
+  },
+  {
+    "id": "the-wild-honey-pie-buzzing-us",
+    "genreFit": "indie",
+    "genres": "indie, indie pop",
+    "contactName": null
+  },
+  {
+    "id": "kxsc-new-adds-us",
+    "genreFit": "mixed",
+    "genres": "new music, indie, alt",
+    "contactName": null
+  },
+  {
+    "id": "fresh-finds-kcsu-fm-us",
+    "genreFit": "any",
+    "genres": "all genres, new music",
+    "contactName": null
+  },
+  {
+    "id": "punk-rock-museum-new-music-friday-punkrockradar-us",
+    "genreFit": "other",
+    "genres": "punk",
+    "contactName": null
+  },
+  {
+    "id": "new-indie-pop-laurelanne-laurelanne-media-us",
+    "genreFit": "indie",
+    "genres": "indie pop, indie rock, bedroom",
+    "contactName": null
+  },
+  {
+    "id": "chicago-rising-indie-rock-alt-and-punk-matthew-luna-us",
+    "genreFit": "indie",
+    "genres": "indie rock, alt, punk",
+    "contactName": "Matthew"
+  },
+  {
+    "id": "wsum-adds-roundup-us",
+    "genreFit": "mixed",
+    "genres": "new music, eclectic",
+    "contactName": null
+  },
+  {
+    "id": "a-cold-glow-an-indie-shoegaze-dream-pop-christmas-us",
+    "genreFit": "indie",
+    "genres": "shoegaze, dream pop",
+    "contactName": null
+  },
+  {
+    "id": "new-core-nu-punk-metalcore-pop-punk-emo-2024-heat-on-the-str",
+    "genreFit": "other",
+    "genres": "metal, pop-punk, emo, post-hardcore",
+    "contactName": "Todd"
+  },
+  {
+    "id": "new-hardcore-punk-ska-and-metal-dcxpc-live-vinyl-more-us",
+    "genreFit": "other",
+    "genres": "punk, metal",
+    "contactName": null
+  },
+  {
+    "id": "hot-girl-pop-punk-2026-laurelanne-laurelanne-media-us",
+    "genreFit": "other",
+    "genres": "pop-punk",
+    "contactName": null
+  },
+  {
+    "id": "chicago-rock-bands-kevin-us",
+    "genreFit": "indie",
+    "genres": "indie, psych, garage",
+    "contactName": "Kevin"
+  }
+]
