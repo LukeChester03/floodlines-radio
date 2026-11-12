@@ -1016,18 +1016,6 @@
   "pitchTip": "Email a download link to promo@."
  },
  {
-  "id": "get-ready-to-rock-gb",
-  "eligible": true,
-  "chance": 1,
-  "value": 1,
-  "reasons": [
-   "No music route found",
-   "Rock/indie-leaning web station",
-   "Ask first"
-  ],
-  "pitchTip": null
- },
- {
   "id": "get-ready-to-rock-radio-gb",
   "eligible": true,
   "chance": 3,

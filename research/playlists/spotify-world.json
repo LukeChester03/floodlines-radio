@@ -102,23 +102,6 @@
     "notes": "Site calls this playlist ROCK NEWS; Spotify title now 'New Rock Drive'. Last add 16 Oct 2026 per site. Says placement is not for sale. Large curator (claims 500k followers across platforms)."
   },
   {
-    "name": "Alternative Weekly 2026 / Best New Indie Music 2026 (Indiemono)",
-    "country": "ES",
-    "region": "Madrid",
-    "url": "https://open.spotify.com/playlist/0cnNivIcBiCI50ozDfcHyb",
-    "platform": "spotify",
-    "followers": 24834,
-    "method": "form",
-    "email": null,
-    "emailAllowed": false,
-    "formUrl": "https://indiemono.com/music-submit/",
-    "paid": false,
-    "instructions": "Paste a released, public Spotify track link into the form, add 1-3 tags and a main vibe, submit. One submission reaches all Indiemono playlists. Free. No reply unless added. One submission per track. No covers or AI music. Unreleased songs go via their demos page.",
-    "fit": "high",
-    "sourceUrl": "https://indiemono.com/music-submit/",
-    "notes": "Madrid-based network of 150+ playlists (About page: '2015 · Madrid'). Updated every New Music Friday. One form submission reaches all Indiemono playlists, including Alt Rock 2026 below; submit once."
-  },
-  {
     "name": "Cool stuff - Indie & Alternative Pop and Rock Discoveries (H-Music)",
     "country": "FR",
     "region": "",
@@ -185,23 +168,6 @@
     "fit": "high",
     "sourceUrl": "https://indie-tapes.com/submitmusic",
     "notes": "Germany-based blog, posting daily (Nov 2026), lots of indie rock reviews, international artists. Musosoup is paid; SubmitHub has free/premium. Site sits behind a JS browser check (open in a real browser). Same editor (Adrian) as BerlinOnAir and NewIndieRadar; pitch only one of the three."
-  },
-  {
-    "name": "Alt Rock 2026 / Today's Alternative Rock & Indie Rock (Indiemono)",
-    "country": "ES",
-    "region": "Madrid",
-    "url": "https://open.spotify.com/playlist/0k8sD0xWGvbRyvN2RHXNIB",
-    "platform": "spotify",
-    "followers": 1043,
-    "method": "form",
-    "email": null,
-    "emailAllowed": false,
-    "formUrl": "https://indiemono.com/music-submit/",
-    "paid": false,
-    "instructions": "Paste a released, public Spotify track link into the form, add 1-3 tags and a main vibe, submit. One submission reaches all Indiemono playlists. Free. No reply unless added. One submission per track. No covers or AI music. Unreleased songs go via their demos page.",
-    "fit": "high",
-    "sourceUrl": "https://indiemono.com/music-submit/",
-    "notes": "Same Indiemono form as Alternative Weekly; one submission covers both, so don't double-submit."
   },
   {
     "name": "Indie Aisle (EARMILK)",
@@ -576,23 +542,6 @@
     "fit": "low",
     "sourceUrl": "https://www.berlinonair.cc/Redaktion",
     "notes": "Says it likes indie folk, singer-songwriter, soul, piano and jazz, so a weak fit for indie rock. Email explicitly not for music. Same team as IndieTapes/NewIndieRadar. Site blocks scripted access; open in a real browser."
-  },
-  {
-    "name": "New Indie Music: Happy's Mixtape (Happy Mag)",
-    "country": "AU",
-    "region": "NSW",
-    "url": "https://open.spotify.com/playlist/0C8xI7sNwwupU9FXotkY9n",
-    "platform": "spotify",
-    "followers": 516,
-    "method": "form",
-    "email": null,
-    "emailAllowed": false,
-    "formUrl": "https://submit.happymag.tv/submit-music/",
-    "paid": false,
-    "instructions": "Share a recently released track via the Happy Mag submit form ('We listen to everything').",
-    "fit": "low",
-    "sourceUrl": "https://submit.happymag.tv/submit-music/",
-    "notes": "The playlist features new Australian indie, rock and alt. The form is for editorial coverage and doesn't mention the playlist."
   },
   {
     "name": "Spotlight (soundsol)",

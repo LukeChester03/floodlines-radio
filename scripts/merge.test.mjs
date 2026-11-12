@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, mkdirSync, writeFileSync, readFileSync } from "node:fs";
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -18,7 +18,7 @@ function merge(radio, playlists) {
     mkdirSync(join(dir, "research/playlists"));
     writeFileSync(join(dir, "research/playlists/p.json"), JSON.stringify(playlists));
   }
-  execFileSync("node", [SCRIPT], { cwd: dir });
+  try { execFileSync("node", [SCRIPT], { cwd: dir, stdio: "pipe" }); } catch (e) { e.dir = dir; throw e; }
   return {
     stations: JSON.parse(readFileSync(join(dir, "src/data/stations.json"), "utf8")),
     emails: JSON.parse(readFileSync(join(dir, "functions/data/station-emails.json"), "utf8")),
@@ -81,4 +81,40 @@ test("playlists are ranked on their own, so radio ranks don't move", () => {
   const ranks = t => stations.filter(t).map(s => s.rank);
   assert.deepEqual(ranks(s => s.type !== "playlist"), [1, 2]);
   assert.deepEqual(ranks(s => s.type === "playlist"), [1]);
+});
+
+test("two playlists with the same URL fail the merge and name both", () => {
+  assert.throws(() => merge(radio, [
+    row({ name: "List A", platform: "spotify", url: "https://open.spotify.com/playlist/AbC" }),
+    row({ name: "List B", platform: "spotify", url: "https://www.open.spotify.com/playlist/AbC/?si=1" }),
+  ]), e => {
+    const out = String(e.stdout) + String(e.stderr);
+    assert.match(out, /Duplicate playlist URL open\.spotify\.com\/playlist\/AbC: "List A" and "List B"/);
+    assert.ok(!existsSync(join(e.dir, "src/data/stations.json")));
+    return true;
+  });
+});
+
+test("playlist URLs differing only in path case both merge", () => {
+  const { stations } = merge(radio, [
+    row({ name: "List A", platform: "spotify", url: "https://open.spotify.com/playlist/AbC" }),
+    row({ name: "List B", platform: "spotify", url: "https://open.spotify.com/playlist/abc" }),
+  ]);
+  assert.ok(["List A", "List B"].every(n => stations.some(s => s.name === n)));
+});
+
+test("radio rows sharing a URL both merge", () => {
+  const { stations } = merge([
+    row({ name: "Town FM", url: "https://town.fm" }),
+    row({ name: "Town FM Late Show", url: "https://town.fm" }),
+  ]);
+  assert.equal(stations.filter(s => s.url === "https://town.fm").length, 2);
+});
+
+test("YouTube playlists with different list ids both merge", () => {
+  const { stations } = merge(radio, [
+    row({ name: "Tube A", platform: "youtube", url: "https://www.youtube.com/playlist?list=PLaaa" }),
+    row({ name: "Tube B", platform: "youtube", url: "https://www.youtube.com/playlist?list=PLbbb&si=1" }),
+  ]);
+  assert.ok(["Tube A", "Tube B"].every(n => stations.some(s => s.name === n)));
 });

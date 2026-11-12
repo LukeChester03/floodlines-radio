@@ -255,40 +255,6 @@
     "notes": "Grunge/alt-rock/shoegaze, old and new mix; also on Groover"
   },
   {
-    "name": "Best of Indie 2026 (Indie Is Not A Genre)",
-    "country": "GB",
-    "region": "UK",
-    "url": "https://open.spotify.com/playlist/5m0hv08zwLUrdtI2Zduf2R",
-    "platform": "spotify",
-    "followers": 9406,
-    "method": "platform",
-    "email": "",
-    "emailAllowed": false,
-    "formUrl": "https://www.indieisnotagenre.com/submit/",
-    "paid": true,
-    "instructions": "Submit via the SubmitHub widget on the site's submit page.",
-    "fit": "medium",
-    "sourceUrl": "https://www.indieisnotagenre.com/submit/",
-    "notes": "SubmitHub (free credits possible). Site covers new music from the UK, Australia, Canada and beyond; base not confirmed as UK."
-  },
-  {
-    "name": "new music discovery (The Line of Best Fit)",
-    "country": "GB",
-    "region": "London",
-    "url": "https://open.spotify.com/playlist/5359l8Co8qztllR0Mxk4Zv",
-    "platform": "spotify",
-    "followers": 8762,
-    "method": "email",
-    "email": "news@thelineofbestfit.com",
-    "emailAllowed": true,
-    "formUrl": "",
-    "paid": false,
-    "instructions": "Email a short press release with a private stream link to the news address; the contact page says they welcome music from new and unsigned artists.",
-    "fit": "medium",
-    "sourceUrl": "https://www.thelineofbestfit.com/contact",
-    "notes": "Large and competitive; the playlist is editorial, so getting written up is the way in. Leans indie-pop/alt."
-  },
-  {
     "name": "Rock Workout - Power Anthems (Blinding Talent)",
     "country": "GB",
     "region": "UK",
@@ -476,23 +442,6 @@
     "notes": "Newcastle indie label; general new music"
   },
   {
-    "name": "Neon Music Indie Vibes (Neon Music)",
-    "country": "GB",
-    "region": "UK",
-    "url": "https://open.spotify.com/playlist/63oVK7UlMIbdtnkvYgucQJ",
-    "platform": "spotify",
-    "followers": 693,
-    "method": "platform",
-    "email": "",
-    "emailAllowed": false,
-    "formUrl": "https://www.submithub.com/direct/neon-music?source=submit-music-ep",
-    "paid": true,
-    "instructions": "Submit via SubmitHub direct (from $4) or Musosoup linked on the submit page.",
-    "fit": "medium",
-    "sourceUrl": "https://neonmusic.co.uk/submit-music",
-    "notes": "SubmitHub/Musosoup, paid."
-  },
-  {
     "name": "Music:Leeds Latest Releases (Music:Leeds)",
     "country": "GB",
     "region": "Leeds / Yorkshire",
@@ -508,23 +457,6 @@
     "fit": "medium",
     "sourceUrl": "https://open.spotify.com/playlist/1uszf44ADxJp2E6rLOixA5",
     "notes": "Rolling monthly playlist (currently 'November 2026'), same ID. Only fits if FloodLines has a Leeds/Yorkshire connection."
-  },
-  {
-    "name": "Punktastic's New Music Friday (Punktastic)",
-    "country": "GB",
-    "region": "UK",
-    "url": "https://open.spotify.com/playlist/0yOFOJaYLpOAIK144wtYMy",
-    "platform": "spotify",
-    "followers": 335,
-    "method": "email",
-    "email": "news@punktastic.com",
-    "emailAllowed": true,
-    "formUrl": "",
-    "paid": false,
-    "instructions": "Email the news desk, which the contact page names as one of the best ways to get music featured.",
-    "fit": "medium",
-    "sourceUrl": "https://www.punktastic.com/contact/",
-    "notes": "Leans punk/rock/alt. Their Send Us Music page (thepickup.punktastic.com) has an expired SSL certificate. Not clear how recently the playlist was updated."
   },
   {
     "name": "RCM Breezy (Right Chord Music)",
@@ -610,23 +542,6 @@
     "fit": "low",
     "sourceUrl": "https://www.theskinny.co.uk/about/contact",
     "notes": "10 new Scottish tracks weekly; Oct 2026 column mentions a 'sudden closure' and the playlist lay dormant before a refresh; North of England office closed."
-  },
-  {
-    "name": "Fresh Music From Northern Ireland (Chordblossom)",
-    "country": "GB",
-    "region": "Belfast / Northern Ireland",
-    "url": "https://open.spotify.com/playlist/4px3ZVK80tkVUqaOIpbYTa",
-    "platform": "spotify",
-    "followers": 1252,
-    "method": "email",
-    "email": "irish@chordblossom.com",
-    "emailAllowed": true,
-    "formUrl": "",
-    "paid": false,
-    "instructions": "Email irish@chordblossom.com only if the band is from Ireland (North or South); non-Irish acts must use SubmitHub for their No Fixed Abode feature.",
-    "fit": "low",
-    "sourceUrl": "https://www.chordblossom.com/contact",
-    "notes": "Monthly NI playlist. Non-Irish route: https://www.submithub.com/to/chordblossom (SubmitHub, free credits possible) for the 'No Fixed Abode' playlist/feature, whose Spotify URL I could not find."
   },
   {
     "name": "Indie & alternative - undiscovered & unsigned (Mattias)",

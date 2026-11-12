@@ -1,11 +1,39 @@
 [
  {
+  "id": "r-zco-mx",
+  "email": "rozcocte@gmail.com"
+ },
+ {
+  "id": "alternative",
+  "email": "alternativesoundcentral@gmail.com"
+ },
+ {
+  "id": "bedroom-fidelity-justin",
+  "email": "jussssstinfissssssher@gmail.com"
+ },
+ {
+  "id": "melancholic-indie-hqindie-no",
+  "email": "info@hqindie.com"
+ },
+ {
   "id": "best-indie-and-alt-rock-wigwam-kevin-graham-radio-wigwam-gb",
+  "email": "kegraham@yahoo.com"
+ },
+ {
+  "id": "best-indie-rock-and-pop-unsigned-kevin-graham-gb",
+  "email": "kegraham@yahoo.com"
+ },
+ {
+  "id": "best-undiscovered-indie-rock-radio-kevin-graham-gb",
   "email": "kegraham@yahoo.com"
  },
  {
   "id": "crags-radio-the-unsigned-sessions-the-pluggin-baby-radio-sho",
   "email": "studio@cragsradio.co.uk"
+ },
+ {
+  "id": "dansende-beren-verse-honing-van-dansende-beren-be",
+  "email": "beir@dansendeberen.be"
  },
  {
   "id": "deal-radio-gb",
@@ -20,12 +48,32 @@
   "email": "maggie@derbysound.org.uk"
  },
  {
+  "id": "edge-of-indie-hqindie-no",
+  "email": "info@hqindie.com"
+ },
+ {
+  "id": "from-the-strait-limited-time-offer-ca",
+  "email": "thejerks@fromthestrait.com"
+ },
+ {
+  "id": "full-volume-indie-rock-sunnyvale-nl",
+  "email": "sunnyvaleplaylists@gmail.com"
+ },
+ {
   "id": "harborough-fm-hfm-sam-britton-show-head-of-music-gb",
   "email": "sam.britton@harboroughfm.co.uk"
  },
  {
+  "id": "mp3hugger-below-the-radar-ie",
+  "email": "contact@mp3hugger.com"
+ },
+ {
   "id": "music-in-leicester-no-one-receiving-monthly-radio-show-gb",
   "email": "editor@musicinleicester.co.uk"
+ },
+ {
+  "id": "neo-psych-rock-melting-trends-us",
+  "email": "meltingtrends@gmail.com"
  },
  {
   "id": "oystermouth-radio-fresh-unsigned-dean-james-gb",
@@ -36,8 +84,20 @@
   "email": "submissions@radiofandango.co.uk"
  },
  {
+  "id": "somewhere",
+  "email": "serenithm1@gmail.com"
+ },
+ {
   "id": "the-indie-list-uk-dean-thacker-gb",
   "email": "theindielistuk@gmail.com"
+ },
+ {
+  "id": "tinnitist-tinnitist-top-300-ca",
+  "email": "editor@tinnitist.com"
+ },
+ {
+  "id": "turn-work-turn-work-the-setlist-us",
+  "email": "submissions@turnandwork.com"
  },
  {
   "id": "urn-university-radio-nottingham-gb",
@@ -46,6 +106,10 @@
  {
   "id": "vibe-107-6-the-new-vibe-gb",
   "email": "submissions@vibe1076.com"
+ },
+ {
+  "id": "worldhaspostrock-tr",
+  "email": "submitwhpr@gmail.com"
  },
  {
   "id": "3rrr-102-7-fm-triple-r-au",
@@ -64,6 +128,10 @@
   "email": "SoundsNewSoundsGood@outlook.pt"
  },
  {
+  "id": "before-arcadia-top-indie-rock-us",
+  "email": "beforearcadia@gmail.com"
+ },
+ {
   "id": "belter-radio-gb",
   "email": "belterradio@outlook.com"
  },
@@ -76,8 +144,24 @@
   "email": "fm4musik@orf.at"
  },
  {
+  "id": "indie-fresh-flat-nasty-music-us",
+  "email": "flatnastymusic@gmail.com"
+ },
+ {
+  "id": "indie-music-blog-indiemusicblogsd",
+  "email": "indiemusicblogsd@gmail.com"
+ },
+ {
   "id": "indie-rock-playlist-the-indie-rock-playlist-september-2026",
   "email": "sendusyourcd@gmail.com"
+ },
+ {
+  "id": "indievibes-jelle-nl",
+  "email": "jellevanderlinden16@gmail.com"
+ },
+ {
+  "id": "jangle-disorder-new-indie-2026-the-sugar-clouds-us",
+  "email": "playlists@thesugarclouds.com"
  },
  {
   "id": "mad-wasp-radio-gb",
@@ -88,8 +172,40 @@
   "email": "music@mar.me.uk"
  },
  {
+  "id": "paddy-s-playlist-with-pat-patterson-us",
+  "email": "intelligentrock1999@gmail.com"
+ },
+ {
+  "id": "playlist-d-couvertes-sound-of-brit-fr",
+  "email": "sound.of.brit@gmail.com"
+ },
+ {
+  "id": "rock-showcase",
+  "email": "rockshowcasemusic@gmail.com"
+ },
+ {
+  "id": "trippy-psychedelic-playlist-neo-psych-shoegaze-good-vibes-da",
+  "email": "PsychSoundsOfficial@gmail.com"
+ },
+ {
+  "id": "yourwayismusic",
+  "email": "yourwaychannel05@gmail.com"
+ },
+ {
+  "id": "zoomergaze-h3-witz",
+  "email": "hannah3wits@gmail.com"
+ },
+ {
+  "id": "2000trees-festival-2026-lineup-gb",
+  "email": "bands@2000trees.co.uk"
+ },
+ {
   "id": "95bfm-nz",
   "email": "music@95bfm.com"
+ },
+ {
+  "id": "an-indie-rock-invasion-blue-skin-music",
+  "email": "blueskinmusic77@gmail.com"
  },
  {
   "id": "bagel-radio-us",
@@ -98,6 +214,18 @@
  {
   "id": "bailrigg-fm-gb",
   "email": "music@bailriggfm.co.uk"
+ },
+ {
+  "id": "bedroom-pop-polychroma",
+  "email": "mypolychroma@gmail.com"
+ },
+ {
+  "id": "big-rock-bangers-rock-alternative-kool-playlists-gb",
+  "email": "wearekooluk@gmail.com"
+ },
+ {
+  "id": "brand-new-kink-kink-nl",
+  "email": "plug@kink.nl"
  },
  {
   "id": "cam-fm-gb",
@@ -112,12 +240,28 @@
   "email": "ckdjmusicac@gmail.com"
  },
  {
+  "id": "current-post-punk-booklet-magazine-it",
+  "email": "info@bookletmagazine.com"
+ },
+ {
+  "id": "eclectic-underground-by-indie-boy",
+  "email": "indieboypromo@gmail.com"
+ },
+ {
   "id": "edge-radio-99-3-fm-au",
   "email": "music@edgeradio.org.au"
  },
  {
   "id": "ekr-retro-rock-gb",
   "email": "theteam@ekrdigital.com"
+ },
+ {
+  "id": "fluxfm-neu-fluxfm-de",
+  "email": "radar@fluxfm.de"
+ },
+ {
+  "id": "get-your-groove-on-booklet-magazine-it",
+  "email": "info@bookletmagazine.com"
  },
  {
   "id": "horizon-radio-the-local-music-show-gb",
@@ -130,6 +274,10 @@
  {
   "id": "indie-rock-peanut-butter-shake-indieshake-se",
   "email": "indieshakerecords@gmail.com"
+ },
+ {
+  "id": "jann-klose-indie-rising-us",
+  "email": "info@3framesmusic.com"
  },
  {
   "id": "kanm-texas-a-m-us",
@@ -212,8 +360,28 @@
   "email": "music@kzsu.stanford.edu"
  },
  {
+  "id": "mp3hugger-post-punk-grunge-are-not-dead-ie",
+  "email": "contact@mp3hugger.com"
+ },
+ {
+  "id": "netsounds-netsounds-new-music-gb",
+  "email": "music@netsounds.co.uk"
+ },
+ {
   "id": "new-britpop-indie-rock-2025-uk-slazarus-gb",
   "email": "slazarus2014@hotmail.com"
+ },
+ {
+  "id": "new-indie-music-roesmusic-nl",
+  "email": "roesmusic2001@gmail.com"
+ },
+ {
+  "id": "p-iv-n-biisit-all-that-plazz-fi",
+  "email": "hello@allthatplazz.com"
+ },
+ {
+  "id": "pnkslm-s-hits-of-the-week-pnkslm-recordings-se",
+  "email": "info@pnkslm.com"
  },
  {
   "id": "purple-radio-gb",
@@ -384,6 +552,10 @@
   "email": "radar@fluxfm.de"
  },
  {
+  "id": "green-man-2026-gb",
+  "email": "artists@greenman.net"
+ },
+ {
   "id": "idobi-radio-us",
   "email": "music@idobi.com"
  },
@@ -396,12 +568,12 @@
   "email": "waynecarey@louderthanwar.com"
  },
  {
-  "id": "new-music-discovery-the-line-of-best-fit-gb",
-  "email": "news@thelineofbestfit.com"
- },
- {
   "id": "post-trash-weekly-us",
   "email": "dgoldin2012@gmail.com"
+ },
+ {
+  "id": "rock-songs-2026-cerberus",
+  "email": "cerberusplaylists@gmail.com"
  },
  {
   "id": "sad-ca",
@@ -444,6 +616,22 @@
   "email": "md@wxyc.org"
  },
  {
+  "id": "add-to-wantlist-s-recommended-new-music-dennis-niek",
+  "email": "dennis@addtowantlist.com"
+ },
+ {
+  "id": "baz274music",
+  "email": "baz274music@gmail.com"
+ },
+ {
+  "id": "bedroom-pop-s-a-d-p-u-p-p-y",
+  "email": "pitch.playlistd@gmail.com"
+ },
+ {
+  "id": "bedroom-sounds-city-pulse",
+  "email": "hey.noema@gmail.com"
+ },
+ {
   "id": "bradley-stoke-radio-gb",
   "email": "music@bradleystokeradio.com"
  },
@@ -484,8 +672,24 @@
   "email": "chris@gorillavsbear.net"
  },
  {
+  "id": "gym-shoegaze-sider",
+  "email": "thestacproject@gmail.com"
+ },
+ {
   "id": "hollow-earth-radio-khuh-us",
   "email": "music@hollowearthradio.org"
+ },
+ {
+  "id": "human-pleasure-radio-nz",
+  "email": "humanpleasure@gmail.com"
+ },
+ {
+  "id": "indie-rock-music-lm-playlists",
+  "email": "lmplaylists@gmail.com"
+ },
+ {
+  "id": "indie-stry-gb",
+  "email": "indie-stry@live.co.uk"
  },
  {
   "id": "itisnow-radio-gb",
@@ -532,8 +736,20 @@
   "email": "music@kutx.org"
  },
  {
+  "id": "misfits-alternative-tracks-music-for-the-misfits-gb",
+  "email": "reviews@musicforthemisfits.com"
+ },
+ {
+  "id": "misfits-newest-releases-music-for-the-misfits-gb",
+  "email": "reviews@musicforthemisfits.com"
+ },
+ {
   "id": "npo-3fm-nl",
   "email": "muziek@3fm.nl"
+ },
+ {
+  "id": "picks-of-the-week-specialist-subject-records-gb",
+  "email": "info@specialistsubjectrecords.co.uk"
  },
  {
   "id": "radio-ara-lu",
@@ -580,6 +796,10 @@
   "email": "music@salfordcityradio.com"
  },
  {
+  "id": "selector-dms-selector-radio-british-council-gb",
+  "email": "selector@audioalways.com"
+ },
+ {
   "id": "spaceuntravel-us",
   "email": "spaceuntravel@yahoo.com"
  },
@@ -604,6 +824,10 @@
   "email": "kamala@theindiescene.co.uk"
  },
  {
+  "id": "underground-shoegaze-dreampop-softwounds",
+  "email": "softwounds@gmail.com"
+ },
+ {
   "id": "wasu-90-5-us",
   "email": "wasumusic@gmail.com"
  },
@@ -614,6 +838,10 @@
  {
   "id": "wcur-91-7-us",
   "email": "wcurmd@gmail.com"
+ },
+ {
+  "id": "weekly5-2026-negative-white-ch",
+  "email": "promotion@negativewhite.com"
  },
  {
   "id": "wfcf-88-5-flagler-college-us",
@@ -664,6 +892,14 @@
   "email": "music@friskradio.com"
  },
  {
+  "id": "grunge-era-revival-kara-crimson",
+  "email": "karacrimson@outlook.com"
+ },
+ {
+  "id": "indie-music-loveindiemusic",
+  "email": "loveindiemusic@hotmail.com"
+ },
+ {
   "id": "kalx-90-7-us",
   "email": "music@kalx.berkeley.edu"
  },
@@ -700,6 +936,10 @@
   "email": "kxcidigital@gmail.com"
  },
  {
+  "id": "kxsc-new-adds-us",
+  "email": "submissions@kxsc.org"
+ },
+ {
   "id": "leftlion-notts-what-i-call-music-2026-gb",
   "email": "music@leftlion.co.uk"
  },
@@ -732,6 +972,18 @@
   "email": "newmusic@nialler9.com"
  },
  {
+  "id": "novedades-indienauta-indienauta-es",
+  "email": "info@indienauta.com"
+ },
+ {
+  "id": "octa-new-music-weekly-one-chord-to-another-fi",
+  "email": "info@onechord.net"
+ },
+ {
+  "id": "picky-magazine-picky-radar-de",
+  "email": "pickypromo@gmail.com"
+ },
+ {
   "id": "radio-3fach-ch",
   "email": "musik@3fach.ch"
  },
@@ -740,8 +992,16 @@
   "email": "fraicheliste@radiocampusparis.org"
  },
  {
+  "id": "rock-sonicmuse",
+  "email": "SonicMuse1@gmail.com"
+ },
+ {
   "id": "so-young-magazine-the-so-young-list-gb",
   "email": "info@soyoungmagazine.com"
+ },
+ {
+  "id": "spotify-monthly-playlist-95bfm-nz",
+  "email": "music@95bFM.com"
  },
  {
   "id": "swindon-105-5-live-and-local-music-gb",
@@ -760,8 +1020,16 @@
   "email": "submissions@totallywiredradio.com"
  },
  {
+  "id": "trulyindie",
+  "email": "submit.trulyindie@gmail.com"
+ },
+ {
   "id": "u92-the-moose-wwvu-us",
   "email": "wwvumusic@gmail.com"
+ },
+ {
+  "id": "underground-slowcore-softwounds",
+  "email": "softwounds@gmail.com"
  },
  {
   "id": "wjcu-88-7-us",
@@ -796,8 +1064,16 @@
   "email": "mitch@atwoodmagazine.com"
  },
  {
+  "id": "indie-argentina-2026-owner-shown-as-spotify-ar",
+  "email": "spotify.playlists.curatorship@gmail.com"
+ },
+ {
   "id": "kutx-song-of-the-day-us",
   "email": "sotd@kutx.org"
+ },
+ {
+  "id": "nordic-indie-pop-hqindie-no",
+  "email": "info@hqindie.com"
  },
  {
   "id": "wnxp-new-music-experience-us",
@@ -830,6 +1106,14 @@
  {
   "id": "abbey104-gb",
   "email": "studio@abbey104.com"
+ },
+ {
+  "id": "anchored-to-rock-anchor-eighty-four-records-us",
+  "email": "demos@anchoreightyfour.com"
+ },
+ {
+  "id": "athenas-post-punk-athenas-records",
+  "email": "athenas.records@gmail.com"
  },
  {
   "id": "bute-island-radio-gb",
@@ -916,6 +1200,10 @@
   "email": "editor@theaureview.com"
  },
  {
+  "id": "dream-pop-shoegaze-hunter-chaige-taylor",
+  "email": "Hunterchaise@gmail.com"
+ },
+ {
   "id": "eldoradio-de",
   "email": "musik@eldoradio.de"
  },
@@ -944,6 +1232,10 @@
   "email": "golddustradio13@gmail.com"
  },
  {
+  "id": "heet-van-de-naald-urgent-fm-be",
+  "email": "muziek@urgent.fm"
+ },
+ {
   "id": "hertz-87-9-de",
   "email": "musik@radiohertz.de"
  },
@@ -956,8 +1248,16 @@
   "email": "hmcosubmissions@gmail.com"
  },
  {
+  "id": "indie-charts-release-radar-austrian-indie-charts-at",
+  "email": "office@indiecharts.at"
+ },
+ {
   "id": "indieforbunnies-brand-new-indieforbunnies-it",
   "email": "indieforbunnies@gmail.com"
+ },
+ {
+  "id": "infinite-indie",
+  "email": "infiniteindiemusic@gmail.com"
  },
  {
   "id": "kafm-88-1-us",
@@ -1068,6 +1368,10 @@
   "email": "submissions@lovedabeatradio.co.uk"
  },
  {
+  "id": "not-all-girl-bands-sound-the-same-specialist-subject-records",
+  "email": "info@specialistsubjectrecords.co.uk"
+ },
+ {
   "id": "novaradio-citt-futura-it",
   "email": "redmus@novaradio.info"
  },
@@ -1076,8 +1380,8 @@
   "email": "matt@overblown.co.uk"
  },
  {
-  "id": "punktastic-s-new-music-friday-punktastic-gb",
-  "email": "news@punktastic.com"
+  "id": "pop-fresh-voices-2026-dolocozy",
+  "email": "dolocozy@gmail.com"
  },
  {
   "id": "queen-s-radio-gb",
@@ -1238,6 +1542,14 @@
  {
   "id": "riverside-radio-gb",
   "email": "music@riversideradio.com"
+ },
+ {
+  "id": "rock-sins-rock-sins-weekly-playlist-gb",
+  "email": "jamieg.rocksins@gmail.com"
+ },
+ {
+  "id": "shoegaze-lofi-bedroom-pop-bangers-sam-rowan-playback-sounds",
+  "email": "playbacksubmit@gmail.com"
  },
  {
   "id": "speysound-radio-gb",
@@ -1488,12 +1800,24 @@
   "email": "music@fbiradio.com"
  },
  {
-  "id": "fresh-music-from-northern-ireland-chordblossom-gb",
-  "email": "irish@chordblossom.com"
+  "id": "indie-pop-folk-timbre-collective",
+  "email": "timbre.olivia@gmail.com"
  },
  {
   "id": "kdvs-90-3-us",
   "email": "musicdept@kdvs.org"
+ },
+ {
+  "id": "novo-rock-brasil-danny-boy-bizzy-br",
+  "email": "digitalmusicr@gmail.com"
+ },
+ {
+  "id": "rock-internacional-e-rock-alternativo-likemee-playlists-br",
+  "email": "contato@likemee.com.br"
+ },
+ {
+  "id": "uk-ie-best-rock-2025-uk-best-playlists-gb",
+  "email": "ukbestplaylists@gmail.com"
  },
  {
   "id": "wncw-88-7-us",
@@ -1506,6 +1830,10 @@
  {
   "id": "3cr-855-am-au",
   "email": "music@3cr.org.au"
+ },
+ {
+  "id": "anchored-to-pop-punk-anchor-eighty-four-records-us",
+  "email": "demos@anchoreightyfour.com"
  },
  {
   "id": "bay-trust-radio-gb",
@@ -1564,6 +1892,14 @@
   "email": "music@cfru.ca"
  },
  {
+  "id": "chicago-rising-indie-rock-alt-and-punk-matthew-luna-us",
+  "email": "matthew.luna.sounds@gmail.com"
+ },
+ {
+  "id": "chicago-rock-bands-kevin-us",
+  "email": "kconroy717@gmail.com"
+ },
+ {
   "id": "chordblossom-fresh-music-from-northern-ireland-gb",
   "email": "irish@chordblossom.com"
  },
@@ -1586,6 +1922,10 @@
  {
   "id": "drift-radio-gb",
   "email": "submissions@drift.radio"
+ },
+ {
+  "id": "emo-night-brooklyn-discovery-playlist-emo-night-brooklyn-us",
+  "email": "emonightbrooklyn@gmail.com"
  },
  {
   "id": "express-fm-local-music-show-gb",
@@ -1640,6 +1980,10 @@
   "email": "music@kunm.org"
  },
  {
+  "id": "lekker-south-african-alternative-music-crimson-house-za",
+  "email": "magichandent@gmail.com"
+ },
+ {
   "id": "liverpool-community-radio-new-daily-croissant-gb",
   "email": "steve@l-c-r.co.uk"
  },
@@ -1658,6 +2002,14 @@
  {
   "id": "music-leeds-latest-releases-music-leeds-gb",
   "email": "hello@musicleeds.com"
+ },
+ {
+  "id": "new-core-nu-punk-metalcore-pop-punk-emo-2024-heat-on-the-str",
+  "email": "info@heatonthestreet.com"
+ },
+ {
+  "id": "new-hardcore-punk-ska-and-metal-dcxpc-live-vinyl-more-us",
+  "email": "dcpcbooking@gmail.com"
  },
  {
   "id": "northern-transmissions-top-indie-songs-of-2025-ca",
@@ -1696,6 +2048,14 @@
   "email": "musikredaktion@radioproton.at"
  },
  {
+  "id": "rm-recently-royal-mountain-records-ca",
+  "email": "info@royalmountainrecords.com"
+ },
+ {
+  "id": "sindicato-de-m-sicos-de-tarapaca-emt-joe-race-cl",
+  "email": "emt.playlist@gmail.com"
+ },
+ {
   "id": "soho-radio-show-playlists-gb",
   "email": "music@sohoradiolondon.com"
  },
@@ -1704,8 +2064,20 @@
   "email": "submissions@soulrhythmsradio.com"
  },
  {
+  "id": "specialist-subject-new-releases-specialist-subject-records-g",
+  "email": "info@specialistsubjectrecords.co.uk"
+ },
+ {
   "id": "spincoaster-best-new-music-jp",
   "email": "press@spincoaster.com"
+ },
+ {
+  "id": "swedish-shoegaze-dream-pop-andr-ampuero-redaelli",
+  "email": "ampuero27@gmail.com"
+ },
+ {
+  "id": "the-pnkslm-hit-factory-pnkslm-recordings-se",
+  "email": "info@pnkslm.com"
  },
  {
   "id": "trent-radio-92-7-cfff-ca",
@@ -1746,6 +2118,10 @@
  {
   "id": "wsou-89-5-us",
   "email": "wsoumusic@shu.edu"
+ },
+ {
+  "id": "wsum-adds-roundup-us",
+  "email": "music@wsum.wisc.edu"
  },
  {
   "id": "wswi-95-7-the-spin-us",

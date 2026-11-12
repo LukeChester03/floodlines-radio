@@ -8330,23 +8330,6 @@
   "notes": "General contact only; ask how they take local/new music before sending anything."
  },
  {
-  "name": "Get Ready to Rock",
-  "show": null,
-  "country": "GB",
-  "region": "Online",
-  "type": "online",
-  "url": "https://getreadytorockradio.com/",
-  "method": "form",
-  "email": null,
-  "emailAllowed": false,
-  "formUrl": "https://getreadytorockradio.com/contact/",
-  "paid": false,
-  "instructions": "No music submission wording found; the site has a general contact form only.",
-  "fit": "medium",
-  "sourceUrl": "https://getreadytorockradio.com/contact/advertising/",
-  "notes": "Rock/indie-leaning programming per directory tags. General contact only; ask how they take local/new music before sending anything."
- },
- {
   "name": "Fuse FM 107.5 FM Ballymoney",
   "show": null,
   "country": "GB",
