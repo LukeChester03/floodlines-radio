@@ -1,0 +1,350 @@
+[
+  {
+    "id": "2000trees-festival-2026-lineup-gb",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "UK alt-rock festival",
+      "year-round band inbox",
+      "books grassroots bands"
+    ],
+    "pitchTip": "Email bands@2000trees.co.uk with one YouTube or Spotify link only."
+  },
+  {
+    "id": "brand-new-kink-kink-nl",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "Dutch alt-rock station",
+      "plug inbox for new music",
+      "hand-picked new tracks"
+    ],
+    "pitchTip": "Send one new alt-rock single to plug@kink.nl and mention Brand New KINK."
+  },
+  {
+    "id": "fluxfm-neu-fluxfm-de",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "Berlin indie station",
+      "Radar newcomer show",
+      "no domestic-only rule"
+    ],
+    "pitchTip": "Email radar@fluxfm.de with the subject \"Musikpromo\" and a streaming link."
+  },
+  {
+    "id": "best-new-indie-scruff-of-the-neck-records-gb",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "UK indie label list",
+      "features non-roster acts",
+      "free artist form"
+    ],
+    "pitchTip": "Use the artist contact form at scruffoftheneck.com/submit and name the Best New Indie playlist."
+  },
+  {
+    "id": "egofm-soundcheck-die-neuesten-songs-der-woche-egofm-de",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "Munich indie station",
+      "weekly new-adds list",
+      "address not on page"
+    ],
+    "pitchTip": "Email the music team (Julian or Sebastian) with a song link and short band info; no AI music."
+  },
+  {
+    "id": "the-great-escape-festival-2027-gb",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "UK new-music showcase",
+      "free application form",
+      "deadline 15 Feb 2027"
+    ],
+    "pitchTip": "Apply through the free artist form before 15 Feb 2027."
+  },
+  {
+    "id": "left-of-the-dial-2026-nl",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "indie/post-punk showcase",
+      "2027 applications open",
+      "password via Instagram"
+    ],
+    "pitchTip": "Get the form password from their pinned Instagram post and apply; don't email."
+  },
+  {
+    "id": "wknc-s-hottest-tracks-now-wknc-88-1-nc-state-us",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "college station indie daytime",
+      "open submission form",
+      "WAV via Drive/Dropbox"
+    ],
+    "pitchTip": "Submit a WAV via Dropbox or Google Drive link on the form; streaming links aren't considered."
+  },
+  {
+    "id": "pnkslm-s-hits-of-the-week-pnkslm-recordings-se",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "garage/punk label list",
+      "weekly guest curators",
+      "demo inbox open"
+    ],
+    "pitchTip": "Email info@pnkslm.com with a demo link and mention Hits of the Week; expect no reply."
+  },
+  {
+    "id": "picks-of-the-week-specialist-subject-records-gb",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "UK punk/indie label",
+      "welcomes submissions",
+      "non-roster weekly picks"
+    ],
+    "pitchTip": "Email a private streaming link plus your plans; unmastered is fine."
+  },
+  {
+    "id": "selector-dms-selector-radio-british-council-gb",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "UK-only submissions",
+      "played on Selector Radio",
+      "eclectic new UK music"
+    ],
+    "pitchTip": "Email selector@audioalways.com with a clean track for Sian to play."
+  },
+  {
+    "id": "green-man-2026-gb",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "big UK indie festival",
+      "artist submissions inbox",
+      "leans folk/psych"
+    ],
+    "pitchTip": "Email artists@greenman.net with your strongest indie or psych track."
+  },
+  {
+    "id": "reeperbahn-festival-2026-de",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "Hamburg showcase festival",
+      "open artist form",
+      "form still says 2026"
+    ],
+    "pitchTip": "Apply via the artist submission form once it rolls over to 2027."
+  },
+  {
+    "id": "88nine-s-discover-music-weekly-88nine-radio-milwaukee-us",
+    "eligible": true,
+    "chance": 2,
+    "value": 1,
+    "reasons": [
+      "public indie/AAA station",
+      "open Formstack form",
+      "weekly music meeting"
+    ],
+    "pitchTip": "Send a mastered WAV radio edit with bio, lyrics and live info via the form."
+  },
+  {
+    "id": "spotify-monthly-playlist-95bfm-nz",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "Auckland student station",
+      "plays international music",
+      "list may be stale"
+    ],
+    "pitchTip": "Email music@95bFM.com with a streaming link and a lossless download by release day."
+  },
+  {
+    "id": "heet-van-de-naald-urgent-fm-be",
+    "eligible": true,
+    "chance": 2,
+    "value": 1,
+    "reasons": [
+      "Ghent community station",
+      "music desk inbox",
+      "eclectic daily picks"
+    ],
+    "pitchTip": "Email muziek@urgent.fm with a streaming link."
+  },
+  {
+    "id": "amazing-radio-playlist-amazing-radio-gb",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "100% new music station",
+      "artist uploader",
+      "later uploads may cost"
+    ],
+    "pitchTip": "Upload one track via amazingtunes.com; check fees before more uploads."
+  },
+  {
+    "id": "not-all-girl-bands-sound-the-same-specialist-subject-records",
+    "eligible": true,
+    "chance": 2,
+    "value": 1,
+    "reasons": [
+      "non-bloke bands only",
+      "recommendations welcome",
+      "punk/indie curator"
+    ],
+    "pitchTip": "Only pitch if the line-up includes women or non-male members; email info@specialistsubjectrecords.co.uk."
+  },
+  {
+    "id": "anchored-to-rock-anchor-eighty-four-records-us",
+    "eligible": true,
+    "chance": 2,
+    "value": 1,
+    "reasons": [
+      "signed and unsigned rock",
+      "monthly open call",
+      "leans heavier"
+    ],
+    "pitchTip": "Watch @anchoreightyfour for the monthly open call and send your heaviest track."
+  },
+  {
+    "id": "focus-wales-2025-gb",
+    "eligible": true,
+    "chance": 2,
+    "value": 1,
+    "reasons": [
+      "Welsh showcase festival",
+      "closed until May 2027",
+      "no email applications"
+    ],
+    "pitchTip": "Apply in the May–Nov 2027 window via the website; not by email."
+  },
+  {
+    "id": "esns-2027-nl",
+    "eligible": true,
+    "chance": 1,
+    "value": 2,
+    "reasons": [
+      "European showcase",
+      "2028 round opens Mar 2027",
+      "needs industry backing"
+    ],
+    "pitchTip": "Apply in March 2027 for ESNS 2028 as a European act."
+  },
+  {
+    "id": "official-sxsw-2026-playlist-us",
+    "eligible": true,
+    "chance": 1,
+    "value": 3,
+    "reasons": [
+      "paid application",
+      "closes 20 Nov 2026",
+      "costly to attend"
+    ],
+    "pitchTip": "Only apply via the paid showcasing form if you can fund the trip to Austin."
+  },
+  {
+    "id": "iceland-airwaves-2026-is",
+    "eligible": true,
+    "chance": 1,
+    "value": 2,
+    "reasons": [
+      "€39 application fee",
+      "applications closed",
+      "indie/alt showcase"
+    ],
+    "pitchTip": "Watch for the IA27 application round; the €39 fee is non-refundable."
+  },
+  {
+    "id": "ktru-top-35-ktru-rice-radio-us",
+    "eligible": true,
+    "chance": 2,
+    "value": 1,
+    "reasons": [
+      "freeform college station",
+      "physical mail only",
+      "no description"
+    ],
+    "pitchTip": "Post a CD or vinyl to the KTRU Music Department at Rice University."
+  },
+  {
+    "id": "can-t-sk8-for-sh-t-katstar-records",
+    "eligible": true,
+    "chance": 1,
+    "value": 2,
+    "reasons": [
+      "paid Groover route",
+      "skate-punk leaning",
+      "no covers or AI"
+    ],
+    "pitchTip": "Only pitch your punkiest English-language track via Groover; avoid politics."
+  },
+  {
+    "id": "the-pnkslm-hit-factory-pnkslm-recordings-se",
+    "eligible": true,
+    "chance": 1,
+    "value": 1,
+    "reasons": [
+      "roster-only list",
+      "needs a label signing",
+      "shared demo inbox"
+    ],
+    "pitchTip": "Don't pitch separately; one demo to info@pnkslm.com covers both PNKSLM lists."
+  },
+  {
+    "id": "anchored-to-pop-punk-anchor-eighty-four-records-us",
+    "eligible": true,
+    "chance": 1,
+    "value": 1,
+    "reasons": [
+      "pop-punk only",
+      "monthly open call",
+      "weak indie match"
+    ],
+    "pitchTip": "Skip unless you have a pop-punk track; submit in the monthly Instagram call."
+  },
+  {
+    "id": "specialist-subject-new-releases-specialist-subject-records-g",
+    "eligible": true,
+    "chance": 1,
+    "value": 1,
+    "reasons": [
+      "roster-only list",
+      "needs a label signing",
+      "shared demo inbox"
+    ],
+    "pitchTip": "Don't pitch separately; one email to info@specialistsubjectrecords.co.uk covers all three lists."
+  },
+  {
+    "id": "rm-recently-royal-mountain-records-ca",
+    "eligible": true,
+    "chance": 1,
+    "value": 1,
+    "reasons": [
+      "roster-only list",
+      "Toronto live focus",
+      "10 saves"
+    ],
+    "pitchTip": "Send streaming links only to info@royalmountainrecords.com and don't follow up."
+  }
+]
