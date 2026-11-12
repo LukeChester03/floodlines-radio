@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { ArrowDown, Ban, Download, Mail, Search, SlidersHorizontal, Star, X } from "lucide-react";
 import { useLocal } from "../store.js";
 import { fmtDate, statuses } from "../crm.js";
-import { Empty, Meter, StatusTag, flag, genreLabel, groupLabel, platformLabel, routeLabel, tierLabel, typeLabel } from "../ui/bits.jsx";
+import { Empty, Meter, PriorityHelp, StatusTag, flag, genreLabel, groupLabel, platformLabel, routeLabel, tierLabel, typeLabel } from "../ui/bits.jsx";
 
 const defaults = { q: "", group: "all", route: "reachable", genre: "fits", tier: "all", type: "all", status: "all", heard: "all", tag: "all", starred: false };
 
@@ -257,7 +257,7 @@ export default function StationsTable({ stations: everyRow, kind = "radio", song
                 {playlists && <><th scope="col">Platform</th><th scope="col" className="c-num">Followers</th></>}
                 <th scope="col">Genre</th>
                 <th scope="col">Apply by</th>
-                <th scope="col">Priority <span className="th-note">chance · value</span></th>
+                <th scope="col">Priority <PriorityHelp /><span className="th-note">chance · value</span></th>
                 <th scope="col">Songs sent</th>
                 <Th k="status" sort={sort} setSort={setSort}>{song.title}</Th>
                 <Th k="last" sort={sort} setSort={setSort}>Last contact</Th>

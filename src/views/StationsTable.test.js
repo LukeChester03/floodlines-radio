@@ -72,3 +72,48 @@ test("The playlist table with no playlists says so", async () => {
   const host = await render([radio], "playlist");
   assert.match(host.querySelector(".empty").textContent, /playlists/);
 });
+
+// The "?" next to Priority, which explains how Priority is worked out
+const helpButton = host => [...host.querySelectorAll("thead th")].find(th => th.textContent.startsWith("Priority"))?.querySelector('button[aria-label="How Priority works"]');
+const helpPanel = host => host.querySelector('[role="region"][aria-label="How Priority works"]');
+const click = el => act(async () => el.dispatchEvent(new window.MouseEvent("click", { bubbles: true })));
+const names = host => [...host.querySelectorAll("tbody tr")].map(tr => tr.textContent);
+
+for (const kind of ["radio", "playlist"]) {
+  test(`The ${kind} table's Priority header has a closed "How Priority works" button`, async () => {
+    const host = await render(kind === "playlist" ? [playlist()] : [radio], kind);
+    const btn = helpButton(host);
+    assert.ok(btn, "no help button in the Priority header");
+    assert.equal(btn.getAttribute("aria-expanded"), "false");
+    assert.equal(helpPanel(host), null);
+  });
+
+  test(`The ${kind} table's Priority help opens with the rule and closes on a second click`, async () => {
+    const host = await render(kind === "playlist" ? [playlist()] : [radio], kind);
+    const btn = helpButton(host);
+    await click(btn);
+    assert.equal(btn.getAttribute("aria-expanded"), "true");
+    const text = helpPanel(host).textContent;
+    for (const s of ["chance × 12 + value × 8", "Start here", "Strong", "Worth a go", "Long shot"]) assert.ok(text.includes(s), s);
+    await click(btn);
+    assert.equal(helpPanel(host), null);
+  });
+}
+
+test("Esc closes the Priority help and puts focus back on the button", async () => {
+  const host = await render([radio]);
+  const btn = helpButton(host);
+  await click(btn);
+  await act(async () => helpPanel(host).dispatchEvent(new window.KeyboardEvent("keydown", { key: "Escape", bubbles: true })));
+  assert.equal(helpPanel(host), null);
+  assert.equal(document.activeElement, btn);
+});
+
+test("Opening and closing the Priority help doesn't re-sort the rows", async () => {
+  const rows = [row("a", "Zed FM", { rank: 1, score: 70 }), row("b", "Alpha FM", { rank: 2, score: 40 })];
+  const host = await render(rows);
+  const before = names(host);
+  await click(helpButton(host));
+  await click(helpButton(host));
+  assert.deepEqual(names(host), before);
+});

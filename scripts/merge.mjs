@@ -92,6 +92,7 @@ function provisional(s) {
 }
 // Start here: good odds and worth having. Strong: good odds, smaller prize.
 // Long shots: big stations with poor odds today, or anything with very poor odds.
+// PriorityHelp in src/ui/bits.jsx states these numbers and must change with them
 const tierOf = (chance, value, score) =>
   chance >= 3 && score >= 60 ? "start"
   : chance >= 3 && score >= 52 ? "strong"
@@ -148,6 +149,7 @@ const out = all
     const route = routeOf(s);
     const j = scores.get(s.id) || (["contact", "none"].includes(route) ? null : provisional(s));
     const g = genres.get(s.id) || {};
+    // PriorityHelp in src/ui/bits.jsx states this formula and must change with it
     const score = j ? j.chance * 12 + j.value * 8 : null;
     return {
       ...s,
