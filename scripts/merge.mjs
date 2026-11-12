@@ -25,6 +25,14 @@ const jsonFiles = dir => { try { return readdirSync(dir).filter(f => f.endsWith(
 const files = [...jsonFiles("research").map(path => ({ path })), ...jsonFiles("research/playlists").map(path => ({ path, playlist: true }))];
 const seen = new Map();
 let dropped = 0;
+// Two playlist rows on one page would be two entries for one playlist. Host is case-insensitive, the path isn't (Spotify ids).
+// The query is dropped except YouTube's list param, which is the playlist id
+const normUrl = u => {
+  const list = String(u).match(/[?&]list=([^&#]+)/);
+  return String(u).trim().replace(/^https?:\/\//i, "").replace(/[?#].*$/, "").replace(/\/$/, "").replace(/^[^/]*/, h => h.toLowerCase().replace(/^www\./, "")) + (list ? `?list=${list[1]}` : "");
+};
+const playlistUrls = new Map();
+const clashes = [];
 
 for (const { path, playlist } of files) {
   for (const r of JSON.parse(readFileSync(path, "utf8"))) {
@@ -59,7 +67,16 @@ for (const { path, playlist } of files) {
     const key = (s.emailAllowed ? s.email.toLowerCase() : "") + "|" + slug(s.name) + "|" + slug(s.show || "");
     if (seen.has(key)) { dropped++; continue; }
     seen.set(key, s);
+    if (playlist) {
+      const u = normUrl(s.url);
+      if (playlistUrls.has(u)) clashes.push(`Duplicate playlist URL ${u}: "${playlistUrls.get(u)}" and "${s.name}"`);
+      else playlistUrls.set(u, s.name);
+    }
   }
+}
+if (clashes.length) {
+  for (const c of clashes) console.error(c);
+  process.exit(1);
 }
 
 // Scores from the per-station judgement pass (research/scores/*.json), keyed by id

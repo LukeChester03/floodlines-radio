@@ -24,12 +24,6 @@
   "contactName": null
  },
  {
-  "id": "alternative-weekly-2026-best-new-indie-music-2026-indiemono-",
-  "genreFit": "indie",
-  "genres": "indie, alternative",
-  "contactName": null
- },
- {
   "id": "indiemono-alternative-weekly-2026-es",
   "genreFit": "indie",
   "genres": "indie, alternative",
@@ -45,12 +39,6 @@
   "id": "fancy-melancholic",
   "genreFit": "indie",
   "genres": "indie rock, indie pop",
-  "contactName": null
- },
- {
-  "id": "alt-rock-2026-today-s-alternative-rock-indie-rock-indiemono-",
-  "genreFit": "indie",
-  "genres": "alt rock, indie rock",
   "contactName": null
  },
  {
@@ -426,12 +414,6 @@
   "contactName": null
  },
  {
-  "id": "new-music-discovery-the-line-of-best-fit-gb",
-  "genreFit": "indie",
-  "genres": "indie pop, alt",
-  "contactName": null
- },
- {
   "id": "new-music-sunday-indie-top-39-gb",
   "genreFit": "indie",
   "genres": "new indie",
@@ -660,12 +642,6 @@
   "contactName": null
  },
  {
-  "id": "punktastic-s-new-music-friday-punktastic-gb",
-  "genreFit": "indie",
-  "genres": "punk, rock, alt",
-  "contactName": null
- },
- {
   "id": "rcm-breezy-right-chord-music-gb",
   "genreFit": "indie",
   "genres": "indie pop",
@@ -714,12 +690,6 @@
   "contactName": null
  },
  {
-  "id": "best-of-indie-2026-indie-is-not-a-genre-gb",
-  "genreFit": "indie",
-  "genres": "new indie",
-  "contactName": null
- },
- {
   "id": "cami-s-playlist-us",
   "genreFit": "indie",
   "genres": "alt rock, indie rock",
@@ -753,12 +723,6 @@
   "id": "for-the-love-of-bands-nl",
   "genreFit": "indie",
   "genres": "indie folk, rock",
-  "contactName": null
- },
- {
-  "id": "fresh-music-from-northern-ireland-chordblossom-gb",
-  "genreFit": "any",
-  "genres": "Irish and NI artists",
   "contactName": null
  },
  {
@@ -912,21 +876,9 @@
   "contactName": null
  },
  {
-  "id": "neon-music-indie-vibes-neon-music-gb",
-  "genreFit": "indie",
-  "genres": "indie",
-  "contactName": null
- },
- {
   "id": "new-from-scotland-wide-days-gb",
   "genreFit": "any",
   "genres": "Scottish artists",
-  "contactName": null
- },
- {
-  "id": "new-indie-music-happy-s-mixtape-happy-mag-au",
-  "genreFit": "indie",
-  "genres": "Australian indie, rock, alt",
   "contactName": null
  },
  {

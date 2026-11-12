@@ -48,18 +48,6 @@
   "pitchTip": "Use the free track form linked on the channel."
  },
  {
-  "id": "alternative-weekly-2026-best-new-indie-music-2026-indiemono-",
-  "eligible": true,
-  "chance": 3,
-  "value": 3,
-  "reasons": [
-   "Free form, big Madrid network",
-   "Updated every New Music Friday",
-   "One form reaches 150+ lists"
-  ],
-  "pitchTip": "Paste a released Spotify link with 1-3 tags; submit once."
- },
- {
   "id": "indiemono-alternative-weekly-2026-es",
   "eligible": true,
   "chance": 3,
@@ -94,18 +82,6 @@
    "Free email route"
   ],
   "pitchTip": "Email for a feature, but expect it may be dormant."
- },
- {
-  "id": "alt-rock-2026-today-s-alternative-rock-indie-rock-indiemono-",
-  "eligible": true,
-  "chance": 3,
-  "value": 2,
-  "reasons": [
-   "Alt rock list in Indiemono",
-   "Free form, no reply unless added",
-   "Small, about 1k followers"
-  ],
-  "pitchTip": "Covered by the one Indiemono submission; don't resend."
  },
  {
   "id": "best-indie-and-alt-rock-wigwam-kevin-graham-radio-wigwam-gb",
@@ -852,18 +828,6 @@
   "pitchTip": "Email info@mysticsons.com; one nudge is fine."
  },
  {
-  "id": "new-music-discovery-the-line-of-best-fit-gb",
-  "eligible": true,
-  "chance": 2,
-  "value": 3,
-  "reasons": [
-   "Major UK new-music site",
-   "Editorial, coverage first",
-   "Very competitive"
-  ],
-  "pitchTip": "Email a short press release with a private stream link."
- },
- {
   "id": "new-music-sunday-indie-top-39-gb",
   "eligible": true,
   "chance": 3,
@@ -1320,18 +1284,6 @@
   "pitchTip": "Send a Groover pitch from the curator's profile."
  },
  {
-  "id": "punktastic-s-new-music-friday-punktastic-gb",
-  "eligible": true,
-  "chance": 2,
-  "value": 1,
-  "reasons": [
-   "Punk and alt-rock lean",
-   "Free email to news desk",
-   "Activity unclear"
-  ],
-  "pitchTip": "Email the news desk with a stream link."
- },
- {
   "id": "rcm-breezy-right-chord-music-gb",
   "eligible": true,
   "chance": 2,
@@ -1428,18 +1380,6 @@
   "pitchTip": "Pitch upcoming releases briefly; offer a premiere."
  },
  {
-  "id": "best-of-indie-2026-indie-is-not-a-genre-gb",
-  "eligible": true,
-  "chance": 3,
-  "value": 2,
-  "reasons": [
-   "New indie, UK and beyond",
-   "SubmitHub only",
-   "About 9.4k followers"
-  ],
-  "pitchTip": "Submit through the SubmitHub widget; one pitch covers both rows."
- },
- {
   "id": "cami-s-playlist-us",
   "eligible": true,
   "chance": 3,
@@ -1510,18 +1450,6 @@
    "Small YouTube channel"
   ],
   "pitchTip": "Submit via the SubmitHub widget on their /submit page."
- },
- {
-  "id": "fresh-music-from-northern-ireland-chordblossom-gb",
-  "eligible": false,
-  "chance": 1,
-  "value": 2,
-  "reasons": [
-   "Irish and NI acts only",
-   "Monthly NI playlist",
-   "Band doesn't qualify"
-  ],
-  "pitchTip": "Not for English bands; use SubmitHub for No Fixed Abode."
  },
  {
   "id": "garage-band-stand-avondale-records-gb",
@@ -1824,18 +1752,6 @@
   "pitchTip": "Email hmcosubmissions@gmail.com."
  },
  {
-  "id": "neon-music-indie-vibes-neon-music-gb",
-  "eligible": true,
-  "chance": 3,
-  "value": 1,
-  "reasons": [
-   "UK indie vibes playlist",
-   "Paid SubmitHub or Musosoup",
-   "Under 1k followers"
-  ],
-  "pitchTip": "Pitch via SubmitHub Direct; same list as the other Neon row."
- },
- {
   "id": "new-from-scotland-wide-days-gb",
   "eligible": false,
   "chance": 1,
@@ -1846,18 +1762,6 @@
    "Band doesn't qualify"
   ],
   "pitchTip": "Not for English bands."
- },
- {
-  "id": "new-indie-music-happy-s-mixtape-happy-mag-au",
-  "eligible": true,
-  "chance": 1,
-  "value": 1,
-  "reasons": [
-   "New Australian indie focus",
-   "Form is for coverage",
-   "Small playlist"
-  ],
-  "pitchTip": "Use the Happy Mag submit form."
  },
  {
   "id": "new-rock-revolution-groover-obsessions-fr",

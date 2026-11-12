@@ -120,18 +120,6 @@
   "pitchTip": "Pitch a modern alt rock or genre-blending track via Groover."
  },
  {
-  "id": "misfits-newest-releases-music-for-the-misfits-gb",
-  "eligible": true,
-  "chance": 3,
-  "value": 1,
-  "reasons": [
-   "UK review blog",
-   "Paid Groover route",
-   "Adds to lists and socials"
-  ],
-  "pitchTip": "Pitch via Groover for playlist adds and social shares."
- },
- {
   "id": "new-manchester-music-audio-north-the-manc-gb",
   "eligible": true,
   "chance": 2,

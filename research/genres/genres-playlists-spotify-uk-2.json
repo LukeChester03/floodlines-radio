@@ -60,12 +60,6 @@
   "contactName": null
  },
  {
-  "id": "misfits-newest-releases-music-for-the-misfits-gb",
-  "genreFit": "any",
-  "genres": "new releases, all genres",
-  "contactName": null
- },
- {
   "id": "new-manchester-music-audio-north-the-manc-gb",
   "genreFit": "indie",
   "genres": "indie, alternative, Manchester new music",
