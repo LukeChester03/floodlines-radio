@@ -295,3 +295,44 @@ test("a festival still being read keeps its link, note and hint", async () => {
   assert.match(card, /Saw this on a poster/);
   assert.match(card, /Details fill in by themselves/);
 });
+
+const open1 = { id: "o", url: "https://o.example/", name: "Open Fest", tier: "good", applyBy: "2099-06-01" };
+const past1 = { id: "p1", url: "https://p1.example/", name: "Past One", tier: "worth", applyBy: "2020-01-01" };
+const past2 = { id: "p2", url: "https://p2.example/", name: "Past Two", tier: "good", applyBy: "2020-02-01" };
+const section = (host, title) => [...host.querySelectorAll("section")].find(s => s.querySelector("h3")?.textContent === title);
+const tags = li => [...li.querySelectorAll(".fest-tags span")].map(s => s.textContent);
+
+test("past-dated festivals sit in a collapsed Closed dropdown with a count", async () => {
+  const { host } = await mount(stub([open1, past1, past2]));
+  assert.match(section(host, "Good shot").textContent, /Open Fest/);
+  const details = host.querySelector("details");
+  assert.equal(details.open, false);
+  assert.match(details.querySelector("summary").textContent, /Closed/);
+  assert.match(details.querySelector("summary").textContent, /2/);
+});
+
+test("opening the Closed dropdown shows its cards, each tagged Closed and never Closing soon", async () => {
+  const { host } = await mount(stub([open1, past1, past2]));
+  await click(host.querySelector("details summary"));
+  const cards = [...host.querySelector("details").querySelectorAll("li")];
+  assert.deepEqual(cards.map(li => li.querySelector("h4").textContent).sort(), ["Past One", "Past Two"]);
+  for (const li of cards) {
+    assert.ok(tags(li).includes("Closed"));
+    assert.ok(!tags(li).includes("Closing soon"));
+  }
+});
+
+test("no Closed dropdown when no closed festival matches the filter", async () => {
+  const { host } = await mount(stub([open1, { ...past1, decision: "passed" }]));
+  await click([...host.querySelectorAll('[aria-label="Filter by decision"] button')].find(b => b.textContent === "New"));
+  assert.match(host.textContent, /Open Fest/);
+  assert.equal(host.querySelector("details"), null);
+});
+
+test("a past-dated applied festival shows under Applied, in the Closed dropdown with both tags", async () => {
+  const { host } = await mount(stub([open1, { ...past1, decision: "applied" }]));
+  await click([...host.querySelectorAll('[aria-label="Filter by decision"] button')].find(b => b.textContent === "Applied"));
+  const li = host.querySelector("details li");
+  assert.equal(li.querySelector("h4").textContent, "Past One");
+  assert.deepEqual(tags(li).sort(), ["Applied", "Closed"]);
+});

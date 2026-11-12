@@ -79,7 +79,8 @@ function FestivalOverlay({ f, onClose, decide }) {
 }
 
 // A festival is a compact ticket: the stub holds the apply-by date, the rest waits in the overlay
-function Card({ f, open }) {
+// closed: in the Closed dropdown, so it says Closed and never Closing soon
+function Card({ f, open, closed }) {
   // Still being read until the Mac gives it a tier: no decision yet
   if (f.tier === null) {
     return (
@@ -107,11 +108,12 @@ function Card({ f, open }) {
       <div className="fest-body">
         <h4 className="fest-name">{name}</h4>
         {whereWhen && <p className="fest-line">{whereWhen}</p>}
-        {(f.topPick || f.closingSoon || f.decision) && (
+        {(f.topPick || f.closingSoon || f.decision || closed) && (
           <div className="fest-tags">
             {f.topPick && <span className="fest-pick-tag">Top pick</span>}
-            {f.closingSoon && <span className="fest-soon">Closing soon</span>}
+            {f.closingSoon && !closed && <span className="fest-soon">Closing soon</span>}
             {f.decision && <span className="fest-decision">{label(f.decision)}</span>}
+            {closed && <span className="fest-soon fest-shut">Closed</span>}
           </div>
         )}
       </div>
@@ -164,7 +166,16 @@ export default function Festivals({ cloud }) {
       )}
       {tiers.length === 0 ? (
         <Empty dark title={cloud.festivals.length ? "No festivals match this filter." : "No festivals yet: the list hasn't been loaded."} />
-      ) : tiers.map(t => (
+      ) : tiers.map(t => t.tier === "closed" ? (
+        <section key={t.tier} className="fest-tier" aria-labelledby="fest-closed">
+          <details className="fest-closed">
+            <summary><h3 id="fest-closed" className="fest-tier-title">{t.title} <span className="pill-n">{t.festivals.length}</span></h3></summary>
+            <ul className="fest-list">
+              {t.festivals.map(f => <Card key={f.id} f={f} open={setOpenId} closed />)}
+            </ul>
+          </details>
+        </section>
+      ) : (
         <section key={t.tier} className="fest-tier" aria-labelledby={`fest-${t.tier}`}>
           <h3 id={`fest-${t.tier}`} className="fest-tier-title">{t.title}</h3>
           {subtitles[t.tier] && <p className="fest-tier-sub">{subtitles[t.tier]}</p>}
