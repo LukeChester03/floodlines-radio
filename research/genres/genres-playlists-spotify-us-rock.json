@@ -1,0 +1,236 @@
+[
+ {
+  "id": "indie-microscope-indie-microscope-us",
+  "genreFit": "indie",
+  "genres": "indie rock, post-punk, garage, art rock",
+  "contactName": null
+ },
+ {
+  "id": "the-modern-alternative-iaimtostonk-us",
+  "genreFit": "indie",
+  "genres": "alt rock, grunge revival, punk, nu-gaze",
+  "contactName": null
+ },
+ {
+  "id": "alt-rock-crashout-second-thoughts-us",
+  "genreFit": "indie",
+  "genres": "alt rock, heavy shoegaze, post-grunge, emo",
+  "contactName": null
+ },
+ {
+  "id": "new-rock-now-evan-kanter-us",
+  "genreFit": "indie",
+  "genres": "modern rock, alt rock",
+  "contactName": null
+ },
+ {
+  "id": "under-the-radar-indie-rock-evan-kanter-us",
+  "genreFit": "indie",
+  "genres": "indie rock, alternative",
+  "contactName": null
+ },
+ {
+  "id": "underground-indie-alternative-havoc-underground-us",
+  "genreFit": "indie",
+  "genres": "indie, alternative, punk",
+  "contactName": null
+ },
+ {
+  "id": "alt-forever-satic-y-us",
+  "genreFit": "indie",
+  "genres": "alt rock",
+  "contactName": null
+ },
+ {
+  "id": "best-new-indie-2026-best-new-indie-us",
+  "genreFit": "indie",
+  "genres": "indie rock, indie pop, post punk",
+  "contactName": null
+ },
+ {
+  "id": "garage-and-surf-rock-magic-frog-company",
+  "genreFit": "indie",
+  "genres": "garage rock, surf rock",
+  "contactName": null
+ },
+ {
+  "id": "one-week-at-a-time-with-girl-at-the-rock-shows-girl-at-the-r",
+  "genreFit": "indie",
+  "genres": "rock, alternative, indie, emo",
+  "contactName": null
+ },
+ {
+  "id": "an-indie-rock-invasion-blue-skin-music",
+  "genreFit": "indie",
+  "genres": "indie rock",
+  "contactName": null
+ },
+ {
+  "id": "full-volume-indie-rock-sunnyvale",
+  "genreFit": "indie",
+  "genres": "indie rock",
+  "contactName": null
+ },
+ {
+  "id": "unsigned-pop-punk-patrick-tarnowski-us",
+  "genreFit": "other",
+  "genres": "pop punk, emo, punk",
+  "contactName": "Patrick"
+ },
+ {
+  "id": "pop-punk-2026-alex-maciel",
+  "genreFit": "mixed",
+  "genres": "pop punk, punk, alt rock, indie rock",
+  "contactName": "Alex"
+ },
+ {
+  "id": "indie-alternative-rock-tape-ranger-us",
+  "genreFit": "indie",
+  "genres": "indie rock, alt rock",
+  "contactName": null
+ },
+ {
+  "id": "essential-grunge-90s-alt-rock-evan-kanter-us",
+  "genreFit": "indie",
+  "genres": "grunge, 90s alt rock",
+  "contactName": null
+ },
+ {
+  "id": "songs-for-playing-thps-satic-y-us",
+  "genreFit": "mixed",
+  "genres": "skate punk, alt rock, hip hop",
+  "contactName": null
+ },
+ {
+  "id": "the-best-of-indie-alternative-music-the-indie-hotspot-us",
+  "genreFit": "indie",
+  "genres": "indie, alternative",
+  "contactName": null
+ },
+ {
+  "id": "rock-metal-continuum-dreamfuss-us",
+  "genreFit": "indie",
+  "genres": "alt rock, metal",
+  "contactName": null
+ },
+ {
+  "id": "neo-psychedelia-magic-frog-company",
+  "genreFit": "indie",
+  "genres": "neo-psychedelia, garage, shoegaze",
+  "contactName": null
+ },
+ {
+  "id": "all-bangers-all-the-time-2026-get-some-magazine-us",
+  "genreFit": "mixed",
+  "genres": "rock, punk, alt",
+  "contactName": null
+ },
+ {
+  "id": "goth-underground-darkword-us",
+  "genreFit": "other",
+  "genres": "post-punk, darkwave, goth",
+  "contactName": null
+ },
+ {
+  "id": "indie-alternative-r-b-folk-2026-grotesqualizer-us",
+  "genreFit": "mixed",
+  "genres": "indie, alternative, r&b, folk",
+  "contactName": null
+ },
+ {
+  "id": "indie-fresh-flat-nasty-music-us",
+  "genreFit": "indie",
+  "genres": "indie",
+  "contactName": null
+ },
+ {
+  "id": "grunge-era-revival-kara-crimson",
+  "genreFit": "indie",
+  "genres": "grunge, 90s alt",
+  "contactName": null
+ },
+ {
+  "id": "rock-songs-2026-cerberus",
+  "genreFit": "indie",
+  "genres": "rock",
+  "contactName": null
+ },
+ {
+  "id": "rock-sonicmuse",
+  "genreFit": "indie",
+  "genres": "rock",
+  "contactName": null
+ },
+ {
+  "id": "indie-rock-music-lm-playlists",
+  "genreFit": "indie",
+  "genres": "indie rock",
+  "contactName": null
+ },
+ {
+  "id": "cw-punk-rock-90-s-00-s-cw-us",
+  "genreFit": "other",
+  "genres": "punk rock, pop punk (90s/00s)",
+  "contactName": null
+ },
+ {
+  "id": "underground-punk-havoc-underground-us",
+  "genreFit": "other",
+  "genres": "punk, pop punk, ska, hardcore",
+  "contactName": null
+ },
+ {
+  "id": "punk-rock-museum-new-music-friday-punkrockradar-us",
+  "genreFit": "other",
+  "genres": "punk, pop punk, hardcore",
+  "contactName": null
+ },
+ {
+  "id": "punk-on-the-run-punk-on-the-run-us",
+  "genreFit": "other",
+  "genres": "punk rock, pop punk, post punk",
+  "contactName": null
+ },
+ {
+  "id": "pop-the-punk-tape-ranger-us",
+  "genreFit": "other",
+  "genres": "pop punk",
+  "contactName": null
+ },
+ {
+  "id": "tape-ranger-fresh-finds-tape-ranger-us",
+  "genreFit": "mixed",
+  "genres": "indie, alt, pop punk",
+  "contactName": null
+ },
+ {
+  "id": "pop-punk-power-hour-bryan-rolli-ne-er-do-well-us",
+  "genreFit": "other",
+  "genres": "pop punk",
+  "contactName": "Bryan"
+ },
+ {
+  "id": "shoegaze-melancholic-dreamy-heavy-dreamfuss-us",
+  "genreFit": "other",
+  "genres": "shoegaze",
+  "contactName": null
+ },
+ {
+  "id": "best-stoner-doom-sludge-psychedelia-2026-grotesqualizer-us",
+  "genreFit": "other",
+  "genres": "stoner rock, grunge, psych rock",
+  "contactName": null
+ },
+ {
+  "id": "pissed-off-music-pissed-off-music-us",
+  "genreFit": "other",
+  "genres": "hard rock, metal",
+  "contactName": null
+ },
+ {
+  "id": "emo-night-brooklyn-discovery-playlist-emo-night-brooklyn-us",
+  "genreFit": "other",
+  "genres": "emo, pop punk",
+  "contactName": null
+ }
+]

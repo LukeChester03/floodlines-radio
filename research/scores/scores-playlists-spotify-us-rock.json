@@ -1,0 +1,470 @@
+[
+ {
+  "id": "indie-microscope-indie-microscope-us",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "post-punk/garage/alt brief",
+   "weekly-updated",
+   "100% response rate"
+  ],
+  "pitchTip": "Lead with what makes the track distinctive, not generic indie."
+ },
+ {
+  "id": "the-modern-alternative-iaimtostonk-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "raw alt rock brief",
+   "weekly updates",
+   "decent approval rate"
+  ],
+  "pitchTip": "Send the most energetic, raw track; say it is for The Modern Alternative."
+ },
+ {
+  "id": "alt-rock-crashout-second-thoughts-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "high-energy alt rock",
+   "low 8% approval",
+   "active curator"
+  ],
+  "pitchTip": "Pitch a loud, energetic alt-rock track."
+ },
+ {
+  "id": "new-rock-now-evan-kanter-us",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "rock-only brief",
+   "35% approval",
+   "new-release list"
+  ],
+  "pitchTip": "Send a clean edit; no explicit lyrics."
+ },
+ {
+  "id": "under-the-radar-indie-rock-evan-kanter-us",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "independent rock focus",
+   "hidden-gems list",
+   "35% approval"
+  ],
+  "pitchTip": "Pitch as an under-the-radar independent band."
+ },
+ {
+  "id": "underground-indie-alternative-havoc-underground-us",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "underground alt focus",
+   "38% Groover acceptance",
+   "blog coverage too"
+  ],
+  "pitchTip": "Have socials and promo photos ready in the pitch."
+ },
+ {
+  "id": "alt-forever-satic-y-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "alt rock specialist",
+   "3% acceptance",
+   "curator is in a band"
+  ],
+  "pitchTip": "Stress the nostalgic-but-fresh angle."
+ },
+ {
+  "id": "best-new-indie-2026-best-new-indie-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "international indie focus",
+   "post-punk listed",
+   "Instagram shares"
+  ],
+  "pitchTip": "Mention the band is unsigned UK indie."
+ },
+ {
+  "id": "garage-and-surf-rock-magic-frog-company",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "garage rock list",
+   "cheap at 2 credits",
+   "active 6 years"
+  ],
+  "pitchTip": "Pitch 60s-style garage energy."
+ },
+ {
+  "id": "one-week-at-a-time-with-girl-at-the-rock-shows-girl-at-the-r",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "rock/alt/indie brief",
+   "weekly playlist",
+   "blog coverage"
+  ],
+  "pitchTip": "Emphasise the heart/feeling in the song."
+ },
+ {
+  "id": "an-indie-rock-invasion-blue-skin-music",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "indie rock list",
+   "free email route",
+   "7.5k saves"
+  ],
+  "pitchTip": "Email the track link with a short band bio."
+ },
+ {
+  "id": "full-volume-indie-rock-sunnyvale",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "loud indie rock",
+   "weekly updates",
+   "contact-only email"
+  ],
+  "pitchTip": "Polite short email; ask whether they take submissions for the Monday update."
+ },
+ {
+  "id": "unsigned-pop-punk-patrick-tarnowski-us",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "unsigned bands only",
+   "free and replies to all",
+   "pop-punk leaning"
+  ],
+  "pitchTip": "Pitch your punchiest, most pop-punk track and say you'll follow the playlist."
+ },
+ {
+  "id": "pop-punk-2026-alex-maciel",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "takes alt/indie rock",
+   "fresh pop-punk focus",
+   "short placement window"
+  ],
+  "pitchTip": "Send an energetic alt-rock/pop-punk single; expect a 1-2 week placement and an IG story."
+ },
+ {
+  "id": "indie-alternative-rock-tape-ranger-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "indie/alt rock fit",
+   "catchy hooks wanted",
+   "one pitch covers 3 lists"
+  ],
+  "pitchTip": "Send your catchiest single; say it suits the Indie & Alternative Rock list."
+ },
+ {
+  "id": "essential-grunge-90s-alt-rock-evan-kanter-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "grunge/90s alt",
+   "catalogue-heavy",
+   "same curator"
+  ],
+  "pitchTip": "Only pitch if the track has a 90s grunge feel."
+ },
+ {
+  "id": "songs-for-playing-thps-satic-y-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "skate-rock vibe",
+   "16k saves",
+   "very selective"
+  ],
+  "pitchTip": "Pitch an upbeat guitar track that fits a skate video."
+ },
+ {
+  "id": "the-best-of-indie-alternative-music-the-indie-hotspot-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "indie/alt fit",
+   "2% acceptance",
+   "pricey"
+  ],
+  "pitchTip": "Only send the strongest single."
+ },
+ {
+  "id": "rock-metal-continuum-dreamfuss-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "broad alt rock",
+   "21% acceptance",
+   "heavier lean"
+  ],
+  "pitchTip": "Pitch the heaviest track."
+ },
+ {
+  "id": "neo-psychedelia-magic-frog-company",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "garage/psych mix",
+   "8.8k saves",
+   "regularly updated"
+  ],
+  "pitchTip": "Lead with fuzzy or psych-tinged guitars."
+ },
+ {
+  "id": "all-bangers-all-the-time-2026-get-some-magazine-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "loud fast brief",
+   "SoCal blog",
+   "25% approval"
+  ],
+  "pitchTip": "Send the loudest, fastest track."
+ },
+ {
+  "id": "goth-underground-darkword-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 4,
+  "reasons": [
+   "post-punk/dark brief",
+   "51k saves",
+   "34% approval"
+  ],
+  "pitchTip": "Only pitch moody, dark post-punk songs."
+ },
+ {
+  "id": "indie-alternative-r-b-folk-2026-grotesqualizer-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "indie/alt list",
+   "blog review chance",
+   "tiny reach"
+  ],
+  "pitchTip": "Mention DIY credentials."
+ },
+ {
+  "id": "indie-fresh-flat-nasty-music-us",
+  "eligible": true,
+  "chance": 4,
+  "value": 1,
+  "reasons": [
+   "free email route",
+   "undiscovered artists",
+   "small reach"
+  ],
+  "pitchTip": "Email a Spotify link and one-line intro."
+ },
+ {
+  "id": "grunge-era-revival-kara-crimson",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "grunge revival",
+   "free email",
+   "catalogue-heavy"
+  ],
+  "pitchTip": "Only pitch grungy tracks."
+ },
+ {
+  "id": "rock-songs-2026-cerberus",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "32k saves",
+   "free email",
+   "generic rock"
+  ],
+  "pitchTip": "Keep the email short with a Spotify link."
+ },
+ {
+  "id": "rock-sonicmuse",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "rock list",
+   "free email",
+   "4k saves"
+  ],
+  "pitchTip": "Email the track link."
+ },
+ {
+  "id": "indie-rock-music-lm-playlists",
+  "eligible": true,
+  "chance": 1,
+  "value": 4,
+  "reasons": [
+   "84k saves",
+   "contact-only email",
+   "likely big-name heavy"
+  ],
+  "pitchTip": "Polite short email; ask whether they take submissions."
+ },
+ {
+  "id": "cw-punk-rock-90-s-00-s-cw-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 5,
+  "reasons": [
+   "huge audience",
+   "classic punk focus",
+   "paid, selective"
+  ],
+  "pitchTip": "Only send high-energy, summery punk/pop-punk; anything mid-tempo indie will be declined."
+ },
+ {
+  "id": "underground-punk-havoc-underground-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "underground/indie focus",
+   "blog plus playlist",
+   "punk-only list"
+  ],
+  "pitchTip": "Pitch your most punk track; they cover underground acts."
+ },
+ {
+  "id": "punk-rock-museum-new-music-friday-punkrockradar-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "weekly new-music list",
+   "free form",
+   "punk-scene branding"
+  ],
+  "pitchTip": "Use the singles form on release week; keep the pitch punk-framed."
+ },
+ {
+  "id": "punk-on-the-run-punk-on-the-run-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "open to worldwide indie acts",
+   "punk/post-punk",
+   "small list"
+  ],
+  "pitchTip": "Lead with a punk or post-punk-leaning track; mention you're independent."
+ },
+ {
+  "id": "pop-the-punk-tape-ranger-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "catchy pop-punk",
+   "same curator as indie list",
+   "small list"
+  ],
+  "pitchTip": "Pitch a catchy, upbeat song."
+ },
+ {
+  "id": "tape-ranger-fresh-finds-tape-ranger-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "new-music list",
+   "catchy focus",
+   "small audience"
+  ],
+  "pitchTip": "Pitch a new release with a strong hook."
+ },
+ {
+  "id": "pop-punk-power-hour-bryan-rolli-ne-er-do-well-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "pop-punk only",
+   "production bar high",
+   "journalist curator"
+  ],
+  "pitchTip": "Send one well-produced, polished single; don't send several at once."
+ },
+ {
+  "id": "shoegaze-melancholic-dreamy-heavy-dreamfuss-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "shoegaze niche",
+   "same curator",
+   "21% acceptance"
+  ],
+  "pitchTip": "Only for fuzzy/dreamy tracks."
+ },
+ {
+  "id": "best-stoner-doom-sludge-psychedelia-2026-grotesqualizer-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "fuzz/grunge tags",
+   "NY blog review",
+   "3% acceptance"
+  ],
+  "pitchTip": "Pitch fuzz-heavy tracks only."
+ },
+ {
+  "id": "pissed-off-music-pissed-off-music-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 4,
+  "reasons": [
+   "big reach",
+   "heavy-only brief",
+   "pricey"
+  ],
+  "pitchTip": "Only the most aggressive track."
+ },
+ {
+  "id": "emo-night-brooklyn-discovery-playlist-emo-night-brooklyn-us",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "free email route",
+   "emo-only",
+   "appears dormant"
+  ],
+  "pitchTip": "Short email with a Spotify link to your most emo-leaning track."
+ }
+]
