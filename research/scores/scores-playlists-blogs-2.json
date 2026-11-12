@@ -1,0 +1,242 @@
+[
+ {
+  "id": "dansende-beren-verse-honing-van-dansende-beren-be",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "indie rock singles from the blog",
+   "replies to every email",
+   "Belgian blog, covers UK acts"
+  ],
+  "pitchTip": "Follow their brief: 'Muziek doorsturen en feedback krijgen kan via mail of onderstaand formulier' - send a mail to beir@dansendeberen.be; they try to reply to everyone. Physical post: Cipressenstraat 18, 8800 Roeselare."
+ },
+ {
+  "id": "from-the-strait-limited-time-offer-ca",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "alt and indie rock focus",
+   "free email route",
+   "international acts welcome"
+  ],
+  "pitchTip": "Follow their brief: Features and Spotify playlist adds, singles only: email Kris with links (YouTube/Spotify/SoundCloud), photos, bio and quotes. No attachments. Release date in the subject line, personal note, at most one follow-up. No AI songs. Paid alternative with guaranteed response: SubmitHub (https://www.submithub.com/blog/from-the-strait, code 'ftscoupon' for 10% off)."
+ },
+ {
+  "id": "grimy-goods-submit-your-new-song-open-submission-playlist-us",
+  "eligible": true,
+  "chance": 4,
+  "value": 3,
+  "reasons": [
+   "open submission playlist",
+   "leans indie and alt",
+   "picks feed best-of-month"
+  ],
+  "pitchTip": "Follow their brief: Contact page: 'The quickest and most effective way is by submitting songs to our open submission playlist.' Picks move to the Best Songs of the Month playlist, and about 75% of editorial comes from there. Playlist description: the release date must be in the current month, and 'we lean indie and alt across all genres'."
+ },
+ {
+  "id": "mp3hugger-below-the-radar-ie",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "below-the-radar indie focus",
+   "email or SubmitHub",
+   "long-running Irish blog"
+  ],
+  "pitchTip": "Follow their brief: Contact page 'Send Your Music!': submit via SubmitHub (sbmt.to/mp3hugger) 'or do it the old fashioned way by dropping us an email' to contact@mp3hugger.com."
+ },
+ {
+  "id": "turn-work-turn-work-the-setlist-us",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "leans indie rock and post-punk",
+   "free email route",
+   "weekly newsletter setlist"
+  ],
+  "pitchTip": "Follow their brief: 'Friday Setlist: a curated playlist of new independent music, sent every Friday to our newsletter subscribers. Requirements: Track link. Ideal lead time: 1 week.' 'If one or more of these sound like a fit for you, please reach out' (the link goes to submissions@turnandwork.com). No AI-made music. Coverage is free."
+ },
+ {
+  "id": "mowno-mowno-readers-club-fr",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "alt and indie rock on Groover",
+   "paid Groover route",
+   "low share rate"
+  ],
+  "pitchTip": "Follow their brief: Groover profile offers 'Add to one of our playlists'; genres alt rock, garage, indie rock, post punk, punk. Playlist itself: 'Chaque fin de mois sur les réseaux sociaux, Mowno lance un appel à contribution' (monthly reader call on socials)."
+ },
+ {
+  "id": "mp3hugger-post-punk-grunge-are-not-dead-ie",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "post-punk and grunge only",
+   "email or SubmitHub",
+   "suits guitar-heavy singles"
+  ],
+  "pitchTip": "Follow their brief: Contact page 'Send Your Music!': submit via SubmitHub (sbmt.to/mp3hugger) 'or do it the old fashioned way by dropping us an email' to contact@mp3hugger.com."
+ },
+ {
+  "id": "niche-music-niche-music-picks-jp",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "wants Wolf Alice / Fontaines D.C. sounds",
+   "SubmitHub only",
+   "focuses on overseas indie acts"
+  ],
+  "pitchTip": "Follow their brief: 'I turned off all email notifications a few years ago. So if you'd like me to listen to your song, please send it via SubmitHub.' Full-stream link needed. Also on Groover."
+ },
+ {
+  "id": "tenho-mais-discos-que-amigos-tmdqa-tmdqa-lan-amentos-br",
+  "eligible": true,
+  "chance": 3,
+  "value": 3,
+  "reasons": [
+   "big Brazilian site, international coverage",
+   "paid Groover route",
+   "accepts alt and indie rock"
+  ],
+  "pitchTip": "Follow their brief: Contact page sends bands to Groover ('Bandas e artistas: envie seu material'). Groover offer: 'Add to our official playlist, publish articles and interviews, share on our social networks.'"
+ },
+ {
+  "id": "the-wild-honey-pie-the-wild-honey-pie-buzzing-apple-music-us",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "well-known indie brand",
+   "free Tidal upload form",
+   "indie-pop leaning"
+  ],
+  "pitchTip": "Follow their brief: 'Step 1: Upload your new song, demo, or live recording to Tidal Upload' then 'Step 2: Submit your Tidal Upload link here!' (thewildhoneypie.com/submit). No AI music."
+ },
+ {
+  "id": "tinnitist-tinnitist-top-300-ca",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "takes most tracks sent in",
+   "free email route",
+   "broad genre mix"
+  ],
+  "pitchTip": "Follow their brief: 'If you'd rather not use the form, you can email me directly HERE' (decodes to editor@tinnitist.com). Send name, press release/bio and track link. Paid alternatives: Groover (https://groover.co/band/sendtrack/?add=1803), SharePRO and OTONAMI. The site form asks for a donation with a refund if he can't find a spot. Don't use it, because that is pay-for-coverage; the email route is free."
+ },
+ {
+  "id": "two-story-melody-two-story-friday-us",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "story-led songwriting focus",
+   "free contact form",
+   "indie and folk mix"
+  ],
+  "pitchTip": "Follow their brief: 'Or fill out the contact form here. If you're submitting via the form, please include a URL to relevant artist pages, a brief (3-5 sentence) overview of yourself' plus a short description of the song. The SubmitHub link on the page now resolves to a generic SubmitHub page (profile appears inactive), so use the form."
+ },
+ {
+  "id": "rock-sins-rock-sins-weekly-playlist-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "heavier rock and metal lean",
+   "email the editorial team",
+   "tiny playlist"
+  ],
+  "pitchTip": "Follow their brief: Contact page: 'Please send any requests for coverage through to the editorial team.' Lists Features/Live Editor Jamie Giberti (jamieg.rocksins@gmail.com), Deputy Editor Jemma Dodd and News Editor John Layland."
+ },
+ {
+  "id": "orange-peel-orange-peel-monthly-ch",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "eclectic indie and folk",
+   "SubmitHub only, profile unconfirmed",
+   "updated every other month"
+  ],
+  "pitchTip": "Follow their brief: 'Please only send Submissions through Submithub... If we are not listed, we probably don't have time to listen to new submissions for the moment.'"
+ },
+ {
+  "id": "zonagirante-com-sonidos-novedosos-novel-sounds-sons-nouveaux",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "likes Ride, Charlatans, BRMC",
+   "paid Groover route",
+   "full review promised"
+  ],
+  "pitchTip": "Follow their brief: Via Groover. 'I promise to listen to your material several times... I will make a complete review with my opinion.' Other playlists are Latin America only; this one appears open to all."
+ },
+ {
+  "id": "oleada-indie-pop-alternativo-2026-mx",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "dream pop and shoegaze lean",
+   "paid Groover route",
+   "Spanish-language blog"
+  ],
+  "pitchTip": "Follow their brief: Via Groover (homepage 'Envíanos' widget). Offer: add to the 'nuevo indie 2026' playlist, YouTube video and article."
+ },
+ {
+  "id": "it-s-all-indie-pure-indie-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "close British indie fit",
+   "no submission route found",
+   "daily-posting UK blog"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "mondo-sonoro-novedades-semanales-de-mondo-sonoro-es",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "editorial weekly picks",
+   "no submission route found",
+   "big Spanish outlet"
+  ],
+  "pitchTip": null
+ },
+ {
+  "id": "netsounds-netsounds-new-music-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "alt and DIY from Scotland and beyond",
+   "contact email, no explicit invite",
+   "updated weekly"
+  ],
+  "pitchTip": "Follow their brief: No explicit submission guidance; about page shows music@netsounds.co.uk as a 'Contact us' link. Site says 'We champion alternative and DIY new music that we love from Scotland and far beyond.'"
+ },
+ {
+  "id": "picky-magazine-picky-radar-de",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "indie-pop leaning new releases",
+   "promo email, no explicit invite",
+   "German and international"
+  ],
+  "pitchTip": "Follow their brief: Impressum lists 'Kontakt: pickypromo[at]gmail.com' (promo address) but does not explicitly invite music submissions."
+ }
+]
