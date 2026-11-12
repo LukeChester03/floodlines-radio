@@ -1,0 +1,494 @@
+[
+  {
+    "id": "time-to-indie-pl",
+    "eligible": true,
+    "chance": 4,
+    "value": 3,
+    "reasons": [
+      "indie/alt rock focus",
+      "top-15 placement for a month",
+      "takes international acts"
+    ],
+    "pitchTip": "Lead with the most rhythmic, upbeat single."
+  },
+  {
+    "id": "indie-injection-by-kap-sk",
+    "eligible": true,
+    "chance": 4,
+    "value": 3,
+    "reasons": [
+      "post-punk and shoegaze listed",
+      "placement for a month",
+      "active Groover curator"
+    ],
+    "pitchTip": "Pitch the most post-punk-leaning track."
+  },
+  {
+    "id": "red-rabbit-indie-rock-pop-cz",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "indie and rock focus",
+      "mid-size audience",
+      "Groover route"
+    ],
+    "pitchTip": "Send a radio-friendly indie rock cut."
+  },
+  {
+    "id": "rock-that-sounds-like-doc-martens-cz",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "melodic alt/indie rock",
+      "24k followers",
+      "route in description"
+    ],
+    "pitchTip": "Pick the most melodic guitar track."
+  },
+  {
+    "id": "the-real-rock-playlist-lv",
+    "eligible": true,
+    "chance": 4,
+    "value": 2,
+    "reasons": [
+      "riff-driven alt/indie rock",
+      "top-20 for a month",
+      "small but focused"
+    ],
+    "pitchTip": "Lead with the heaviest riff-led single."
+  },
+  {
+    "id": "modern-rock-beyond-fontaines-d-c-idles-and-turnstile-alex-ru",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "Fontaines/IDLES/Wolf Alice reference points",
+      "active curator, 23% approval",
+      "paid SubmitHub route"
+    ],
+    "pitchTip": "Pitch saturated, modern guitar rock with indie edge; name-check the Fontaines D.C./IDLES/Wolf Alice lane the description lists."
+  },
+  {
+    "id": "current-post-punk-booklet-magazine-it",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "post-punk focus fits",
+      "free email route",
+      "high email volume"
+    ],
+    "pitchTip": "Email info@bookletmagazine.com with a Spotify link and name the Current Post-Punk playlist; Groover is their preferred guaranteed-listen route."
+  },
+  {
+    "id": "indie-on-the-rock-nevermind-it",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "indie/alt rock exact fit",
+      "3-week placement",
+      "small curator"
+    ],
+    "pitchTip": "Pitch guitar-driven indie/alt rock via Groover; reference the Pixies/Strokes lineage."
+  },
+  {
+    "id": "best-new-indie-music-viral-indie-alternative-where-the-music",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "established Lisbon indie magazine",
+      "international new-indie playlist updated weekly",
+      "very selective, ~3% approval"
+    ],
+    "pitchTip": "Use SubmitHub (not email); pitch a finished, released indie track. They value 'very new indie projects' and 'great content'."
+  },
+  {
+    "id": "best-new-indie-alternative-rock-2026-alt77-ro",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "blog review plus playlist",
+      "updated daily",
+      "editor reviews tracks"
+    ],
+    "pitchTip": "Pitch a single with a strong story, since it may get a written review."
+  },
+  {
+    "id": "rock-my-indie-6-rocktelling-it",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "worldwide indie news",
+      "rock webzine",
+      "rotating volumes"
+    ],
+    "pitchTip": "Groover pitch framed as new international indie rock release; also covers reviews/interviews."
+  },
+  {
+    "id": "superhero-routine-alt-rock-metalcore-ua",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "alt-rock half fits",
+      "35k followers",
+      "no-AI policy"
+    ],
+    "pitchTip": "Send the heaviest alt-rock track."
+  },
+  {
+    "id": "soul-energy-ua",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "alt and pop-rock",
+      "22k followers",
+      "promoted playlist"
+    ],
+    "pitchTip": "Send a punchy, hooky rock single."
+  },
+  {
+    "id": "rhythm-of-the-indie-ua",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "alt/indie bangers",
+      "19k followers",
+      "ad-promoted"
+    ],
+    "pitchTip": "Send the most upbeat single."
+  },
+  {
+    "id": "indie-alt-rock-hits-ua",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "indie/alt rock",
+      "10k followers",
+      "promoted playlist"
+    ],
+    "pitchTip": "Send the most immediate indie rock track."
+  },
+  {
+    "id": "shoegaze-indie-lv",
+    "eligible": true,
+    "chance": 4,
+    "value": 2,
+    "reasons": [
+      "shoegaze and indie",
+      "same curator as real rock",
+      "small audience"
+    ],
+    "pitchTip": "Send anything with fuzz or reverb-heavy guitars."
+  },
+  {
+    "id": "alt-indie-radio-ua",
+    "eligible": true,
+    "chance": 4,
+    "value": 2,
+    "reasons": [
+      "alt/indie",
+      "small audience",
+      "easier entry"
+    ],
+    "pitchTip": "Pitch it together with Indie & Alt Rock Hits."
+  },
+  {
+    "id": "thoughts-words-action-rs",
+    "eligible": true,
+    "chance": 4,
+    "value": 2,
+    "reasons": [
+      "punk/indie blog",
+      "small audience",
+      "review chance"
+    ],
+    "pitchTip": "Send the punkiest track."
+  },
+  {
+    "id": "indieside-rs",
+    "eligible": true,
+    "chance": 4,
+    "value": 2,
+    "reasons": [
+      "shoegaze and grunge",
+      "small audience",
+      "review blog"
+    ],
+    "pitchTip": "Send a fuzzy, guitar-heavy track."
+  },
+  {
+    "id": "all-monkey-gone-to-heaven-the-best-indie-alternative-gems-bl",
+    "eligible": true,
+    "chance": 4,
+    "value": 2,
+    "reasons": [
+      "99% share rate",
+      "broad rock/metal account",
+      "Spain location unconfirmed"
+    ],
+    "pitchTip": "Groover pitch; stress emotive lyrics and indie-rock energy; DM @blueorchidplaylist is the playlist's own alt contact."
+  },
+  {
+    "id": "dinnertime-soft-indie-cz",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "soft indie only",
+      "25k followers",
+      "route in description"
+    ],
+    "pitchTip": "Only send a mellow or acoustic track."
+  },
+  {
+    "id": "melancholic-indie-music-pl",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "moody indie",
+      "mid-small audience",
+      "not guitar-led"
+    ],
+    "pitchTip": "Send the most downbeat track."
+  },
+  {
+    "id": "chill-indie-songs-pl",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "chill indie",
+      "mid-small audience",
+      "not rock-led"
+    ],
+    "pitchTip": "Only send a laid-back track."
+  },
+  {
+    "id": "miracle-playlist-ua",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "pop punk and alt",
+      "19k followers",
+      "retro lean"
+    ],
+    "pitchTip": "Send a hooky, pop-punk-leaning track."
+  },
+  {
+    "id": "broken-souls-indie-bg",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "indie/alt rock",
+      "small audience",
+      "ad-promoted"
+    ],
+    "pitchTip": "Send a moody indie rock track."
+  },
+  {
+    "id": "indie-rock-indie-pop-lt",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "indie rock and pop",
+      "blog curator",
+      "small audience"
+    ],
+    "pitchTip": "Send a catchy indie rock single."
+  },
+  {
+    "id": "neo-psychedelia-pop-indie-alex-ruiz-llorens-es",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "42k followers, low listener count",
+      "dream-pop/psych lean",
+      "same pitch as Modern Rock list"
+    ],
+    "pitchTip": "Only send a track with psych/dream-pop texture; reference Tame Impala, Beach Fossils, Alvvays."
+  },
+  {
+    "id": "alt-rock-culture-rock-culture-es",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "Spain-based rock curator",
+      "post-punk/garage open",
+      "21-day rotation, accepts AI"
+    ],
+    "pitchTip": "Lead with energy and production quality; no electronic-leaning tracks."
+  },
+  {
+    "id": "get-your-groove-on-booklet-magazine-it",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "built from submissions",
+      "all genres",
+      "same email as post-punk list"
+    ],
+    "pitchTip": "Pitch once to info@bookletmagazine.com; the post-punk list is the better target, this is the fallback."
+  },
+  {
+    "id": "music-we-love-indieffusione-noise-symphony-it",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "free form",
+      "international focus",
+      "mixed genres"
+    ],
+    "pitchTip": "Create the free profile, send only the track link, max one per week."
+  },
+  {
+    "id": "indie-arsenal-rock-motion-pt",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "indie rock list, UK guitar refs (Arctic Monkeys, Strokes)",
+      "ads-grown followers, <100 listeners",
+      "paid route only"
+    ],
+    "pitchTip": "Send an organic, well-produced guitar track with anthemic energy; no electronic or experimental detours."
+  },
+  {
+    "id": "roadtrip-indie-rock-indie-pop-de-music-gr",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "44k followers, indie rock in title",
+      "generic mood-playlist network",
+      "low 5% share rate"
+    ],
+    "pitchTip": "Pick a track that suits a 'roadtrip' mood; avoid heavy or piano-only tracks."
+  },
+  {
+    "id": "late-night-nostalgia-hr",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "dreamy indie",
+      "small audience",
+      "partial genre fit"
+    ],
+    "pitchTip": "Only send a dreamy or slow track."
+  },
+  {
+    "id": "geenger-s-groover-picks-hr",
+    "eligible": true,
+    "chance": 4,
+    "value": 1,
+    "reasons": [
+      "built from submissions",
+      "tiny audience",
+      "label curator"
+    ],
+    "pitchTip": "Any indie rock single works."
+  },
+  {
+    "id": "novedades-indienauta-indienauta-es",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "weekly updated",
+      "includes UK guitar bands",
+      "no submission invite"
+    ],
+    "pitchTip": "Short Spanish-or-English press note with a new single link; frame it as news for their weekly novedades."
+  },
+  {
+    "id": "new-artists-discovery-going-solo-it",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "certified playlist 5.6k",
+      "weekly new artists",
+      "low acceptance rate"
+    ],
+    "pitchTip": "Send via Groover; they pick 'the freshest acts out there' weekly, any language accepted."
+  },
+  {
+    "id": "alternative-rock-de-music-gr",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "alt rock list, fits genre",
+      "same curator as Roadtrip list",
+      "low 5% share rate"
+    ],
+    "pitchTip": "Mention this list as the target in the Groover pitch; avoid heavy metal."
+  },
+  {
+    "id": "best-new-punk-rock-2026-alt77-ro",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "punk focus",
+      "tied to blog coverage",
+      "small audience"
+    ],
+    "pitchTip": "Only send the fastest, punkiest track."
+  },
+  {
+    "id": "between-the-broken-stars-ua",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "alt-rock/post-hardcore",
+      "12k followers",
+      "heavy lean"
+    ],
+    "pitchTip": "Only send the heaviest track."
+  },
+  {
+    "id": "indie-perfect-sky-hr",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "indie",
+      "small audience",
+      "mostly local acts"
+    ],
+    "pitchTip": "Low priority; only if Groover credits spare."
+  },
+  {
+    "id": "best-shoegaze-dream-pop-2026-shoegaze-blog-it",
+    "eligible": true,
+    "chance": 1,
+    "value": 2,
+    "reasons": [
+      "shoegaze only",
+      "Bandcamp link required",
+      "free form"
+    ],
+    "pitchTip": "Only a shoegaze/dream-pop track; include a Bandcamp link and full band info."
+  }
+]
