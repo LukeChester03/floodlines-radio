@@ -1,0 +1,266 @@
+[
+ {
+  "id": "best-new-bands-this-feeling-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "UK guitar-band promoter",
+   "Free form, new music only",
+   "Weekly Best New Bands list"
+  ],
+  "pitchTip": "Use the free submission form for Best New Bands; new releases only."
+ },
+ {
+  "id": "best-indie-rock-and-pop-unsigned-kevin-graham-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "Unsigned indie rock focus",
+   "Free email route invited",
+   "Curator also on Radio Wigwam"
+  ],
+  "pitchTip": "Email Kevin directly as the description asks; one pitch covers both his lists."
+ },
+ {
+  "id": "best-undiscovered-indie-rock-radio-kevin-graham-gb",
+  "eligible": true,
+  "chance": 4,
+  "value": 2,
+  "reasons": [
+   "Undiscovered alt rock focus",
+   "Free email route invited",
+   "Same curator as Unsigned list"
+  ],
+  "pitchTip": "Email Kevin directly; mention both his indie rock lists in one pitch."
+ },
+ {
+  "id": "the-masterplan-the-best-british-indie-and-rock-nick-swettenh",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "British indie and rock anthems",
+   "Paid SubmitHub route",
+   "Mostly classics, some new"
+  ],
+  "pitchTip": "Pitch an anthemic guitar track via his SubmitHub direct link."
+ },
+ {
+  "id": "ultimate-indie-summer-drive-nick-swettenham-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 2,
+  "reasons": [
+   "Uplifting indie rock list",
+   "Paid SubmitHub route",
+   "Same curator as Masterplan"
+  ],
+  "pitchTip": "Send a melodic, uplifting track via SubmitHub; target several of his lists."
+ },
+ {
+  "id": "rickysdailybangers-groovereffect-ricky-spence-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "UK Groover curator",
+   "Indie, alt rock, shoegaze",
+   "Small but active list"
+  ],
+  "pitchTip": "Pitch via his Groover profile; lists favourite Groover tracks."
+ },
+ {
+  "id": "live-forever-the-ultimate-indie-alternative-playlist-nick-sw",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "New indie and alt artists",
+   "Paid SubmitHub route",
+   "Third Nick Swettenham list"
+  ],
+  "pitchTip": "Use the SubmitHub direct link; pitch alongside his other lists."
+ },
+ {
+  "id": "sad-indie-tom-high-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "UK curator, sad songs only",
+   "Paid SubmitHub route",
+   "Pitch a slow ballad"
+  ],
+  "pitchTip": "Only send a slow, sad song via his SubmitHub link."
+ },
+ {
+  "id": "uki-kevin-mann-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "UK independent radio show",
+   "Paid Groover route",
+   "Released tracks only"
+  ],
+  "pitchTip": "Pitch a released, clean track only; no explicit lyrics."
+ },
+ {
+  "id": "alternative-modern-rock-matt-s-playlists-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Bigger alt rock list",
+   "Paid Groover route",
+   "Curator country unsure"
+  ],
+  "pitchTip": "Pitch a modern alt rock or genre-blending track via Groover."
+ },
+ {
+  "id": "misfits-newest-releases-music-for-the-misfits-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "UK review blog",
+   "Paid Groover route",
+   "Adds to lists and socials"
+  ],
+  "pitchTip": "Pitch via Groover for playlist adds and social shares."
+ },
+ {
+  "id": "new-manchester-music-audio-north-the-manc-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Manchester new music list",
+   "General contact form only",
+   "Updated weekly"
+  ],
+  "pitchTip": "Use the contact form; say it is a music submission for the playlist."
+ },
+ {
+  "id": "british-indie-alto-key-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 3,
+  "reasons": [
+   "Big UK indie list",
+   "Leans indie pop and acoustic",
+   "Paid Groover route"
+  ],
+  "pitchTip": "Pitch a well produced track with real heart via Groover."
+ },
+ {
+  "id": "new-original-rock-keep-it-rock-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "UK rock radio DJ",
+   "Originals from new artists",
+   "Tiny list, paid Groover"
+  ],
+  "pitchTip": "Send an original (no covers) rock track via Groover."
+ },
+ {
+  "id": "feel-good-indie-alt-andrew-x-the-atlas-project-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Sunny feel-good indie",
+   "Ad-grown follower count",
+   "Paid Groover route"
+  ],
+  "pitchTip": "Pitch an upbeat, sunny track via Groover."
+ },
+ {
+  "id": "new-music-friday-existential-magazine-gb",
+  "eligible": true,
+  "chance": 3,
+  "value": 1,
+  "reasons": [
+   "UK online magazine",
+   "Weekly smaller-artist list",
+   "Paid Groover route"
+  ],
+  "pitchTip": "Pitch a new release via Groover for the weekly list."
+ },
+ {
+  "id": "indie-alt-pop-catbear-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Band-run alt pop list",
+   "Guitar indie a stretch",
+   "Paid Groover route"
+  ],
+  "pitchTip": "Only pitch a track with an alt pop sound via Groover."
+ },
+ {
+  "id": "fresh-the-sound-lab-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 1,
+  "reasons": [
+   "Commercial new-music show",
+   "Pop leaning, some rock",
+   "Paid Groover route"
+  ],
+  "pitchTip": "Pitch a track with a commercial feel via Groover."
+ },
+ {
+  "id": "brand-new-the-best-new-artists-dmy-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 2,
+  "reasons": [
+   "Leans rap and alt pop",
+   "Paid Groover link",
+   "Updated weekly"
+  ],
+  "pitchTip": "Use the SUBMIT MUSIC Groover link in the description."
+ },
+ {
+  "id": "one-hour-wonder-independent-music-playlist-stereo-stickman",
+  "eligible": true,
+  "chance": 1,
+  "value": 1,
+  "reasons": [
+   "Paid reviews only",
+   "No promise of a playlist add",
+   "Monthly indie hour"
+  ],
+  "pitchTip": "Only a paid review route; it does not guarantee playlisting."
+ },
+ {
+  "id": "the-big-indie-playlist-far-out-magazine-gb",
+  "eligible": true,
+  "chance": 1,
+  "value": 3,
+  "reasons": [
+   "Big brand weekly feature",
+   "Guest-curated each week",
+   "No music route found"
+  ],
+  "pitchTip": "No submission route; watch for a guest-curator contact."
+ },
+ {
+  "id": "new-music-wins-friend-of-the-band-gb",
+  "eligible": true,
+  "chance": 2,
+  "value": 2,
+  "reasons": [
+   "London scene list",
+   "DM route unconfirmed",
+   "Windmill-type bands"
+  ],
+  "pitchTip": "No confirmed route; try a DM on X to the curator."
+ }
+]
