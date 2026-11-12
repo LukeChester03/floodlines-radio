@@ -1,0 +1,518 @@
+[
+  {
+    "id": "sad-girl-gloom-shoegaze-dreampop-tundra-house-records-ca",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "dedicated shoegaze/dream-pop list",
+      "~16% Groover acceptance",
+      "takes male-fronted acts"
+    ],
+    "pitchTip": "Pitch the dreamiest, most ethereal track; the curator listens before deciding."
+  },
+  {
+    "id": "zoomergaze-h3-witz",
+    "eligible": true,
+    "chance": 4,
+    "value": 1,
+    "reasons": [
+      "grungegaze/zoomergaze niche",
+      "invites email submissions",
+      "small but direct curator"
+    ],
+    "pitchTip": "Email hannah3wits@gmail.com with your heaviest, fuzziest shoegaze track."
+  },
+  {
+    "id": "neo-psych-garage-kraut-shoegaze-dream-pop-space-rock-the-cin",
+    "eligible": true,
+    "chance": 4,
+    "value": 1,
+    "reasons": [
+      "neo-psych and shoegaze mix",
+      "wants less-known artists",
+      "free Instagram route"
+    ],
+    "pitchTip": "DM @thecinnamongrrrl on Instagram with your most psych or space-rock track."
+  },
+  {
+    "id": "my-bloody-shoegaze-virtue-mx",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "core shoegaze playlist",
+      "new-artist focus",
+      "~3% Groover acceptance"
+    ],
+    "pitchTip": "Send the most noise-pop track via Groover; the curator files it under indie/alt."
+  },
+  {
+    "id": "indie-noise-virtue-mx",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "noise-pop and indie rock",
+      "new-artist focus",
+      "~3% Groover acceptance"
+    ],
+    "pitchTip": "Lead with a noisy, guitar-heavy indie single."
+  },
+  {
+    "id": "shoegaze-bible-shoegaze-bible-br",
+    "eligible": true,
+    "chance": 4,
+    "value": 1,
+    "reasons": [
+      "shoegaze-only playlist",
+      "~68% Groover acceptance",
+      "MBV/DIIV reference points"
+    ],
+    "pitchTip": "Only pitch a genuine shoegaze track; other genres go to the curator's Instagram."
+  },
+  {
+    "id": "post-rock-shoegaze-indie-fran-ois-maillard-byebyefish-fr",
+    "eligible": true,
+    "chance": 4,
+    "value": 2,
+    "reasons": [
+      "post-rock and shoegaze indie",
+      "free JotForm",
+      "personal curator"
+    ],
+    "pitchTip": "Listen first, send one song, and say which artists on the list you found and why you fit."
+  },
+  {
+    "id": "noisy-indie-alt-rock-fran-ois-maillard-byebyefish-fr",
+    "eligible": true,
+    "chance": 4,
+    "value": 1,
+    "reasons": [
+      "noisy indie alt rock",
+      "free JotForm",
+      "personal curator"
+    ],
+    "pitchTip": "Pick the noisiest alt-rock single and explain why it fits next to the list's artists."
+  },
+  {
+    "id": "psychedelia-for-when-you-ve-heard-enough-tame-impala-alex-ru",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "40k psych audience",
+      "neo-psych and stoner refs",
+      "active Groover curator"
+    ],
+    "pitchTip": "Pitch a track that sits near Temples or The Lazy Eyes."
+  },
+  {
+    "id": "neo-psych-rock-melting-trends-us",
+    "eligible": true,
+    "chance": 4,
+    "value": 2,
+    "reasons": [
+      "modern neo-psych",
+      "invites email submissions",
+      "emerging-artist focus"
+    ],
+    "pitchTip": "Email meltingtrends@gmail.com with your most psychedelic rock track."
+  },
+  {
+    "id": "gym-shoegaze-sider",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "heavy shoegaze",
+      "invites email for a slot",
+      "small playlist"
+    ],
+    "pitchTip": "Email thestacproject@gmail.com with a heavy, driving shoegaze track."
+  },
+  {
+    "id": "underground-shoegaze-dreampop-softwounds",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "underground shoegaze/dream pop",
+      "suggestions by email",
+      "indie-scene curator"
+    ],
+    "pitchTip": "Send one dream-pop leaning track as a suggestion to softwounds@gmail.com."
+  },
+  {
+    "id": "psychedelic-tapes-underground-music-squad",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "psych, shoegaze and dream pop",
+      "also lists post-punk",
+      "global Groover curator"
+    ],
+    "pitchTip": "Pitch a psych-leaning or shoegaze track via Groover."
+  },
+  {
+    "id": "psychedelic-rock-neo-psychedelia-2026-daily-fresh-finds",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "new-release psych list",
+      "free Instagram route",
+      "curator runs many genre lists"
+    ],
+    "pitchTip": "DM @dailyfreshfinds on Instagram with a newly released psych track."
+  },
+  {
+    "id": "sacred-psychedelic-carpet-ride-finnstermusic",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "neo-psych and 60s indie",
+      "free Instagram route",
+      "prog-tolerant"
+    ],
+    "pitchTip": "DM @finnstermusic on Instagram with your most 60s-flavoured psych track."
+  },
+  {
+    "id": "post-punk-wave-virtue-mx",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "32k post-punk audience",
+      "new-artist focus",
+      "~3% Groover acceptance"
+    ],
+    "pitchTip": "Pitch your most post-punk track; this list is not shoegaze."
+  },
+  {
+    "id": "rock-for-when-27-king-gizzard-albums-aren-t-enough-alex-ruiz",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "psych/garage audience",
+      "stoner-leaning psych",
+      "active Groover curator"
+    ],
+    "pitchTip": "Only pitch if you have a heavy psych/garage track in the King Gizzard vein."
+  },
+  {
+    "id": "dreampop-atmospheric-chill-dreamfuss-us",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "dream pop and shoegaze",
+      "broad alt-rock audience",
+      "active Groover curator"
+    ],
+    "pitchTip": "Send the most atmospheric, chilled track."
+  },
+  {
+    "id": "underground-slowcore-softwounds",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "slowcore/sadcore niche",
+      "suggestions by email",
+      "indie-scene curator"
+    ],
+    "pitchTip": "Only suggest a slow, sparse track to softwounds@gmail.com."
+  },
+  {
+    "id": "slowcore-sadcore-sour-patch",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "14k slowcore/sadcore audience",
+      "free Google Form",
+      "mood-led list"
+    ],
+    "pitchTip": "Submit your saddest, slowest track through the Google Form."
+  },
+  {
+    "id": "garage-rock-post-grunge-noise-rock-2026-daily-fresh-finds",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "garage and noise rock",
+      "free Instagram route",
+      "new-release focus"
+    ],
+    "pitchTip": "DM @dailyfreshfinds on Instagram with a noisy garage-rock single."
+  },
+  {
+    "id": "infinite-indie-rock-pop-folk-fran-ois-maillard-byebyefish-fr",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "broad indie rock anthology",
+      "free JotForm",
+      "includes shoegaze and noise"
+    ],
+    "pitchTip": "Listen first, send one song, and explain where it sits in this indie anthology."
+  },
+  {
+    "id": "deep-dark-indie-cold-wave-fran-ois-maillard-byebyefish-fr",
+    "eligible": true,
+    "chance": 2,
+    "value": 2,
+    "reasons": [
+      "dark indie and cold wave",
+      "free JotForm",
+      "personal curator"
+    ],
+    "pitchTip": "Only pitch a dark, post-punk/cold-wave track."
+  },
+  {
+    "id": "trippy-psychedelic-playlist-neo-psych-shoegaze-good-vibes-da",
+    "eligible": true,
+    "chance": 2,
+    "value": 4,
+    "reasons": [
+      "93k neo-psych audience",
+      "email for contact only",
+      "shoegaze in the mix"
+    ],
+    "pitchTip": "Write a short note to PsychSoundsOfficial@gmail.com; it's a contact address, not a submissions inbox."
+  },
+  {
+    "id": "swedish-shoegaze-dream-pop-andr-ampuero-redaelli",
+    "eligible": false,
+    "chance": 1,
+    "value": 1,
+    "reasons": [
+      "Swedish-scene shoegaze",
+      "email submissions",
+      "UK band off-theme"
+    ],
+    "pitchTip": "Not a fit unless the band has Swedish ties."
+  },
+  {
+    "id": "witch-in-the-woods-oskaar-dewallef-be",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "dark post-punk or dreamy shoegaze",
+      "top 25 for a month",
+      "active Groover curator"
+    ],
+    "pitchTip": "Pitch a haunting post-punk or shoegaze track."
+  },
+  {
+    "id": "dark-indie-rock-top-indie-alt-gb",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "UK curator",
+      "indie, alt and rock",
+      "updated every Friday"
+    ],
+    "pitchTip": "Send a darker indie-rock single ahead of a Friday update."
+  },
+  {
+    "id": "late-night-indie-drive-chill-indie-rock-psych-pop-alt-gems-a",
+    "eligible": true,
+    "chance": 2,
+    "value": 3,
+    "reasons": [
+      "ad-grown chill indie list",
+      "psych pop welcome",
+      "high production bar"
+    ],
+    "pitchTip": "Only pitch a polished, earworm indie track."
+  },
+  {
+    "id": "indie-drift-alternative-indie-dreams-indie-drift-de",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "dream-pop leaning indie",
+      "placed at position 11+",
+      "ad-grown audience"
+    ],
+    "pitchTip": "Pitch a dreamy alt-indie track."
+  },
+  {
+    "id": "new-indie-2025-indie-folk-radio",
+    "eligible": true,
+    "chance": 3,
+    "value": 3,
+    "reasons": [
+      "dream pop and shoegaze listed",
+      "SubmitHub route",
+      "10k audience"
+    ],
+    "pitchTip": "Submit through the curator's SubmitHub page; the playlist is still titled 2025."
+  },
+  {
+    "id": "new-indie-pop-dream-pop-indie-rock-rising-artists-2026-tonic",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "indie and dream pop",
+      "SubmitHub route",
+      "rising-artist focus"
+    ],
+    "pitchTip": "Submit through the SubmitHub widget on the Tonic Grain blog."
+  },
+  {
+    "id": "bedroom-sounds-city-pulse",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "bedroom/dream pop",
+      "email for submissions",
+      "small playlist"
+    ],
+    "pitchTip": "Email hey.noema@gmail.com with your softest, dreamiest track."
+  },
+  {
+    "id": "undiscovered-dreampop-shoegaze-spotify-discovery-ee",
+    "eligible": true,
+    "chance": 2,
+    "value": 1,
+    "reasons": [
+      "undiscovered dream pop/shoegaze",
+      "Groover route",
+      "small playlist"
+    ],
+    "pitchTip": "Pitch a lesser-known dream-pop track via Groover."
+  },
+  {
+    "id": "psychedelic-journey-lis-wonderland-de",
+    "eligible": true,
+    "chance": 2,
+    "value": 1,
+    "reasons": [
+      "psych and dream pop",
+      "honest feedback given",
+      "small playlist"
+    ],
+    "pitchTip": "Send a dreamy, psychedelic-sounding track and ask for feedback."
+  },
+  {
+    "id": "dream-pop-shoegaze-hunter-chaige-taylor",
+    "eligible": true,
+    "chance": 2,
+    "value": 1,
+    "reasons": [
+      "dream pop/shoegaze",
+      "email submissions invited",
+      "very small list"
+    ],
+    "pitchTip": "Email Hunterchaise@gmail.com with one dream-pop track."
+  },
+  {
+    "id": "underground-grunge-heavy-shoegaze-evan",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "grunge and heavy shoegaze",
+      "free Instagram DM",
+      "very small list"
+    ],
+    "pitchTip": "DM @melodiccanvas on Instagram with a heavy, grungy track."
+  },
+  {
+    "id": "shoegaze-lofi-bedroom-pop-bangers-sam-rowan-playback-sounds",
+    "eligible": true,
+    "chance": 2,
+    "value": 1,
+    "reasons": [
+      "lofi shoegaze/bedroom pop",
+      "email or Instagram",
+      "very small list"
+    ],
+    "pitchTip": "Email playbacksubmit@gmail.com with a lo-fi shoegaze track."
+  },
+  {
+    "id": "shoegaze-bible-on-youtube-shoegaze-bible-br",
+    "eligible": true,
+    "chance": 4,
+    "value": 2,
+    "reasons": [
+      "shoegaze-only channel",
+      "~68% Groover acceptance",
+      "2.7k subscribers"
+    ],
+    "pitchTip": "Only pitch genuine shoegaze; think My Bloody Valentine or DIIV."
+  },
+  {
+    "id": "trippy-dimensions-a-sonic-voyage-groover-obsessions",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "Groover's own psych list",
+      "psych pop and indie rock",
+      "no metal or noise"
+    ],
+    "pitchTip": "Pitch a psych-pop leaning track, not a noisy one."
+  },
+  {
+    "id": "the-end-of-a-movie-credit-scenes-cinematic-dream-pop-bedroom",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "Groover's own dream-pop list",
+      "cinematic mood",
+      "shoegaze welcome"
+    ],
+    "pitchTip": "Pitch the most cinematic, dream-pop leaning track."
+  },
+  {
+    "id": "sad-indie-for-sad-nights-groover-obsessions",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "Groover's own sad-indie list",
+      "slowcore and shoegaze mood",
+      "indie rock welcome"
+    ],
+    "pitchTip": "Pitch a slow, melancholy track."
+  },
+  {
+    "id": "usb-de-tianguis-morro-mel-mano-mx",
+    "eligible": true,
+    "chance": 3,
+    "value": 1,
+    "reasons": [
+      "shoegaze-heavy YouTube list",
+      "updated every Monday",
+      "eclectic mix"
+    ],
+    "pitchTip": "Pitch a shoegaze or dream-pop track before a Monday update."
+  },
+  {
+    "id": "alternative-indie-out-of-my-mind-mx",
+    "eligible": true,
+    "chance": 3,
+    "value": 2,
+    "reasons": [
+      "post-punk and psych rock",
+      "likes unsigned acts",
+      "2.6k subscribers"
+    ],
+    "pitchTip": "Pitch an early-career post-punk or psych-rock track."
+  }
+]
