@@ -1,0 +1,18 @@
+[
+ {"id":"no-recess","genreFit":"indie","genres":"indie, alt rock, underground","contactName":null},
+ {"id":"alternative","genreFit":"indie","genres":"alternative, indie, alt rock","contactName":null},
+ {"id":"eclectic-underground-by-indie-boy","genreFit":"indie","genres":"indie, alternative, eclectic","contactName":null},
+ {"id":"rock-showcase","genreFit":"indie","genres":"alt rock, grunge, modern rock, metal","contactName":null},
+ {"id":"worldhaspostrock-tr","genreFit":"indie","genres":"post-rock, shoegaze, alt rock","contactName":null},
+ {"id":"yourwayismusic","genreFit":"indie","genres":"indie rock, pop, folk","contactName":null},
+ {"id":"paddy-s-playlist-with-pat-patterson-us","genreFit":"indie","genres":"rock, indie, alt","contactName":"Pat"},
+ {"id":"baz274music","genreFit":"indie","genres":"indie, folk, chillout","contactName":null},
+ {"id":"indie-music-blog-indiemusicblogsd","genreFit":"indie","genres":"indie, unsigned","contactName":null},
+ {"id":"indie-stry-gb","genreFit":"indie","genres":"new indie, alt","contactName":"Mica"},
+ {"id":"add-this-indie-add-this-music-us","genreFit":"indie","genres":"indie, indie pop, rock","contactName":null},
+ {"id":"jungle-indie-rock-es","genreFit":"indie","genres":"indie rock, indie","contactName":null},
+ {"id":"faeton-music-blog","genreFit":"indie","genres":"indie, rock, electronic","contactName":null},
+ {"id":"indie-music-loveindiemusic","genreFit":"indie","genres":"indie, electronic","contactName":null},
+ {"id":"athenas-post-punk-athenas-records","genreFit":"indie","genres":"post-punk, new wave, darkwave","contactName":null},
+ {"id":"infinite-indie","genreFit":"indie","genres":"indie, electronic, dream pop","contactName":null}
+]
