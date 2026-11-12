@@ -134,14 +134,14 @@
  {
   "id": "full-volume-indie-rock-sunnyvale",
   "eligible": true,
-  "chance": 3,
+  "chance": 1,
   "value": 2,
   "reasons": [
    "loud indie rock",
    "weekly updates",
-   "free email"
+   "contact-only email"
   ],
-  "pitchTip": "Pitch a loud track for the Monday update."
+  "pitchTip": "Polite short email; ask whether they take submissions for the Monday update."
  },
  {
   "id": "unsigned-pop-punk-patrick-tarnowski-us",

@@ -195,13 +195,13 @@
   "followers": 7623,
   "method": "email",
   "email": "sunnyvaleplaylists@gmail.com",
-  "emailAllowed": true,
+  "emailAllowed": false,
   "formUrl": null,
   "paid": false,
-  "instructions": "\"Updated every Monday with Indie Rock you can blast on full volume. Contact: sunnyvaleplaylists@gmail.com\"",
+  "instructions": "\"Updated every Monday with Indie Rock you can blast on full volume. Contact: sunnyvaleplaylists@gmail.com\" (contact only, no explicit submission invite).",
   "fit": "high",
   "sourceUrl": "https://open.spotify.com/playlist/5VhX75GkDJILtjRfGKG9rK",
-  "notes": "Country unverified (name suggests US)."
+  "notes": "Country unverified (name suggests US); description says Contact not Submissions."
  },
  {
   "name": "Unsigned Pop Punk (Patrick Tarnowski)",
